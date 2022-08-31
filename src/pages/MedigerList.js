@@ -5,6 +5,7 @@ function MedigerList() {
   return (
     <div>
       <h1>Mediger List Page!</h1>
+      <h2>plus</h2>
       <Link to="/"></Link>
     </div>
   );
