@@ -16,16 +16,19 @@ const MedigerListAll = styled.div`
   height: 100vh;
   margin: 0;
   padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 function MedigerList() {
   return (
     <MedigerListAll>
-      <div>
-        <Exh1>Mediger List</Exh1>
-        <h2>plus</h2>
-        <Link to="/"></Link>
-      </div>
+      <Exh1>Mediger List ~!</Exh1>
+      <h2>plus</h2>
+      <Link to="/"></Link>
     </MedigerListAll>
   );
 }
