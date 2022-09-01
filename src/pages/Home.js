@@ -7,6 +7,8 @@ function Home() {
     <div>
       <Header />
       <h1>여기는 HOME</h1>
+      <h1>여기는 HOME</h1>
+      <h1>여기는 HOME</h1>
       <Link to="/"></Link>
     </div>
   );

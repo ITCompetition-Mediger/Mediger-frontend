@@ -4,15 +4,19 @@ import styled from 'styled-components';
 
 const Head = styled.div`
   width: 100vw;
-  height: 10vh;
+  height: 8vh;
   background: #3c7466;
-  padding: 3vh 0;
+  padding-top: 7vh;
+  padding-bottom: 1vh;
+
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
 `;
 
 const Logo = styled.p`
   margin: 0;
-  padding-top: 4vh;
-  font-size: 4vh;
+  font-size: 35px;
   text-align: center;
   color: white;
 `;
