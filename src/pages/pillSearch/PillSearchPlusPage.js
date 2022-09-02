@@ -1,16 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { AiOutlineStar } from "react-icons/ai";
-import pillImage from '../../images/Dummy3'
 import Header from "../../components/Header";
+import pillImage from '/Users/yujia/메디저/Mediger-frontend/src/images/pillImage.png';
 
 const PillSearchPlusWrapper = styled.div`
     align-items: center;
+    text-align: center;
     
-    .Header{
+    .pillHeader{
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        padding-top: 20px;
+        width: 100vw;
+        height: 5vh;
     }
 
     .pillTitle{
@@ -22,6 +26,11 @@ const PillSearchPlusWrapper = styled.div`
     .pillScrap{
         color: #3C7466;
         font-size: 25px;
+    }
+
+    .pillImage {
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
 
     .pillContentList{
@@ -41,57 +50,24 @@ const PillSearchPlusWrapper = styled.div`
     }
 `;
 
-const ModalWrapper = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .modal {
-        background: white;
-        padding: 24px 16px;
-        border-radius: 4px;
-        width: 320px;
-        text-align: center;
-    }
-
-    .modalContent {
-        color: #3A6C60;
-        font-size: 18px;
-        font-weight: larger;
-    }
-
-    .modalBtn {
-        color: #3A6C60;
-        background-color: #ECF2F0;
-        border: none;
-        border-radius: 10px;
-        width: 46px;
-        height: 21px;
-    }
-`;
-
 function PillSearchPlusPage(){
+    const [isOpen, setIsOpen] = useState(false);
+
+    const openModalHandler = () => {
+    setIsOpen(!isOpen);
+  };
+
     return(
         <PillSearchPlusWrapper>
             <Header />
-            <ModalWrapper>
-                <div className="modal">
-                    <p className="modalContent">메디저 리스트에 추가되었습니다!</p>
-                    <button className="modalBtn">확인</button>
-                </div>
-            </ModalWrapper>
-            <div className="Header">
+            <div className="pillHeader">
                 <div className="pillTitle">모노틴정</div>
-                <div className="pillScrap"><AiOutlineStar /></div>
+                <div className="pillScrap" onClick={openModalHandler}>
+                <AiOutlineStar/>
+                </div>
             </div>
             <div className="pillImage">
-                <img src="../../images/pillImage.png" alt="pillImage"></img>
+                <img src={pillImage} alt="pillImage"></img>
             </div>
             <div className="pillContentList">
                 <div className="contentTitle">효능타이틀</div>
