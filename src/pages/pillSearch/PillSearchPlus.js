@@ -40,9 +40,50 @@ const PillSearchPlusWrapper = styled.div`
     }
 `;
 
+const ModalWrapper = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal {
+        background: white;
+        padding: 24px 16px;
+        border-radius: 4px;
+        width: 320px;
+        text-align: center;
+    }
+
+    .modalContent {
+        color: #3A6C60;
+        font-size: 18px;
+        font-weight: larger;
+    }
+
+    .modalBtn {
+        color: #3A6C60;
+        background-color: #ECF2F0;
+        border: none;
+        border-radius: 10px;
+        width: 46px;
+        height: 21px;
+    }
+`;
+
 function PillSearchPlus(){
     return(
         <PillSearchPlusWrapper>
+            <ModalWrapper>
+                <div className="modal">
+                    <p className="modalContent">메디저 리스트에 추가되었습니다!</p>
+                    <button className="modalBtn">확인</button>
+                </div>
+            </ModalWrapper>
             <div className="Header">
                 <div className="pillTitle">모노틴정</div>
                 <div className="pillScrap"><AiOutlineStar /></div>
