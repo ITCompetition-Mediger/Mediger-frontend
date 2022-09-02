@@ -9,20 +9,21 @@ const NavBarWrapper = styled.div`
     background-color: #3C7466;
     padding: 5px;
     text-align: center;
-    width: 410px;
-    height: 60px;
+    width: 49vh;
+    height: 3vw;
     display: flex;
     justify-content: space-between;
     justify-items: center;
 
     .item{
         list-style-type: none;
+
     }
 
     .itemList{
-        font-size: 23px;
+        font-size: 1.8rem;
         text-decoration: none;
-        padding: 30px;
+        padding: 26px;
         color: white;
         display: inline;
         font-weight: bold;
