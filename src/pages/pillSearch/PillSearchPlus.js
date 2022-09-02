@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { AiOutlineStar } from "react-icons/ai";
+import pillImage from '../../../src/images/Dummy3'
 
 const PillSearchPlusWrapper = styled.div`
     align-items: center;
@@ -46,7 +47,9 @@ function PillSearchPlus(){
                 <div className="pillTitle">모노틴정</div>
                 <div className="pillScrap"><AiOutlineStar /></div>
             </div>
-            <div className="pillImage">이미지</div>
+            <div className="pillImage">
+                <img src="../../images/pillImage.png" alt="pillImage"></img>
+            </div>
             <div className="pillContentList">
                 <div className="contentTitle">효능타이틀</div>
                 <div className="contents">효능내용</div>
