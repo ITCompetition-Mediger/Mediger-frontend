@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { AiOutlineStar } from "react-icons/ai";
+import Header from "../../components/Header";
 
 const PillSearchWrapper = styled.div`
     justify-content: center;
@@ -52,6 +53,7 @@ const PillListWrapper = styled.div`
 function PillSearch(){
     return(
         <PillSearchWrapper>
+            <Header />
             <div className="pillBox">
                 전체 1개 
                 <hr className="horizontal"></hr>
