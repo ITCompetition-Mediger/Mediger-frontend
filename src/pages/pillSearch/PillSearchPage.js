@@ -16,7 +16,7 @@ const PillSearchWrapper = styled.div`
     }
 `;
 
-function PillSearch(){
+function PillSearchPage(){
     return(
         <PillSearchWrapper>
             <Header />
@@ -32,4 +32,4 @@ function PillSearch(){
     );
 }
 
-export default PillSearch;
+export default PillSearchPage;
