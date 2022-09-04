@@ -41,7 +41,7 @@ function SearchBar(){
 
         //추후 수정 필요
         if(inputValue==" "){
-        document.getElementById('checkInputValue').innerHTML='<b>검색어를 다시 확인해주세요.<b>';
+        document.getElementById('checkInputValue').innerHTML='<b>▲검색어를 다시 확인해주세요.<b>';
         document.getElementById('checkInputValue').style.fontSize='15px';
         document.getElementById('checkInputValue').style.color='red';
         document.getElementById('checkInputValue').style.textAlign='center';
@@ -75,7 +75,9 @@ function SearchBar(){
                     /> 
                 </span>
             </SearchBarWrapper>
-            <div id="checkInputValue"></div>
+            <div>
+                <div id="checkInputValue"></div>
+            </div>
         </>
     );
 }
