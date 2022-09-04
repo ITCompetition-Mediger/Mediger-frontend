@@ -3,18 +3,24 @@ import styled from "styled-components";
 import { AiOutlineStar } from "react-icons/ai";
 import Header from "../../components/Header";
 import pillImage from '/Users/yujia/메디저/Mediger-frontend/src/images/pillImage.png';
+import NavBar from "../../components/NavBar";
 
 const PillSearchPlusWrapper = styled.div`
-    align-items: center;
     text-align: center;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     .pillHeader{
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         padding-top: 20px;
+        padding-bottom: 20px;
         width: 100vw;
         height: 5vh;
+        width: 40vw;
+        height: 3vh;
     }
 
     .pillTitle{
@@ -51,18 +57,12 @@ const PillSearchPlusWrapper = styled.div`
 `;
 
 function PillSearchPlusPage(){
-    const [isOpen, setIsOpen] = useState(false);
-
-    const openModalHandler = () => {
-    setIsOpen(!isOpen);
-  };
-
     return(
         <PillSearchPlusWrapper>
             <Header />
             <div className="pillHeader">
                 <div className="pillTitle">모노틴정</div>
-                <div className="pillScrap" onClick={openModalHandler}>
+                <div className="pillScrap">
                 <AiOutlineStar/>
                 </div>
             </div>
@@ -89,6 +89,7 @@ function PillSearchPlusPage(){
                 <div className="contentTitle">상호작용타이틀</div>
                 <div className="contents">상호작용내용</div>
             </div>
+            <NavBar />
         </PillSearchPlusWrapper>
     );
 }
