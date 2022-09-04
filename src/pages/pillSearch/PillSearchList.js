@@ -12,6 +12,10 @@ const PillListWrapper = styled.div`
     flex-direction: row;
     justify-content: space-around;
 
+    a {
+        text-decoration: none;
+    }
+
     .pillList {
         display: flex;
         flex-direction: column;
