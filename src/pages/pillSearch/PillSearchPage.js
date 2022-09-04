@@ -5,30 +5,32 @@ import NavBar from "../../components/NavBar";
 import SearchBar from "../../components/SearchBar";
 import PillSearchList from "./PillSearchList";
 
-const PillSearchWrapper = styled.div`
+const Wrapper = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
+`;
 
-    .pillBox{
-        color: #3C7466;
-        padding-bottom: 10px;
-    }
+const PillSearchResultBox = styled.div`
+    color: #3C7466;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    width: 25vw;
+    height: 5vh;
 `;
 
 function PillSearchPage(){
     return(
-        <PillSearchWrapper>
+        <Wrapper>
             <Header />
             <SearchBar />
-            <div>검색어를 다시 입력해주세요</div>
-            <div className="pillBox">
-                전체 1개 
+            <PillSearchResultBox>
+                <div className="pillTotal">전체 1개</div>
                 <hr className="horizontal"></hr>
-            </div>
+            </PillSearchResultBox>
             <PillSearchList />
             <NavBar />
-        </PillSearchWrapper>
+        </Wrapper>
     );
 }
 
