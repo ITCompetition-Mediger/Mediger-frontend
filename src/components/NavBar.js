@@ -4,6 +4,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import { CgPill } from "react-icons/cg";
 import { MdLocalPharmacy} from "react-icons/md";
 import { FaHeartbeat} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NavBarWrapper = styled.div`
     background-color: #3C7466;
@@ -35,8 +36,8 @@ function NavBar(){
     return(
         <NavBarWrapper>
             <ul className="item">
-                <span className="itemList"><AiOutlineHome /></span>
-                <li className="itemList"><CgPill/></li>
+                <Link to={`/`}><span className="itemList"><AiOutlineHome /></span></Link>
+                <Link to={`/pillSearch`}><li className="itemList"><CgPill/></li></Link>
                 <li className="itemList"><MdLocalPharmacy/></li>
                 <li className="itemList"><FaHeartbeat/></li>
             </ul>
