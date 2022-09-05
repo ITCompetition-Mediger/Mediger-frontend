@@ -6,7 +6,7 @@ const Head = styled.div`
   width: 100vw;
   height: 8vh;
   background: #3c7466;
-  padding-top: 7vh;
+  padding-top: 6vh;
   padding-bottom: 1vh;
 
   //   position: fixed;
