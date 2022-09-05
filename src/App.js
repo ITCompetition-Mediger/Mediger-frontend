@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from '././pages/Home';
-import MedigerList from './pages/MedigerList';
+import MedigerList from './pages/medigerList/MedigerList';
 
 function App() {
   return (

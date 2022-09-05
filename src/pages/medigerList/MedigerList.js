@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
-import Header from '../components/Header';
-import NavBar from '../components/NavBar';
-import Medicine from '../components/Medicine';
+import Header from '../../components/Header';
+import NavBar from '../../components/NavBar';
+import Medicine from '../../components/Medicine';
 
 // 변수 이름은 무조건 대문자로 시작!
 const All = styled.div`
@@ -12,35 +12,26 @@ const All = styled.div`
   height: 100vh;
   margin: 0;
   padding: 0;
-
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   justify-content: center;
 `;
 
 const Content = styled.div`
   width: 100vw;
   height: 65vh;
   padding: 5vh 0;
-  //   background: red;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  //   justify-content: center;
 `;
 
 const ListBox = styled.div`
   width: 80vw;
-  //   background: blue;
   overflow: auto;
 `;
 
 const TitleBox = styled.div`
   width: 80vw;
   height: 10vh;
-  //   background: blue;
 
   display: flex;
   justify-content: space-between;
@@ -79,10 +70,6 @@ function MedigerList() {
           </Link>
         </TitleBox>
         <ListBox>
-          <Medicine />
-          <Medicine />
-          <Medicine />
-          <Medicine />
           <Medicine />
           <Medicine />
           <Medicine />

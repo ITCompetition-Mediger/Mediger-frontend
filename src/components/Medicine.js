@@ -19,11 +19,7 @@ const MedicineBox = styled.div`
 const MedicineImg = styled.div`
   width: 14vw;
   height: 14vw;
-  background: red;
-
-  //   .PillImage img {
-  //     width: 50px;
-  //   }
+  background: #3c7466;
 `;
 
 const MedicineContent = styled.div`
@@ -36,10 +32,6 @@ const MedicineContent = styled.div`
 `;
 
 const MedicineListBtn = styled.div`
-  //   width: 5vw;
-  //   height: 5vw;
-  //   background: yellow;
-
   font-size: 18px;
   color: #3c7466;
 
@@ -75,9 +67,6 @@ function Medicine() {
   return (
     <MedicineBox>
       <MedicineImg>
-        {/* <PillImage>
-          <img src={pillImage}></img>
-        </PillImage> */}
         <PillImage src={pillImage}></PillImage>
       </MedicineImg>
       <MedicineContent>
@@ -97,18 +86,3 @@ function Medicine() {
 }
 
 export default Medicine;
-
-{
-  /* 
-  <div class="medicine__box">
-    <div class="medicine__img">
-    </div>
-    <div class="medicine__content">
-        <p class="medicine__title"></p>
-        <p class="medicine__sale"></p>
-        <p class="medicine__code"></p>
-    </div>
-    <div class="star__icon"></div>
-  </div> 
-*/
-}
