@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import Header from '../components/Header';
+import NavBar from '../components/NavBar';
 import Medicine from '../components/Medicine';
 
 // 변수 이름은 무조건 대문자로 시작!
@@ -53,20 +55,14 @@ const Title = styled.p`
 `;
 
 const PlusBtn = styled.div`
-  //   width: 4.5vw;
-  //   height: 4.5vw;
-  width: 30px;
-  height: 30px;
-  //   font-size: 30px;
+  font-size: 30px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border-radius: 50%;
-
-  background: #3c7466;
-  color: white;
+  background-color: white;
+  color: #3c7466;
 `;
 
 function MedigerList() {
@@ -77,7 +73,9 @@ function MedigerList() {
         <TitleBox>
           <Title>메디저 리스트</Title>
           <Link to="/">
-            <PlusBtn></PlusBtn>
+            <PlusBtn>
+              <IoIosAddCircle />
+            </PlusBtn>
           </Link>
         </TitleBox>
         <ListBox>
@@ -91,22 +89,9 @@ function MedigerList() {
           <Medicine />
         </ListBox>
       </Content>
+      <NavBar />
     </All>
   );
 }
 
 export default MedigerList;
-
-{
-  /* <div class="list__box">
-  <div class="title">
-    <p>메디저 리스트</p>
-    <button>+</button>
-  </div>
-  <div class="list">
-    <medicine></medicine>
-    <medicine></medicine>
-    <medicine></medicine>
-  </div>
-</div>; */
-}
