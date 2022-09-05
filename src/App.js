@@ -14,10 +14,13 @@ function App() {
       <Route path="/MedigerList" element={<MedigerList />} />
       <Route path="/pillSearch" element={<PillSearchPage />} />
       <Route path="/pillSearch/detail" element={<PillSearchPlusPage />} />
+<<<<<<< HEAD
       <Route path="/map/hospital" element={<HospitalMapPage />} />
       <Route path="/map/pharmacy" element={<PharmacyMapPage />} />
       <Route path="/map/pharmacyList" element={<PharmacyListPage />} />
       <Route path="/map/hospitalList" element={<HospitalListPage />} />
+=======
+>>>>>>> cd82779ceea1576d9588a0b1588e43cdb869d657
     </Routes>
   );
 }
