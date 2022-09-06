@@ -15,6 +15,7 @@ const AddToMedigerBox = styled.div`
   .ContentBox {
     margin: 3vh 0;
   }
+
   .TitleBox {
     width: 85vw;
     padding: 0 7.5vw;
