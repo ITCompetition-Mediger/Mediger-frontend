@@ -3,9 +3,10 @@ import Home from '././pages/Home';
 import HospitalListPage from './pages/map/HospitalListPage';
 import HospitalMapPage from './pages/map/HospitalMapPage';
 import PharmacyListPage from './pages/map/PharmacyListPage';
-import MedigerList from './pages/MedigerList';
+import MedigerList from './pages/medigerList/MedigerList';
 import PillSearchPage from './pages/pillSearch/PillSearchPage';
 import PillSearchPlusPage from './pages/pillSearch/PillSearchPlusPage';
+import PharmacyMapPage from './pages/map/PharmacyMapPage';
 
 function App() {
   return (
