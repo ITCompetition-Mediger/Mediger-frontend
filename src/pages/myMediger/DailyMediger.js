@@ -4,6 +4,7 @@ import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import Header from '../../components/Header';
 import NavBar from '../../components/NavBar';
+import Mediger from '../../components/Mediger';
 
 const DailyMedigerBox = styled.div`
   width: 100vw;
@@ -51,7 +52,16 @@ const DailyMedigerBox = styled.div`
   .MedicineBox {
     width: 100%;
     height: 15vh;
-    background-color: red;
+    overflow: auto;
+    // background-color: red;
+
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: center;
+
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
@@ -82,15 +92,27 @@ function DailyMediger() {
       </div>
       <div className="ContentBox">
         <p className="SubTitle">아침</p>
-        <div className="MedicineBox"></div>
+        <div className="MedicineBox">
+          <Mediger />
+          <Mediger />
+          <Mediger />
+        </div>
       </div>
       <div className="ContentBox">
         <p className="SubTitle">점심</p>
-        <div className="MedicineBox"></div>
+        <div className="MedicineBox">
+          <Mediger />
+          <Mediger />
+          <Mediger />
+          <Mediger />
+        </div>
       </div>
       <div className="ContentBox">
         <p className="SubTitle">저녁</p>
-        <div className="MedicineBox"></div>
+        <div className="MedicineBox">
+          <Mediger />
+          <Mediger />
+        </div>
       </div>
       <NavBar />
     </DailyMedigerBox>
