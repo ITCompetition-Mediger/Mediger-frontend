@@ -3,9 +3,10 @@ import Home from '././pages/Home';
 import HospitalListPage from './pages/map/HospitalListPage';
 import HospitalMapPage from './pages/map/HospitalMapPage';
 import PharmacyListPage from './pages/map/PharmacyListPage';
-import MedigerList from './pages/MedigerList';
+import MedigerList from './pages/medigerList/MedigerList';
 import PillSearchPage from './pages/pillSearch/PillSearchPage';
 import PillSearchPlusPage from './pages/pillSearch/PillSearchPlusPage';
+import PharmacyMapPage from './pages/map/PharmacyMapPage';
 
 function App() {
   return (
@@ -14,13 +15,10 @@ function App() {
       <Route path="/MedigerList" element={<MedigerList />} />
       <Route path="/pillSearch" element={<PillSearchPage />} />
       <Route path="/pillSearch/detail" element={<PillSearchPlusPage />} />
-<<<<<<< HEAD
       <Route path="/map/hospital" element={<HospitalMapPage />} />
       <Route path="/map/pharmacy" element={<PharmacyMapPage />} />
       <Route path="/map/pharmacyList" element={<PharmacyListPage />} />
       <Route path="/map/hospitalList" element={<HospitalListPage />} />
-=======
->>>>>>> cd82779ceea1576d9588a0b1588e43cdb869d657
     </Routes>
   );
 }
