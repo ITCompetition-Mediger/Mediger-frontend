@@ -37,7 +37,7 @@ function NavBar(){
         <NavBarWrapper>
             <ul className="item">
                 <Link to={`/`}><span className="itemList"><AiOutlineHome /></span></Link>
-                <Link to={`/pillSearch`}><li className="itemList"><CgPill/></li></Link>
+                <Link to={`/pillSearch/detail`}><li className="itemList"><CgPill/></li></Link>
                 <Link to={`/map/hospital`}><li className="itemList"><MdLocalPharmacy/></li></Link>
                 <li className="itemList"><FaHeartbeat/></li>
             </ul>
