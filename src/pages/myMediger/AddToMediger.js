@@ -209,10 +209,6 @@ function AddToMediger() {
           <div className="SubText">개씩</div>
         </div>
       </div>
-
-      <div className="AlarmBox ContentBox">
-        <p className="SubTitle">알람 설정</p>
-      </div>
       <NavBar />
     </AddToMedigerBox>
   );
