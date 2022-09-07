@@ -12,7 +12,6 @@ import LoginPage from './pages/login/LoginPage';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
       <Route path="/" element={<LoginPage />} />
       <Route path="/MedigerList" element={<MedigerList />} />
       <Route path="/pillSearch" element={<PillSearchPage />} />
