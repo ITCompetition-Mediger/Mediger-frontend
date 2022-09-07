@@ -1,5 +1,5 @@
 import React from "react";
-import KakaoLoginButton from "./KaKaoLoginButton";
+import KakaoLoginButton from "./KakaoLoginButton";
 import LoginHeader from "./LoginHeader";
 import styled from "styled-components";
 import GoogleLoginButton from "./GoogleLoginButton";
