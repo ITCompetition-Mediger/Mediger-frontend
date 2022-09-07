@@ -92,6 +92,45 @@ const AddToMedigerBox = styled.div`
     font-size: 20px;
     color: #3c7466;
   }
+
+  .WayBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vw;
+  }
+
+  .CalenderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1vw 2vw;
+  }
+
+  .SubText {
+    font-size: 12px;
+    color: #42514d;
+  }
+
+  .react-datepicker-wrapper {
+    width: 27vw;
+  }
+`;
+
+const MyDatePicker = styled(DatePicker)`
+  width: 22vw;
+  margin: 0;
+  padding: 1.2vw;
+  border: none;
+  border-radius: 2vw;
+  text-align: center;
+  background-color: #ecf2f0;
+  color: #42514d;
+  font-size: 13px;
+
+  &:focus {
+    border-color: #3c7466;
+  }
 `;
 
 function AddToMediger() {
@@ -110,6 +149,7 @@ function AddToMediger() {
         </div>
         <hr></hr>
       </div>
+
       <div className="MedicineToTakeBox ContentBox">
         <p className="SubTitle">복용할 약</p>
         <div className="AddBox">
@@ -118,25 +158,58 @@ function AddToMediger() {
           </div>
         </div>
       </div>
+
       <div className="HowToTakeMedicineBox ContentBox">
         <p className="SubTitle">복용 방법</p>
-        {/* <input type={date}></input> */}
-        <DatePicker
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          selectsStart
-          startDate={startDate}
-          endDate={endDate}
-        />
-        <DatePicker
-          selected={endDate}
-          onChange={(date) => setEndDate(date)}
-          selectsEnd
-          startDate={startDate}
-          endDate={endDate}
-          minDate={startDate}
-        />
+        <div className="WayBox">
+          <div className="CalenderContainer">
+            <MyDatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              dateFormat="yyyy.MM.dd"
+              selectsStart
+              startDate={startDate}
+              endDate={endDate}
+            />
+            <div className="SubText">부터</div>
+          </div>
+          <div className="CalenderContainer">
+            <MyDatePicker
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+              dateFormat="yyyy.MM.dd"
+              selectsEnd
+              startDate={startDate}
+              endDate={endDate}
+              minDate={startDate}
+            />
+            <div className="SubText">까지</div>
+          </div>
+        </div>
+        <div className="WayBox">
+          <div className="TimeContainer">
+            <select className="TimingSelectBox">
+              <option value="morning">아침</option>
+              <option value="lunch">점심</option>
+              <option value="evening">저녁</option>
+              <option value="beforeBed">자기 전</option>
+            </select>
+            <select className="TimeSelectBox">
+              <option value="before30">식전 30분</option>
+              <option value="at">식사 직후</option>
+              <option value="after30">식후 30분</option>
+            </select>
+          </div>
+          <div className="SubText">에</div>
+        </div>
+        <div className="WayBox">
+          <div className="CountContainer">
+            <input type="number" min="0"></input>
+          </div>
+          <div className="SubText">개씩</div>
+        </div>
       </div>
+
       <div className="AlarmBox ContentBox">
         <p className="SubTitle">알람 설정</p>
       </div>
