@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useState } from 'react';
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import Header from '../../components/Header';
@@ -92,6 +95,9 @@ const AddToMedigerBox = styled.div`
 `;
 
 function AddToMediger() {
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
   return (
     <AddToMedigerBox>
       {/* <Header /> */}
@@ -115,6 +121,21 @@ function AddToMediger() {
       <div className="HowToTakeMedicineBox ContentBox">
         <p className="SubTitle">복용 방법</p>
         {/* <input type={date}></input> */}
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          selectsStart
+          startDate={startDate}
+          endDate={endDate}
+        />
+        <DatePicker
+          selected={endDate}
+          onChange={(date) => setEndDate(date)}
+          selectsEnd
+          startDate={startDate}
+          endDate={endDate}
+          minDate={startDate}
+        />
       </div>
       <div className="AlarmBox ContentBox">
         <p className="SubTitle">알람 설정</p>
