@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
     width: 20vw;
@@ -27,9 +28,9 @@ function KakaoLoginButton(){
             <div className="kakaoImage">
                 카카오 이미지
             </div>
-            <div className="snsKakao">
+            <Link to={`/pillSearch`}><div className="snsKakao">
                 Kakao 로그인
-            </div>
+            </div></Link>
         </Wrapper>
     );
 }

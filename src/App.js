@@ -7,11 +7,12 @@ import MedigerList from './pages/medigerList/MedigerList';
 import PillSearchPage from './pages/pillSearch/PillSearchPage';
 import PillSearchPlusPage from './pages/pillSearch/PillSearchPlusPage';
 import PharmacyMapPage from './pages/map/PharmacyMapPage';
+import LoginPage from './pages/login/LoginPage';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<LoginPage />} />
       <Route path="/MedigerList" element={<MedigerList />} />
       <Route path="/pillSearch" element={<PillSearchPage />} />
       <Route path="/pillSearch/detail" element={<PillSearchPlusPage />} />
