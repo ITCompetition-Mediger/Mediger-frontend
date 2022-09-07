@@ -5,21 +5,18 @@ import { CgPill } from 'react-icons/cg';
 import { MdLocalPharmacy } from 'react-icons/md';
 import { FaHeartbeat } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-
 const NavBarWrapper = styled.div`
   background-color: #3c7466;
   padding: 5px;
   text-align: center;
-  width: 97vw;
-  height: 8vh;
+  width: 49vh;
+  height: 3vw;
   display: flex;
   justify-content: space-between;
   justify-items: center;
-
   .item {
     list-style-type: none;
   }
-
   .itemList {
     font-size: 1.8rem;
     text-decoration: none;
@@ -30,7 +27,6 @@ const NavBarWrapper = styled.div`
     text-decoration-line: none;
   }
 `;
-
 function NavBar() {
   return (
     <NavBarWrapper>
@@ -41,6 +37,11 @@ function NavBar() {
           </span>
         </Link>
         <Link to={`/pillSearch`}>
+          <li className="itemList">
+            <CgPill />
+          </li>
+        </Link>
+        <Link to={`/pillSearch/detail`}>
           <li className="itemList">
             <CgPill />
           </li>
@@ -57,5 +58,4 @@ function NavBar() {
     </NavBarWrapper>
   );
 }
-
 export default NavBar;
