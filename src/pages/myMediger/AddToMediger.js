@@ -226,10 +226,13 @@ function AddToMediger() {
         <p className="SubTitle">복용 방법</p>
         {/* <input type={date}></input> */}
       </div>
+<<<<<<< HEAD
       <div className="AlarmBox ContentBox">
         <p className="SubTitle">알람 설정</p>
 >>>>>>> 91ba3e8 (ETC: git pull 충돌 수정)
       </div>
+=======
+>>>>>>> 9e246d9 (ETC: git pull 충돌 수정)
       <NavBar />
     </AddToMedigerBox>
   );

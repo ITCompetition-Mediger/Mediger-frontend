@@ -5,10 +5,15 @@ import { CgPill } from 'react-icons/cg';
 import { MdLocalPharmacy } from 'react-icons/md';
 import { FaHeartbeat } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9e246d9 (ETC: git pull 충돌 수정)
 const NavBarWrapper = styled.div`
   background-color: #3c7466;
   padding: 5px;
   text-align: center;
+<<<<<<< HEAD
   width: 49vh;
   height: 3vw;
   display: flex;
@@ -17,6 +22,18 @@ const NavBarWrapper = styled.div`
   .item {
     list-style-type: none;
   }
+=======
+  width: 97vw;
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+
+  .item {
+    list-style-type: none;
+  }
+
+>>>>>>> 9e246d9 (ETC: git pull 충돌 수정)
   .itemList {
     font-size: 1.8rem;
     text-decoration: none;
@@ -28,6 +45,7 @@ const NavBarWrapper = styled.div`
   }
 `;
 
+<<<<<<< HEAD
 function NavBar(){
     return(
         <NavBarWrapper>
@@ -39,5 +57,36 @@ function NavBar(){
             </ul>
         </NavBarWrapper>
     );
+=======
+function NavBar() {
+  return (
+    <NavBarWrapper>
+      <ul className="item">
+        <Link to={`/`}>
+          <span className="itemList">
+            <AiOutlineHome />
+          </span>
+        </Link>
+        <Link to={`/pillSearch`}>
+          <li className="itemList">
+            <CgPill />
+          </li>
+        </Link>
+        <Link to={`/map/hospital`}>
+          <li className="itemList">
+            <MdLocalPharmacy />
+          </li>
+        </Link>
+        <li className="itemList">
+          <FaHeartbeat />
+        </li>
+      </ul>
+    </NavBarWrapper>
+  );
+>>>>>>> 7528f61 (Feat: Mypage, MonthlyMediger 페이지 추가)
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9e246d9 (ETC: git pull 충돌 수정)
 export default NavBar;
