@@ -1,6 +1,6 @@
 import React from 'react';
 import GoogleLoginButton from './GoogleLoginButton';
-import KakaoLoginButton from './KaKaoLoginButton';
+import KakaoLoginButton from './KakaoLoginButton';
 import NaverLoginButton from './NaverLoginButton';
 import styled from 'styled-components';
 
