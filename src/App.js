@@ -14,7 +14,7 @@ import DailyMediger from './pages/myMediger/DailyMediger';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />
+      <Route path="/" element={<Home />} />
       <Route path="/MedigerList" element={<MedigerList />} />
       <Route path="/pillSearch" element={<PillSearchPage />} />
       <Route path="/pillSearch/detail" element={<PillSearchPlusPage />} />
