@@ -4,10 +4,7 @@ import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import Header from '../../components/Header';
 import NavBar from '../../components/NavBar';
-<<<<<<< HEAD
 import Mediger from '../../components/Mediger';
-=======
->>>>>>> 91ba3e8 (ETC: git pull 충돌 수정)
 
 const DailyMedigerBox = styled.div`
   width: 100vw;
@@ -55,7 +52,6 @@ const DailyMedigerBox = styled.div`
   .MedicineBox {
     width: 100%;
     height: 15vh;
-<<<<<<< HEAD
     overflow: auto;
     // background-color: red;
 
@@ -66,9 +62,6 @@ const DailyMedigerBox = styled.div`
     display: grid;
     place-items: center;
     grid-template-columns: 1fr 1fr;
-=======
-    background-color: red;
->>>>>>> 91ba3e8 (ETC: git pull 충돌 수정)
   }
 `;
 
@@ -99,7 +92,6 @@ function DailyMediger() {
       </div>
       <div className="ContentBox">
         <p className="SubTitle">아침</p>
-<<<<<<< HEAD
         <div className="MedicineBox">
           <Mediger />
           <Mediger />
@@ -121,17 +113,6 @@ function DailyMediger() {
           <Mediger />
           <Mediger />
         </div>
-=======
-        <div className="MedicineBox"></div>
-      </div>
-      <div className="ContentBox">
-        <p className="SubTitle">점심</p>
-        <div className="MedicineBox"></div>
-      </div>
-      <div className="ContentBox">
-        <p className="SubTitle">저녁</p>
-        <div className="MedicineBox"></div>
->>>>>>> 91ba3e8 (ETC: git pull 충돌 수정)
       </div>
       <NavBar />
     </DailyMedigerBox>
