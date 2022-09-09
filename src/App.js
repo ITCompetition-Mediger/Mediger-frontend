@@ -20,8 +20,8 @@ function App() {
       <Route path="/map/pharmacy" element={<PharmacyMapPage />} />
       <Route path="/map/pharmacyList" element={<PharmacyListPage />} />
       <Route path="/map/hospitalList" element={<HospitalListPage />} />
-      <Route path="/AddToMediger" element={<AddToMediger />} />
-      <Route path="/DailyMediger" element={<DailyMediger />} />
+      <Route path="/myMediger/AddToMediger" element={<AddToMediger />} />
+      <Route path="/myMediger/DailyMediger" element={<DailyMediger />} />
     </Routes>
   );
 }
