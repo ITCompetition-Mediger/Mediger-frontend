@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
+import MedigerListWidget from '../../components/MedigerListWidget';
 import NavBar from '../../components/NavBar';
 
 const MypageBox = styled.div`
@@ -33,7 +35,7 @@ const MypageBox = styled.div`
     width: 85vw;
     // height: 3.5vw;
     padding: 0 7.5vw;
-    margin-top: 1vh;
+    margin-top: 5vh;
   }
 
   .Title {
@@ -52,9 +54,33 @@ const MypageBox = styled.div`
 
   .ContentBox {
     width: 85vw;
-    height: 30vh;
     padding: 0 7.5vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     // background-color: red;
+  }
+
+  .MedigerBox {
+    width: 78vw;
+    height: 15vh;
+    margin-right: 2vw;
+
+    display: flex;
+    overflow: auto;
+    // background-color: yellow;
+  }
+
+  .PlusBtn {
+    font-size: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    color: #3c7466;
   }
 `;
 
@@ -83,7 +109,25 @@ function Mypage() {
           <p className="Title">메디저 리스트</p>
           <hr />
         </div>
-        <div className="ContentBox"></div>
+        <div className="ContentBox">
+          <div className="MedigerBox">
+            <MedigerListWidget />
+            <MedigerListWidget />
+            <MedigerListWidget />
+            <MedigerListWidget />
+            <MedigerListWidget />
+            <MedigerListWidget />
+            <MedigerListWidget />
+            <MedigerListWidget />
+          </div>
+          <div className="AddBtnBox">
+            <Link to="/">
+              <div className="PlusBtn">
+                <IoIosAddCircle />
+              </div>
+            </Link>
+          </div>
+        </div>
       </div>
 
       {/* <NavBar /> */}
