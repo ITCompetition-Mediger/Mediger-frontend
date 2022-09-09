@@ -10,12 +10,13 @@ const NavBarWrapper = styled.div`
   background-color: #3c7466;
   padding: 5px;
   text-align: center;
-  width: 49vh;
-  height: 3vw;
+  width: 55vw;
+  height: 6vh;
   display: flex;
   justify-content: space-between;
   justify-items: center;
   position: fixed;
+  
   .item {
     list-style-type: none;
   }
