@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import MedigerListWidget from '../../components/MedigerListWidget';
+import DailyMedigerWidget from '../../components/DailyMedigerWidget';
 import NavBar from '../../components/NavBar';
 
 const MypageBox = styled.div`
@@ -64,7 +65,7 @@ const MypageBox = styled.div`
 
   .MedigerBox {
     width: 78vw;
-    height: 15vh;
+    height: 16vh;
     margin-right: 2vw;
 
     display: flex;
@@ -101,7 +102,9 @@ function Mypage() {
           <p className="Title">일간 메디저</p>
           <hr />
         </div>
-        <div className="ContentBox"></div>
+        <div className="ContentBox">
+          <DailyMedigerWidget />
+        </div>
       </div>
 
       <div className="MedigerListBox">
