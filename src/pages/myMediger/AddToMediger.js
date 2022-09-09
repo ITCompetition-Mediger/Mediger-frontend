@@ -1,11 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useState } from 'react';
-=======
->>>>>>> 91ba3e8 (ETC: git pull 충돌 수정)
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import Header from '../../components/Header';
@@ -95,7 +92,6 @@ const AddToMedigerBox = styled.div`
     font-size: 20px;
     color: #3c7466;
   }
-<<<<<<< HEAD
 
   .WayBox {
     display: flex;
@@ -141,11 +137,6 @@ function AddToMediger() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
-=======
-`;
-
-function AddToMediger() {
->>>>>>> 91ba3e8 (ETC: git pull 충돌 수정)
   return (
     <AddToMedigerBox>
       {/* <Header /> */}
@@ -158,10 +149,6 @@ function AddToMediger() {
         </div>
         <hr></hr>
       </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 91ba3e8 (ETC: git pull 충돌 수정)
       <div className="MedicineToTakeBox ContentBox">
         <p className="SubTitle">복용할 약</p>
         <div className="AddBox">
@@ -170,8 +157,6 @@ function AddToMediger() {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-
       <div className="HowToTakeMedicineBox ContentBox">
         <p className="SubTitle">복용 방법</p>
         <div className="WayBox">
@@ -221,18 +206,14 @@ function AddToMediger() {
           </div>
           <div className="SubText">개씩</div>
         </div>
-=======
       <div className="HowToTakeMedicineBox ContentBox">
         <p className="SubTitle">복용 방법</p>
         {/* <input type={date}></input> */}
       </div>
-<<<<<<< HEAD
       <div className="AlarmBox ContentBox">
         <p className="SubTitle">알람 설정</p>
->>>>>>> 91ba3e8 (ETC: git pull 충돌 수정)
       </div>
-=======
->>>>>>> 9e246d9 (ETC: git pull 충돌 수정)
+      </div>
       <NavBar />
     </AddToMedigerBox>
   );
