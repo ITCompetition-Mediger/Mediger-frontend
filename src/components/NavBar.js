@@ -15,6 +15,7 @@ const NavBarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   justify-items: center;
+  position: fixed;
   .item {
     list-style-type: none;
   }
