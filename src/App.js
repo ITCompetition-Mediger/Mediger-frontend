@@ -8,6 +8,8 @@ import PillSearchPage from './pages/pillSearch/PillSearchPage';
 import PillSearchPlusPage from './pages/pillSearch/PillSearchPlusPage';
 import PharmacyMapPage from './pages/map/PharmacyMapPage';
 import LoginPage from './pages/login/LoginPage';
+import AddToMediger from './pages/myMediger/AddToMediger';
+import DailyMediger from './pages/myMediger/DailyMediger';
 
 function App() {
   return (
