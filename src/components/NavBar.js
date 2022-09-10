@@ -16,7 +16,10 @@ const NavBarWrapper = styled.div`
   justify-content: space-between;
   justify-items: center;
   position: fixed;
+<<<<<<< HEAD
   
+=======
+>>>>>>> d8c9580 (Refactor: NavBar 위치 고정)
   .item {
     list-style-type: none;
   }
