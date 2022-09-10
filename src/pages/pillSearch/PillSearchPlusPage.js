@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import { AiOutlineStar } from "react-icons/ai";
 import Header from "../../components/Header";
-import pillImage from '/Users/yujia/메디저/Mediger-frontend/src/images/pillImage.png';
 import NavBar from "../../components/NavBar";
 
 const PillSearchPlusWrapper = styled.div`
@@ -67,7 +66,7 @@ function PillSearchPlusPage(){
                 </div>
             </div>
             <div className="pillImage">
-                <img src={pillImage} alt="pillImage"></img>
+               
             </div>
             <div className="pillContentList">
                 <div className="contentTitle">효능타이틀</div>
