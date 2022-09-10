@@ -149,7 +149,6 @@ function AddToMediger() {
         </div>
         <hr></hr>
       </div>
-
       <div className="MedicineToTakeBox ContentBox">
         <p className="SubTitle">복용할 약</p>
         <div className="AddBox">
@@ -158,7 +157,6 @@ function AddToMediger() {
           </div>
         </div>
       </div>
-
       <div className="HowToTakeMedicineBox ContentBox">
         <p className="SubTitle">복용 방법</p>
         <div className="WayBox">
@@ -208,6 +206,13 @@ function AddToMediger() {
           </div>
           <div className="SubText">개씩</div>
         </div>
+      <div className="HowToTakeMedicineBox ContentBox">
+        <p className="SubTitle">복용 방법</p>
+        {/* <input type={date}></input> */}
+      </div>
+      <div className="AlarmBox ContentBox">
+        <p className="SubTitle">알람 설정</p>
+      </div>
       </div>
       <NavBar />
     </AddToMedigerBox>
