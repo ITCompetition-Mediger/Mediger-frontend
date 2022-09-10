@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import styled from 'styled-components';
-import pillImage from '../images/pillImage.png';
 
 const MedicineBox = styled.div`
   width: 70vw;
@@ -67,7 +66,6 @@ function Medicine() {
   return (
     <MedicineBox>
       <MedicineImg>
-        <PillImage src={pillImage}></PillImage>
       </MedicineImg>
       <MedicineContent>
         <MedicineTitle>모노틴정</MedicineTitle>
