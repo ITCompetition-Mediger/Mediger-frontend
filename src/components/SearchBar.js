@@ -3,29 +3,29 @@ import React, { useState } from "react";
 import { HiSearch } from "react-icons/hi";
 
 const SearchBarWrapper = styled.div`
-    padding-top: 10px;
+    padding-top: 1rem;
     display: flex;
     justify-content: center;
 
     input{
-        border-radius: 30px;
-        border: 7px solid #3A6C60;
-        font-size: 20px;
+        border-radius: 2rem;
+        border: 0.5rem solid #3A6C60;
+        font-size: 1.2rem;
         width: 20vw;
         height: 5vh;
         color: #3A6C60;
         
         ::placeholder {
             color: #BBCDC7;
-            font-size: 15px;
-            padding-left: 25px;
+            font-size: 1rem;
+            padding-left: 1rem;
         }
     }
 
     svg {
-        padding-top: 15px;
+        padding-top: 1rem;
         color: #3A6C60;
-        font-size: 35px;
+        font-size: 2rem;
     }
 `;
 
@@ -42,10 +42,10 @@ function SearchBar(){
         //추후 수정 필요
         if(inputValue==" "){
         document.getElementById('checkInputValue').innerHTML='<b>▲검색어를 다시 확인해주세요.<b>';
-        document.getElementById('checkInputValue').style.fontSize='15px';
+        document.getElementById('checkInputValue').style.fontSize='1rem';
         document.getElementById('checkInputValue').style.color='red';
         document.getElementById('checkInputValue').style.textAlign='center';
-        document.getElementById('checkInputValue').style.paddingTop='10px';
+        document.getElementById('checkInputValue').style.paddingTop='1rem';
         }
 
         /*
