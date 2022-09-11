@@ -8,12 +8,18 @@ const SearchBarWrapper = styled.div`
     justify-content: center;
     width: 70%;
 
+    .searchTypeBox{
+        padding-top: 1rem;
+        color: #3A6C60;
+        padding-right: 1rem;
+    }
+
     input{
         border-radius: 2rem;
         border: 0.5rem solid #3A6C60;
         font-size: 1.2rem;
         height: 5vh;
-        width: 100%;
+        width: 80%;
         color: #3A6C60;
         
         ::placeholder {
@@ -66,6 +72,12 @@ function SearchBar(){
     return(
         <>
             <SearchBarWrapper>
+                <form className="searchTypeBox">
+                    <select name="searchType">
+                        <option value="pillName">의약품명</option>
+                        <option value="symptom">증상</option>
+                    </select>
+                </form>
                 <input
                     placeholder="의약품명 및 증상 검색"
                     value={inputValue}
