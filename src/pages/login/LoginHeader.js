@@ -15,19 +15,20 @@ const LoginHeaderContents = styled.div`
     text-align: center;
 
     .headerTitle {
-        font-size: 15px;
+        font-size: 1rem;
         font-weight: medium;
-        padding-right: 3.5rem;
+        padding-right: 3rem;
     }
 
     .headerSubContents {
-        font-size: 50px;
+        font-size: 3.2rem;
         font-weight: bold;
     }
 
     .snsGuidance {
         padding-top: 21vh;
-        font-size: 15px;
+        font-size: 1rem;
+        font-weight: bold;
     }
 `;
 

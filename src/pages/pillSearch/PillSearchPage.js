@@ -13,8 +13,8 @@ const Wrapper = styled.form`
 
 const PillSearchResultBox = styled.div`
     color: #3C7466;
-    padding-bottom: 10px;
-    padding-top: 20px;
+    padding-bottom: 1rem;
+    padding-top: 1.5rem;
     width: 25vw;
     height: 5vh;
 `;

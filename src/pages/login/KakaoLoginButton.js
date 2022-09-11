@@ -6,16 +6,16 @@ const Wrapper = styled.div`
     width: 20vw;
     height: 7vh;
     background-color: yellow;
-    border-radius: 10px;
+    border-radius: 0.8rem;
     display: flex;
     flex-direction: row;
     color: gray;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: bold;
     justify-items: center;
     text-align: center;
     justify-content: space-around;
-    margin: 10px;
+    margin: 1rem;
 
     .snsKakao {
         margin-top: 2.2vh;
