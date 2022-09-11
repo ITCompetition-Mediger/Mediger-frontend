@@ -36,29 +36,19 @@ function NavBar() {
     <NavBarWrapper>
       <ul className="item">
         <Link to={`/`}>
-          <span className="itemList">
-            <AiOutlineHome />
-          </span>
+          <span className="itemList"><AiOutlineHome /></span>
         </Link>
         <Link to={`/pillSearch`}>
-          <li className="itemList">
-            <CgPill />
-          </li>
+          <li className="itemList"><CgPill /></li>
         </Link>
         <Link to={`/pillSearch/detail`}>
-          <li className="itemList">
-            <CgPill />
-          </li>
+          <li className="itemList"><CgPill /></li>
         </Link>
         <Link to={`/map/hospital`}>
-          <li className="itemList">
-            <MdLocalPharmacy />
-          </li>
+          <li className="itemList"><MdLocalPharmacy /></li>
         </Link>
-        <Link to={`map/pharmacyList`}>
-        <li className="itemList">
-          <FaHeartbeat />
-        </li>
+        <Link to={`/map/pharmacyList`}>
+        <li className="itemList"><FaHeartbeat /></li>
         </Link>
       </ul>
     </NavBarWrapper>
