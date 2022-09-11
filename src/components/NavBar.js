@@ -55,9 +55,11 @@ function NavBar() {
             <MdLocalPharmacy />
           </li>
         </Link>
+        <Link to={`map/pharmacyList`}>
         <li className="itemList">
           <FaHeartbeat />
         </li>
+        </Link>
       </ul>
     </NavBarWrapper>
   );
