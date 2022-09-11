@@ -5,6 +5,8 @@ import styled from "styled-components";
 import GoogleLoginButton from "./GoogleLoginButton";
 import NaverLoginButton from "./NaverLoginButton";
 import LoginButton from "./LoginButton";
+import { Mobile } from "../../components/ReactResponsive";
+
 
 const Wrapper = styled.form`
     align-items: center;
@@ -12,10 +14,12 @@ const Wrapper = styled.form`
 `;
 function LoginPage(){
     return(
-        <Wrapper>
-            <LoginHeader />
-            <LoginButton />
-        </Wrapper>
+        <Mobile>
+            <Wrapper>
+                <LoginHeader />
+                <LoginButton />
+            </Wrapper>
+        </Mobile>
     );
 }
 
