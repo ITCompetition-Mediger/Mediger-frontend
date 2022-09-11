@@ -11,22 +11,22 @@ const Wrapper = styled.form`
     align-items: center;
 
     .nameHeader {
+        width: 50%;
         text-align: left;
         margin-top: 1.5rem;
-        padding-left: 1.5rem;
         margin-bottom: 1.5rem;
         font-size: 1.5rem;
         color: #3A6C60;
         font-weight: bold;
-        padding-right: 13rem;
+        padding-right: 5rem;
     }
 `;
 
 const HospitalListComponentWrapper = styled.div`
-    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 `;
 
 
