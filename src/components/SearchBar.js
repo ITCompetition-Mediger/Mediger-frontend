@@ -11,8 +11,8 @@ const SearchBarWrapper = styled.div`
         border-radius: 2rem;
         border: 0.5rem solid #3A6C60;
         font-size: 1.2rem;
-        width: 20vw;
         height: 5vh;
+        width: 100%;
         color: #3A6C60;
         
         ::placeholder {
@@ -26,6 +26,7 @@ const SearchBarWrapper = styled.div`
         padding-top: 1rem;
         color: #3A6C60;
         font-size: 2rem;
+        padding-left: 1rem;
     }
 `;
 
