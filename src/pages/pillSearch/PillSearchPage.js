@@ -18,6 +18,10 @@ const PillSearchResultBox = styled.div`
     padding-top: 1.5rem;
     width: 70%;
     height: 5vh;
+
+    .horizontal{
+        color: #3C7466;
+    }
 `;
 
 function PillSearchPage(){
@@ -30,6 +34,12 @@ function PillSearchPage(){
                     <div className="pillTotal">전체 1개</div>
                     <hr className="horizontal"></hr>
                 </PillSearchResultBox>
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
                 <PillSearchList />
                 <NavBar />
             </Wrapper>
