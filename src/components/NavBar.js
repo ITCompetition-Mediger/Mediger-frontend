@@ -8,14 +8,14 @@ import { Link } from 'react-router-dom';
 
 const NavBarWrapper = styled.div`
   background-color: #3c7466;
-  padding: 5px;
-  text-align: center;
   width: 100%;
   height: 6vh;
+  padding: 0.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   justify-items: center;
-  
+  flex-direction: column;
+
   .item {
     list-style-type: none;
   }
@@ -23,7 +23,7 @@ const NavBarWrapper = styled.div`
   .itemList {
     font-size: 1.8rem;
     text-decoration: none;
-    padding: 2.5rem;
+    padding: 5%;
     color: white;
     display: inline;
     font-weight: bold;
@@ -36,19 +36,29 @@ function NavBar() {
     <NavBarWrapper>
       <ul className="item">
         <Link to={`/`}>
-          <span className="itemList"><AiOutlineHome /></span>
+          <span className="itemList">
+            <AiOutlineHome />
+          </span>
         </Link>
         <Link to={`/pillSearch`}>
-          <li className="itemList"><CgPill /></li>
+          <li className="itemList">
+            <CgPill />
+          </li>
         </Link>
         <Link to={`/pillSearch/detail`}>
-          <li className="itemList"><CgPill /></li>
+          <li className="itemList">
+            <CgPill />
+          </li>
         </Link>
         <Link to={`/map/hospital`}>
-          <li className="itemList"><MdLocalPharmacy /></li>
+          <li className="itemList">
+            <MdLocalPharmacy />
+          </li>
         </Link>
-        <Link to={`/map/pharmacyList`}>
-        <li className="itemList"><FaHeartbeat /></li>
+        <Link to={`map/pharmacyList`}>
+        <li className="itemList">
+          <FaHeartbeat />
+        </li>
         </Link>
       </ul>
     </NavBarWrapper>
