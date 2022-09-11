@@ -6,6 +6,7 @@ const SearchBarWrapper = styled.div`
     padding-top: 1rem;
     display: flex;
     justify-content: center;
+    width: 70%;
 
     input{
         border-radius: 2rem;
