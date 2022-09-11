@@ -8,7 +8,6 @@ const PillListWrapper = styled.div`
     width: 20vw;
     height: 8.6vh;
     display: flex;
-    border-radius: 5px;
     flex-direction: row;
     justify-content: space-around;
 
@@ -26,14 +25,14 @@ const PillListWrapper = styled.div`
 
     .pillTitle {
         color: #3C7466;
-        font-size: 15px;
+        font-size: 1rem;
         font-weight: bold;
-        margin-bottom: 10px;
+        margin-bottom: 0.5rem;
     }
 
     .pillContent {
         color: #42514D;
-        font-size: 7px;
+        font-size: 0.5rem;
     }
 
     .scrap {
