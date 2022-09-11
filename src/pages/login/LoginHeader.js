@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.form`
-    width: 25vw;
+    width: 100%;
     height: 55vh;
     background-color: #3C7466;
 `;
@@ -10,7 +10,7 @@ const Wrapper = styled.form`
 const LoginHeaderContents = styled.div`
     display: flex;
     flex-direction: column;
-    padding-top: 20vh;
+    padding-top: 10rem;
     color: white;
     text-align: center;
 
