@@ -3,15 +3,15 @@ import styled from "styled-components";
 import { AiOutlineStar } from "react-icons/ai";
 import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
+import { Mobile } from "../../components/ReactResponsive";
 
 const PillSearchPlusWrapper = styled.form`
     display: flex;
     flex-direction: column;
-    align-items: center;
 `;
 
 const PillContentHeaderWrapper = styled.div`
-    text-align: center;
+    align-items: center;
 
     .pillHeader{
         display: flex;
@@ -19,10 +19,8 @@ const PillContentHeaderWrapper = styled.div`
         justify-content: space-around;
         padding-top: 1.2rem;
         padding-bottom: 1.2rem;
-        width: 100vw;
-        height: 5vh;
-        width: 40vw;
-        height: 3vh;
+        text-align: center;
+        width: 100%;
     }
 
     .pillTitle{
@@ -33,7 +31,7 @@ const PillContentHeaderWrapper = styled.div`
 
     .pillScrap{
         color: #3C7466;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .pillImage {
@@ -43,8 +41,7 @@ const PillContentHeaderWrapper = styled.div`
 `;
 
 const PillContentListWrapper = styled.div`
-    text-align: left;
-    padding-right: 15%;
+    padding-left: 21%;
 
     .pillContentList{
         margin-bottom: 2.5rem;
@@ -65,42 +62,44 @@ const PillContentListWrapper = styled.div`
 
 function PillSearchPlusPage(){
     return(
-        <PillSearchPlusWrapper>
-            <Header />
-            <PillContentHeaderWrapper>
-            <div className="pillHeader">
-                <div className="pillTitle">모노틴정</div>
-                <div className="pillScrap">
-                <AiOutlineStar/>
+        <Mobile>
+            <PillSearchPlusWrapper>
+                <Header />
+                <PillContentHeaderWrapper>
+                <div className="pillHeader">
+                    <div className="pillTitle">모노틴정</div>
+                    <div className="pillScrap">
+                    <AiOutlineStar/>
+                    </div>
                 </div>
-            </div>
-            <div className="pillImage">
-            </div>
-            </PillContentHeaderWrapper>
-            <PillContentListWrapper>
-                <div className="pillContentList">
-                    <div className="contentTitle">효능타이틀</div>
-                    <div className="contents">효능내용</div>
+                <div className="pillImage">
                 </div>
-                <div className="pillContentList">
-                    <div className="contentTitle">사용법타이틀</div>
-                    <div className="contents">사용법내용</div>
-                </div>
-                <div className="pillContentList">
-                    <div className="contentTitle">경고타이틀</div>
-                    <div className="contents">경고내용</div>
-                </div>
-                <div className="pillContentList">
-                    <div className="contentTitle">주의사항타이틀</div>
-                    <div className="contents">주의사항내용</div>
-                </div>
-                <div className="pillContentList">
-                    <div className="contentTitle">상호작용타이틀</div>
-                    <div className="contents">상호작용내용</div>
-                </div>
-            </PillContentListWrapper>
-            <NavBar />
-        </PillSearchPlusWrapper>
+                </PillContentHeaderWrapper>
+                <PillContentListWrapper>
+                    <div className="pillContentList">
+                        <div className="contentTitle">효능타이틀</div>
+                        <div className="contents">효능내용</div>
+                    </div>
+                    <div className="pillContentList">
+                        <div className="contentTitle">사용법타이틀</div>
+                        <div className="contents">사용법내용</div>
+                    </div>
+                    <div className="pillContentList">
+                        <div className="contentTitle">경고타이틀</div>
+                        <div className="contents">경고내용</div>
+                    </div>
+                    <div className="pillContentList">
+                        <div className="contentTitle">주의사항타이틀</div>
+                        <div className="contents">주의사항내용</div>
+                    </div>
+                    <div className="pillContentList">
+                        <div className="contentTitle">상호작용타이틀</div>
+                        <div className="contents">상호작용내용</div>
+                    </div>
+                </PillContentListWrapper>
+                <NavBar />
+            </PillSearchPlusWrapper>
+        </Mobile>
     );
 }
 
