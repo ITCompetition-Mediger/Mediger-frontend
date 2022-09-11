@@ -11,6 +11,7 @@ const PillListWrapper = styled.div`
     flex-direction: row;
     justify-content: space-around;
     border-radius: 0.5rem;
+    margin: 0.8rem;
 
     a {
         text-decoration: none;
