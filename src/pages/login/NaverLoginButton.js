@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-    width: 20vw;
+    width: 80%;
     height: 7vh;
     background-color: green;
     border-radius: 0.8rem;

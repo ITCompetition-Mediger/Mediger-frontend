@@ -10,12 +10,11 @@ const NavBarWrapper = styled.div`
   background-color: #3c7466;
   padding: 5px;
   text-align: center;
-  width: 55vw;
+  width: 100%;
   height: 6vh;
   display: flex;
   justify-content: space-between;
   justify-items: center;
-  position: fixed;
   
   .item {
     list-style-type: none;
@@ -24,7 +23,7 @@ const NavBarWrapper = styled.div`
   .itemList {
     font-size: 1.8rem;
     text-decoration: none;
-    padding: 26px;
+    padding: 2.5rem;
     color: white;
     display: inline;
     font-weight: bold;
@@ -37,28 +36,20 @@ function NavBar() {
     <NavBarWrapper>
       <ul className="item">
         <Link to={`/`}>
-          <span className="itemList">
-            <AiOutlineHome />
-          </span>
+          <span className="itemList"><AiOutlineHome /></span>
         </Link>
         <Link to={`/pillSearch`}>
-          <li className="itemList">
-            <CgPill />
-          </li>
+          <li className="itemList"><CgPill /></li>
         </Link>
         <Link to={`/pillSearch/detail`}>
-          <li className="itemList">
-            <CgPill />
-          </li>
+          <li className="itemList"><CgPill /></li>
         </Link>
         <Link to={`/map/hospital`}>
-          <li className="itemList">
-            <MdLocalPharmacy />
-          </li>
+          <li className="itemList"><MdLocalPharmacy /></li>
         </Link>
-        <li className="itemList">
-          <FaHeartbeat />
-        </li>
+        <Link to={`/map/pharmacyList`}>
+        <li className="itemList"><FaHeartbeat /></li>
+        </Link>
       </ul>
     </NavBarWrapper>
   );
