@@ -16,14 +16,7 @@ const NavBarWrapper = styled.div`
   justify-content: space-between;
   justify-items: center;
   position: fixed;
-<<<<<<< HEAD
-<<<<<<< HEAD
   
-=======
->>>>>>> d8c9580 (Refactor: NavBar 위치 고정)
-=======
-  
->>>>>>> ae5034a (Refactor: NavBar 단위, 크기 조정)
   .item {
     list-style-type: none;
   }
