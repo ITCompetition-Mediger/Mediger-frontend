@@ -6,12 +6,18 @@ const SearchBarWrapper = styled.div`
     padding-top: 1rem;
     display: flex;
     justify-content: center;
-    width: 70%;
 
-    .searchTypeBox{
-        padding-top: 1rem;
-        color: #3A6C60;
-        padding-right: 1rem;
+    select{
+        border: 0.5rem solid #ECF2F0;
+        color: #3C7466;
+        background-color: #ECF2F0;
+        border-radius: 2rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin-top: 1rem;
+        font-size: 0.7rem;
+        margin-right: 1rem;
     }
 
     input{
@@ -19,7 +25,6 @@ const SearchBarWrapper = styled.div`
         border: 0.5rem solid #3A6C60;
         font-size: 1.2rem;
         height: 5vh;
-        width: 80%;
         color: #3A6C60;
         
         ::placeholder {
