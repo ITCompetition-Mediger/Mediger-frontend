@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 
 const PillListWrapper = styled.div`
     background-color: #ECF2F0;
-    width: 20vw;
+    width: 70%;
     height: 8.6vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    border-radius: 0.5rem;
 
     a {
         text-decoration: none;
@@ -20,7 +21,7 @@ const PillListWrapper = styled.div`
         flex-direction: column;
         justify-content: center;
         text-decoration: none;
-        //왜 적용이 안 되지?
+        padding-top: 0.5rem;
     }
 
     .pillTitle {
