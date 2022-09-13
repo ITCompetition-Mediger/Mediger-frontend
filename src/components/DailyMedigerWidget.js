@@ -22,7 +22,7 @@ const DailyWidget = styled.div`
     justify-content: center;
   }
 
-  .Title {
+  .TimeTitle {
     font-size: 3vw;
     color: #3c7466;
     margin: 2vw 0;
@@ -44,7 +44,7 @@ function DailyMedigerWidget() {
   return (
     <DailyWidget>
       <div className="TimeBox">
-        <div className="Title">아침</div>
+        <div className="TimeTitle">아침</div>
         <div className="MedicineBox">
           <DailyMedigerIconWidget />
           <DailyMedigerIconWidget />
@@ -54,8 +54,11 @@ function DailyMedigerWidget() {
         </div>
       </div>
       <div className="TimeBox">
-        <div className="Title">점심</div>
+        <div className="TimeTitle">점심</div>
         <div className="MedicineBox">
+          <DailyMedigerIconWidget />
+          <DailyMedigerIconWidget />
+          <DailyMedigerIconWidget />
           <DailyMedigerIconWidget />
           <DailyMedigerIconWidget />
           <DailyMedigerIconWidget />
@@ -64,10 +67,8 @@ function DailyMedigerWidget() {
         </div>
       </div>
       <div className="TimeBox">
-        <div className="Title">저녁</div>
+        <div className="TimeTitle">저녁</div>
         <div className="MedicineBox">
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
           <DailyMedigerIconWidget />
           <DailyMedigerIconWidget />
           <DailyMedigerIconWidget />
