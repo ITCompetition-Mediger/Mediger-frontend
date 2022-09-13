@@ -111,6 +111,9 @@ function MonthlyMediger() {
       <Calendar
         onChange={onChange}
         formatDay={(locale, date) => moment(date).format('DD')}
+        minDetail="month"
+        maxDetail="month"
+        // showNeighboringMonth={false}
         value={value}
       />
 
