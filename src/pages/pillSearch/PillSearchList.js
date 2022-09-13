@@ -45,6 +45,7 @@ const PillListWrapper = styled.div`
 `;
 
 function PillSearchList(){
+
     return(
         <PillListWrapper>
             <div className="pillImage">이미지</div>

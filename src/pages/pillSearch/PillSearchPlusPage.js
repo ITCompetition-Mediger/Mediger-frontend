@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import { AiOutlineStar } from "react-icons/ai";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
+import { ModalWrapper, StyledModal } from "../../components/StyledModal";
 import { Mobile } from "../../components/ReactResponsive";
 
 const PillSearchPlusWrapper = styled.form`
@@ -61,6 +62,10 @@ const PillContentListWrapper = styled.div`
 `;
 
 function PillSearchPlusPage(){
+    const [isOpen, setIsOpen] = useState(false);
+    const handleModal = (event) => {
+        setIsOpen(!isOpen)
+    };
     return(
         <Mobile>
             <PillSearchPlusWrapper>
@@ -68,8 +73,19 @@ function PillSearchPlusPage(){
                 <PillContentHeaderWrapper>
                 <div className="pillHeader">
                     <div className="pillTitle">모노틴정</div>
-                    <div className="pillScrap">
-                    <AiOutlineStar/>
+                    <div
+                        className="pillScrap"
+                        onClick={handleModal}
+                    >
+                    {isOpen === false ? <AiOutlineStar/> : <AiFillStar />}
+                    {isOpen ===false ? null :
+                        <ModalWrapper>
+                            <StyledModal>
+                                <p className="modalContent">메디저 리스트에 추가되었습니다!</p>
+                                <button className="modalBtn">확인</button>
+                            </StyledModal>
+                        </ModalWrapper>
+                    }
                     </div>
                 </div>
                 <div className="pillImage">
