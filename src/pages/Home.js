@@ -8,7 +8,7 @@ function Home() {
     <div>
       {/* Home!
       <Link to="/"></Link> */}
-      <Mypage />
+      <MonthlyMediger />
     </div>
   );
 }
