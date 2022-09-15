@@ -45,12 +45,6 @@ const AddToMedigerBox = styled.div`
     // background-color: green;
   }
 
-  .AlarmBox {
-    width: 85vw;
-    padding: 0 7.5vw;
-    // background-color: skyblue;
-  }
-
   .Title {
     font-size: 20px;
     font-weight: 600;
@@ -96,7 +90,6 @@ const AddToMedigerBox = styled.div`
 
   .WayBox {
     display: flex;
-    justify-content: center;
     align-items: center;
     margin-bottom: 2vw;
   }
@@ -105,7 +98,11 @@ const AddToMedigerBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1vw 2vw;
+    margin: 1vw 0;
+
+    &:last-child {
+      margin-left: 5vw;
+    }
   }
 
   .SubText {
@@ -113,6 +110,25 @@ const AddToMedigerBox = styled.div`
     color: #42514d;
   }
 
+  .TimingSelectBox,
+  .TimeSelectBox,
+  .CountBox {
+    border-radius: 2vw;
+    padding: 1vw;
+    margin-right: 3vw;
+    text-align: center;
+    background-color: #ecf2f0;
+    color: #42514d;
+    font-size: 13px;
+    border: none;
+  }
+
+  .CountBox {
+    margin-top: 0.4vh;
+    width: 20vw;
+  }
+
+  //   캘린더 관련
   .react-datepicker-wrapper {
     width: 27vw;
   }
@@ -151,6 +167,7 @@ function AddToMediger() {
           </div>
           <hr></hr>
         </div>
+
         <div className="MedicineToTakeBox ContentBox">
           <p className="SubTitle">복용할 약</p>
           <div className="AddBox">
@@ -159,6 +176,7 @@ function AddToMediger() {
             </div>
           </div>
         </div>
+
         <div className="HowToTakeMedicineBox ContentBox">
           <p className="SubTitle">복용 방법</p>
           <div className="WayBox">
@@ -204,16 +222,9 @@ function AddToMediger() {
           </div>
           <div className="WayBox">
             <div className="CountContainer">
-              <input type="number" min="0"></input>
+              <input type="number" min="0" className="CountBox"></input>
             </div>
             <div className="SubText">개씩</div>
-          </div>
-          <div className="HowToTakeMedicineBox ContentBox">
-            <p className="SubTitle">복용 방법</p>
-            {/* <input type={date}></input> */}
-          </div>
-          <div className="AlarmBox ContentBox">
-            <p className="SubTitle">알람 설정</p>
           </div>
         </div>
         <NavBar />
