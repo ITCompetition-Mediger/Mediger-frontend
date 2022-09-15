@@ -56,13 +56,13 @@ function NavBar() {
           </li>
         </Link>
         <Link to={`/map/pharmacyList`}>
-        <li className="itemList">
-          <FaHeartbeat />
-        </li>
+          <li className="itemList">
+            <FaHeartbeat />
+          </li>
         </Link>
       </ul>
     </NavBarWrapper>
   );
-  }
-  
+}
+
 export default NavBar;

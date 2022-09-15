@@ -1,47 +1,47 @@
-import React from "react"
-import styled from "styled-components"
-import { AiOutlineStar } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { AiOutlineStar } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const PillListWrapper = styled.div`
-    background-color: #ECF2F0;
-    width: 70%;
-    height: 8.6vh;
+  background-color: #ecf2f0;
+  width: 70%;
+  height: 8.6vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-radius: 0.5rem;
+  margin: 0.8rem;
+
+  a {
+    text-decoration: none;
+  }
+
+  .pillList {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border-radius: 0.5rem;
-    margin: 0.8rem;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+    padding-top: 0.5rem;
+  }
 
-    a {
-        text-decoration: none;
-    }
+  .pillTitle {
+    color: #3c7466;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
 
-    .pillList {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-decoration: none;
-        padding-top: 0.5rem;
-    }
+  .pillContent {
+    color: #42514d;
+    font-size: 0.5rem;
+  }
 
-    .pillTitle {
-        color: #3C7466;
-        font-size: 1rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-    }
-
-    .pillContent {
-        color: #42514D;
-        font-size: 0.5rem;
-    }
-
-    .scrap {
-        color: #42514D;
-        display: flex;
-        align-items: center;
-    }
+  .scrap {
+    color: #42514d;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 function PillSearchList(){

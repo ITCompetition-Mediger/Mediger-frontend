@@ -7,58 +7,58 @@ import { ModalWrapper, StyledModal } from "../../components/StyledModal";
 import { Mobile } from "../../components/ReactResponsive";
 
 const PillSearchPlusWrapper = styled.form`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 const PillContentHeaderWrapper = styled.div`
-    align-items: center;
+  align-items: center;
 
-    .pillHeader{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        padding-top: 1.2rem;
-        padding-bottom: 1.2rem;
-        text-align: center;
-        width: 100%;
-    }
+  .pillHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    text-align: center;
+    width: 100%;
+  }
 
-    .pillTitle{
-        color: #3C7466;
-        font-weight: bold;
-        font-size: 1.5rem;
-    }
+  .pillTitle {
+    color: #3c7466;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
 
-    .pillScrap{
-        color: #3C7466;
-        font-size: 1.5rem;
-    }
+  .pillScrap {
+    color: #3c7466;
+    font-size: 1.5rem;
+  }
 
-    .pillImage {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
+  .pillImage {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
 `;
 
 const PillContentListWrapper = styled.div`
-    padding-left: 21%;
+  padding-left: 21%;
 
-    .pillContentList{
-        margin-bottom: 2.5rem;
-    }
+  .pillContentList {
+    margin-bottom: 2.5rem;
+  }
 
-    .contentTitle {
-        color: #3C7466;
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-    }
+  .contentTitle {
+    color: #3c7466;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
 
-    .contents{
-        color: #42514D;
-        font-size: 1rem;
-    }
+  .contents {
+    color: #42514d;
+    font-size: 1rem;
+  }
 `;
 
 function PillSearchPlusPage(){
