@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-const ModalWrapper = styled.div`
+export const ModalWrapper = styled.div`
     position: fixed;
     top: 0;
     left: 0;
@@ -13,7 +12,7 @@ const ModalWrapper = styled.div`
     justify-content: center;
 `;
 
-const StyledModal = styled.div`
+export const StyledModal = styled.div`
         background: white;
         padding: 24px 16px;
         border-radius: 4px;
@@ -36,16 +35,3 @@ const StyledModal = styled.div`
         height: 21px;
     }
 `;
-
-function AddModal(){
-    return(
-        <ModalWrapper>
-                <StyledModal>
-                    <p className="modalContent">메디저 리스트에 추가되었습니다!</p>
-                    <button className="modalBtn">확인</button>
-                </StyledModal>
-        </ModalWrapper>
-    );
-}
-
-export default AddModal;
