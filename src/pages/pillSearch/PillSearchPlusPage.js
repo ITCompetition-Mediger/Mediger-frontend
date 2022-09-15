@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
-import Header from '../../components/Header';
-import NavBar from '../../components/NavBar';
-import { ModalWrapper, StyledModal } from '../../components/StyledModal';
-import { Mobile } from '../../components/ReactResponsive';
+import React, {useState} from "react";
+import styled from "styled-components";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
+import Header from "../../components/Header";
+import NavBar from "../../components/NavBar";
+import { ModalWrapper, StyledModal } from "../../components/StyledModal";
+import { Mobile } from "../../components/ReactResponsive";
 
 const PillSearchPlusWrapper = styled.form`
   display: flex;
@@ -61,60 +61,62 @@ const PillContentListWrapper = styled.div`
   }
 `;
 
-function PillSearchPlusPage() {
-  const [isOpen, setIsOpen] = useState(false);
-  const handleModal = (event) => {
-    setIsOpen(!isOpen);
-  };
-  return (
-    <Mobile>
-      <PillSearchPlusWrapper>
-        <Header />
-        <PillContentHeaderWrapper>
-          <div className="pillHeader">
-            <div className="pillTitle">모노틴정</div>
-            <div className="pillScrap" onClick={handleModal}>
-              {isOpen === false ? <AiOutlineStar /> : <AiFillStar />}
-              {isOpen === false ? null : (
-                <ModalWrapper>
-                  <StyledModal>
-                    <p className="modalContent">
-                      메디저 리스트에 추가되었습니다!
-                    </p>
-                    <button className="modalBtn">확인</button>
-                  </StyledModal>
-                </ModalWrapper>
-              )}
-            </div>
-          </div>
-          <div className="pillImage"></div>
-        </PillContentHeaderWrapper>
-        <PillContentListWrapper>
-          <div className="pillContentList">
-            <div className="contentTitle">효능타이틀</div>
-            <div className="contents">효능내용</div>
-          </div>
-          <div className="pillContentList">
-            <div className="contentTitle">사용법타이틀</div>
-            <div className="contents">사용법내용</div>
-          </div>
-          <div className="pillContentList">
-            <div className="contentTitle">경고타이틀</div>
-            <div className="contents">경고내용</div>
-          </div>
-          <div className="pillContentList">
-            <div className="contentTitle">주의사항타이틀</div>
-            <div className="contents">주의사항내용</div>
-          </div>
-          <div className="pillContentList">
-            <div className="contentTitle">상호작용타이틀</div>
-            <div className="contents">상호작용내용</div>
-          </div>
-        </PillContentListWrapper>
-        <NavBar />
-      </PillSearchPlusWrapper>
-    </Mobile>
-  );
+function PillSearchPlusPage(){
+    const [isOpen, setIsOpen] = useState(false);
+    const handleModal = (event) => {
+        setIsOpen(!isOpen)
+    };
+    return(
+        <Mobile>
+            <PillSearchPlusWrapper>
+                <Header />
+                <PillContentHeaderWrapper>
+                <div className="pillHeader">
+                    <div className="pillTitle">모노틴정</div>
+                    <div
+                        className="pillScrap"
+                        onClick={handleModal}
+                    >
+                    {isOpen === false ? <AiOutlineStar/> : <AiFillStar />}
+                    {isOpen ===false ? null :
+                        <ModalWrapper>
+                            <StyledModal>
+                                <p className="modalContent">메디저 리스트에 추가되었습니다!</p>
+                                <button className="modalBtn">확인</button>
+                            </StyledModal>
+                        </ModalWrapper>
+                    }
+                    </div>
+                </div>
+                <div className="pillImage">
+                </div>
+                </PillContentHeaderWrapper>
+                <PillContentListWrapper>
+                    <div className="pillContentList">
+                        <div className="contentTitle">효능타이틀</div>
+                        <div className="contents">효능내용</div>
+                    </div>
+                    <div className="pillContentList">
+                        <div className="contentTitle">사용법타이틀</div>
+                        <div className="contents">사용법내용</div>
+                    </div>
+                    <div className="pillContentList">
+                        <div className="contentTitle">경고타이틀</div>
+                        <div className="contents">경고내용</div>
+                    </div>
+                    <div className="pillContentList">
+                        <div className="contentTitle">주의사항타이틀</div>
+                        <div className="contents">주의사항내용</div>
+                    </div>
+                    <div className="pillContentList">
+                        <div className="contentTitle">상호작용타이틀</div>
+                        <div className="contents">상호작용내용</div>
+                    </div>
+                </PillContentListWrapper>
+                <NavBar />
+            </PillSearchPlusWrapper>
+        </Mobile>
+    );
 }
 
 export default PillSearchPlusPage;

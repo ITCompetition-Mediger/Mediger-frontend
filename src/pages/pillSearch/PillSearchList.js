@@ -44,24 +44,25 @@ const PillListWrapper = styled.div`
   }
 `;
 
-function PillSearchList() {
-  return (
-    <PillListWrapper>
-      <div className="pillImage">이미지</div>
-      <Link to={`/pillSearch/detail`}>
-        <div className="pillList">
-          <div className="pillTitle">모노틴정</div>
-          <div className="pillContent">
-            <div className="pillCompany">업체명: 한미약품(주)</div>
-            <div className="pillCode">품목기준코드: 200003092</div>
-          </div>
-        </div>
-      </Link>
-      <div className="scrap">
-        <AiOutlineStar />
-      </div>
-    </PillListWrapper>
-  );
+function PillSearchList(){
+
+    return(
+        <PillListWrapper>
+            <div className="pillImage">이미지</div>
+            <Link to={`/pillSearch/detail`}>
+                <div className="pillList">
+                    <div className="pillTitle">모노틴정</div>
+                        <div className="pillContent">
+                            <div className="pillCompany">업체명: 한미약품(주)</div>
+                            <div className="pillCode">품목기준코드: 200003092</div>
+                        </div>
+                    </div>
+            </Link>
+            <div className="scrap">
+                <AiOutlineStar />
+            </div> 
+        </PillListWrapper>
+    );
 }
 
 export default PillSearchList;
