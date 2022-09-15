@@ -133,7 +133,7 @@ function Mypage() {
         </div>
       </div>
 
-      {/* <NavBar /> */}
+      <NavBar />
     </MypageBox>
   );
 }

@@ -10,6 +10,8 @@ import PharmacyMapPage from './pages/map/PharmacyMapPage';
 import LoginPage from './pages/login/LoginPage';
 import AddToMediger from './pages/myMediger/AddToMediger';
 import DailyMediger from './pages/myMediger/DailyMediger';
+import MonthlyMediger from './pages/myMediger/MonthlyMediger';
+import Mypage from './pages/myMediger/Mypage';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
       <Route path="/map/hospitalList" element={<HospitalListPage />} />
       <Route path="/myMediger/AddToMediger" element={<AddToMediger />} />
       <Route path="/myMediger/DailyMediger" element={<DailyMediger />} />
+      <Route path="/myMediger/MonthlyMediger" element={<MonthlyMediger />} />
+      <Route path="/myMediger/Mypage" element={<Mypage />} />
     </Routes>
   );
 }
