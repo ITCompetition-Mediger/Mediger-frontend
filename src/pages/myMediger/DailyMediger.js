@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Header from '../../components/Header';
 import NavBar from '../../components/NavBar';
 import Mediger from '../../components/Mediger';
+import { Mobile } from '../../components/ReactResponsive';
 
 const DailyMedigerBox = styled.div`
   width: 100vw;
@@ -81,41 +82,43 @@ const StyledLink = styled(Link)`
 
 function DailyMediger() {
   return (
-    <DailyMedigerBox>
-      <div className="TitleBox ContentBox">
-        <p className="Title">일간 메디저</p>
-        <div className="PlusBtn">
-          <StyledLink to="/AddToMediger">
-            <IoIosAddCircle />
-          </StyledLink>
+    <Mobile>
+      <DailyMedigerBox>
+        <div className="TitleBox ContentBox">
+          <p className="Title">일간 메디저</p>
+          <div className="PlusBtn">
+            <StyledLink to="/AddToMediger">
+              <IoIosAddCircle />
+            </StyledLink>
+          </div>
         </div>
-      </div>
-      <div className="ContentBox">
-        <p className="SubTitle">아침</p>
-        <div className="MedicineBox">
-          <Mediger />
-          <Mediger />
-          <Mediger />
+        <div className="ContentBox">
+          <p className="SubTitle">아침</p>
+          <div className="MedicineBox">
+            <Mediger />
+            <Mediger />
+            <Mediger />
+          </div>
         </div>
-      </div>
-      <div className="ContentBox">
-        <p className="SubTitle">점심</p>
-        <div className="MedicineBox">
-          <Mediger />
-          <Mediger />
-          <Mediger />
-          <Mediger />
+        <div className="ContentBox">
+          <p className="SubTitle">점심</p>
+          <div className="MedicineBox">
+            <Mediger />
+            <Mediger />
+            <Mediger />
+            <Mediger />
+          </div>
         </div>
-      </div>
-      <div className="ContentBox">
-        <p className="SubTitle">저녁</p>
-        <div className="MedicineBox">
-          <Mediger />
-          <Mediger />
+        <div className="ContentBox">
+          <p className="SubTitle">저녁</p>
+          <div className="MedicineBox">
+            <Mediger />
+            <Mediger />
+          </div>
         </div>
-      </div>
-      <NavBar />
-    </DailyMedigerBox>
+        <NavBar />
+      </DailyMedigerBox>
+    </Mobile>
   );
 }
 
