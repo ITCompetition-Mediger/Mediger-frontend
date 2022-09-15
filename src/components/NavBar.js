@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const NavBarWrapper = styled.div`
   background-color: #3c7466;
   width: 100%;
-  height: 6vh;
+  height: 6%;
   padding: 0.5rem;
   display: flex;
   justify-content: space-around;
@@ -56,13 +56,13 @@ function NavBar() {
           </li>
         </Link>
         <Link to={`/map/pharmacyList`}>
-        <li className="itemList">
-          <FaHeartbeat />
-        </li>
+          <li className="itemList">
+            <FaHeartbeat />
+          </li>
         </Link>
       </ul>
     </NavBarWrapper>
   );
-  }
-  
+}
+
 export default NavBar;
