@@ -45,17 +45,12 @@ function NavBar() {
             <CgPill />
           </li>
         </Link>
-        <Link to={`/pillSearch/detail`}>
-          <li className="itemList">
-            <CgPill />
-          </li>
-        </Link>
-        <Link to={`/map/hospital`}>
+        <Link to={`/map/pharmacyList`}>
           <li className="itemList">
             <MdLocalPharmacy />
           </li>
         </Link>
-        <Link to={`/map/pharmacyList`}>
+        <Link to={`/myMediger/Mypage`}>
           <li className="itemList">
             <FaHeartbeat />
           </li>
