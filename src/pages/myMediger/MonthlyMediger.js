@@ -8,6 +8,7 @@ import Calendar from 'react-calendar';
 // import 'react-calendar/dist/Calendar.css';
 import './MonthlyCalender.css';
 import moment from 'moment';
+import { Mobile } from '../../components/ReactResponsive';
 
 const MonthlyMedigerBox = styled.div`
   width: 100vw;
@@ -99,36 +100,38 @@ const StyledLink = styled(Link)`
 function MonthlyMediger() {
   const [value, onChange] = useState(new Date());
   return (
-    <MonthlyMedigerBox>
-      <div className="TitleBox">
-        <p className="Title">일간 메디저</p>
-        <div className="PlusBtn">
-          <StyledLink to="/AddToMediger">
-            <IoIosAddCircle />
-          </StyledLink>
+    <Mobile>
+      <MonthlyMedigerBox>
+        <div className="TitleBox">
+          <p className="Title">일간 메디저</p>
+          <div className="PlusBtn">
+            <StyledLink to="/AddToMediger">
+              <IoIosAddCircle />
+            </StyledLink>
+          </div>
         </div>
-      </div>
-      <Calendar
-        onChange={onChange}
-        formatDay={(locale, date) => moment(date).format('DD')}
-        minDetail="month"
-        maxDetail="month"
-        // showNeighboringMonth={false}
-        value={value}
-      />
+        <Calendar
+          onChange={onChange}
+          formatDay={(locale, date) => moment(date).format('DD')}
+          minDetail="month"
+          maxDetail="month"
+          // showNeighboringMonth={false}
+          value={value}
+        />
 
-      <div className="DailyMedigerBox">
-        <div className="SubTitleBox">
-          <div className="SubTitle">{moment(value).format('YYYY/MM/DD')}</div>
-          <hr />
+        <div className="DailyMedigerBox">
+          <div className="SubTitleBox">
+            <div className="SubTitle">{moment(value).format('YYYY/MM/DD')}</div>
+            <hr />
+          </div>
+          <div className="ContentBox">
+            <DailyMedigerWidget />
+          </div>
         </div>
-        <div className="ContentBox">
-          <DailyMedigerWidget />
-        </div>
-      </div>
 
-      {/* <NavBar /> */}
-    </MonthlyMedigerBox>
+        <NavBar />
+      </MonthlyMedigerBox>
+    </Mobile>
   );
 }
 

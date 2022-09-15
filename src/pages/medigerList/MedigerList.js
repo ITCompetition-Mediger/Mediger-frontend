@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Header from '../../components/Header';
 import NavBar from '../../components/NavBar';
 import Medicine from '../../components/Medicine';
+import { Mobile } from '../../components/ReactResponsive';
 
 // 변수 이름은 무조건 대문자로 시작!
 const All = styled.div`
@@ -58,26 +59,28 @@ const PlusBtn = styled.div`
 
 function MedigerList() {
   return (
-    <All>
-      <Header></Header>
-      <Content>
-        <TitleBox>
-          <Title>메디저 리스트</Title>
-          <Link to="/">
-            <PlusBtn>
-              <IoIosAddCircle />
-            </PlusBtn>
-          </Link>
-        </TitleBox>
-        <ListBox>
-          <Medicine />
-          <Medicine />
-          <Medicine />
-          <Medicine />
-        </ListBox>
-      </Content>
-      <NavBar />
-    </All>
+    <Mobile>
+      <All>
+        <Header></Header>
+        <Content>
+          <TitleBox>
+            <Title>메디저 리스트</Title>
+            <Link to="/">
+              <PlusBtn>
+                <IoIosAddCircle />
+              </PlusBtn>
+            </Link>
+          </TitleBox>
+          <ListBox>
+            <Medicine />
+            <Medicine />
+            <Medicine />
+            <Medicine />
+          </ListBox>
+        </Content>
+        <NavBar />
+      </All>
+    </Mobile>
   );
 }
 
