@@ -119,7 +119,7 @@ function Mypage() {
               <p className="Title">일간 메디저</p>
               <hr />
             </div>
-            <StyledLink to={`/myMediger/DailyMediger`}>
+            <StyledLink to={`/myMediger/MonthlyMediger`}>
               <div className="ContentBox">
                 <DailyMedigerWidget />
               </div>

@@ -103,7 +103,7 @@ function MonthlyMediger() {
     <Mobile>
       <MonthlyMedigerBox>
         <div className="TitleBox">
-          <p className="Title">일간 메디저</p>
+          <p className="Title">월간 메디저</p>
           <div className="PlusBtn">
             <StyledLink to="/AddToMediger">
               <IoIosAddCircle />
