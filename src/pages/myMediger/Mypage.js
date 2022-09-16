@@ -144,7 +144,7 @@ function Mypage() {
                   <MedigerListWidget />
                 </div>
                 <div className="AddBtnBox">
-                  <Link to="/">
+                  <Link to={`/pillSearch`}>
                     <div className="PlusBtn">
                       <IoIosAddCircle />
                     </div>
