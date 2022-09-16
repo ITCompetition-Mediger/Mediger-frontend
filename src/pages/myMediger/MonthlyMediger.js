@@ -124,9 +124,11 @@ function MonthlyMediger() {
             <div className="SubTitle">{moment(value).format('YYYY/MM/DD')}</div>
             <hr />
           </div>
-          <div className="ContentBox">
-            <DailyMedigerWidget />
-          </div>
+          <StyledLink to={`/myMediger/DailyMediger`}>
+            <div className="ContentBox">
+              <DailyMedigerWidget />
+            </div>
+          </StyledLink>
         </div>
 
         <NavBar />
