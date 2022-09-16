@@ -4,7 +4,6 @@ import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import MedigerListWidget from '../../components/MedigerListWidget';
 import DailyMedigerWidget from '../../components/DailyMedigerWidget';
-import NavBar from '../../components/NavBar';
 import { Mobile } from '../../components/ReactResponsive';
 import MypageLayout from '../../components/MypageLayout';
 
