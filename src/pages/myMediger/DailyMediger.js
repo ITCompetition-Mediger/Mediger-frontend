@@ -77,7 +77,7 @@ function DailyMediger() {
           <div className="TitleBox ContentBox">
             <p className="Title">일간 메디저</p>
             <div className="PlusBtn">
-              <StyledLink to="/AddToMediger">
+              <StyledLink to={`/myMediger/AddToMediger`}>
                 <IoIosAddCircle />
               </StyledLink>
             </div>
