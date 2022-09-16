@@ -58,7 +58,7 @@ function MedigerList() {
           <div className="Content">
             <div className="TitleBox">
               <p className="Title">메디저 리스트</p>
-              <Link to="/">
+              <Link to={`/pillSearch`}>
                 <div className="PlusBtn">
                   <IoIosAddCircle />
                 </div>
