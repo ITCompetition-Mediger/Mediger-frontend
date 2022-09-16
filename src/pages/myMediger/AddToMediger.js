@@ -146,6 +146,20 @@ const MyDatePicker = styled(DatePicker)`
   }
 `;
 
+const StyledLink = styled(Link)`
+  color: #3c7466;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: #3c7466;
+  }
+`;
+
 function AddToMediger() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -158,7 +172,9 @@ function AddToMediger() {
             <div className="TitleBoxContent">
               <p className="Title">메디저 추가</p>
               <div className="PlusBtn">
-                <IoIosAddCircle />
+                <StyledLink to={`/myMediger/DailyMediger`}>
+                  <IoIosAddCircle />
+                </StyledLink>
               </div>
             </div>
             <hr />
@@ -168,7 +184,9 @@ function AddToMediger() {
             <p className="SubTitle">복용할 약</p>
             <div className="AddBox">
               <div className="AddBtn">
-                <IoIosAddCircle />
+                <StyledLink to={`/pillSearch`}>
+                  <IoIosAddCircle />
+                </StyledLink>
               </div>
             </div>
           </div>

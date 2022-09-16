@@ -101,7 +101,7 @@ function MonthlyMediger() {
           <div className="TitleBox">
             <p className="Title">월간 메디저</p>
             <div className="PlusBtn">
-              <StyledLink to="/AddToMediger">
+              <StyledLink to={`/myMediger/AddToMediger`}>
                 <IoIosAddCircle />
               </StyledLink>
             </div>
