@@ -45,7 +45,7 @@ const LoginHeaderContents = styled.div`
 
   hr {
     position: relative;
-    top: 17vh;
+    top: 15vh;
     width: 100vw;
     background: white;
     height: 3px;
@@ -57,7 +57,7 @@ const LoginHeaderContents = styled.div`
     padding: 0 1vw;
 
     position: relative;
-    top: 19vh;
+    top: 17vh;
     z-index: 1;
 
     background-color: #3c7466;
