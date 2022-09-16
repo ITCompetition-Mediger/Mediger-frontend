@@ -6,6 +6,7 @@ import MedigerListWidget from '../../components/MedigerListWidget';
 import DailyMedigerWidget from '../../components/DailyMedigerWidget';
 import NavBar from '../../components/NavBar';
 import { Mobile } from '../../components/ReactResponsive';
+import MypageLayout from '../../components/MypageLayout';
 
 const MypageBox = styled.div`
   width: 100vw;
@@ -18,8 +19,7 @@ const MypageBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10vh 0;
-    margin-top: 13vh;
+    margin-bottom: 5vh;
   }
 
   .HelloIcon {
@@ -29,7 +29,7 @@ const MypageBox = styled.div`
 
   .Hello {
     font-size: 5.5vw;
-    font-weight: 600;
+    font-weight: bold;
     color: #3c7466;
   }
 
@@ -89,54 +89,54 @@ const MypageBox = styled.div`
 function Mypage() {
   return (
     <Mobile>
-      <MypageBox>
-        <div className="HelloBox">
-          <div className="HelloIcon">💊</div>
-          <div className="Hello">
-            잠깐,
-            <br />
-            User1님! 잊지 않으셨죠?
-          </div>
-        </div>
-
-        <div className="DailyMedigerBox">
-          <div className="TitleBox">
-            <p className="Title">일간 메디저</p>
-            <hr />
-          </div>
-          <div className="ContentBox">
-            <DailyMedigerWidget />
-          </div>
-        </div>
-
-        <div className="MedigerListBox">
-          <div className="TitleBox">
-            <p className="Title">메디저 리스트</p>
-            <hr />
-          </div>
-          <div className="ContentBox">
-            <div className="MedigerBox">
-              <MedigerListWidget />
-              <MedigerListWidget />
-              <MedigerListWidget />
-              <MedigerListWidget />
-              <MedigerListWidget />
-              <MedigerListWidget />
-              <MedigerListWidget />
-              <MedigerListWidget />
-            </div>
-            <div className="AddBtnBox">
-              <Link to="/">
-                <div className="PlusBtn">
-                  <IoIosAddCircle />
-                </div>
-              </Link>
+      <MypageLayout>
+        <MypageBox>
+          <div className="HelloBox">
+            <div className="HelloIcon">💊</div>
+            <div className="Hello">
+              잠깐,
+              <br />
+              User1님! 잊지 않으셨죠?
             </div>
           </div>
-        </div>
 
-        <NavBar />
-      </MypageBox>
+          <div className="DailyMedigerBox">
+            <div className="TitleBox">
+              <p className="Title">일간 메디저</p>
+              <hr />
+            </div>
+            <div className="ContentBox">
+              <DailyMedigerWidget />
+            </div>
+          </div>
+
+          <div className="MedigerListBox">
+            <div className="TitleBox">
+              <p className="Title">메디저 리스트</p>
+              <hr />
+            </div>
+            <div className="ContentBox">
+              <div className="MedigerBox">
+                <MedigerListWidget />
+                <MedigerListWidget />
+                <MedigerListWidget />
+                <MedigerListWidget />
+                <MedigerListWidget />
+                <MedigerListWidget />
+                <MedigerListWidget />
+                <MedigerListWidget />
+              </div>
+              <div className="AddBtnBox">
+                <Link to="/">
+                  <div className="PlusBtn">
+                    <IoIosAddCircle />
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </MypageBox>
+      </MypageLayout>
     </Mobile>
   );
 }
