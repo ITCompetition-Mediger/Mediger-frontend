@@ -7,6 +7,8 @@ import { Mobile } from '../../components/ReactResponsive';
 const Wrapper = styled.form`
   align-items: center;
   justify-content: center;
+
+  overflow: hidden;
 `;
 function LoginPage() {
   return (
