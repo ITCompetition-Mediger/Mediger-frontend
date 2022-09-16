@@ -23,7 +23,7 @@ const LoginHeaderContents = styled.div`
   color: white;
 
   position: relative;
-  animation: ${slideIn} 1s cubic-bezier(0.39, 0.725, 0.64, 0.59);
+  animation: ${slideIn} 2s cubic-bezier(0.345, 0.77, 0.395, 0.92);
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
   p {
