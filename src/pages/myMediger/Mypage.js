@@ -86,6 +86,20 @@ const MypageBox = styled.div`
   }
 `;
 
+const StyledLink = styled(Link)`
+  color: #3c7466;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: #3c7466;
+  }
+`;
+
 function Mypage() {
   return (
     <Mobile>
@@ -105,9 +119,11 @@ function Mypage() {
               <p className="Title">일간 메디저</p>
               <hr />
             </div>
-            <div className="ContentBox">
-              <DailyMedigerWidget />
-            </div>
+            <StyledLink to={`/myMediger/DailyMediger`}>
+              <div className="ContentBox">
+                <DailyMedigerWidget />
+              </div>
+            </StyledLink>
           </div>
 
           <div className="MedigerListBox">
@@ -115,25 +131,27 @@ function Mypage() {
               <p className="Title">메디저 리스트</p>
               <hr />
             </div>
-            <div className="ContentBox">
-              <div className="MedigerBox">
-                <MedigerListWidget />
-                <MedigerListWidget />
-                <MedigerListWidget />
-                <MedigerListWidget />
-                <MedigerListWidget />
-                <MedigerListWidget />
-                <MedigerListWidget />
-                <MedigerListWidget />
+            <StyledLink to={`/MedigerList`}>
+              <div className="ContentBox">
+                <div className="MedigerBox">
+                  <MedigerListWidget />
+                  <MedigerListWidget />
+                  <MedigerListWidget />
+                  <MedigerListWidget />
+                  <MedigerListWidget />
+                  <MedigerListWidget />
+                  <MedigerListWidget />
+                  <MedigerListWidget />
+                </div>
+                <div className="AddBtnBox">
+                  <Link to="/">
+                    <div className="PlusBtn">
+                      <IoIosAddCircle />
+                    </div>
+                  </Link>
+                </div>
               </div>
-              <div className="AddBtnBox">
-                <Link to="/">
-                  <div className="PlusBtn">
-                    <IoIosAddCircle />
-                  </div>
-                </Link>
-              </div>
-            </div>
+            </StyledLink>
           </div>
         </MypageBox>
       </MypageLayout>
