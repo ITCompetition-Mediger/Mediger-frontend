@@ -2,7 +2,18 @@ import React from 'react';
 import GoogleLoginButton from './GoogleLoginButton';
 import KakaoLoginButton from './KakaoLoginButton';
 import NaverLoginButton from './NaverLoginButton';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const slideUp = keyframes`
+to{
+    top: 0;
+    opacity: 1;
+}
+from{
+    top: 40vh;
+    opacity: 1;
+}
+`;
 
 const Wrapper = styled.form`
   width: 100vw;
@@ -20,15 +31,40 @@ const Wrapper = styled.form`
     align-items: center;
     justify-content: space-evenly;
   }
+
+  .Login1 {
+    position: relative;
+    opacity: 0;
+    animation: ${slideUp} 1.5s cubic-bezier(0.415, 0.76, 0.595, 0.76) forwards;
+    animation-delay: 1s;
+  }
+  .Login2 {
+    position: relative;
+    opacity: 0;
+    animation: ${slideUp} 1.5s cubic-bezier(0.415, 0.76, 0.595, 0.76) forwards;
+    animation-delay: 1.5s;
+  }
+  .Login3 {
+    position: relative;
+    opacity: 0;
+    animation: ${slideUp} 1.5s cubic-bezier(0.415, 0.76, 0.595, 0.76) forwards;
+    animation-delay: 2s;
+  }
 `;
 
 function LoginButton() {
   return (
     <Wrapper>
       <div class="BtnBox">
-        <GoogleLoginButton />
-        <KakaoLoginButton />
-        <NaverLoginButton />
+        <div class="Login1">
+          <GoogleLoginButton />
+        </div>
+        <div class="Login2">
+          <KakaoLoginButton />
+        </div>
+        <div class="Login3">
+          <NaverLoginButton />
+        </div>
       </div>
     </Wrapper>
   );
