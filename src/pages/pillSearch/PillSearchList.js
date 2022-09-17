@@ -4,47 +4,9 @@ import { AiOutlineStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 const PillListWrapper = styled.div`
-  /* background-color: #ecf2f0;
-  width: 70%;
-  height: 8.6vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  border-radius: 0.5rem;
-  margin: 0.8rem;
-
-  a {
-    text-decoration: none;
-  }
-
-  .pillList {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-decoration: none;
-    padding-top: 0.5rem;
-  }
-
-  .pillTitle {
-    color: #3c7466;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-
-  .pillContent {
-    color: #42514d;
-    font-size: 0.5rem;
-  }
-
-  .scrap {
-    color: #42514d;
-    display: flex;
-    align-items: center;
-  } */
   background-color: #ecf2f0;
   width: 75vw;
-  padding: 1.5vh 5vw;
+  padding: 2.2vh 5vw;
   margin: 1vh 0;
   border-radius: 2vw;
 
