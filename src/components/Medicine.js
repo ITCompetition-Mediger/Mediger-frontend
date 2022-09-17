@@ -18,7 +18,9 @@ const MedicineBox = styled.div`
 const MedicineImg = styled.div`
   width: 14vw;
   height: 14vw;
-  background: #3c7466;
+  /* background: #3c7466; */
+  background-color: white;
+  border-radius: 50%;
 `;
 
 const MedicineContent = styled.div`
@@ -39,11 +41,6 @@ const MedicineListBtn = styled.div`
   align-items: center;
 `;
 
-const PillImage = styled.img`
-  width: inherit;
-  height: inherit;
-`;
-
 const MedicineTitle = styled.p`
   margin: 0;
   font-size: 13px;
@@ -62,24 +59,39 @@ const MedicineCode = styled.p`
   color: #42514d;
 `;
 
+const StyledLink = styled(Link)`
+  color: #3c7466;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: #3c7466;
+  }
+`;
+
 function Medicine() {
   return (
-    <MedicineBox>
-      <MedicineImg>
-      </MedicineImg>
-      <MedicineContent>
-        <MedicineTitle>모노틴정</MedicineTitle>
-        <MedicineCompany>업체명 : 한미약품(주)</MedicineCompany>
-        <MedicineCode>품목기준코드 : 20000000</MedicineCode>
-      </MedicineContent>
-      <Link to={'/'}>
-        <MedicineListBtn>
-          <AiFillStar />
-          {/* 빈 테두리 별은 if문으로 사용 - 근데 메디저 리스트에서는 즐겨찾기라 사용하지 않음
+    <StyledLink to={`/pillSearch/detail`}>
+      <MedicineBox>
+        <MedicineImg></MedicineImg>
+        <MedicineContent>
+          <MedicineTitle>모노틴정</MedicineTitle>
+          <MedicineCompany>업체명 : 한미약품(주)</MedicineCompany>
+          <MedicineCode>품목기준코드 : 20000000</MedicineCode>
+        </MedicineContent>
+        <Link to={'/'}>
+          <MedicineListBtn>
+            <AiFillStar />
+            {/* 빈 테두리 별은 if문으로 사용 - 근데 메디저 리스트에서는 즐겨찾기라 사용하지 않음
           <AiOutlineStar /> */}
-        </MedicineListBtn>
-      </Link>
-    </MedicineBox>
+          </MedicineListBtn>
+        </Link>
+      </MedicineBox>
+    </StyledLink>
   );
 }
 

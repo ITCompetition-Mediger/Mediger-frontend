@@ -5,12 +5,15 @@ import Mypage from './myMediger/Mypage';
 import DailyMediger from './myMediger/DailyMediger';
 import MedigerList from './medigerList/MedigerList';
 
+import Layout from '../components/Layout';
+
 function Home() {
   return (
     <div>
       {/* Home!
       <Link to="/"></Link> */}
-      <Mypage />
+      {/* <Mypage /> */}
+      <Layout></Layout>
     </div>
   );
 }

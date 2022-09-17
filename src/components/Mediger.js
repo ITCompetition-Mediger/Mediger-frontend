@@ -7,7 +7,7 @@ const MedigerBox = styled.div`
   width: 37vw;
   height: 8vh;
   margin: 1vw;
-  padding: 0.5vw;
+  padding: 1vw;
   border-radius: 2vw;
   background-color: #ecf2f0;
 
@@ -37,9 +37,9 @@ const MedigerBox = styled.div`
   }
 
   .MedigerName {
-    font-size: 2.3vw;
-    font-wight: 600;
-    margin-bottom: 1vw;
+    font-size: 3vw;
+    font-weight: bolder;
+    margin-bottom: 0.3vw;
     color: #3c7466;
   }
 
@@ -49,15 +49,31 @@ const MedigerBox = styled.div`
   }
 `;
 
+const StyledLink = styled(Link)`
+  color: #3c7466;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: #3c7466;
+  }
+`;
+
 function Mediger() {
   return (
-    <MedigerBox>
-      <div class="MedigerImg"></div>
-      <div class="MedigerContent">
-        <p class="MedigerName Text">약 이름</p>
-        <p class="MedigerWay Text">복용 시간, 방법</p>
-      </div>
-    </MedigerBox>
+    <StyledLink to={`/pillSearch/detail`}>
+      <MedigerBox>
+        <div class="MedigerImg"></div>
+        <div class="MedigerContent">
+          <p class="MedigerName Text">약 이름</p>
+          <p class="MedigerWay Text">복용 시간, 방법</p>
+        </div>
+      </MedigerBox>
+    </StyledLink>
   );
 }
 
