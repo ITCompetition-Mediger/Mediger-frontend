@@ -2,28 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
-import Header from '../../components/Header';
-import NavBar from '../../components/NavBar';
 import Mediger from '../../components/Mediger';
 import { Mobile } from '../../components/ReactResponsive';
+import MypageLayout from '../../components/MypageLayout';
 
 const DailyMedigerBox = styled.div`
-  width: 100vw;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   .ContentBox {
     width: 85vw;
     padding: 0 7.5vw;
-    margin: 2.5vh 0;
+    margin: 4vh 0;
   }
 
   .TitleBox {
     width: 85vw;
     padding: 0 7.5vw;
-    margin-top: 8vh;
 
     height: 40px;
     display: flex;
@@ -54,11 +48,6 @@ const DailyMedigerBox = styled.div`
     width: 100%;
     height: 15vh;
     overflow: auto;
-    // background-color: red;
-
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: center;
 
     display: grid;
     place-items: center;
@@ -83,41 +72,42 @@ const StyledLink = styled(Link)`
 function DailyMediger() {
   return (
     <Mobile>
-      <DailyMedigerBox>
-        <div className="TitleBox ContentBox">
-          <p className="Title">일간 메디저</p>
-          <div className="PlusBtn">
-            <StyledLink to="/AddToMediger">
-              <IoIosAddCircle />
-            </StyledLink>
+      <MypageLayout>
+        <DailyMedigerBox>
+          <div className="TitleBox ContentBox">
+            <p className="Title">일간 메디저</p>
+            <div className="PlusBtn">
+              <StyledLink to={`/myMediger/AddToMediger`}>
+                <IoIosAddCircle />
+              </StyledLink>
+            </div>
           </div>
-        </div>
-        <div className="ContentBox">
-          <p className="SubTitle">아침</p>
-          <div className="MedicineBox">
-            <Mediger />
-            <Mediger />
-            <Mediger />
+          <div className="ContentBox">
+            <p className="SubTitle">아침</p>
+            <div className="MedicineBox">
+              <Mediger />
+              <Mediger />
+              <Mediger />
+            </div>
           </div>
-        </div>
-        <div className="ContentBox">
-          <p className="SubTitle">점심</p>
-          <div className="MedicineBox">
-            <Mediger />
-            <Mediger />
-            <Mediger />
-            <Mediger />
+          <div className="ContentBox">
+            <p className="SubTitle">점심</p>
+            <div className="MedicineBox">
+              <Mediger />
+              <Mediger />
+              <Mediger />
+              <Mediger />
+            </div>
           </div>
-        </div>
-        <div className="ContentBox">
-          <p className="SubTitle">저녁</p>
-          <div className="MedicineBox">
-            <Mediger />
-            <Mediger />
+          <div className="ContentBox">
+            <p className="SubTitle">저녁</p>
+            <div className="MedicineBox">
+              <Mediger />
+              <Mediger />
+            </div>
           </div>
-        </div>
-        <NavBar />
-      </DailyMedigerBox>
+        </DailyMedigerBox>
+      </MypageLayout>
     </Mobile>
   );
 }

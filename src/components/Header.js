@@ -9,14 +9,12 @@ const Head = styled.div`
   padding-top: 6vh;
   padding-bottom: 1vh;
 
-  //   position: fixed;
-  //   top: 0;
-  //   left: 0;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 `;
 
 const Logo = styled.p`
   margin: 0;
-  font-size: 35px;
+  font-size: 9vw;
   text-align: center;
   color: white;
 `;
