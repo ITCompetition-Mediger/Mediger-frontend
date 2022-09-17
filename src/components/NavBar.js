@@ -21,7 +21,7 @@ const NavBarWrapper = styled.div`
 `;
 
 const Menu = styled.div`
-  font-size: 1.8rem;
+  font-size: 8vw;
   text-decoration: none;
   padding: 5%;
   color: white;
