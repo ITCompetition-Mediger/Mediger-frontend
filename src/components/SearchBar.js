@@ -1,104 +1,265 @@
-import styled from "styled-components";
-import React, { useState } from "react";
-import { HiSearch } from "react-icons/hi";
+import styled from 'styled-components';
+import React, { useState } from 'react';
+import { HiSearch } from 'react-icons/hi';
 
 const SearchBarWrapper = styled.div`
+  /* padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+
+  select {
+    border: 0.5rem solid #ecf2f0;
+    color: #3c7466;
+    background-color: #ecf2f0;
+    border-radius: 2rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    margin-right: 1rem;
+  }
+
+  input {
+    border-radius: 2rem;
+    border: 0.5rem solid #3a6c60;
+    font-size: 1.2rem;
+    height: 5vh;
+    color: #3a6c60;
+
+    ::placeholder {
+      color: #bbcdc7;
+      font-size: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  svg {
     padding-top: 1rem;
+    color: #3a6c60;
+    font-size: 2rem;
+    padding-left: 1rem;
+  } */
+
+  display: flex;
+  width: 100vw;
+  height: 8vh;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+
+  .searchTypeBox {
     display: flex;
     justify-content: center;
+  }
 
-    select{
-        border: 0.5rem solid #ECF2F0;
-        color: #3C7466;
-        background-color: #ECF2F0;
-        border-radius: 2rem;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        margin-top: 1rem;
-        font-size: 0.7rem;
-        margin-right: 1rem;
-    }
+  .searchType {
+    border-radius: 2vw;
+    padding: 1vw;
+    margin-right: 2vw;
+    text-align: center;
+    background-color: white;
+    color: #3c7466;
+    font-size: 3vw;
+    border: none;
 
-    input{
-        border-radius: 2rem;
-        border: 0.5rem solid #3A6C60;
-        font-size: 1.2rem;
-        height: 5vh;
-        color: #3A6C60;
-        
-        ::placeholder {
-            color: #BBCDC7;
-            font-size: 1rem;
-            padding-left: 1rem;
-        }
+    &:focus {
+      outline: none;
     }
+  }
 
-    svg {
-        padding-top: 1rem;
-        color: #3A6C60;
-        font-size: 2rem;
-        padding-left: 1rem;
+  .searchBarBox {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+
+    padding: 1vw 4vw;
+    border: 2vw solid #3c7466;
+    border-radius: 8vw;
+  }
+
+  .searchInput {
+    border: none;
+    padding: 1vw;
+    margin-right: 2vw;
+    font-size: 3.5vw;
+
+    &:focus {
+      outline: none;
     }
+  }
+
+  .searchIcon {
+    font-size: 5vw;
+    color: #3c7466;
+  }
 `;
 
-function SearchBar(){
-    const [inputValue, setInputValue] = useState("");
+function SearchBar() {
+  const [inputValue, setInputValue] = useState('');
 
-    const inputHandler = (event) => {
-        setInputValue(event.currentTarget.value);
-    };
+  const inputHandler = (event) => {
+    setInputValue(event.currentTarget.value);
+  };
 
-    const goPillSearch = (event) => {
-        event.preventDefault();
+  const goPillSearch = (event) => {
+    event.preventDefault();
 
-        //추후 수정 필요
-        if(inputValue==" "){
-        document.getElementById('checkInputValue').innerHTML='<b>▲검색어를 다시 확인해주세요.<b>';
-        document.getElementById('checkInputValue').style.fontSize='1rem';
-        document.getElementById('checkInputValue').style.color='red';
-        document.getElementById('checkInputValue').style.textAlign='center';
-        document.getElementById('checkInputValue').style.paddingTop='1rem';
-        }
+    //추후 수정 필요
+    if (inputValue == ' ') {
+      document.getElementById('checkInputValue').innerHTML =
+        '<b>▲검색어를 다시 확인해주세요.<b>';
+      document.getElementById('checkInputValue').style.fontSize = '1rem';
+      document.getElementById('checkInputValue').style.color = 'red';
+      document.getElementById('checkInputValue').style.textAlign = 'center';
+      document.getElementById('checkInputValue').style.paddingTop = '1rem';
+    }
 
-        /*
+    /*
         else if(inputValue==null){
         document.getElementById('checkInputValue').innerHTML='<b>검색어를 다시 확인해주세요.<b>';
         document.getElementById('checkInputValue').style.color='red';
         }
         */
 
-        //추후 삭제 필요
-        else{
-            alert('검색완료');
-        }
+    //추후 삭제 필요
+    else {
+      alert('검색완료');
     }
+  };
 
-    return(
-        <>
-            <SearchBarWrapper>
-                <form className="searchTypeBox">
-                    <select name="searchType">
-                        <option value="pillName">의약품명</option>
-                        <option value="symptom">증상</option>
-                    </select>
-                </form>
-                <input
-                    placeholder="의약품명 및 증상 검색"
-                    value={inputValue}
-                    onChange={inputHandler}
-                />
-                <span className="searchIcon">
-                    <HiSearch
-                        onClick={goPillSearch}
-                    /> 
-                </span>
-            </SearchBarWrapper>
-            <div>
-                <div id="checkInputValue"></div>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <SearchBarWrapper>
+        <div className="searchBarBox">
+          <form className="searchTypeBox">
+            <select name="searchType" className="searchType">
+              <option value="pillName">의약품명</option>
+              <option value="symptom">증상</option>
+            </select>
+          </form>
+          <input
+            placeholder="의약품명 및 증상 검색"
+            value={inputValue}
+            onChange={inputHandler}
+            className="searchInput"
+          />
+          <span className="searchIcon">
+            <HiSearch onClick={goPillSearch} />
+          </span>
+        </div>
+      </SearchBarWrapper>
+      <div>
+        <div id="checkInputValue"></div>
+      </div>
+    </>
+  );
 }
 
 export default SearchBar;
+
+// import styled from "styled-components";
+// import React, { useState } from "react";
+// import { HiSearch } from "react-icons/hi";
+
+// const SearchBarWrapper = styled.div`
+//     padding-top: 1rem;
+//     display: flex;
+//     justify-content: center;
+
+//     select{
+//         border: 0.5rem solid #ECF2F0;
+//         color: #3C7466;
+//         background-color: #ECF2F0;
+//         border-radius: 2rem;
+//         -webkit-appearance: none;
+//         -moz-appearance: none;
+//         appearance: none;
+//         margin-top: 1rem;
+//         font-size: 0.7rem;
+//         margin-right: 1rem;
+//     }
+
+//     input{
+//         border-radius: 2rem;
+//         border: 0.5rem solid #3A6C60;
+//         font-size: 1.2rem;
+//         height: 5vh;
+//         color: #3A6C60;
+
+//         ::placeholder {
+//             color: #BBCDC7;
+//             font-size: 1rem;
+//             padding-left: 1rem;
+//         }
+//     }
+
+//     svg {
+//         padding-top: 1rem;
+//         color: #3A6C60;
+//         font-size: 2rem;
+//         padding-left: 1rem;
+//     }
+// `;
+
+// function SearchBar(){
+//     const [inputValue, setInputValue] = useState("");
+
+//     const inputHandler = (event) => {
+//         setInputValue(event.currentTarget.value);
+//     };
+
+//     const goPillSearch = (event) => {
+//         event.preventDefault();
+
+//         //추후 수정 필요
+//         if(inputValue==" "){
+//         document.getElementById('checkInputValue').innerHTML='<b>▲검색어를 다시 확인해주세요.<b>';
+//         document.getElementById('checkInputValue').style.fontSize='1rem';
+//         document.getElementById('checkInputValue').style.color='red';
+//         document.getElementById('checkInputValue').style.textAlign='center';
+//         document.getElementById('checkInputValue').style.paddingTop='1rem';
+//         }
+
+//         /*
+//         else if(inputValue==null){
+//         document.getElementById('checkInputValue').innerHTML='<b>검색어를 다시 확인해주세요.<b>';
+//         document.getElementById('checkInputValue').style.color='red';
+//         }
+//         */
+
+//         //추후 삭제 필요
+//         else{
+//             alert('검색완료');
+//         }
+//     }
+
+//     return(
+//         <>
+//             <SearchBarWrapper>
+//                 <form className="searchTypeBox">
+//                     <select name="searchType">
+//                         <option value="pillName">의약품명</option>
+//                         <option value="symptom">증상</option>
+//                     </select>
+//                 </form>
+//                 <input
+//                     placeholder="의약품명 및 증상 검색"
+//                     value={inputValue}
+//                     onChange={inputHandler}
+//                 />
+//                 <span className="searchIcon">
+//                     <HiSearch
+//                         onClick={goPillSearch}
+//                     />
+//                 </span>
+//             </SearchBarWrapper>
+//             <div>
+//                 <div id="checkInputValue"></div>
+//             </div>
+//         </>
+//     );
+// }
+
+// export default SearchBar;
