@@ -3,47 +3,10 @@ import React, { useState } from 'react';
 import { HiSearch } from 'react-icons/hi';
 
 const SearchBarWrapper = styled.div`
-  /* padding-top: 1rem;
-  display: flex;
-  justify-content: center;
-
-  select {
-    border: 0.5rem solid #ecf2f0;
-    color: #3c7466;
-    background-color: #ecf2f0;
-    border-radius: 2rem;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin-top: 1rem;
-    font-size: 0.7rem;
-    margin-right: 1rem;
-  }
-
-  input {
-    border-radius: 2rem;
-    border: 0.5rem solid #3a6c60;
-    font-size: 1.2rem;
-    height: 5vh;
-    color: #3a6c60;
-
-    ::placeholder {
-      color: #bbcdc7;
-      font-size: 1rem;
-      padding-left: 1rem;
-    }
-  }
-
-  svg {
-    padding-top: 1rem;
-    color: #3a6c60;
-    font-size: 2rem;
-    padding-left: 1rem;
-  } */
-
   display: flex;
   width: 100vw;
   height: 8vh;
+  margin: 2vh 0;
   justify-content: center;
   align-items: center;
   /* background-color: red; */
