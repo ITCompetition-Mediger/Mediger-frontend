@@ -4,7 +4,7 @@ import { AiOutlineStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 const PillListWrapper = styled.div`
-  background-color: #ecf2f0;
+  /* background-color: #ecf2f0;
   width: 70%;
   height: 8.6vh;
   display: flex;
@@ -41,22 +41,94 @@ const PillListWrapper = styled.div`
     color: #42514d;
     display: flex;
     align-items: center;
+  } */
+  background-color: #ecf2f0;
+  width: 75vw;
+  padding: 1.5vh 5vw;
+  margin: 1vh 0;
+  border-radius: 2vw;
+
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    margin: 0;
+  }
+
+  .PillBox {
+    display: flex;
+  }
+
+  .pillImage {
+    width: 16vw;
+    height: 16vw;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: 4vw;
+  }
+
+  .pillList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    width: 49vw;
+    /* background-color: aquamarine; */
+  }
+
+  .pillName {
+    font-size: 4.5vw;
+    color: #3c7466;
+    font-weight: bolder;
+    margin-bottom: 1vw;
+  }
+
+  .pillCompany,
+  .pillCode {
+    font-size: 3vw;
+    color: #3c7466;
+  }
+
+  .scrap {
+    font-size: 5vw;
+    color: #97a9a4;
+    display: flex;
+    align-items: center;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  color: #3c7466;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: #3c7466;
   }
 `;
 
 function PillSearchList() {
   return (
     <PillListWrapper>
-      <div className="pillImage">이미지</div>
-      <Link to={`/pillSearch/detail`}>
-        <div className="pillList">
-          <div className="pillTitle">모노틴정</div>
-          <div className="pillContent">
-            <div className="pillCompany">업체명: 한미약품(주)</div>
-            <div className="pillCode">품목기준코드: 200003092</div>
+      <StyledLink to={`/pillSearch/detail`}>
+        <div className="PillBox">
+          <div className="pillImage"></div>
+          <div className="pillList">
+            <div className="pillTitle">
+              <p className="pillName">모노틴정</p>
+            </div>
+            <div className="pillContent">
+              <p className="pillCompany">업체명: 한미약품(주)</p>
+              <p className="pillCode">품목기준코드: 200003092</p>
+            </div>
           </div>
         </div>
-      </Link>
+      </StyledLink>
       <div className="scrap">
         <AiOutlineStar />
       </div>

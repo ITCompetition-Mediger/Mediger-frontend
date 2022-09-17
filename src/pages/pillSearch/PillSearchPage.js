@@ -12,17 +12,6 @@ const Wrapper = styled.form`
 `;
 
 const PillSearchResultBox = styled.div`
-  /* color: #3c7466;
-  padding-bottom: 1rem;
-  padding-top: 1.5rem;
-  width: 70%;
-  height: 5vh;
-
-  .horizontal {
-    color: #3c7466;
-  } */
-
-  /* background-color: red; */
   width: 100vw;
   height: 63vh;
 
@@ -73,6 +62,7 @@ function PillSearchPage() {
               <hr />
             </div>
             <div className="ResultPillBox">
+              <PillSearchList />
               {/* <PillSearchList />
               <PillSearchList />
               <PillSearchList />
