@@ -40,6 +40,8 @@ const SearchBarWrapper = styled.div`
     padding: 1vw 4vw;
     border: 2vw solid #3c7466;
     border-radius: 8vw;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   }
 
   .searchInput {
