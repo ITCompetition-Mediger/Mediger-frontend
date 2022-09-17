@@ -57,25 +57,22 @@ function PillSearchPage() {
           <PillSearchResultBox>
             <div className="ResultBox">
               <div className="pillTotal">
-                <p className="Total">전체 1개</p>
+                <p className="Total">전체 n개</p>
               </div>
               <hr />
             </div>
             <div className="ResultPillBox">
               <PillSearchList />
-              {/* <PillSearchList />
               <PillSearchList />
               <PillSearchList />
               <PillSearchList />
               <PillSearchList />
-              <PillSearchList /> */}
+              <PillSearchList />
+              <PillSearchList />
+              <PillSearchList />
+              <PillSearchList />
             </div>
           </PillSearchResultBox>
-          {/* <PillSearchResultBox>
-            <div className="pillTotal">전체 1개</div>
-            <hr className="horizontal"></hr>
-          </PillSearchResultBox>
-          <PillSearchList /> */}
         </Wrapper>
       </Layout>
     </Mobile>
