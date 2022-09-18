@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import Medicine from '../../components/Medicine';
-import { Mobile } from '../../components/ReactResponsive';
+import { Desktop, Mobile } from '../../components/ReactResponsive';
 import Layout from '../../components/Layout';
+import DesktopView from '../../components/DesktopView';
 
 const All = styled.div`
   .Content {
@@ -52,6 +53,7 @@ const All = styled.div`
 
 function MedigerList() {
   return (
+    <div>
     <Mobile>
       <Layout>
         <All>
@@ -76,6 +78,10 @@ function MedigerList() {
         </All>
       </Layout>
     </Mobile>
+    <Desktop>
+      <DesktopView />
+    </Desktop>
+    </div>
   );
 }
 
