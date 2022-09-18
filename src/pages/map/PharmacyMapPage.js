@@ -31,8 +31,8 @@ function PharmacyMapPage(){
                 <DesktopView />
             </Desktop>
             <Tablet>
-      <TabletView />
-    </Tablet>
+                <TabletView />
+            </Tablet>
         </div>
     );
 }
