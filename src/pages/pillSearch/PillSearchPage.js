@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import SearchBar from '../../components/SearchBar';
 import PillSearchList from './PillSearchList';
-import { Desktop, Mobile } from '../../components/ReactResponsive';
+import { Desktop, Mobile, Tablet } from '../../components/ReactResponsive';
 import Layout from '../../components/Layout';
 import DesktopView from '../../components/DesktopView';
+import TabletView from '../../components/TabletView';
 
 const Wrapper = styled.form`
   display: flex;
@@ -81,6 +82,9 @@ function PillSearchPage() {
       <Desktop>
         <DesktopView />
       </Desktop>
+      <Tablet>
+        <TabletView />
+      </Tablet>
     </div>
   );
 }
