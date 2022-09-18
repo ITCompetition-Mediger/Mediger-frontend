@@ -3,7 +3,8 @@ import styled from "styled-components";
 import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
 import HospitalList from "./HospitalList";
-import { Mobile } from "../../components/ReactResponsive";
+import { Desktop, Mobile } from "../../components/ReactResponsive";
+import DesktopView from "../../components/DesktopView";
 
 const Wrapper = styled.form`
     display: flex;
@@ -32,6 +33,7 @@ const HospitalListComponentWrapper = styled.div`
 
 function HospitalListPage(){
     return(
+        <div>
         <Mobile>
             <Wrapper>
                 <Header />
@@ -49,6 +51,10 @@ function HospitalListPage(){
                 </HospitalListComponentWrapper>
             </Wrapper>
         </Mobile>
+        <Desktop>
+            <DesktopView />
+        </Desktop>
+        </div>
     );
 }
 
