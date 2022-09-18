@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import SearchBar from '../../components/SearchBar';
 import PillSearchList from './PillSearchList';
-import { Mobile } from '../../components/ReactResponsive';
+import { Desktop, Mobile } from '../../components/ReactResponsive';
 import Layout from '../../components/Layout';
+import DesktopView from '../../components/DesktopView';
 
 const Wrapper = styled.form`
   display: flex;
@@ -50,6 +51,7 @@ const PillSearchResultBox = styled.div`
 
 function PillSearchPage() {
   return (
+    <div>
     <Mobile>
       <Layout>
         <Wrapper>
@@ -76,6 +78,10 @@ function PillSearchPage() {
         </Wrapper>
       </Layout>
     </Mobile>
+    <Desktop>
+      <DesktopView />
+    </Desktop>
+    </div>
   );
 }
 
