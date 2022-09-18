@@ -94,81 +94,81 @@ function PillSearchPlusPage() {
   return (
     <div>
     <Mobile>
-      <Layout>
-        <PillSearchPlusWrapper>
-          <PillContentHeaderWrapper>
-            <div className="pillHeader">
-              <div className="pillTitle">
-                <p className="pillName">모노틴정</p>
-              </div>
-              <div className="pillScrap" onClick={handleModal}>
-                {isOpen === false ? <AiOutlineStar /> : <AiFillStar />}
-                {isOpen === false ? null : (
-                  <ModalWrapper>
-                    <StyledModal>
-                      <p className="modalContent">
-                        메디저 리스트에 추가되었습니다!
-                      </p>
-                      <button className="modalBtn">
-                        <p class="ok">확인</p>
-                      </button>
-                    </StyledModal>
-                  </ModalWrapper>
-                )}
-              </div>
-            </div>
-          </PillContentHeaderWrapper>
-          <PillContentListWrapper>
-            <div className="pillImage">이미지</div>
-            <div className="pillConentListBox">
-              <div className="pillContentList">
-                <div className="contentTitle">
-                  <p className="title">효능</p>
+        <Layout>
+          <PillSearchPlusWrapper>
+            <PillContentHeaderWrapper>
+              <div className="pillHeader">
+                <div className="pillTitle">
+                  <p className="pillName">모노틴정</p>
                 </div>
-                <div className="contents">
-                  <p className="content">효능 내용</p>
+                <div className="pillScrap" onClick={handleModal}>
+                  {isOpen === false ? <AiOutlineStar /> : <AiFillStar />}
+                  {isOpen === false ? null : (
+                    <ModalWrapper>
+                      <StyledModal>
+                        <p className="modalContent">
+                          메디저 리스트에 추가되었습니다!
+                        </p>
+                        <button className="modalBtn">
+                          <p class="ok">확인</p>
+                        </button>
+                      </StyledModal>
+                    </ModalWrapper>
+                  )}
                 </div>
               </div>
-              <div className="pillContentList">
-                <div className="contentTitle">
-                  <p className="title">사용법</p>
+            </PillContentHeaderWrapper>
+            <PillContentListWrapper>
+              <div className="pillImage">이미지</div>
+              <div className="pillConentListBox">
+                <div className="pillContentList">
+                  <div className="contentTitle">
+                    <p className="title">효능</p>
+                  </div>
+                  <div className="contents">
+                    <p className="content">효능 내용</p>
+                  </div>
                 </div>
-                <div className="contents">
-                  <p className="content">사용법 내용</p>
+                <div className="pillContentList">
+                  <div className="contentTitle">
+                    <p className="title">사용법</p>
+                  </div>
+                  <div className="contents">
+                    <p className="content">사용법 내용</p>
+                  </div>
+                </div>
+                <div className="pillContentList">
+                  <div className="contentTitle">
+                    <p className="title">경고</p>
+                  </div>
+                  <div className="contents">
+                    <p className="content">경고 내용</p>
+                  </div>
+                </div>
+                <div className="pillContentList">
+                  <div className="contentTitle">
+                    <p className="title">주의사항</p>
+                  </div>
+                  <div className="contents">
+                    <p className="content">주의사항 내용</p>
+                  </div>
+                </div>
+                <div className="pillContentList">
+                  <div className="contentTitle">
+                    <p className="title">상호작용</p>
+                  </div>
+                  <div className="contents">
+                    <p className="content">상호작용 내용</p>
+                  </div>
                 </div>
               </div>
-              <div className="pillContentList">
-                <div className="contentTitle">
-                  <p className="title">경고</p>
-                </div>
-                <div className="contents">
-                  <p className="content">경고 내용</p>
-                </div>
-              </div>
-              <div className="pillContentList">
-                <div className="contentTitle">
-                  <p className="title">주의사항</p>
-                </div>
-                <div className="contents">
-                  <p className="content">주의사항 내용</p>
-                </div>
-              </div>
-              <div className="pillContentList">
-                <div className="contentTitle">
-                  <p className="title">상호작용</p>
-                </div>
-                <div className="contents">
-                  <p className="content">상호작용 내용</p>
-                </div>
-              </div>
-            </div>
-          </PillContentListWrapper>
-        </PillSearchPlusWrapper>
-      </Layout>
-    </Mobile>
-    <Desktop>
-      <DesktopView />
-    </Desktop>
+            </PillContentListWrapper>
+          </PillSearchPlusWrapper>
+        </Layout>
+      </Mobile>
+      <Desktop>
+        <DesktopView />
+      </Desktop>
     </div>
   );
 }

@@ -103,63 +103,63 @@ const StyledLink = styled(Link)`
 function Mypage() {
   return (
     <div>
-    <Mobile>
-      <MypageLayout>
-        <MypageBox>
-          <div className="HelloBox">
-            <div className="HelloIcon">💊</div>
-            <div className="Hello">
-              잠깐,
-              <br />
-              User1님! 잊지 않으셨죠?
-            </div>
-          </div>
-
-          <div className="DailyMedigerBox">
-            <div className="TitleBox">
-              <p className="Title">일간 메디저</p>
-              <hr />
-            </div>
-            <StyledLink to={`/myMediger/MonthlyMediger`}>
-              <div className="ContentBox">
-                <DailyMedigerWidget />
+      <Mobile>
+        <MypageLayout>
+          <MypageBox>
+            <div className="HelloBox">
+              <div className="HelloIcon">💊</div>
+              <div className="Hello">
+                잠깐,
+                <br />
+                User1님! 잊지 않으셨죠?
               </div>
-            </StyledLink>
-          </div>
-
-          <div className="MedigerListBox">
-            <div className="TitleBox">
-              <p className="Title">메디저 리스트</p>
-              <hr />
             </div>
-            <StyledLink to={`/MedigerList`}>
-              <div className="ContentBox">
-                <div className="MedigerBox">
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                </div>
-                <div className="AddBtnBox">
-                  <Link to={`/pillSearch`}>
-                    <div className="PlusBtn">
-                      <IoIosAddCircle />
-                    </div>
-                  </Link>
-                </div>
+
+            <div className="DailyMedigerBox">
+              <div className="TitleBox">
+                <p className="Title">일간 메디저</p>
+                <hr />
               </div>
-            </StyledLink>
-          </div>
-        </MypageBox>
-      </MypageLayout>
-    </Mobile>
-    <Desktop>
-      <DesktopView />
-    </Desktop>
+              <StyledLink to={`/myMediger/MonthlyMediger`}>
+                <div className="ContentBox">
+                  <DailyMedigerWidget />
+                </div>
+              </StyledLink>
+            </div>
+
+            <div className="MedigerListBox">
+              <div className="TitleBox">
+                <p className="Title">메디저 리스트</p>
+                <hr />
+              </div>
+              <StyledLink to={`/MedigerList`}>
+                <div className="ContentBox">
+                  <div className="MedigerBox">
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                  </div>
+                  <div className="AddBtnBox">
+                    <Link to={`/pillSearch`}>
+                      <div className="PlusBtn">
+                        <IoIosAddCircle />
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </StyledLink>
+            </div>
+          </MypageBox>
+        </MypageLayout>
+      </Mobile>
+      <Desktop>
+        <DesktopView />
+      </Desktop>
     </div>
   );
 }

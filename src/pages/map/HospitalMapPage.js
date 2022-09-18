@@ -19,16 +19,16 @@ const DummyData = styled.div`
 function HospitalMapPage(){
     return(
         <div>
-        <Mobile>
-        <Wrapper>
-            <Header />
-            <DummyData>지도 api 표시</DummyData>
-            <NavBar />
-        </Wrapper>
-        </Mobile>
-        <Desktop>
-            <DesktopView />
-        </Desktop>
+            <Mobile>
+            <Wrapper>
+                <Header />
+                <DummyData>지도 api 표시</DummyData>
+                <NavBar />
+            </Wrapper>
+            </Mobile>
+            <Desktop>
+                <DesktopView />
+            </Desktop>
         </div>
     );
 }

@@ -34,26 +34,26 @@ const PharmacyListComponentWrapper = styled.div`
 function PharmacyListPage(){
     return(
         <div>
-        <Mobile>
-            <Wrapper>
-                <Header />
-                <div className="nameHeader">
-                    💊 현위치 주변 약국
-                </div>
-                <PharmacyListComponentWrapper>
-                    <PharmacyList />
-                    <PharmacyList />
-                    <PharmacyList />
-                    <PharmacyList />
-                    <PharmacyList />
-                    <PharmacyList />
-                    <NavBar />
-                </PharmacyListComponentWrapper>
-            </Wrapper>
-        </Mobile>
-        <Desktop>
-            <DesktopView />
-        </Desktop>
+            <Mobile>
+                <Wrapper>
+                    <Header />
+                    <div className="nameHeader">
+                        💊 현위치 주변 약국
+                    </div>
+                    <PharmacyListComponentWrapper>
+                        <PharmacyList />
+                        <PharmacyList />
+                        <PharmacyList />
+                        <PharmacyList />
+                        <PharmacyList />
+                        <PharmacyList />
+                        <NavBar />
+                    </PharmacyListComponentWrapper>
+                </Wrapper>
+            </Mobile>
+            <Desktop>
+                <DesktopView />
+            </Desktop>
         </div>
     );
 }

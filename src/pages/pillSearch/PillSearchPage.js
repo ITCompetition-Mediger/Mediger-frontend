@@ -52,35 +52,35 @@ const PillSearchResultBox = styled.div`
 function PillSearchPage() {
   return (
     <div>
-    <Mobile>
-      <Layout>
-        <Wrapper>
-          <SearchBar />
-          <PillSearchResultBox>
-            <div className="ResultBox">
-              <div className="pillTotal">
-                <p className="Total">전체 n개</p>
+      <Mobile>
+        <Layout>
+          <Wrapper>
+            <SearchBar />
+            <PillSearchResultBox>
+              <div className="ResultBox">
+                <div className="pillTotal">
+                  <p className="Total">전체 n개</p>
+                </div>
+                <hr />
               </div>
-              <hr />
-            </div>
-            <div className="ResultPillBox">
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-            </div>
-          </PillSearchResultBox>
-        </Wrapper>
-      </Layout>
-    </Mobile>
-    <Desktop>
-      <DesktopView />
-    </Desktop>
+              <div className="ResultPillBox">
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+              </div>
+            </PillSearchResultBox>
+          </Wrapper>
+        </Layout>
+      </Mobile>
+      <Desktop>
+        <DesktopView />
+      </Desktop>
     </div>
   );
 }

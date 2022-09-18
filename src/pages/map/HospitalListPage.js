@@ -34,26 +34,26 @@ const HospitalListComponentWrapper = styled.div`
 function HospitalListPage(){
     return(
         <div>
-        <Mobile>
-            <Wrapper>
-                <Header />
-                <div className="nameHeader">
-                    🏥 현위치 주변 병원
-                </div>
-                <HospitalListComponentWrapper>
-                    <HospitalList />
-                    <HospitalList />
-                    <HospitalList />
-                    <HospitalList />
-                    <HospitalList />
-                    <HospitalList />
-                    <NavBar />
-                </HospitalListComponentWrapper>
-            </Wrapper>
-        </Mobile>
-        <Desktop>
-            <DesktopView />
-        </Desktop>
+            <Mobile>
+                <Wrapper>
+                    <Header />
+                    <div className="nameHeader">
+                        🏥 현위치 주변 병원
+                    </div>
+                    <HospitalListComponentWrapper>
+                        <HospitalList />
+                        <HospitalList />
+                        <HospitalList />
+                        <HospitalList />
+                        <HospitalList />
+                        <HospitalList />
+                        <NavBar />
+                    </HospitalListComponentWrapper>
+                </Wrapper>
+            </Mobile>
+            <Desktop>
+                <DesktopView />
+            </Desktop>
         </div>
     );
 }

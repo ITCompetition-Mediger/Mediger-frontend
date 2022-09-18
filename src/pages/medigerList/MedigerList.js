@@ -54,33 +54,33 @@ const All = styled.div`
 function MedigerList() {
   return (
     <div>
-    <Mobile>
-      <Layout>
-        <All>
-          <div className="Content">
-            <div className="TitleBox">
-              <p className="Title">메디저 리스트</p>
-              <Link to={`/pillSearch`}>
-                <div className="PlusBtn">
-                  <IoIosAddCircle />
-                </div>
-              </Link>
+      <Mobile>
+        <Layout>
+          <All>
+            <div className="Content">
+              <div className="TitleBox">
+                <p className="Title">메디저 리스트</p>
+                <Link to={`/pillSearch`}>
+                  <div className="PlusBtn">
+                    <IoIosAddCircle />
+                  </div>
+                </Link>
+              </div>
+              <div className="ListBox">
+                <Medicine />
+                <Medicine />
+                <Medicine />
+                <Medicine />
+                <Medicine />
+                <Medicine />
+              </div>
             </div>
-            <div className="ListBox">
-              <Medicine />
-              <Medicine />
-              <Medicine />
-              <Medicine />
-              <Medicine />
-              <Medicine />
-            </div>
-          </div>
-        </All>
-      </Layout>
-    </Mobile>
-    <Desktop>
-      <DesktopView />
-    </Desktop>
+          </All>
+        </Layout>
+      </Mobile>
+      <Desktop>
+        <DesktopView />
+      </Desktop>
     </div>
   );
 }

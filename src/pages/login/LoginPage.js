@@ -14,15 +14,15 @@ const Wrapper = styled.form`
 function LoginPage() {
   return (
     <div>
-    <Mobile>
-      <Wrapper>
-        <LoginHeader />
-        <LoginButton />
-      </Wrapper>
-    </Mobile>
-    <Desktop>
-      <DesktopView />
-    </Desktop>
+      <Mobile>
+        <Wrapper>
+          <LoginHeader />
+          <LoginButton />
+        </Wrapper>
+      </Mobile>
+      <Desktop>
+        <DesktopView />
+      </Desktop>
     </div>
   );
 }
