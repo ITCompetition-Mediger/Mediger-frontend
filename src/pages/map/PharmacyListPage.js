@@ -3,7 +3,9 @@ import styled from "styled-components";
 import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
 import PharmacyList from "./PharmacyList";
-import { Mobile } from "../../components/ReactResponsive";
+import { Desktop, Mobile, Tablet } from "../../components/ReactResponsive";
+import DesktopView from "../../components/DesktopView";
+import TabletView from '../../components/TabletView';
 
 const Wrapper = styled.form`
     display: flex;
@@ -32,23 +34,31 @@ const PharmacyListComponentWrapper = styled.div`
 
 function PharmacyListPage(){
     return(
-        <Mobile>
-            <Wrapper>
-                <Header />
-                <div className="nameHeader">
-                    💊 현위치 주변 약국
-                </div>
-                <PharmacyListComponentWrapper>
-                    <PharmacyList />
-                    <PharmacyList />
-                    <PharmacyList />
-                    <PharmacyList />
-                    <PharmacyList />
-                    <PharmacyList />
-                    <NavBar />
-                </PharmacyListComponentWrapper>
-            </Wrapper>
-        </Mobile>
+        <div>
+            <Mobile>
+                <Wrapper>
+                    <Header />
+                    <div className="nameHeader">
+                        💊 현위치 주변 약국
+                    </div>
+                    <PharmacyListComponentWrapper>
+                        <PharmacyList />
+                        <PharmacyList />
+                        <PharmacyList />
+                        <PharmacyList />
+                        <PharmacyList />
+                        <PharmacyList />
+                        <NavBar />
+                    </PharmacyListComponentWrapper>
+                </Wrapper>
+            </Mobile>
+            <Desktop>
+                <DesktopView />
+            </Desktop>
+            <Tablet>
+                <TabletView />
+            </Tablet>
+        </div>
     );
 }
 

@@ -4,8 +4,10 @@ import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import MedigerListWidget from '../../components/MedigerListWidget';
 import DailyMedigerWidget from '../../components/DailyMedigerWidget';
-import { Mobile } from '../../components/ReactResponsive';
+import { Desktop, Mobile, Tablet } from '../../components/ReactResponsive';
 import MypageLayout from '../../components/MypageLayout';
+import DesktopView from '../../components/DesktopView';
+import TabletView from '../../components/TabletView';
 
 const MypageBox = styled.div`
   width: 100vw;
@@ -101,60 +103,68 @@ const StyledLink = styled(Link)`
 
 function Mypage() {
   return (
-    <Mobile>
-      <MypageLayout>
-        <MypageBox>
-          <div className="HelloBox">
-            <div className="HelloIcon">💊</div>
-            <div className="Hello">
-              잠깐,
-              <br />
-              User1님! 잊지 않으셨죠?
-            </div>
-          </div>
-
-          <div className="DailyMedigerBox">
-            <div className="TitleBox">
-              <p className="Title">일간 메디저</p>
-              <hr />
-            </div>
-            <StyledLink to={`/myMediger/MonthlyMediger`}>
-              <div className="ContentBox">
-                <DailyMedigerWidget />
+    <div>
+      <Mobile>
+        <MypageLayout>
+          <MypageBox>
+            <div className="HelloBox">
+              <div className="HelloIcon">💊</div>
+              <div className="Hello">
+                잠깐,
+                <br />
+                User1님! 잊지 않으셨죠?
               </div>
-            </StyledLink>
-          </div>
-
-          <div className="MedigerListBox">
-            <div className="TitleBox">
-              <p className="Title">메디저 리스트</p>
-              <hr />
             </div>
-            <StyledLink to={`/MedigerList`}>
-              <div className="ContentBox">
-                <div className="MedigerBox">
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                </div>
-                <div className="AddBtnBox">
-                  <Link to={`/pillSearch`}>
-                    <div className="PlusBtn">
-                      <IoIosAddCircle />
-                    </div>
-                  </Link>
-                </div>
+
+            <div className="DailyMedigerBox">
+              <div className="TitleBox">
+                <p className="Title">일간 메디저</p>
+                <hr />
               </div>
-            </StyledLink>
-          </div>
-        </MypageBox>
-      </MypageLayout>
-    </Mobile>
+              <StyledLink to={`/myMediger/MonthlyMediger`}>
+                <div className="ContentBox">
+                  <DailyMedigerWidget />
+                </div>
+              </StyledLink>
+            </div>
+
+            <div className="MedigerListBox">
+              <div className="TitleBox">
+                <p className="Title">메디저 리스트</p>
+                <hr />
+              </div>
+              <StyledLink to={`/MedigerList`}>
+                <div className="ContentBox">
+                  <div className="MedigerBox">
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                    <MedigerListWidget />
+                  </div>
+                  <div className="AddBtnBox">
+                    <Link to={`/pillSearch`}>
+                      <div className="PlusBtn">
+                        <IoIosAddCircle />
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </StyledLink>
+            </div>
+          </MypageBox>
+        </MypageLayout>
+      </Mobile>
+      <Desktop>
+        <DesktopView />
+      </Desktop>
+      <Tablet>
+        <TabletView />
+      </Tablet>
+    </div>
   );
 }
 
