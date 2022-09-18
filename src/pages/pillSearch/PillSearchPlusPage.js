@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import { ModalWrapper, StyledModal } from '../../components/StyledModal';
-import { Mobile } from '../../components/ReactResponsive';
+import { Mobile, Desktop, Tablet } from '../../components/ReactResponsive';
 import Layout from '../../components/Layout';
+import DesktopView from '../../components/DesktopView';
+import TabletView from '../../components/TabletView';
 
 const PillSearchPlusWrapper = styled.form`
   display: flex;
@@ -91,6 +93,7 @@ function PillSearchPlusPage() {
     setIsOpen(!isOpen);
   };
   return (
+    <div>
     <Mobile>
       <Layout>
         <PillSearchPlusWrapper>
@@ -164,6 +167,13 @@ function PillSearchPlusPage() {
         </PillSearchPlusWrapper>
       </Layout>
     </Mobile>
+    <Desktop>
+      <DesktopView />
+    </Desktop>
+    <Tablet>
+      <TabletView />
+    </Tablet>
+    </div>
   );
 }
 

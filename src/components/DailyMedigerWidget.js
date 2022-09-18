@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import styled from 'styled-components';
 import DailyMedigerIconWidget from '../components/DailyMedigerIconWidget';
-import pillImage from '../images/pillImage.png';
 
 const DailyWidget = styled.div`
   display: flex;

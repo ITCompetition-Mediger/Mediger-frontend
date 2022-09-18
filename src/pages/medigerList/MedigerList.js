@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import Medicine from '../../components/Medicine';
-import { Mobile } from '../../components/ReactResponsive';
+import { Desktop, Mobile, Tablet } from '../../components/ReactResponsive';
 import Layout from '../../components/Layout';
+import DesktopView from '../../components/DesktopView';
+import TabletView from '../../components/TabletView';
 
 const All = styled.div`
   .Content {
@@ -52,30 +54,41 @@ const All = styled.div`
 
 function MedigerList() {
   return (
-    <Mobile>
-      <Layout>
-        <All>
-          <div className="Content">
-            <div className="TitleBox">
-              <p className="Title">메디저 리스트</p>
-              <Link to={`/pillSearch`}>
-                <div className="PlusBtn">
-                  <IoIosAddCircle />
-                </div>
-              </Link>
+    <div>
+      <Mobile>
+        <Layout>
+          <All>
+            <div className="Content">
+              <div className="TitleBox">
+                <p className="Title">메디저 리스트</p>
+                <Link to={`/pillSearch`}>
+                  <div className="PlusBtn">
+                    <IoIosAddCircle />
+                  </div>
+                </Link>
+              </div>
+              <div className="ListBox">
+                <Medicine />
+                <Medicine />
+                <Medicine />
+                <Medicine />
+                <Medicine />
+                <Medicine />
+              </div>
             </div>
-            <div className="ListBox">
-              <Medicine />
-              <Medicine />
-              <Medicine />
-              <Medicine />
-              <Medicine />
-              <Medicine />
-            </div>
-          </div>
-        </All>
-      </Layout>
-    </Mobile>
+          </All>
+        </Layout>
+      </Mobile>
+      <Desktop>
+        <DesktopView />
+      </Desktop>
+      <Tablet>
+      <TabletView />
+    </Tablet>
+    <Tablet>
+      <TabletView />
+    </Tablet>
+    </div>
   );
 }
 

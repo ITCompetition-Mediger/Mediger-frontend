@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import styled from 'styled-components';
-import pillImage from '../images/pillImage.png';
 
 const MedigerWidget = styled.div`
   width: 18vw;

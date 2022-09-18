@@ -2,8 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import SearchBar from '../../components/SearchBar';
 import PillSearchList from './PillSearchList';
-import { Mobile } from '../../components/ReactResponsive';
+import { Desktop, Mobile, Tablet } from '../../components/ReactResponsive';
 import Layout from '../../components/Layout';
+import DesktopView from '../../components/DesktopView';
+import TabletView from '../../components/TabletView';
 
 const Wrapper = styled.form`
   display: flex;
@@ -50,32 +52,40 @@ const PillSearchResultBox = styled.div`
 
 function PillSearchPage() {
   return (
-    <Mobile>
-      <Layout>
-        <Wrapper>
-          <SearchBar />
-          <PillSearchResultBox>
-            <div className="ResultBox">
-              <div className="pillTotal">
-                <p className="Total">전체 n개</p>
+    <div>
+      <Mobile>
+        <Layout>
+          <Wrapper>
+            <SearchBar />
+            <PillSearchResultBox>
+              <div className="ResultBox">
+                <div className="pillTotal">
+                  <p className="Total">전체 n개</p>
+                </div>
+                <hr />
               </div>
-              <hr />
-            </div>
-            <div className="ResultPillBox">
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-              <PillSearchList />
-            </div>
-          </PillSearchResultBox>
-        </Wrapper>
-      </Layout>
-    </Mobile>
+              <div className="ResultPillBox">
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+                <PillSearchList />
+              </div>
+            </PillSearchResultBox>
+          </Wrapper>
+        </Layout>
+      </Mobile>
+      <Desktop>
+        <DesktopView />
+      </Desktop>
+      <Tablet>
+        <TabletView />
+      </Tablet>
+    </div>
   );
 }
 
