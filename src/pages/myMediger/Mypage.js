@@ -4,8 +4,9 @@ import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import MedigerListWidget from '../../components/MedigerListWidget';
 import DailyMedigerWidget from '../../components/DailyMedigerWidget';
-import { Mobile } from '../../components/ReactResponsive';
+import { Desktop, Mobile } from '../../components/ReactResponsive';
 import MypageLayout from '../../components/MypageLayout';
+import DesktopView from '../../components/DesktopView';
 
 const MypageBox = styled.div`
   width: 100vw;
@@ -101,6 +102,7 @@ const StyledLink = styled(Link)`
 
 function Mypage() {
   return (
+    <div>
     <Mobile>
       <MypageLayout>
         <MypageBox>
@@ -155,6 +157,10 @@ function Mypage() {
         </MypageBox>
       </MypageLayout>
     </Mobile>
+    <Desktop>
+      <DesktopView />
+    </Desktop>
+    </div>
   );
 }
 
