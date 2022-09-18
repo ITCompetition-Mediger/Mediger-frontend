@@ -3,8 +3,9 @@ import styled from "styled-components";
 import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
 import HospitalList from "./HospitalList";
-import { Desktop, Mobile } from "../../components/ReactResponsive";
+import { Desktop, Mobile, Tablet } from "../../components/ReactResponsive";
 import DesktopView from "../../components/DesktopView";
+import TabletView from '../../components/TabletView';
 
 const Wrapper = styled.form`
     display: flex;
@@ -54,6 +55,9 @@ function HospitalListPage(){
             <Desktop>
                 <DesktopView />
             </Desktop>
+            <Tablet>
+      <TabletView />
+    </Tablet>
         </div>
     );
 }
