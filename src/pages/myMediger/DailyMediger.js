@@ -1,10 +1,11 @@
+// 마이페이지 > 일간 메디저 페이지
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import Mediger from '../../components/Mediger';
-import { Mobile } from '../../components/ReactResponsive';
 import MypageLayout from '../../components/MypageLayout';
+// import MonthlyMediger from './MonthlyMediger';
 
 const DailyMedigerBox = styled.div`
   flex-direction: column;
@@ -71,44 +72,46 @@ const StyledLink = styled(Link)`
 
 function DailyMediger() {
   return (
-    <Mobile>
-      <MypageLayout>
-        <DailyMedigerBox>
-          <div className="TitleBox ContentBox">
-            <p className="Title">일간 메디저</p>
-            <div className="PlusBtn">
-              <StyledLink to={`/myMediger/AddToMediger`}>
-                <IoIosAddCircle />
-              </StyledLink>
-            </div>
+    <MypageLayout>
+      <DailyMedigerBox>
+        <div className="TitleBox ContentBox">
+          <p className="Title">일간 메디저</p>
+          {/* <p className="Title">{date}</p> */}
+          {/* <p className="Title">
+              <MonthlyMediger date={date} />
+            </p> */}
+          <div className="PlusBtn">
+            <StyledLink to={`/myMediger/AddToMediger`}>
+              <IoIosAddCircle />
+            </StyledLink>
           </div>
-          <div className="ContentBox">
-            <p className="SubTitle">아침</p>
-            <div className="MedicineBox">
-              <Mediger />
-              <Mediger />
-              <Mediger />
-            </div>
+        </div>
+        <div className="ContentBox">
+          <p className="SubTitle">아침</p>
+          <div className="MedicineBox">
+            <Mediger />
+            <Mediger />
+            <Mediger />
           </div>
-          <div className="ContentBox">
-            <p className="SubTitle">점심</p>
-            <div className="MedicineBox">
-              <Mediger />
-              <Mediger />
-              <Mediger />
-              <Mediger />
-            </div>
+        </div>
+        <div className="ContentBox">
+          <p className="SubTitle">점심</p>
+          <div className="MedicineBox">
+            <Mediger />
+            <Mediger />
+            <Mediger />
+            <Mediger />
           </div>
-          <div className="ContentBox">
-            <p className="SubTitle">저녁</p>
-            <div className="MedicineBox">
-              <Mediger />
-              <Mediger />
-            </div>
+        </div>
+        <div className="ContentBox">
+          <p className="SubTitle">저녁</p>
+          <div className="MedicineBox">
+            <Mediger />
+            <Mediger />
           </div>
-        </DailyMedigerBox>
-      </MypageLayout>
-    </Mobile>
+        </div>
+      </DailyMedigerBox>
+    </MypageLayout>
   );
 }
 

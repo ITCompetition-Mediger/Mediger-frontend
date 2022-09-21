@@ -41,7 +41,7 @@ const StyledLink = styled(Link)`
 
 function GoogleLoginButton() {
   return (
-    <StyledLink to={`/pillSearch`}>
+    <StyledLink to={`/pages/Home`}>
       <Wrapper>
         <div className="GoogleImage">
           <img
