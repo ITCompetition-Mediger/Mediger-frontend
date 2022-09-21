@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import DesktopView from '../../components/DesktopView';
@@ -45,6 +45,18 @@ const Map = styled.div`
   /* background-color: red; */
 `;
 
+const PharmacyMap = styled.div`
+  width: 100vw;
+  height: 75vh;
+  background-color: red;
+`;
+
+const HospitalMap = styled.div`
+  width: 100vw;
+  height: 75vh;
+  background-color: blue;
+`;
+
 const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 4vw;
@@ -68,21 +80,33 @@ const StyledLink = styled(Link)`
 `;
 
 function PharmacyMapPage() {
+  const [menu, setMenu] = useState('pharmacy');
+  const onChangeMenu = (event) => {
+    setMenu(event.target.value);
+  };
   return (
     <div>
       <Mobile>
         <Layout>
           <Wrapper>
-            <Map></Map>
+            <Map>{menu === 'pharmacy' ? <PharmacyMap /> : <HospitalMap />}</Map>
             <div className="MapMenuBox">
               <div className="MenuList">
-                <select className="Menu">
-                  <option value="pharmacy">근처 약국</option>
-                  <option value="hospital">근처 병원</option>
+                <select className="Menu" onChange={onChangeMenu}>
+                  <option value="pharmacy">약국</option>
+                  <option value="hospital">병원</option>
                 </select>
               </div>
               <div className="ViewList">
-                <StyledLink to={`/map/pharmacyList`}>목록 보기</StyledLink>
+                {menu === 'pharmacy' ? (
+                  <StyledLink to={`/map/pharmacyList`}>
+                    근처 약국 목록
+                  </StyledLink>
+                ) : (
+                  <StyledLink to={`/map/hospitalList`}>
+                    근처 병원 목록
+                  </StyledLink>
+                )}
               </div>
             </div>
           </Wrapper>
