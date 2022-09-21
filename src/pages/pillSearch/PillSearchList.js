@@ -7,7 +7,7 @@ const PillListWrapper = styled.div`
   background-color: #ecf2f0;
   width: 75vw;
   padding: 2.2vh 5vw;
-  margin: 1vh 0;
+  margin: 0.5vh 0;
   border-radius: 2vw;
 
   display: flex;

@@ -1,3 +1,4 @@
+// 마이페이지 > 일간 메디저 > 약 컴포넌트
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
@@ -32,10 +33,6 @@ const MedigerBox = styled.div`
     justify-content: center;
   }
 
-  .Text {
-    margin: 0;
-  }
-
   .MedigerName {
     font-size: 3vw;
     font-weight: bolder;
@@ -44,8 +41,12 @@ const MedigerBox = styled.div`
   }
 
   .MedigerWay {
-    font-size: 1vw;
+    font-size: 2vw;
     color: #42514d;
+  }
+
+  p {
+    margin: 0;
   }
 `;
 
@@ -69,8 +70,8 @@ function Mediger() {
       <MedigerBox>
         <div class="MedigerImg"></div>
         <div class="MedigerContent">
-          <p class="MedigerName Text">약 이름</p>
-          <p class="MedigerWay Text">복용 시간, 방법</p>
+          <p class="MedigerName">약 이름</p>
+          <p class="MedigerWay">복용 시간, 방법</p>
         </div>
       </MedigerBox>
     </StyledLink>

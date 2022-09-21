@@ -1,3 +1,4 @@
+// 마이페이지 > 일간 메디저 페이지
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosAddCircle } from 'react-icons/io';
