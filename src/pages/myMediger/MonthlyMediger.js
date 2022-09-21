@@ -8,6 +8,7 @@ import './MonthlyCalender.css';
 import moment from 'moment';
 import { Mobile } from '../../components/ReactResponsive';
 import MypageLayout from '../../components/MypageLayout';
+// import DailyMediger from './DailyMediger';
 
 const MonthlyMedigerBox = styled.div`
   flex-direction: column;
@@ -120,6 +121,8 @@ function MonthlyMediger() {
             <div className="SubTitleBox">
               <div className="SubTitle">
                 {moment(value).format('YYYY/MM/DD')}
+                {/* {date} */}
+                {/* <DailyMediger date={moment(value).format('YYYY/MM/DD')} /> */}
               </div>
               <hr />
             </div>

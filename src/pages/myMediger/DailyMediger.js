@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Mediger from '../../components/Mediger';
 import { Mobile } from '../../components/ReactResponsive';
 import MypageLayout from '../../components/MypageLayout';
+// import MonthlyMediger from './MonthlyMediger';
 
 const DailyMedigerBox = styled.div`
   flex-direction: column;
@@ -76,6 +77,10 @@ function DailyMediger() {
         <DailyMedigerBox>
           <div className="TitleBox ContentBox">
             <p className="Title">일간 메디저</p>
+            {/* <p className="Title">{date}</p> */}
+            {/* <p className="Title">
+              <MonthlyMediger date={date} />
+            </p> */}
             <div className="PlusBtn">
               <StyledLink to={`/myMediger/AddToMediger`}>
                 <IoIosAddCircle />
