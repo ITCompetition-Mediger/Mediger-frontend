@@ -26,7 +26,6 @@ const Wrapper = styled.form`
 `;
 
 const PharmacyListComponentWrapper = styled.div`
-  background-color: aliceblue;
   height: 63vh;
   overflow: scroll;
 
@@ -45,6 +44,13 @@ function PharmacyListPage() {
               <p className="title">💊 현위치 주변 약국</p>
             </div>
             <PharmacyListComponentWrapper>
+              <PharmacyList />
+              <PharmacyList />
+              <PharmacyList />
+              <PharmacyList />
+              <PharmacyList />
+              <PharmacyList />
+              <PharmacyList />
               <PharmacyList />
               <PharmacyList />
               <PharmacyList />
