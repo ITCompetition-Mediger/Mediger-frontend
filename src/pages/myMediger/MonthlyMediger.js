@@ -92,6 +92,7 @@ const StyledLink = styled(Link)`
 
 function MonthlyMediger() {
   const [value, onChange] = useState(new Date());
+
   return (
     <MypageLayout>
       <MonthlyMedigerBox>
@@ -117,14 +118,12 @@ function MonthlyMediger() {
 
         <div className="DailyMedigerBox">
           <div className="SubTitleBox">
-            <div className="SubTitle">
-              {moment(value).format('YYYY/MM/DD')}
-              {/* {date} */}
-              {/* <DailyMediger date={moment(value).format('YYYY/MM/DD')} /> */}
-            </div>
+            <div className="SubTitle">{moment(value).format('YYYY/MM/DD')}</div>
             <hr />
           </div>
-          <StyledLink to={`/myMediger/DailyMediger`}>
+          <StyledLink
+            to={`/myMediger/DailyMediger/${moment(value).format('YYYYMMDD')}`}
+          >
             <div className="ContentBox">
               <DailyMedigerWidget />
             </div>
