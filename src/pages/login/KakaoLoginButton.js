@@ -41,7 +41,7 @@ const StyledLink = styled(Link)`
 
 function KakaoLoginButton() {
   return (
-    <StyledLink to={`/pillSearch`}>
+    <StyledLink to={`/pages/Home`}>
       <Wrapper>
         <div className="kakaoImage">
           <img

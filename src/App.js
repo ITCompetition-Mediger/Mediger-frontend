@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from '././pages/Home';
+import Main from '././pages/Home';
 import HospitalListPage from './pages/map/HospitalListPage';
 import HospitalMapPage from './pages/map/HospitalMapPage';
 import PharmacyListPage from './pages/map/PharmacyListPage';
@@ -25,9 +25,10 @@ function App() {
       <Route path="/map/pharmacyList" element={<PharmacyListPage />} />
       <Route path="/map/hospitalList" element={<HospitalListPage />} />
       <Route path="/myMediger/AddToMediger" element={<AddToMediger />} />
-      <Route path="/myMediger/DailyMediger" element={<DailyMediger />} />
+      <Route path="/myMediger/DailyMediger/:id" element={<DailyMediger />} />
       <Route path="/myMediger/MonthlyMediger" element={<MonthlyMediger />} />
       <Route path="/myMediger/Mypage" element={<Mypage />} />
+      <Route path="/pages/Home" element={<Main />} />
     </Routes>
   );
 }

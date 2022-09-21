@@ -1,3 +1,4 @@
+// 마이페이지 메인에 나오는 일간 메디저 위젯
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
@@ -20,7 +21,7 @@ const DailyWidget = styled.div`
     align-items: center;
     justify-content: center;
 
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
   }
 
   .TimeTitle {

@@ -6,8 +6,8 @@ import DailyMedigerWidget from '../../components/DailyMedigerWidget';
 import Calendar from 'react-calendar';
 import './MonthlyCalender.css';
 import moment from 'moment';
-import { Mobile } from '../../components/ReactResponsive';
 import MypageLayout from '../../components/MypageLayout';
+// import DailyMediger from './DailyMediger';
 
 const MonthlyMedigerBox = styled.div`
   flex-direction: column;
@@ -92,46 +92,45 @@ const StyledLink = styled(Link)`
 
 function MonthlyMediger() {
   const [value, onChange] = useState(new Date());
+
   return (
-    <Mobile>
-      <MypageLayout>
-        <MonthlyMedigerBox>
-          <div className="TitleBox">
-            <p className="Title">월간 메디저</p>
-            <div className="PlusBtn">
-              <StyledLink to={`/myMediger/AddToMediger`}>
-                <IoIosAddCircle />
-              </StyledLink>
-            </div>
-          </div>
-
-          <div className="CalendarBox">
-            <Calendar
-              onChange={onChange}
-              formatDay={(locale, date) => moment(date).format('DD')}
-              minDetail="month"
-              maxDetail="month"
-              // showNeighboringMonth={false}
-              value={value}
-            />
-          </div>
-
-          <div className="DailyMedigerBox">
-            <div className="SubTitleBox">
-              <div className="SubTitle">
-                {moment(value).format('YYYY/MM/DD')}
-              </div>
-              <hr />
-            </div>
-            <StyledLink to={`/myMediger/DailyMediger`}>
-              <div className="ContentBox">
-                <DailyMedigerWidget />
-              </div>
+    <MypageLayout>
+      <MonthlyMedigerBox>
+        <div className="TitleBox">
+          <p className="Title">월간 메디저</p>
+          <div className="PlusBtn">
+            <StyledLink to={`/myMediger/AddToMediger`}>
+              <IoIosAddCircle />
             </StyledLink>
           </div>
-        </MonthlyMedigerBox>
-      </MypageLayout>
-    </Mobile>
+        </div>
+
+        <div className="CalendarBox">
+          <Calendar
+            onChange={onChange}
+            formatDay={(locale, date) => moment(date).format('DD')}
+            minDetail="month"
+            maxDetail="month"
+            // showNeighboringMonth={false}
+            value={value}
+          />
+        </div>
+
+        <div className="DailyMedigerBox">
+          <div className="SubTitleBox">
+            <div className="SubTitle">{moment(value).format('YYYY/MM/DD')}</div>
+            <hr />
+          </div>
+          <StyledLink
+            to={`/myMediger/DailyMediger/${moment(value).format('YYYYMMDD')}`}
+          >
+            <div className="ContentBox">
+              <DailyMedigerWidget />
+            </div>
+          </StyledLink>
+        </div>
+      </MonthlyMedigerBox>
+    </MypageLayout>
   );
 }
 

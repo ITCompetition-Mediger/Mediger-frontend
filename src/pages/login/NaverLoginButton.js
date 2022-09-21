@@ -41,7 +41,7 @@ const StyledLink = styled(Link)`
 
 function NaverLoginButton() {
   return (
-    <StyledLink to={`/pillSearch`}>
+    <StyledLink to={`/pages/Home`}>
       <Wrapper>
         <div className="NaverImage">
           <img

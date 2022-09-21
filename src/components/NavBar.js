@@ -33,7 +33,7 @@ const Menu = styled.div`
 function NavBar() {
   return (
     <NavBarWrapper>
-      <Link to={`/`}>
+      <Link to={`/pages/Home`}>
         <Menu>
           <AiOutlineHome />
         </Menu>
@@ -45,7 +45,7 @@ function NavBar() {
         </Menu>
       </Link>
 
-      <Link to={`/map/pharmacyList`}>
+      <Link to={`/map/pharmacy`}>
         <Menu>
           <MdLocalPharmacy />
         </Menu>
