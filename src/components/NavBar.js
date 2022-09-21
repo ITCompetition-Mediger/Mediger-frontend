@@ -45,7 +45,7 @@ function NavBar() {
         </Menu>
       </Link>
 
-      <Link to={`/map/pharmacyList`}>
+      <Link to={`/map/pharmacy`}>
         <Menu>
           <MdLocalPharmacy />
         </Menu>
