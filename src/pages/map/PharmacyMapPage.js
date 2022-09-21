@@ -48,13 +48,13 @@ const Map = styled.div`
 const PharmacyMap = styled.div`
   width: 100vw;
   height: 75vh;
-  background-color: red;
+  /* background-color: red; */
 `;
 
 const HospitalMap = styled.div`
   width: 100vw;
   height: 75vh;
-  background-color: blue;
+  /* background-color: blue; */
 `;
 
 const StyledLink = styled(Link)`
@@ -89,7 +89,13 @@ function PharmacyMapPage() {
       <Mobile>
         <Layout>
           <Wrapper>
-            <Map>{menu === 'pharmacy' ? <PharmacyMap /> : <HospitalMap />}</Map>
+            <Map>
+              {menu === 'pharmacy' ? (
+                <PharmacyMap>근처 약국 지도</PharmacyMap>
+              ) : (
+                <HospitalMap>근처 병원 지도</HospitalMap>
+              )}
+            </Map>
             <div className="MapMenuBox">
               <div className="MenuList">
                 <select className="Menu" onChange={onChangeMenu}>
