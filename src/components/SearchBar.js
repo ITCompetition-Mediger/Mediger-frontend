@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { HiSearch } from 'react-icons/hi';
 
 const SearchBarWrapper = styled.div`
@@ -61,6 +62,20 @@ const SearchBarWrapper = styled.div`
   }
 `;
 
+const StyledLink = styled(Link)`
+  color: #3c7466;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: #3c7466;
+  }
+`;
+
 function SearchBar() {
   const [inputValue, setInputValue] = useState('');
 
@@ -111,7 +126,10 @@ function SearchBar() {
             className="searchInput"
           />
           <span className="searchIcon">
-            <HiSearch onClick={goPillSearch} />
+            <StyledLink to={`/pillSearch`}>
+              {/* home에서 검색페이지로 넘어가려면 onClick 이벤트 리스너 없어야 함 */}
+              <HiSearch onClick={goPillSearch} />
+            </StyledLink>
           </span>
         </div>
       </SearchBarWrapper>
