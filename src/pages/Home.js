@@ -106,12 +106,14 @@ const StyledLink = styled(Link)`
 function Home() {
   return (
     <MainBox>
-      <div className="headerTitle">
-        <div className="TitleContent">
-          <p className="mainTitle">내가 먹는 약이 궁금하다면?</p>
-          <div className="headerSubContents">MEDIGER</div>
+      <StyledLink to="/">
+        <div className="headerTitle">
+          <div className="TitleContent">
+            <p className="mainTitle">내가 먹는 약이 궁금하다면?</p>
+            <div className="headerSubContents">MEDIGER</div>
+          </div>
         </div>
-      </div>
+      </StyledLink>
       <div className="MainContentBox">
         <SearchBar />
         <div className="DailyMedigerBox">
