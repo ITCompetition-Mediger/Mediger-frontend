@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Layout from '../../components/Layout';
-import PharmacyList from './PharmacyList';
+import HospitalList from './HospitalList';
 import { Desktop, Mobile, Tablet } from '../../components/ReactResponsive';
 import DesktopView from '../../components/DesktopView';
 import TabletView from '../../components/TabletView';
@@ -43,7 +43,17 @@ function HospitalListPage() {
             <div className="nameHeader">
               <p className="title">🏥 현위치 주변 병원</p>
             </div>
-            <HospitalListComponentWrapper></HospitalListComponentWrapper>
+            <HospitalListComponentWrapper>
+              <HospitalList />
+              <HospitalList />
+              <HospitalList />
+              <HospitalList />
+              <HospitalList />
+              <HospitalList />
+              <HospitalList />
+              <HospitalList />
+              <HospitalList />
+            </HospitalListComponentWrapper>
           </Wrapper>
         </Layout>
       </Mobile>
