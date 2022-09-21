@@ -10,9 +10,6 @@ import Layout from '../components/Layout';
 function Home() {
   return (
     <div>
-      {/* Home!
-      <Link to="/"></Link> */}
-      {/* <Mypage /> */}
       <Layout></Layout>
     </div>
   );
