@@ -59,6 +59,9 @@ function PharmacyMapAPI(){
                 style={{
                     width: '100%',
                     height: '80%',
+                    position: 'absolute',
+                    zIndex: '-1',
+
                 }}
             >
             </div>
