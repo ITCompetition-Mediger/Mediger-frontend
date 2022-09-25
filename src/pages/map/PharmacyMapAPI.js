@@ -61,7 +61,6 @@ function PharmacyMapAPI(){
                     height: '80%',
                     position: 'absolute',
                     zIndex: '-1',
-
                 }}
             >
             </div>
