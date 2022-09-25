@@ -18,8 +18,6 @@ function HospitalMapAPI(){
                     lon = position.coords.longitude; 
                 
                 var locPosition = new kakao.maps.LatLng(lat, lon)
-
-
                 map.setCenter(locPosition);   
                 });
             }
@@ -28,7 +26,7 @@ function HospitalMapAPI(){
         var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 })
         ps.keywordSearch('병원', placesSearchCB);
         
-        const placesSearchCB = (data, status) => {
+        function placesSearchCB(data, status){
 
             if (status === kakao.maps.services.Status.OK) {
                 let bounds = new kakao.maps.LatLngBounds();
@@ -42,7 +40,7 @@ function HospitalMapAPI(){
             }
         }
 
-        const displayMarker = (place) => {
+        function displayMarker(place){
             let marker = new kakao.maps.Marker({
             map: map,
             position: new kakao.maps.LatLng(place.y, place.x) 
@@ -62,7 +60,9 @@ function HospitalMapAPI(){
                 id="hospitalMap"
                 style={{
                     width: '100%',
-                    height: '80%',
+                    height: '100%',
+                    position: 'absolute',
+                    zIndex: '-1',
                 }}
             >
             </div>
