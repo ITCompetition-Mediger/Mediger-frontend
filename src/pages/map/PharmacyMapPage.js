@@ -5,6 +5,8 @@ import DesktopView from '../../components/DesktopView';
 import Layout from '../../components/Layout';
 import { Desktop, Mobile, Tablet } from '../../components/ReactResponsive';
 import TabletView from '../../components/TabletView';
+import PharmacyMapAPI from './PharmacyMapAPI';
+import HospitalMapAPI from './HospitalMapAPI';
 
 const Wrapper = styled.div`
   display: flex;
@@ -91,9 +93,13 @@ function PharmacyMapPage() {
           <Wrapper>
             <Map>
               {menu === 'pharmacy' ? (
-                <PharmacyMap>근처 약국 지도</PharmacyMap>
+                <PharmacyMap>
+                  <PharmacyMapAPI />
+                </PharmacyMap>
               ) : (
-                <HospitalMap>근처 병원 지도</HospitalMap>
+                <HospitalMap>
+                  <HospitalMapAPI />
+                </HospitalMap>
               )}
             </Map>
             <div className="MapMenuBox">
