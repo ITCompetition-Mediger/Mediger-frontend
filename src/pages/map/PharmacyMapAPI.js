@@ -3,16 +3,27 @@ import React, {useEffect} from "react";
 const { kakao } = window
 
 function PharmacyMapAPI(){
-
     useEffect(() => {
-            var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 })
-            const mapContainer = document.getElementById('pharmacyMap')
-            const mapOption = {
-                center: new kakao.maps.LatLng(37.566826, 126.9786567),
-                level: 3,
+        const mapContainer = document.getElementById('pharmacyMap')
+        const mapOption = {
+            center: new kakao.maps.LatLng(37.566826, 126.9786567),
+            level: 3,
         }
+
         const map = new kakao.maps.Map(mapContainer, mapOption);
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+            let lat = position.coords.latitude,
+                lon = position.coords.longitude; 
+            
+            var locPosition = new kakao.maps.LatLng(lat, lon)
+            map.setCenter(locPosition);   
+            });
+        }
+
         const ps = new kakao.maps.services.Places(); 
+        var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 })
         ps.keywordSearch('약국', placesSearchCB);
         
         function placesSearchCB(data, status){
@@ -46,8 +57,8 @@ function PharmacyMapAPI(){
             <div
                 id="pharmacyMap"
                 style={{
-                    width: '100px',
-                    height: '350px',
+                    width: '100%',
+                    height: '80%',
                 }}
             >
             </div>
