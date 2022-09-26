@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import LogoImg from '../images/Logo1.png';
+import LogoImg2 from '../images/Logo2.png';
 
 const Head = styled.div`
   width: 100vw;
@@ -17,6 +19,15 @@ const Logo = styled.p`
   font-size: 9vw;
   text-align: center;
   color: white;
+
+  .Logo1 {
+    width: 65vw;
+    margin-top: 2vh;
+  }
+
+  .Logo2 {
+    width: 23vw;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -35,7 +46,11 @@ function Header() {
   return (
     <Head>
       <StyledLink to="/">
-        <Logo>Mediger</Logo>
+        {/* <Logo>Mediger</Logo> */}
+        <Logo>
+          {/* <img src={LogoImg} className="Logo1"></img> */}
+          <img src={LogoImg2} className="Logo2"></img>
+        </Logo>
       </StyledLink>
     </Head>
   );
