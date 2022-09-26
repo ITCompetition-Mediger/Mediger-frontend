@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import DailyMedigerWidget from '../components/DailyMedigerWidget';
 import SearchBar from '../components/SearchBar';
 import NavBar from '../components/NavBar';
+import LogoImg from '../images/Logo1.png';
+import LogoImg2 from '../images/Logo2.png';
 
 const MainBox = styled.div`
   width: 100vw;
@@ -41,6 +43,11 @@ const MainBox = styled.div`
 
   .Title {
     font-size: 4vw;
+  }
+
+  .Logo2 {
+    width: 75vw;
+    margin-top: 1vh;
   }
 
   .headerSubContents {
@@ -110,7 +117,8 @@ function Home() {
         <div className="headerTitle">
           <div className="TitleContent">
             <p className="mainTitle">내가 먹는 약이 궁금하다면?</p>
-            <div className="headerSubContents">MEDIGER</div>
+            {/* <div className="headerSubContents">MEDIGER</div> */}
+            <img src={LogoImg} className="Logo2"></img>
           </div>
         </div>
       </StyledLink>
