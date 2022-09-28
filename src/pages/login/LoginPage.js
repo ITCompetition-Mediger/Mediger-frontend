@@ -2,7 +2,7 @@ import React from 'react';
 import LoginHeader from './LoginHeader';
 import styled from 'styled-components';
 import LoginButton from './LoginButton';
-import { Desktop, Mobile, Tablet} from '../../components/ReactResponsive';
+import { Desktop, Mobile, Tablet } from '../../components/ReactResponsive';
 import DesktopView from '../../components/DesktopView';
 import TabletView from '../../components/TabletView';
 

@@ -4,6 +4,15 @@ import styled, { keyframes } from 'styled-components';
 import LogoImg from '../images/Logo1.png';
 import LogoImg2 from '../images/Logo2.png';
 
+const intro = keyframes`    
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+`;
+
 const fadeInLogo = keyframes`
     0% {
         opacity: 0;
@@ -42,17 +51,8 @@ const SplashBox = styled.div`
 
     background-color: #3b7466;
 
-    animation: intro 0.5s forwards;
+    animation: ${intro} 0.5s forwards;
     animation-delay: 3.5s;
-  }
-
-  @keyframes intro {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
   }
 
   .hello {
