@@ -26,7 +26,8 @@ const Logo = styled.p`
   }
 
   .Logo2 {
-    width: 23vw;
+    width: 20vw;
+    /* margin-bottom: 3vh; */
   }
 `;
 
