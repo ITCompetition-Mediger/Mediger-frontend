@@ -77,15 +77,22 @@ const StyledLink = styled(Link)`
 `;
 
 function SearchBar() {
+  //입력값 컨트롤러
   const [inputValue, setInputValue] = useState('');
-
   const inputHandler = (event) => {
     setInputValue(event.currentTarget.value);
   };
 
-  const goPillSearch = (event) => {
-    event.preventDefault();
+  //select option 컨트롤러
+  const optionChange = () => {
+    let searchType  = document.getElementsById("searchType");
+		let type = (searchType.options[searchType.selectedIndex].value);
+    return type;
+  }
 
+  //검색 시 컨트롤러
+  const onSubmit = (event) => {
+    event.preventDefault();
     //추후 수정 필요
     if (inputValue == ' ') {
       document.getElementById('checkInputValue').innerHTML =
@@ -114,7 +121,11 @@ function SearchBar() {
       <SearchBarWrapper>
         <div className="searchBarBox">
           <form className="searchTypeBox">
-            <select name="searchType" className="searchType">
+            <select
+              id="searchType"
+              className="searchType"
+              onchange={optionChange}
+            >
               <option value="pillName">의약품명</option>
               <option value="symptom">증상</option>
             </select>
@@ -128,7 +139,9 @@ function SearchBar() {
           <span className="searchIcon">
             <StyledLink to={`/pillSearch`}>
               {/* home에서 검색페이지로 넘어가려면 onClick 이벤트 리스너 없어야 함 */}
-              <HiSearch onClick={goPillSearch} />
+              <HiSearch 
+                onsubmit={onSubmit}
+              />
             </StyledLink>
           </span>
         </div>
