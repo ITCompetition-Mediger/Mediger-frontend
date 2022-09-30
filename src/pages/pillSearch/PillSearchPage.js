@@ -76,6 +76,9 @@ function PillSearchPage({inputValue, type}) {
             />
     )}
 
+  //객체 개수 반환
+  const count = Object.keys(json).length;
+
 
   return (
     <div>
@@ -86,9 +89,7 @@ function PillSearchPage({inputValue, type}) {
             <PillSearchResultBox>
               <div className="ResultBox">
                 <div className="pillTotal">
-                  *//*
-                  <p className="Total">전체
-                  {/* 넘겨받을 개수까지 함께 백에서 받기? */}개
+                  <p className="Total">전체 {count}개
                   </p>
                 </div>
                 <hr />
