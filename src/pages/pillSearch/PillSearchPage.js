@@ -70,6 +70,7 @@ function PillSearchPage() {
 
     {pills.map((pill) =>
           <PillSearchList
+            itemImage={pill.itemImage}
             itemName={pill.itemName}
             entpName={pill.entpName}
             itemSeq={pill.itemSeq}
