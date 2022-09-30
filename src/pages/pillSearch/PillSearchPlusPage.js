@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import { ModalWrapper, StyledModal } from '../../components/StyledModal';
@@ -6,6 +6,7 @@ import { Mobile, Desktop, Tablet } from '../../components/ReactResponsive';
 import Layout from '../../components/Layout';
 import DesktopView from '../../components/DesktopView';
 import TabletView from '../../components/TabletView';
+import PillContentList from './PillContentList';
 
 const PillSearchPlusWrapper = styled.form`
   display: flex;
@@ -88,10 +89,44 @@ const PillContentListWrapper = styled.div`
 `;
 
 function PillSearchPlusPage() {
+  const [pillDetails, setPillDetails] = useState([]); //약 정보 호출 담는 배열
+  const [itemSeq, setItemSeq] = useState([]); //약 품목기준코드 호출
+  const [itemName, setItemName] = useState([]); //약품명 호출
+
+    //의약품 검색 상세 api 호출
+    const getPillSearchPlusAPI = async() =>{
+      setItemSeq(json.movieListResult.movieList);
+        const response = await 
+          fetch(`
+            http://localhost:8080/home/searchByItemSeq/Detail?itemSeq=${itemSeq}
+          `);
+
+      const json = await response.json();
+      setPillDetails(json.movieListResult.movieList);
+    }
+
+    useEffect(() => {
+        getPillSearchPlusAPI();
+    }, []);
+
+    {pillDetails.map((pillDetail) =>
+          <PillContentList
+            itemImage={pillDetail.itemImage}
+            efcyQesitm={pillDetail.efcyQesitm}
+            useMethodQesitm={pillDetail.useMethodQesitm}
+            atpnQesitm={pillDetail.atpnQesitm}
+            atpnWarnQesitm={pillDetail.atpnWarnQesitm}
+            seQesitm={pillDetail.seQesitm}
+            depositMethodQesitm={pillDetail.depositMethodQesitm}
+            intrcQesitm={pillDetail.intrcQesitm}
+          />
+    )}
+
   const [isOpen, setIsOpen] = useState(false);
   const handleModal = (event) => {
     setIsOpen(!isOpen);
   };
+
   return (
     <div>
     <Mobile>
@@ -100,7 +135,7 @@ function PillSearchPlusPage() {
           <PillContentHeaderWrapper>
             <div className="pillHeader">
               <div className="pillTitle">
-                <p className="pillName">모노틴정</p>
+                <p className="pillName">{itemName}</p>
               </div>
               <div className="pillScrap" onClick={handleModal}>
                 {isOpen === false ? <AiOutlineStar /> : <AiFillStar />}
@@ -119,52 +154,8 @@ function PillSearchPlusPage() {
               </div>
             </div>
           </PillContentHeaderWrapper>
-          <PillContentListWrapper>
-            <div className="pillImage">이미지</div>
-            <div className="pillConentListBox">
-              <div className="pillContentList">
-                <div className="contentTitle">
-                  <p className="title">효능</p>
-                </div>
-                <div className="contents">
-                  <p className="content">효능 내용</p>
-                </div>
-              </div>
-              <div className="pillContentList">
-                <div className="contentTitle">
-                  <p className="title">사용법</p>
-                </div>
-                <div className="contents">
-                  <p className="content">사용법 내용</p>
-                </div>
-              </div>
-              <div className="pillContentList">
-                <div className="contentTitle">
-                  <p className="title">경고</p>
-                </div>
-                <div className="contents">
-                  <p className="content">경고 내용</p>
-                </div>
-              </div>
-              <div className="pillContentList">
-                <div className="contentTitle">
-                  <p className="title">주의사항</p>
-                </div>
-                <div className="contents">
-                  <p className="content">주의사항 내용</p>
-                </div>
-              </div>
-              <div className="pillContentList">
-                <div className="contentTitle">
-                  <p className="title">상호작용</p>
-                </div>
-                <div className="contents">
-                  <p className="content">상호작용 내용</p>
-                </div>
-              </div>
-            </div>
-          </PillContentListWrapper>
-        </PillSearchPlusWrapper>
+            <PillContentList />
+          </PillSearchPlusWrapper>
       </Layout>
     </Mobile>
     <Desktop>
