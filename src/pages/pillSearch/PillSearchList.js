@@ -102,7 +102,7 @@ function PillSearchList({itemName, entpName, itemSeq}) {
 PillSearchList.ProtoTypes ={
     itemName: PropTypes.string.isRequired,
     entpName: PropTypes.string.isRequired,
-    itemSeq: PropTypes.name.isRequired,
+    itemSeq: PropTypes.string.isRequired,
 }
 
 export default PillSearchList;
