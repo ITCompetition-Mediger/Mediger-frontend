@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import SearchBar from '../../components/SearchBar';
 import PillSearchList from './PillSearchList';
@@ -51,6 +51,32 @@ const PillSearchResultBox = styled.div`
 `;
 
 function PillSearchPage() {
+  const [pills, setPills] = useState([]); //약 정보 담는 배열
+
+    //의약품 검색 api를 불러옴, 의약품명으로 검색시/ 증상으로 검색시
+    const getPillSearchAPI = async() =>{
+        const response = await 
+          fetch(`
+            http://localhost:8080/home/search?type=&keyword=
+          `);
+
+        const json = await response.json();
+        setPills(json.movieListResult.movieList);
+    }
+
+    useEffect(() => {
+        getPillSearchAPI();
+    }, []);
+
+    {pills.map((pill) =>
+          <PillSearchList
+            itemName={pill.itemName}
+            entpName={pill.entpName}
+            itemSeq={pill.itemSeq}
+            />
+    )}
+
+
   return (
     <div>
       <Mobile>
@@ -65,15 +91,7 @@ function PillSearchPage() {
                 <hr />
               </div>
               <div className="ResultPillBox">
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
+                <PillSearchList/>
               </div>
             </PillSearchResultBox>
           </Wrapper>
