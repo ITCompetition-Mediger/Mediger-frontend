@@ -84,22 +84,20 @@ const PillContentListWrapper = styled.div`
   }
 `;
 
-function PillSearchPlusPage() {
+function PillSearchPlusPage({itemSeq}) {
   const [pillDetails, setPillDetails] = useState([]); //약 정보 호출 담는 배열
-  const [itemSeq, setItemSeq] = useState([]); //약 품목기준코드 호출
   const [itemName, setItemName] = useState([]); //약품명 호출
 
     //의약품 검색 상세 api 호출
     const getPillSearchPlusAPI = async() =>{
-      setItemSeq(json);
         const response = await 
           fetch(`
             http://localhost:8080/home/searchByItemSeq/Detail?itemSeq=${itemSeq}
           `);
 
       const json = await response.json();
-      setPillDetails(json);
-      setItemName(json);
+      setPillDetails(json); //pillDetails를 저장
+      setItemName(json.itemName); //itemName만 따로 저장
     }
 
     useEffect(() => {
