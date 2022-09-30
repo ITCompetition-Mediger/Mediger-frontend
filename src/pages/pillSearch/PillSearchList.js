@@ -75,12 +75,12 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function PillSearchList({itemName, entpName, itemSeq}) {
+function PillSearchList({itemImage, itemName, entpName, itemSeq}) {
   return (
     <PillListWrapper>
       <StyledLink to={`/pillSearch/detail`}>
         <div className="PillBox">
-          <div className="pillImage"></div>
+          <div className="pillImage">{itemImage}</div>
           <div className="pillList">
             <div className="pillTitle">
               <p className="pillName">{itemName}</p>
@@ -100,6 +100,7 @@ function PillSearchList({itemName, entpName, itemSeq}) {
 }
 
 PillSearchList.ProtoTypes ={
+    itemImage: PropTypes.string.isRequired,
     itemName: PropTypes.string.isRequired,
     entpName: PropTypes.string.isRequired,
     itemSeq: PropTypes.string.isRequired,
