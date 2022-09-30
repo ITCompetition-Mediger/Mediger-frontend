@@ -5,23 +5,23 @@ function PillContentList({itemImage, efcyQesitm, useMethodQesitm, atpnWarnQesitm
     return(
     <>
         <div className="pillImage">{itemImage}</div>
-            <div className="pillConentListBox">
-                <div className="pillContentList">
-                    <div className="contentTitle">
-                    <p className="title">{efcyQesitm}</p>
-                    </div>
-                    <div className="contents">
-                    <p className="content">{efcyQesitm}</p>
-                    </div>
+        <div className="pillConentListBox">
+            <div className="pillContentList">
+                <div className="contentTitle">
+                <p className="title">{efcyQesitm}</p>
                 </div>
-                <div className="pillContentList">
-                    <div className="contentTitle">
-                    <p className="title">{useMethodQesitm}</p>
-                    </div>
-                    <div className="contents">
-                    <p className="content">{useMethodQesitm}</p>
-                    </div>
+                <div className="contents">
+                <p className="content">{efcyQesitm}</p>
                 </div>
+            </div>
+            <div className="pillContentList">
+                <div className="contentTitle">
+                <p className="title">{useMethodQesitm}</p>
+                </div>
+                <div className="contents">
+                <p className="content">{useMethodQesitm}</p>
+                </div>
+            </div>
             <div className="pillContentList">
                 <div className="contentTitle">
                 <p className="title">{atpnWarnQesitm}</p>
