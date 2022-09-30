@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { AiOutlineStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const PillListWrapper = styled.div`
   background-color: #ecf2f0;
@@ -74,7 +75,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function PillSearchList() {
+function PillSearchList({itemName, entpName, itemSeq}) {
   return (
     <PillListWrapper>
       <StyledLink to={`/pillSearch/detail`}>
@@ -82,11 +83,11 @@ function PillSearchList() {
           <div className="pillImage"></div>
           <div className="pillList">
             <div className="pillTitle">
-              <p className="pillName">모노틴정</p>
+              <p className="pillName">{itemName}</p>
             </div>
             <div className="pillContent">
-              <p className="pillCompany">업체명: 한미약품(주)</p>
-              <p className="pillCode">품목기준코드: 200003092</p>
+              <p className="pillCompany">{entpName}</p>
+              <p className="pillCode">{itemSeq}</p>
             </div>
           </div>
         </div>
@@ -96,6 +97,12 @@ function PillSearchList() {
       </div>
     </PillListWrapper>
   );
+}
+
+PillSearchList.ProtoTypes ={
+    itemName: PropTypes.string.isRequired,
+    entpName: PropTypes.string.isRequired,
+    itemSeq: PropTypes.name.isRequired,
 }
 
 export default PillSearchList;
