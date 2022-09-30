@@ -60,7 +60,7 @@ function PillSearchPage({inputValue, type}) {
           `);
 
         const json = await response.json();
-        setPills(json.movieListResult.movieList);
+        setPills(json);
     }
 
     useEffect(() => {
