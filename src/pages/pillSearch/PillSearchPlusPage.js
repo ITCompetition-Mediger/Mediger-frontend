@@ -16,7 +16,6 @@ const PillSearchPlusWrapper = styled.form`
   width: 100vw;
   height: 70vh;
   padding: 2.5vh 0;
-  /* background-color: blue; */
 
   p {
     margin: 0;
@@ -25,7 +24,6 @@ const PillSearchPlusWrapper = styled.form`
 
 const PillContentHeaderWrapper = styled.div`
   .pillHeader {
-    /* background-color: blanchedalmond; */
     width: 85vw;
     display: flex;
     justify-content: space-between;
@@ -49,7 +47,6 @@ const PillContentHeaderWrapper = styled.div`
 const PillContentListWrapper = styled.div`
   width: 85vw;
   height: 63vh;
-  /* background-color: red; */
 
   overflow: scroll;
 
@@ -68,7 +65,6 @@ const PillContentListWrapper = styled.div`
   }
 
   .pillConentListBox {
-    /* background-color: aqua; */
   }
 
   .pillContentList {
@@ -95,15 +91,15 @@ function PillSearchPlusPage() {
 
     //의약품 검색 상세 api 호출
     const getPillSearchPlusAPI = async() =>{
-      setItemSeq(json.movieListResult.movieList);
+      setItemSeq(json);
         const response = await 
           fetch(`
             http://localhost:8080/home/searchByItemSeq/Detail?itemSeq=${itemSeq}
           `);
 
       const json = await response.json();
-      setPillDetails(json.movieListResult.movieList);
-      setItemName(json.movieListResult.movieList);
+      setPillDetails(json);
+      setItemName(json);
     }
 
     useEffect(() => {
@@ -124,6 +120,7 @@ function PillSearchPlusPage() {
     )}
 
   const [isOpen, setIsOpen] = useState(false);
+
   const handleModal = (event) => {
     setIsOpen(!isOpen);
   };
