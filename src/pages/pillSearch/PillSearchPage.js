@@ -59,8 +59,8 @@ function PillSearchPage({inputValue, type}) {
             http://localhost:8080/home/search?type=${type}&keyword=${inputValue}
           `);
 
-        const json = await response.json();
-        setPills(json);
+        const data = await response.json();
+        setPills(data);
     }
 
     useEffect(() => {
@@ -77,7 +77,7 @@ function PillSearchPage({inputValue, type}) {
     )}
 
   //객체 개수 반환
-  const count = Object.keys(json).length;
+  const count = Object.keys(data).length;
 
 
   return (
