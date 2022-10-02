@@ -1,10 +1,16 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
+import styled from "styled-components";
+
+const MapWrapper = styled.form`
+
+`;
 
 const { kakao } = window
 
 function PharmacyMapAPI(){
+    const [_map, setMap ] = useState();
     useEffect(() => {
-        const mapContainer = document.getElementById('pharmacyMap')
+        const mapContainer = document.getElementById('pharmacyMap');
         const mapOption = {
             center: new kakao.maps.LatLng(37.566826, 126.9786567),
             level: 3,
@@ -37,6 +43,7 @@ function PharmacyMapAPI(){
             }       
 
             map.setBounds(bounds);
+            
             }
         }
 
@@ -50,10 +57,23 @@ function PharmacyMapAPI(){
             infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
             infowindow.open(map, marker);
         });
-    }},[]);
+    }
 
+    setMap(map);
+    }, []);
+
+    // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+    function zoomIn() {
+            _map.setLevel(_map.getLevel() - 1);
+        }
+
+        // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+    function zoomOut() {
+            _map.setLevel(_map.getLevel() + 1);
+        }
 
     return(
+        <MapWrapper>
             <div
                 id="pharmacyMap"
                 style={{
@@ -64,6 +84,18 @@ function PharmacyMapAPI(){
                 }}
             >
             </div>
+            
+            <div className="custom_zoomcontrol radius_border"> 
+                <span onClick={zoomIn}>
+                    <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대">
+                    </img>
+                </span>  
+                <span onClick={zoomOut}>
+                    <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소">
+                    </img>
+                </span>
+            </div>
+        </MapWrapper>
     );
 }
 

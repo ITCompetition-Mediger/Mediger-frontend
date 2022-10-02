@@ -12,6 +12,7 @@ import AddToMediger from './pages/myMediger/AddToMediger';
 import DailyMediger from './pages/myMediger/DailyMediger';
 import MonthlyMediger from './pages/myMediger/MonthlyMediger';
 import Mypage from './pages/myMediger/Mypage';
+import Splash from '././pages/Splash';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Route path="/myMediger/MonthlyMediger" element={<MonthlyMediger />} />
       <Route path="/myMediger/Mypage" element={<Mypage />} />
       <Route path="/pages/Home" element={<Main />} />
+      <Route path="/pages/Splash" element={<Splash />} />
     </Routes>
   );
 }
