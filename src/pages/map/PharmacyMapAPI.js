@@ -1,10 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 
-const MapWrapper = styled.form`
-
-`;
-
 const KakaoMap = styled.div`
     width: 100%;
     height: 80%;
@@ -128,7 +124,7 @@ function PharmacyMapAPI(){
         }
 
     return(
-        <MapWrapper>
+        <>
             <KakaoMap
                 id="pharmacyMap"
             />
@@ -144,7 +140,7 @@ function PharmacyMapAPI(){
                     </span>
                 </div>
             </CustomZoomControl>
-        </MapWrapper>
+        </>
     );
 }
 
