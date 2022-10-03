@@ -59,8 +59,8 @@ function PillSearchPage({inputValue, type}) {
             http://localhost:8080/home/search?type=${type}&keyword=${inputValue}
           `);
 
-        const data = await response.json();
-        setPills(data);
+        const json = await response.json();
+        setPills(json);
     }
 
     useEffect(() => {
@@ -77,7 +77,7 @@ function PillSearchPage({inputValue, type}) {
     )}
 
   //객체 개수 반환
-  const count = Object.keys(data).length;
+  //const count = Object.keys(json).length;
 
 
   return (
@@ -89,7 +89,7 @@ function PillSearchPage({inputValue, type}) {
             <PillSearchResultBox>
               <div className="ResultBox">
                 <div className="pillTotal">
-                  <p className="Total">전체 {count}개
+                  <p className="Total">전체 count개
                   </p>
                 </div>
                 <hr />

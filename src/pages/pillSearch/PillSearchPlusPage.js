@@ -95,9 +95,9 @@ function PillSearchPlusPage({itemSeq}) {
             http://localhost:8080/home/searchByItemSeq/Detail?itemSeq=${itemSeq}
           `);
 
-      const json = await response.json();
-      setPillDetails(json); //pillDetails를 저장
-      setItemName(json.itemName); //itemName만 따로 저장
+      const data = await response.json();
+      setPillDetails(data); //pillDetails를 저장
+      setItemName(data.itemName); //itemName만 따로 저장
     }
 
     useEffect(() => {

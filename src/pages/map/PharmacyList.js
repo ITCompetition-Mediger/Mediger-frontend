@@ -51,20 +51,20 @@ const PharmacyListWrapper = styled.div`
   }
 `;
 
-function PharmacyList() {
+function PharmacyList({distance, dutyAddr, dutyName}) {
   return (
     <PharmacyListWrapper>
       <div className="pharmacyImage"></div>
       <div className="pharmacyList">
         <div className="pharmacyName">
-          <p className="name">약국 이름</p>
+          <p className="name">{dutyName}</p>
         </div>
         <div className="pharmacyAddress">
-          <p className="address">상세 주소 , 도로명 주소</p>
+          <p className="address">{dutyAddr}</p>
         </div>
       </div>
       <div className="pharmacyDistance">
-        <p className="distance">100m</p>
+        <p className="distance">{distance}m</p>
       </div>
     </PharmacyListWrapper>
   );
