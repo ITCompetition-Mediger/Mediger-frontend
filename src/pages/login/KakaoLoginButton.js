@@ -71,7 +71,8 @@ function KakaoLoginButton() {
   }, []);
 
   return (
-    <a target="_blank" href={`${kakao}`}>
+    // <a target="_blank" href={`${kakao}`}>
+    <a target="_self" href={`${kakao}`}>
       <Wrapper>
         <div className="kakaoImage">
           <img
