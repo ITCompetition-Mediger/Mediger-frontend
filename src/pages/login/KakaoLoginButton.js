@@ -1,6 +1,10 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
+import UserService from '../../services/UserService';
+import { tsConstructorType } from '../../../../../../AppData/Local/Microsoft/TypeScript/4.8/node_modules/@babel/types/lib/index';
 
 const Wrapper = styled.div`
   width: 65vw;
@@ -24,6 +28,19 @@ const Wrapper = styled.div`
     width: 5vh;
     height: 5vh;
   }
+
+  a {
+    text-decoration: none;
+
+    &:focus,
+    &:hover,
+    &:visited,
+    &:link,
+    &:active {
+      text-decoration: none;
+      color: #3c7466;
+    }
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -40,8 +57,21 @@ const StyledLink = styled(Link)`
 `;
 
 function KakaoLoginButton() {
+  const [kakao, setKakao] = useState([]);
+  const getAPI = async () => {
+    const response = await fetch(`
+        http://localhost:8080/login
+        `);
+    const json = await response.json();
+    setKakao(json.kakao);
+    console.log(json);
+  };
+  useEffect(() => {
+    getAPI();
+  }, []);
+
   return (
-    <StyledLink to={`/pages/Home`}>
+    <a target="_blank" href={`${kakao}`}>
       <Wrapper>
         <div className="kakaoImage">
           <img
@@ -52,7 +82,7 @@ function KakaoLoginButton() {
 
         <div className="snsKakao">Kakao로 시작하기</div>
       </Wrapper>
-    </StyledLink>
+    </a>
   );
 }
 
