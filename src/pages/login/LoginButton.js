@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import GoogleLoginButton from './GoogleLoginButton';
 import KakaoLoginButton from './KakaoLoginButton';
 import NaverLoginButton from './NaverLoginButton';
@@ -52,7 +53,31 @@ const Wrapper = styled.form`
   }
 `;
 
+const StyledLink = styled(Link)`
+  color: #3c7466;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: #3c7466;
+  }
+`;
+
 function LoginButton() {
+  //   const getAPI = async () => {
+  //     const response = await fetch(`
+  //         http://localhost:8080/login
+  //         `);
+  //     const json = await response.json();
+  //     console.log(json);
+  //   };
+  //   useEffect(() => {
+  //     getAPI();
+  //   }, []);
   return (
     <Wrapper>
       <div class="BtnBox">

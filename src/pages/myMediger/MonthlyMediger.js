@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
@@ -8,6 +8,7 @@ import './MonthlyCalender.css';
 import moment from 'moment';
 import MypageLayout from '../../components/MypageLayout';
 // import DailyMediger from './DailyMediger';
+import axios from 'axios';
 
 const MonthlyMedigerBox = styled.div`
   flex-direction: column;
@@ -91,6 +92,32 @@ const StyledLink = styled(Link)`
 `;
 
 function MonthlyMediger() {
+  const getAPI = async () => {
+    const response = await fetch(`
+      http://localhost:8080/home/mypage/monthly
+      `);
+    const json = await response.json();
+    console.log(json);
+  };
+  useEffect(() => {
+    getAPI();
+  }, []);
+
+  //   const [pills, setPills] = useState([]);
+  //   const getAPI = () => {
+  //     const url = 'http://localhost:8080/home';
+  //     axios
+  //       .get(url)
+  //       .then(function (response) {
+  //         setPills(response.data);
+  //         console.log('성공');
+  //       })
+  //       .catch(function (error) {
+  //         console.log('실패');
+  //       });
+  //   };
+  //   getAPI();
+
   const [value, onChange] = useState(new Date());
 
   return (
