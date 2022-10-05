@@ -55,7 +55,8 @@ function NaverLoginButton() {
   }, []);
 
   return (
-    <a target="_self" href={`${logout}`}>
+    // <a target="_self" href={`${logout}`}>
+    <StyledLink to={`/pages/Home`}>
       <Wrapper>
         <div className="NaverImage">
           <img
@@ -66,7 +67,7 @@ function NaverLoginButton() {
 
         <div className="snsNaver">Naver로 시작하기</div>
       </Wrapper>
-    </a>
+    </StyledLink>
   );
 }
 

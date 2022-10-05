@@ -24,6 +24,7 @@ const Wrapper = styled.div`
 
     position: absolute;
     bottom: 10vh;
+    z-index: 1;
   }
 
   .Menu {
