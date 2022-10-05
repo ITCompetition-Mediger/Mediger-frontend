@@ -1,6 +1,22 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
+const LoginApi = styled.div`
+  a {
+    text-decoration: none;
+
+    &:focus,
+    &:hover,
+    &:visited,
+    &:link,
+    &:active {
+      text-decoration: none;
+      color: #3c7466;
+    }
+  }
+`;
 
 const Wrapper = styled.div`
   width: 65vw;
@@ -26,33 +42,36 @@ const Wrapper = styled.div`
   }
 `;
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-    color: #3c7466;
-  }
-`;
-
 function KakaoLoginButton() {
-  return (
-    <StyledLink to={`/pages/Home`}>
-      <Wrapper>
-        <div className="kakaoImage">
-          <img
-            src="https://gseyecenter.com/assets/img/member/join_kakao.png"
-            className="Img"
-          ></img>
-        </div>
+  const [kakao, setKakao] = useState([]);
+  const getAPI = async () => {
+    const response = await fetch(`
+        http://localhost:8080/login
+        `);
+    const json = await response.json();
+    setKakao(json.kakao);
+    console.log(json);
+  };
+  useEffect(() => {
+    getAPI();
+  }, []);
 
-        <div className="snsKakao">Kakao로 시작하기</div>
-      </Wrapper>
-    </StyledLink>
+  return (
+    // <a target="_blank" href={`${kakao}`}>
+    <LoginApi>
+      <a target="_self" href={`${kakao}`}>
+        <Wrapper>
+          <div className="kakaoImage">
+            <img
+              src="https://gseyecenter.com/assets/img/member/join_kakao.png"
+              className="Img"
+            ></img>
+          </div>
+
+          <div className="snsKakao">Kakao로 시작하기</div>
+        </Wrapper>
+      </a>
+    </LoginApi>
   );
 }
 

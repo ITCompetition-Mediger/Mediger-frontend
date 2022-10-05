@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import DailyMedigerWidget from '../components/DailyMedigerWidget';
@@ -111,6 +112,19 @@ const StyledLink = styled(Link)`
 `;
 
 function Home() {
+  const [user, setUser] = useState([]);
+  const getAPI = async () => {
+    const response = await fetch(`
+            http://localhost:8080/home
+            `);
+    const json = await response.json();
+    // setKakao(json.kakao);
+    console.log(json);
+  };
+  useEffect(() => {
+    getAPI();
+  }, []);
+
   return (
     <MainBox>
       <StyledLink to="/">

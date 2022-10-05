@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -26,33 +27,50 @@ const Wrapper = styled.div`
   }
 `;
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
+const LoginApi = styled.div`
+  a {
     text-decoration: none;
-    color: #3c7466;
+
+    &:focus,
+    &:hover,
+    &:visited,
+    &:link,
+    &:active {
+      text-decoration: none;
+      color: #3c7466;
+    }
   }
 `;
 
 function GoogleLoginButton() {
+  const [google, setGoogle] = useState([]);
+  const getAPI = async () => {
+    const response = await fetch(`
+          http://localhost:8080/login
+          `);
+    const json = await response.json();
+    setGoogle(json.google);
+    // console.log(json);
+  };
+  useEffect(() => {
+    getAPI();
+  }, []);
   return (
-    <StyledLink to={`/pages/Home`}>
-      <Wrapper>
-        <div className="GoogleImage">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
-            className="Img"
-          ></img>
-        </div>
+    // <StyledLink to={`/pages/Home`}>
+    <LoginApi>
+      <a target="_self" href={`${google}`}>
+        <Wrapper>
+          <div className="GoogleImage">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
+              className="Img"
+            ></img>
+          </div>
 
-        <div className="snsGoogle">Google로 시작하기</div>
-      </Wrapper>
-    </StyledLink>
+          <div className="snsGoogle">Google로 시작하기</div>
+        </Wrapper>
+      </a>
+    </LoginApi>
   );
 }
 
