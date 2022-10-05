@@ -50,7 +50,7 @@ function GoogleLoginButton() {
           `);
     const json = await response.json();
     setGoogle(json.google);
-    console.log(json);
+    // console.log(json);
   };
   useEffect(() => {
     getAPI();
