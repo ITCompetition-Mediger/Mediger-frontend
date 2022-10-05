@@ -1,10 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
-import UserService from '../../services/UserService';
-import { tsConstructorType } from '../../../../../../AppData/Local/Microsoft/TypeScript/4.8/node_modules/@babel/types/lib/index';
+import { useParams } from 'react-router-dom';
 
 const LoginApi = styled.div`
   a {

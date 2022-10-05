@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -40,8 +41,21 @@ const StyledLink = styled(Link)`
 `;
 
 function NaverLoginButton() {
+  const [logout, setLogout] = useState([]);
+  const getAPI = async () => {
+    const response = await fetch(`
+          http://localhost:8080/logout
+          `);
+    const json = await response.json();
+    setLogout(json.logout);
+    console.log(json);
+  };
+  useEffect(() => {
+    getAPI();
+  }, []);
+
   return (
-    <StyledLink to={`/pages/Home`}>
+    <a target="_self" href={`${logout}`}>
       <Wrapper>
         <div className="NaverImage">
           <img
@@ -52,7 +66,7 @@ function NaverLoginButton() {
 
         <div className="snsNaver">Naver로 시작하기</div>
       </Wrapper>
-    </StyledLink>
+    </a>
   );
 }
 
