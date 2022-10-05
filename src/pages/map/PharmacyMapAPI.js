@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
+import PharmacyList from './PharmacyList';
+import PharmacyListPage from './PharmacyListPage';
 
 let lat, lng;
 
@@ -30,16 +32,6 @@ function PharmacyMapAPI() {
     ps.categorySearch('PM9', placesSearchCB, { useMapBounds: true });
 
     function placesSearchCB(data, status, pagination) {
-      //   if (status === kakao.maps.services.Status.OK) {
-      //     let bounds = new kakao.maps.LatLngBounds();
-
-      //     for (let i = 0; i < data.length; i++) {
-      //       displayMarker(data[i]);
-      //       bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-      //     }
-
-      //     map.setBounds(bounds);
-      //   }
       if (status === kakao.maps.services.Status.OK) {
         for (var i = 0; i < data.length; i++) {
           displayMarker(data[i]);
@@ -62,6 +54,9 @@ function PharmacyMapAPI() {
         );
         infowindow.open(map, marker);
       });
+
+      console.log(place);
+      //   <PharmacyListPage place_name={place.place_name} />;
     }
 
     // 현위치 마커

@@ -51,13 +51,13 @@ const PharmacyListWrapper = styled.div`
   }
 `;
 
-function PharmacyList() {
+function PharmacyList({ place_name }) {
   return (
     <PharmacyListWrapper>
       <div className="pharmacyImage"></div>
       <div className="pharmacyList">
         <div className="pharmacyName">
-          <p className="name">약국 이름</p>
+          <p className="name">{place_name}</p>
         </div>
         <div className="pharmacyAddress">
           <p className="address">상세 주소 , 도로명 주소</p>
