@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Layout from '../../components/Layout';
 import PharmacyList from './PharmacyList';
@@ -35,6 +35,39 @@ const PharmacyListComponentWrapper = styled.div`
 `;
 
 function PharmacyListPage() {
+  function location(){
+    navigator.geolocation.getCurrentPosition(function(position){
+    let lat = position.coords.latitude, // 위도
+        lon = position.coords.longitude; // 경도
+    return lat,lon;
+    })
+  }
+
+  const [pharmacys, setPharmacys] = useState();
+  //약국 조회 상세 api 호출
+  const getPharmacyAPI = async() =>{
+    location();
+    const response = await 
+      fetch(`
+        http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyLcinfoInqire?WGS84_LON=${lon}_LAT=${lat}
+      `);
+
+      const data = await response.json();
+      setPharmacys(data); //pillDetails를 저장
+    }
+
+    useEffect(() => {
+        getPharmacyAPI();
+    }, []);
+
+    {pharmacys.map((pharmacy) =>
+          <PharmacyList
+            distance={pharmacy.distance}
+            dutyName={pharmacy.dutyName}
+            dutyAddr={pharmacy.dutyAddr}
+          />
+    )}
+
   return (
     <div>
       <Mobile>
@@ -44,15 +77,6 @@ function PharmacyListPage() {
               <p className="title">💊 현위치 주변 약국</p>
             </div>
             <PharmacyListComponentWrapper>
-              <PharmacyList />
-              <PharmacyList />
-              <PharmacyList />
-              <PharmacyList />
-              <PharmacyList />
-              <PharmacyList />
-              <PharmacyList />
-              <PharmacyList />
-              <PharmacyList />
               <PharmacyList />
             </PharmacyListComponentWrapper>
           </Wrapper>
@@ -69,68 +93,3 @@ function PharmacyListPage() {
 }
 
 export default PharmacyListPage;
-
-// import React from "react";
-// import styled from "styled-components";
-// import Header from "../../components/Header";
-// import NavBar from "../../components/NavBar";
-// import PharmacyList from "./PharmacyList";
-// import { Desktop, Mobile, Tablet } from "../../components/ReactResponsive";
-// import DesktopView from "../../components/DesktopView";
-// import TabletView from '../../components/TabletView';
-
-// const Wrapper = styled.form`
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-
-//     .nameHeader {
-//         width: 50%;
-//         text-align: left;
-//         margin-top: 1.5rem;
-//         margin-bottom: 1.5rem;
-//         font-size: 1.5rem;
-//         color: #3A6C60;
-//         font-weight: bold;
-//         padding-right: 5rem;
-//     }
-// `;
-
-// const PharmacyListComponentWrapper = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     width: 100%;
-// `;
-
-// function PharmacyListPage(){
-//     return(
-//         <div>
-//             <Mobile>
-//                 <Wrapper>
-//                     <Header />
-//                     <div className="nameHeader">
-//                         💊 현위치 주변 약국
-//                     </div>
-//                     <PharmacyListComponentWrapper>
-//                         <PharmacyList />
-//                         <PharmacyList />
-//                         <PharmacyList />
-//                         <PharmacyList />
-//                         <PharmacyList />
-//                         <PharmacyList />
-//                         <NavBar />
-//                     </PharmacyListComponentWrapper>
-//                 </Wrapper>
-//             </Mobile>
-//             <Desktop>
-//                 <DesktopView />
-//             </Desktop>
-//             <Tablet>
-//                 <TabletView />
-//             </Tablet>
-//         </div>
-//     );
-// }
-
-// export default PharmacyListPage;

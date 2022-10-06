@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import SearchBar from '../../components/SearchBar';
 import PillSearchList from './PillSearchList';
@@ -46,11 +46,40 @@ const PillSearchResultBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: aqua; */
   }
 `;
 
-function PillSearchPage() {
+function PillSearchPage({inputValue, type}) {
+  const [pills, setPills] = useState([]); //약 정보 담는 배열
+
+    //의약품 검색 api를 불러옴, 의약품명으로 검색시/ 증상으로 검색시
+    const getPillSearchAPI = async() =>{
+        const response = await 
+          fetch(`
+            http://localhost:8080/home/search?type=${type}&keyword=${inputValue}
+          `);
+
+        const json = await response.json();
+        setPills(json);
+    }
+
+    useEffect(() => {
+        getPillSearchAPI();
+    }, []);
+
+    {pills.map((pill) =>
+          <PillSearchList
+            itemImage={pill.itemImage}
+            itemName={pill.itemName}
+            entpName={pill.entpName}
+            itemSeq={pill.itemSeq}
+            />
+    )}
+
+  //객체 개수 반환
+  //const count = Object.keys(json).length;
+
+
   return (
     <div>
       <Mobile>
@@ -60,28 +89,23 @@ function PillSearchPage() {
             <PillSearchResultBox>
               <div className="ResultBox">
                 <div className="pillTotal">
-                  <p className="Total">전체 n개</p>
+                  <p className="Total">전체 count개
+                  </p>
                 </div>
                 <hr />
               </div>
               <div className="ResultPillBox">
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
-                <PillSearchList />
+                <PillSearchList/>
               </div>
             </PillSearchResultBox>
           </Wrapper>
         </Layout>
       </Mobile>
+
       <Desktop>
         <DesktopView />
       </Desktop>
+
       <Tablet>
         <TabletView />
       </Tablet>
@@ -90,54 +114,3 @@ function PillSearchPage() {
 }
 
 export default PillSearchPage;
-
-// import React from 'react';
-// import styled from 'styled-components';
-// import Header from '../../components/Header';
-// import NavBar from '../../components/NavBar';
-// import SearchBar from '../../components/SearchBar';
-// import PillSearchList from './PillSearchList';
-// import { Mobile } from '../../components/ReactResponsive';
-
-// const Wrapper = styled.form`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
-
-// const PillSearchResultBox = styled.div`
-//   color: #3c7466;
-//   padding-bottom: 1rem;
-//   padding-top: 1.5rem;
-//   width: 70%;
-//   height: 5vh;
-
-//   .horizontal {
-//     color: #3c7466;
-//   }
-// `;
-
-// function PillSearchPage() {
-//   return (
-//     <Mobile>
-//       <Wrapper>
-//         <Header />
-//         <SearchBar />
-//         <PillSearchResultBox>
-//           <div className="pillTotal">전체 1개</div>
-//           <hr className="horizontal"></hr>
-//         </PillSearchResultBox>
-//         <PillSearchList />
-//         <PillSearchList />
-//         <PillSearchList />
-//         <PillSearchList />
-//         <PillSearchList />
-//         <PillSearchList />
-//         <PillSearchList />
-//         <NavBar />
-//       </Wrapper>
-//     </Mobile>
-//   );
-// }
-
-// export default PillSearchPage;
