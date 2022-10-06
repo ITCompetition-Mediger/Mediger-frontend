@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PharmacyList from './PharmacyList';
-import PharmacyListPage from './PharmacyListPage';
 
 const KakaoMap = styled.div`
     width: 100%;
@@ -50,7 +50,10 @@ let lat, lng;
 function onGeoOk(position) {
   lat = position.coords.latitude; // 위도 37.5978643
   lng = position.coords.longitude; // 경도 127.0774531
-  //   console.log(lat, lng);
+
+  // 성공회대 위치
+  lat = 37.488462115938;
+  lng = 126.82474771924;
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk);
@@ -58,8 +61,10 @@ navigator.geolocation.getCurrentPosition(onGeoOk);
 const { kakao } = window;
 
 function PharmacyMapAPI() {
+  //   const [listItems, setList] = useState([]);
+
   useEffect(() => {
-    console.log(lat, lng);
+    // console.log(lat, lng);
 
     var infowindow = new kakao.maps.InfoWindow({ zindex: 1 });
 
@@ -77,6 +82,8 @@ function PharmacyMapAPI() {
       if (status === kakao.maps.services.Status.OK) {
         for (var i = 0; i < data.length; i++) {
           displayMarker(data[i]);
+          //   console.log(data[i].place_name);
+          //   setList(data[i].place_name);
         }
       }
     }
@@ -97,8 +104,7 @@ function PharmacyMapAPI() {
         infowindow.open(map, marker);
       });
 
-      console.log(place);
-      //   <PharmacyListPage place_name={place.place_name} />;
+      //   console.log(place);
     }
 
     // 현위치 마커
@@ -116,7 +122,9 @@ function PharmacyMapAPI() {
         width: '100vw',
         height: '75vh',
       }}
-    ></div>
+    >
+      <PharmacyList />
+    </div>
   );
 }
 

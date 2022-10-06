@@ -4,9 +4,12 @@ import { Redirect } from 'react-router-dom';
 let lat, lng;
 
 function onGeoOk(position) {
-  lat = position.coords.latitude; // 위도 37.5978643
-  lng = position.coords.longitude; // 경도 127.0774531
-  //   console.log(lat, lng);
+  //   lat = position.coords.latitude; // 위도 37.5978643
+  //   lng = position.coords.longitude; // 경도 127.0774531
+
+  // 성공회대 위치
+  lat = 37.488462115938;
+  lng = 126.82474771924;
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk);
