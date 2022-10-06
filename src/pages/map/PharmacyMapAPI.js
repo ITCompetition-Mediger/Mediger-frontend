@@ -3,6 +3,48 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PharmacyList from './PharmacyList';
 
+const KakaoMap = styled.div`
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    z-index: -1;
+`;
+
+const CustomZoomControl = styled.div`
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    width: 36px;
+    height: 80px;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #f5f5f5;
+
+    .radiusBorder{
+        border: 1px solid #919191;
+        border-radius:5px;
+    }
+
+    span{
+        display: block;
+        width: 36px;
+        height: 40px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    img {
+        width: 15px;
+        height: 15px;
+        padding: 12px 0;
+        border: none;
+    }
+
+    span:first-child{
+        border-bottom: 1px solid #bfbfbf;
+    }
+`;
+
 let lat, lng;
 
 function onGeoOk(position) {
