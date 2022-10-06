@@ -34,7 +34,9 @@ const PharmacyListComponentWrapper = styled.div`
   align-items: center;
 `;
 
-function PharmacyListPage() {
+function PharmacyListPage({ name }) {
+  //   const num = test;
+  console.log(name);
   return (
     <div>
       <Mobile>
@@ -44,7 +46,7 @@ function PharmacyListPage() {
               <p className="title">💊 현위치 주변 약국</p>
             </div>
             <PharmacyListComponentWrapper>
-              <PharmacyList />
+              <PharmacyList test2="약국테스트" />
               <PharmacyList />
               <PharmacyList />
               <PharmacyList />

@@ -51,25 +51,26 @@ const PharmacyListWrapper = styled.div`
   }
 `;
 
-let lat, lng;
+// let lat, lng;
 
-function onGeoOk(position) {
-  lat = position.coords.latitude; // 위도 37.5978643
-  lng = position.coords.longitude; // 경도 127.0774531
-  //   console.log(lat, lng);
-}
+// function onGeoOk(position) {
+//   lat = position.coords.latitude; // 위도 37.5978643
+//   lng = position.coords.longitude; // 경도 127.0774531
+//   //   console.log(lat, lng);
+// }
 
-navigator.geolocation.getCurrentPosition(onGeoOk);
+// navigator.geolocation.getCurrentPosition(onGeoOk);
 
-const { kakao } = window;
+// const { kakao } = window;
 
-function PharmacyList() {
+function PharmacyList({ test2 }) {
+  console.log(test2);
   return (
     <PharmacyListWrapper>
       <div className="pharmacyImage"></div>
       <div className="pharmacyList">
         <div className="pharmacyName">
-          <p className="name">약국 이름</p>
+          <p className="name">{test2} 이름</p>
         </div>
         <div className="pharmacyAddress">
           <p className="address">상세 주소 , 도로명 주소</p>
