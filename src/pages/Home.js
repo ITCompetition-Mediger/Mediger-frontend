@@ -115,7 +115,7 @@ function Home() {
   const [user, setUser] = useState([]);
   const getAPI = async () => {
     const response = await fetch(`
-            http://localhost:8080/home
+    http://localhost:8080/home
             `);
     const json = await response.json();
     // setKakao(json.kakao);

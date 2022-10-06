@@ -13,11 +13,13 @@ import DailyMediger from './pages/myMediger/DailyMediger';
 import MonthlyMediger from './pages/myMediger/MonthlyMediger';
 import Mypage from './pages/myMediger/Mypage';
 import Splash from '././pages/Splash';
+import MapApiTest from '././pages/map/MapApiTest';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
+      {/* <Route exact={true} path="/oauth2/redirect" element={<Mypage />} /> */}
       <Route path="/MedigerList" element={<MedigerList />} />
       <Route path="/pillSearch" element={<PillSearchPage />} />
       <Route path="/pillSearch/detail" element={<PillSearchPlusPage />} />
@@ -31,6 +33,7 @@ function App() {
       <Route path="/myMediger/Mypage" element={<Mypage />} />
       <Route path="/pages/Home" element={<Main />} />
       <Route path="/pages/Splash" element={<Splash />} />
+      <Route path="/map/MapApiTest" element={<MapApiTest />} />
     </Routes>
   );
 }
