@@ -8,7 +8,7 @@ import './MonthlyCalender.css';
 import moment from 'moment';
 import MypageLayout from '../../components/MypageLayout';
 // import DailyMediger from './DailyMediger';
-import axios from 'axios';
+// import axios from 'axios';
 
 const MonthlyMedigerBox = styled.div`
   flex-direction: column;

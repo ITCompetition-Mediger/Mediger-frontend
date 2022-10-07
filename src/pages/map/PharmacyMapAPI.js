@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PharmacyList from './PharmacyList';
+import styled from 'styled-components';
 import PharmacyListPage from './PharmacyListPage';
 import PharmacyMapPage from './PharmacyMapPage';
 import styled from 'styled-components';
@@ -50,7 +51,7 @@ const CustomZoomControl = styled.div`
 
 let lat, lng;
 
-function onGeoOk(position) {
+/*function onGeoOk(position) {
   lat = position.coords.latitude; // 위도 37.5978643
   lng = position.coords.longitude; // 경도 127.0774531
 
@@ -60,12 +61,12 @@ function onGeoOk(position) {
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk);
+*/
 
 const { kakao } = window;
 
-function PharmacyMapAPI({ ha }) {
-  console.log(ha);
-  //   const [listItems, setList] = useState([]);
+function PharmacyMapAPI() {
+  const [listItems, setListItems] = useState([]);
 
   useEffect(() => {
     // console.log(lat, lng);
@@ -74,7 +75,7 @@ function PharmacyMapAPI({ ha }) {
 
     var container = document.getElementById('pharmacyMap');
     var options = {
-      center: new kakao.maps.LatLng(lat, lng),
+      center: new kakao.maps.LatLng(37.488462115938, 126.82474771924),
       level: 5,
     };
     var map = new kakao.maps.Map(container, options);
@@ -108,10 +109,11 @@ function PharmacyMapAPI({ ha }) {
         infowindow.open(map, marker);
       });
 
-      //   console.log(place);
+    setListItems((listItems) => [...listItems, place]);
     }
 
-    // // 현위치 마커
+
+    // 현위치 마커
     // var markerPosition = new kakao.maps.LatLng(lat, lng);
     // var marker = new kakao.maps.Marker({
     //   position: markerPosition,
@@ -119,6 +121,18 @@ function PharmacyMapAPI({ ha }) {
     // marker.setMap(map);
   }, []);
 
+  useEffect(() => {
+    console.log(listItems);
+  },[listItems]);
+
+  {listItems.map((listItem) =>
+          <PharmacyList
+            key={listItem.id}
+            address_name={listItem.address_name}
+            place_name={listItem.place_name}
+          />
+    )}
+    
   return (
     <div
       id="pharmacyMap"

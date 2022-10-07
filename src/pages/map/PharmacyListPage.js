@@ -61,16 +61,6 @@ function PharmacyListPage() {
     getPharmacyAPI();
   }, []);
 
-  {
-    pharmacys.map((pharmacy) => (
-      <PharmacyList
-        distance={pharmacy.distance}
-        dutyName={pharmacy.dutyName}
-        dutyAddr={pharmacy.dutyAddr}
-      />
-    ));
-  }
-
   return (
     <div>
       <Mobile>
@@ -80,7 +70,14 @@ function PharmacyListPage() {
               <p className="title">💊 현위치 주변 약국</p>
             </div>
             <PharmacyListComponentWrapper>
-              <PharmacyList />
+              {pharmacys.map((pharmacy) => (
+                <PharmacyList
+                  distance={pharmacy.distance}
+                  dutyName={pharmacy.dutyName}
+                  dutyAddr={pharmacy.dutyAddr}
+                 />
+                ));
+                }
             </PharmacyListComponentWrapper>
           </Wrapper>
         </Layout>
