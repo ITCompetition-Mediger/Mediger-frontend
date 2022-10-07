@@ -1,5 +1,10 @@
-import React, {useEffect, useState} from "react";
-import styled from "styled-components";
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import PharmacyList from './PharmacyList';
+import styled from 'styled-components';
+import PharmacyListPage from './PharmacyListPage';
+import PharmacyMapPage from './PharmacyMapPage';
 
 const KakaoMap = styled.div`
     width: 100%;
@@ -43,105 +48,101 @@ const CustomZoomControl = styled.div`
     }
 `;
 
-const { kakao } = window
+let lat, lng;
 
-function PharmacyMapAPI(){
-    const [controller, setController] = useState();
+/*function onGeoOk(position) {
+  lat = position.coords.latitude; // 위도 37.5978643
+  lng = position.coords.longitude; // 경도 127.0774531
 
-    useEffect(() => {
-        //마커를 클릭하면 장소명을 표출할 윈포윈도우
-        let infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
-        function locPositionAPI(){
-            // HTML5의 geolocaiton으로 사용할 수 있는지 확인
-            // GeoLocation을 이용해서 접속 위치를 받기
-            navigator.geolocation.getCurrentPosition(function(position){
-                let lat = position.coords.latitude, // 위도
-                    lon = position.coords.longitude; // 경도
-                let locPosition = new kakao.maps.LatLng(lat, lon);
-                return locPosition; //지도에 위도 경도 반환
-            });
+  //   // 성공회대 위치
+  //   lat = 37.488462115938;
+  //   lng = 126.82474771924;
+}
+
+navigator.geolocation.getCurrentPosition(onGeoOk);
+*/
+
+const { kakao } = window;
+
+function PharmacyMapAPI() {
+  const [listItems, setListItems] = useState([]);
+
+  useEffect(() => {
+    // console.log(lat, lng);
+
+    var infowindow = new kakao.maps.InfoWindow({ zindex: 1 });
+
+    var container = document.getElementById('pharmacyMap');
+    var options = {
+      center: new kakao.maps.LatLng(37.488462115938, 126.82474771924),
+      level: 5,
+    };
+    var map = new kakao.maps.Map(container, options);
+    const ps = new kakao.maps.services.Places(map);
+
+    ps.categorySearch('PM9', placesSearchCB, { useMapBounds: true });
+
+    function placesSearchCB(data, status, pagination) {
+      if (status === kakao.maps.services.Status.OK) {
+        for (var i = 0; i < data.length; i++) {
+          displayMarker(data[i]);
+          //   console.log(data[i].place_name);
+          //   setList(data[i].place_name);
         }
-        
-        let mapContainer = document.getElementById('pharmacyMap');
-        let mapOption = {
-            center: locPositionAPI(), //현위치 불러오기
-            level: 3, //지도 확대 레벨
-        }
+      }
+    }
 
-        //카카오 지도 생성
-        let map = new kakao.maps.Map(mapContainer, mapOption);
+    function displayMarker(place) {
+      let marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(place.y, place.x),
+      });
 
-        //장소 검색 객체 생성
-        const ps = new kakao.maps.services.Places(); 
+      kakao.maps.event.addListener(marker, 'click', function () {
+        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+        infowindow.setContent(
+          '<div style="padding:5px;font-size:12px;">' +
+            place.place_name +
+            '</div>',
+        );
+        infowindow.open(map, marker);
+      });
 
-        //키워드로 장소 검색
-        ps.keywordSearch('약국', placesSearchCB);
+    setListItems((listItems) => [...listItems, place]);
+    }
 
-        // 키워드 검색 완료 시 호출되는 콜백함수 
-        function placesSearchCB(data, status){
-            if (status === kakao.maps.services.Status.OK) {
-                // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-                // LatLngBounds 객체에 좌표를 추가
-                let bounds = new kakao.maps.LatLngBounds();
 
-            for (let i=0; i<data.length; i++) {
-                displayMarker(data[i]);    
-                bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-            }       
+    // 현위치 마커
+    // var markerPosition = new kakao.maps.LatLng(lat, lng);
+    // var marker = new kakao.maps.Marker({
+    //   position: markerPosition,
+    // });
+    // marker.setMap(map);
+  }, []);
 
-            // 검색된 장소 위치를 기준으로 지도 범위를 재설정
-            map.setBounds(bounds);
-            }
-        }
+  useEffect(() => {
+    console.log(listItems);
+  },[listItems]);
 
-        // 지도에 마커를 표시
-        function displayMarker(place){
-            //마커를 생성하고 지도에 표시
-            let marker = new kakao.maps.Marker({
-            map: map,
-            position: new kakao.maps.LatLng(place.y, place.x)
-        });
-
-        // 마커에 클릭이벤트를 등록
-        kakao.maps.event.addListener(marker, 'click', function() {
-            // 마커를 클릭하면 장소명이 인포윈도우에 표출
-            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-            infowindow.open(map, marker);
-        });
-        }
-
-    setController(map);
-    }, []);
-
-    // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수
-    function zoomIn() {
-            controller.setLevel(controller.getLevel() - 1);
-        }
-
-        // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수
-    function zoomOut() {
-            controller.setLevel(controller.getLevel() + 1);
-        }
-
-    return(
-        <>
-            <KakaoMap
-                id="pharmacyMap"
-            />
-            <CustomZoomControl>
-                <div className="radiusBorder"> 
-                    <span onClick={zoomIn}>
-                        <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대">
-                        </img>
-                    </span>  
-                    <span onClick={zoomOut}>
-                        <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소">
-                        </img>
-                    </span>
-                </div>
-            </CustomZoomControl>
-        </>
-    );
+  {listItems.map((listItem) =>
+          <PharmacyList
+            key={listItem.id}
+            address_name={listItem.address_name}
+            place_name={listItem.place_name}
+          />
+    )}
+    
+  return (
+    <div
+      id="pharmacyMap"
+      style={{
+        width: '100vw',
+        height: '75vh',
+      }}
+    >
+      {/* <PharmacyMapPage name="약국" /> */}
+    </div>
+  );
 }
 
 export default PharmacyMapAPI;

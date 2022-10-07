@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const PharmacyListWrapper = styled.div`
@@ -51,80 +51,36 @@ const PharmacyListWrapper = styled.div`
   }
 `;
 
-function PharmacyList({distance, dutyAddr, dutyName}) {
+function PharmacyList({address_name, place_name}) {
+
+// function onGeoOk(position) {
+//   lat = position.coords.latitude; // 위도 37.5978643
+//   lng = position.coords.longitude; // 경도 127.0774531
+//   //   console.log(lat, lng);
+// }
+
+// navigator.geolocation.getCurrentPosition(onGeoOk);
+
+// const { kakao } = window;
+
+function PharmacyList({ test2 }) {
+  console.log(test2);
   return (
     <PharmacyListWrapper>
       <div className="pharmacyImage"></div>
       <div className="pharmacyList">
         <div className="pharmacyName">
-          <p className="name">{dutyName}</p>
+          <p className="name">{address_name}</p>
         </div>
         <div className="pharmacyAddress">
-          <p className="address">{dutyAddr}</p>
+          <p className="address">{place_name}</p>
         </div>
       </div>
       <div className="pharmacyDistance">
-        <p className="distance">{distance}m</p>
+        <p className="distance">100m</p>
       </div>
     </PharmacyListWrapper>
   );
 }
 
 export default PharmacyList;
-
-// import React from "react"
-// import styled from "styled-components"
-
-// const PharmacyListWrapper = styled.div`
-//     background-color: #ECF2F0;
-//     width: 70%;
-//     height: 8vh;
-//     display: flex;
-//     border-radius: 0.8rem;
-//     flex-direction: row;
-//     justify-content: space-around;
-//     margin: 0.7rem;
-
-//     .pharmacyList {
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-//     }
-
-//     .pharmacyName {
-//         color: #3C7466;
-//         font-size: 1rem;
-//         font-weight: bold;
-//         margin-bottom: 0.7rem;
-//     }
-
-//     .pharmacyAddress {
-//         color: #42514D;
-//         font-size: 0.5rem;
-//     }
-
-//     .pharmacyDistance {
-//         color: #42514D;
-//         display: flex;
-//         align-items: center;
-//     }
-// `;
-
-// function PharmacyList(){
-//     return(
-//         <PharmacyListWrapper>
-//             <div className="pharmacyImage">
-//                 이미지
-//             </div>
-//             <div className="pharmacyList">
-//                 <div className="pharmacyName">ABC 약국</div>
-//                 <div className="pharmacyAddress">서울특별시 서울구 서울동 123길 45</div>
-//             </div>
-//             <div className="pharmacyDistance">
-//                 100m
-//             </div>
-//         </PharmacyListWrapper>
-//     );
-// }
-
-// export default PharmacyList;
