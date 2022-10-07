@@ -65,10 +65,10 @@ function PharmacyMapAPI({ ha }) {
         infowindow.open(map, marker);
       });
 
-      console.log(place);
+      //   console.log(place);
     }
 
-    // 현위치 마커
+    // // 현위치 마커
     // var markerPosition = new kakao.maps.LatLng(lat, lng);
     // var marker = new kakao.maps.Marker({
     //   position: markerPosition,
