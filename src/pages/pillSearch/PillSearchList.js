@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { AiOutlineStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const PillListWrapper = styled.div`
   background-color: #ecf2f0;
@@ -74,19 +75,19 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function PillSearchList() {
+function PillSearchList({itemImage, itemName, entpName, itemSeq}) {
   return (
     <PillListWrapper>
       <StyledLink to={`/pillSearch/detail`}>
         <div className="PillBox">
-          <div className="pillImage"></div>
+          <div className="pillImage">{itemImage}</div>
           <div className="pillList">
             <div className="pillTitle">
-              <p className="pillName">모노틴정</p>
+              <p className="pillName">{itemName}</p>
             </div>
             <div className="pillContent">
-              <p className="pillCompany">업체명: 한미약품(주)</p>
-              <p className="pillCode">품목기준코드: 200003092</p>
+              <p className="pillCompany">{entpName}</p>
+              <p className="pillCode">{itemSeq}</p>
             </div>
           </div>
         </div>
@@ -98,73 +99,11 @@ function PillSearchList() {
   );
 }
 
+PillSearchList.ProtoTypes ={
+    itemImage: PropTypes.string.isRequired,
+    itemName: PropTypes.string.isRequired,
+    entpName: PropTypes.string.isRequired,
+    itemSeq: PropTypes.string.isRequired,
+}
+
 export default PillSearchList;
-
-// import React from 'react';
-// import styled from 'styled-components';
-// import { AiOutlineStar } from 'react-icons/ai';
-// import { Link } from 'react-router-dom';
-
-// const PillListWrapper = styled.div`
-//   background-color: #ecf2f0;
-//   width: 70%;
-//   height: 8.6vh;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-around;
-//   border-radius: 0.5rem;
-//   margin: 0.8rem;
-
-//   a {
-//     text-decoration: none;
-//   }
-
-//   .pillList {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     text-decoration: none;
-//     padding-top: 0.5rem;
-//   }
-
-//   .pillTitle {
-//     color: #3c7466;
-//     font-size: 1rem;
-//     font-weight: bold;
-//     margin-bottom: 0.5rem;
-//   }
-
-//   .pillContent {
-//     color: #42514d;
-//     font-size: 0.5rem;
-//   }
-
-//   .scrap {
-//     color: #42514d;
-//     display: flex;
-//     align-items: center;
-//   }
-// `;
-
-// function PillSearchList(){
-
-//     return(
-//         <PillListWrapper>
-//             <div className="pillImage">이미지</div>
-//             <Link to={`/pillSearch/detail`}>
-//                 <div className="pillList">
-//                     <div className="pillTitle">모노틴정</div>
-//                         <div className="pillContent">
-//                             <div className="pillCompany">업체명: 한미약품(주)</div>
-//                             <div className="pillCode">품목기준코드: 200003092</div>
-//                         </div>
-//                     </div>
-//             </Link>
-//             <div className="scrap">
-//                 <AiOutlineStar />
-//             </div>
-//         </PillListWrapper>
-//     );
-// }
-
-// export default PillSearchList;
