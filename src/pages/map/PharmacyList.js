@@ -51,18 +51,6 @@ const PharmacyListWrapper = styled.div`
   }
 `;
 
-let lat, lng;
-
-function onGeoOk(position) {
-  lat = position.coords.latitude; // 위도 37.5978643
-  lng = position.coords.longitude; // 경도 127.0774531
-  //   console.log(lat, lng);
-}
-
-navigator.geolocation.getCurrentPosition(onGeoOk);
-
-const { kakao } = window;
-
 function PharmacyList({address_name, place_name}) {
   return (
     <PharmacyListWrapper>
