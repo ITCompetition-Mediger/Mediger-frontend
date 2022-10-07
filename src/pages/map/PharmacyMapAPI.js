@@ -124,11 +124,12 @@ function PharmacyMapAPI() {
 
   {listItems.map((listItem) =>
           <PharmacyList
+            key={listItem.id}
             address_name={listItem.address_name}
             place_name={listItem.place_name}
           />
     )}
-
+    
   return (
     <div
       id="pharmacyMap"
@@ -137,7 +138,6 @@ function PharmacyMapAPI() {
         height: '75vh',
       }}
     >
-      <PharmacyList />
     </div>
   );
 }
