@@ -14,12 +14,14 @@ import MonthlyMediger from './pages/myMediger/MonthlyMediger';
 import Mypage from './pages/myMediger/Mypage';
 import Splash from '././pages/Splash';
 import MapApiTest from '././pages/map/MapApiTest';
+import NewLogin from './pages/login/NewLogin';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
-      {/* <Route exact={true} path="/oauth2/redirect" element={<Mypage />} /> */}
+      {/* <Route path="/" element={<NewLogin />} /> */}
+      <Route exact path="/login/oauth2/code" element={<Main />} />
       <Route path="/MedigerList" element={<MedigerList />} />
       <Route path="/pillSearch" element={<PillSearchPage />} />
       <Route path="/pillSearch/detail" element={<PillSearchPlusPage />} />

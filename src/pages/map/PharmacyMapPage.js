@@ -82,7 +82,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function PharmacyMapPage() {
+function PharmacyMapPage({ ha }) {
   const [menu, setMenu] = useState('pharmacy');
   const onChangeMenu = (event) => {
     setMenu(event.target.value);
@@ -95,7 +95,7 @@ function PharmacyMapPage() {
             <Map>
               {menu === 'pharmacy' ? (
                 <PharmacyMap>
-                  <PharmacyMapAPI />
+                  <PharmacyMapAPI ha="어렵다" />
                 </PharmacyMap>
               ) : (
                 <HospitalMap>

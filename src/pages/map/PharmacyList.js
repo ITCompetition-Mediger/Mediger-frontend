@@ -52,6 +52,19 @@ const PharmacyListWrapper = styled.div`
 `;
 
 function PharmacyList({address_name, place_name}) {
+
+// function onGeoOk(position) {
+//   lat = position.coords.latitude; // 위도 37.5978643
+//   lng = position.coords.longitude; // 경도 127.0774531
+//   //   console.log(lat, lng);
+// }
+
+// navigator.geolocation.getCurrentPosition(onGeoOk);
+
+// const { kakao } = window;
+
+function PharmacyList({ test2 }) {
+  console.log(test2);
   return (
     <PharmacyListWrapper>
       <div className="pharmacyImage"></div>

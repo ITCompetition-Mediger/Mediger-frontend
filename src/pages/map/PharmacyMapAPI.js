@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PharmacyList from './PharmacyList';
 import styled from 'styled-components';
+import PharmacyListPage from './PharmacyListPage';
+import PharmacyMapPage from './PharmacyMapPage';
 
 const KakaoMap = styled.div`
     width: 100%;
@@ -52,9 +54,9 @@ let lat, lng;
   lat = position.coords.latitude; // 위도 37.5978643
   lng = position.coords.longitude; // 경도 127.0774531
 
-  // 성공회대 위치
-  lat = 37.488462115938;
-  lng = 126.82474771924;
+  //   // 성공회대 위치
+  //   lat = 37.488462115938;
+  //   lng = 126.82474771924;
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk);
@@ -138,6 +140,7 @@ function PharmacyMapAPI() {
         height: '75vh',
       }}
     >
+      {/* <PharmacyMapPage name="약국" /> */}
     </div>
   );
 }
