@@ -55,7 +55,7 @@ function HospitalMapAPI() {
         );
         infowindow.open(map, marker);
       });
-      
+
       console.log(place);
       //   <PharmacyListPage place_name={place.place_name} />;
     }
@@ -77,48 +77,49 @@ function HospitalMapAPI() {
       }}
     ></div>
   );
-  
-        function displayMarker(place){
-            let marker = new kakao.maps.Marker({
-            map: map,
-            position: new kakao.maps.LatLng(place.y, place.x) 
-        });
+}
 
-        
+export default HospitalMapAPI;
 
-        kakao.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-            infowindow.open(map, marker);
-        });
-    setController(map);
-    }},[]);
+//  function displayMarker(place){
+//         let marker = new kakao.maps.Marker({
+//         map: map,
+//         position: new kakao.maps.LatLng(place.y, place.x)
+//     });
 
-    // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수
-    function zoomIn() {
-            controller.setLevel(controller.getLevel() - 1);
-        }
+//     kakao.maps.event.addListener(marker, 'click', function() {
+//         infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+//         infowindow.open(map, marker);
+//     });
+// setController(map);
+// }},[]);
 
-        // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수
-    function zoomOut() {
-            controller.setLevel(controller.getLevel() + 1);
-        }
+// // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수
+// function zoomIn() {
+//         controller.setLevel(controller.getLevel() - 1);
+//     }
 
-    return(
-        <>
-            <KakaoMap
-                id="hospitalMap"
-            />
-            <CustomZoomControl>
-                <div className="radiusBorder"> 
-                    <span onClick={zoomIn}>
-                        <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대">
-                        </img>
-                    </span>  
-                    <span onClick={zoomOut}>
-                        <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소">
-                        </img>
-                    </span>
-                </div>
-            </CustomZoomControl>
-        </>       
-    );
+//     // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수
+// function zoomOut() {
+//         controller.setLevel(controller.getLevel() + 1);
+//     }
+
+// return(
+//     <>
+//         <KakaoMap
+//             id="hospitalMap"
+//         />
+//         <CustomZoomControl>
+//             <div className="radiusBorder">
+//                 <span onClick={zoomIn}>
+//                     <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대">
+//                     </img>
+//                 </span>
+//                 <span onClick={zoomOut}>
+//                     <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소">
+//                     </img>
+//                 </span>
+//             </div>
+//         </CustomZoomControl>
+//     </>
+// );

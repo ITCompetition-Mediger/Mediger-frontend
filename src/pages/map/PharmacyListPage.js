@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Layout from '../../components/Layout';
 import PharmacyList from './PharmacyList';
@@ -34,40 +34,42 @@ const PharmacyListComponentWrapper = styled.div`
   align-items: center;
 `;
 
+let lat, lon;
 
 function PharmacyListPage() {
-  function location(){
-    navigator.geolocation.getCurrentPosition(function(position){
-    let lat = position.coords.latitude, // 위도
+  function location() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      let lat = position.coords.latitude, // 위도
         lon = position.coords.longitude; // 경도
-    return lat,lon;
-    })
+      return lat, lon;
+    });
   }
 
   const [pharmacys, setPharmacys] = useState();
   //약국 조회 상세 api 호출
-  const getPharmacyAPI = async() =>{
+  const getPharmacyAPI = async () => {
     location();
-    const response = await 
-      fetch(`
+    const response = await fetch(`
         http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyLcinfoInqire?WGS84_LON=${lon}_LAT=${lat}
       `);
 
-      const data = await response.json();
-      setPharmacys(data); //pillDetails를 저장
-    }
+    const data = await response.json();
+    setPharmacys(data); //pillDetails를 저장
+  };
 
-    useEffect(() => {
-        getPharmacyAPI();
-    }, []);
+  useEffect(() => {
+    getPharmacyAPI();
+  }, []);
 
-    {pharmacys.map((pharmacy) =>
-          <PharmacyList
-            distance={pharmacy.distance}
-            dutyName={pharmacy.dutyName}
-            dutyAddr={pharmacy.dutyAddr}
-          />
-    )}
+  {
+    pharmacys.map((pharmacy) => (
+      <PharmacyList
+        distance={pharmacy.distance}
+        dutyName={pharmacy.dutyName}
+        dutyAddr={pharmacy.dutyAddr}
+      />
+    ));
+  }
 
   return (
     <div>
@@ -78,7 +80,6 @@ function PharmacyListPage() {
               <p className="title">💊 현위치 주변 약국</p>
             </div>
             <PharmacyListComponentWrapper>
-
               <PharmacyList />
             </PharmacyListComponentWrapper>
           </Wrapper>
