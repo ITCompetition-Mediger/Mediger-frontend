@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PharmacyList from './PharmacyList';
+import PharmacyListPage from './PharmacyListPage';
+import PharmacyMapPage from './PharmacyMapPage';
 
 const KakaoMap = styled.div`
     width: 100%;
@@ -51,16 +53,17 @@ function onGeoOk(position) {
   lat = position.coords.latitude; // 위도 37.5978643
   lng = position.coords.longitude; // 경도 127.0774531
 
-  // 성공회대 위치
-  lat = 37.488462115938;
-  lng = 126.82474771924;
+  //   // 성공회대 위치
+  //   lat = 37.488462115938;
+  //   lng = 126.82474771924;
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk);
 
 const { kakao } = window;
 
-function PharmacyMapAPI() {
+function PharmacyMapAPI({ ha }) {
+  console.log(ha);
   //   const [listItems, setList] = useState([]);
 
   useEffect(() => {
@@ -107,7 +110,7 @@ function PharmacyMapAPI() {
       //   console.log(place);
     }
 
-    // 현위치 마커
+    // // 현위치 마커
     // var markerPosition = new kakao.maps.LatLng(lat, lng);
     // var marker = new kakao.maps.Marker({
     //   position: markerPosition,
@@ -123,7 +126,7 @@ function PharmacyMapAPI() {
         height: '75vh',
       }}
     >
-      <PharmacyList />
+      {/* <PharmacyMapPage name="약국" /> */}
     </div>
   );
 }

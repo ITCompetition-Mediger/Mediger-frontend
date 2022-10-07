@@ -34,6 +34,7 @@ const PharmacyListComponentWrapper = styled.div`
   align-items: center;
 `;
 
+
 function PharmacyListPage() {
   function location(){
     navigator.geolocation.getCurrentPosition(function(position){
@@ -77,6 +78,7 @@ function PharmacyListPage() {
               <p className="title">💊 현위치 주변 약국</p>
             </div>
             <PharmacyListComponentWrapper>
+
               <PharmacyList />
             </PharmacyListComponentWrapper>
           </Wrapper>
