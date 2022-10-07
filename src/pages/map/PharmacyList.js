@@ -51,7 +51,7 @@ const PharmacyListWrapper = styled.div`
   }
 `;
 
-// let lat, lng;
+function PharmacyList({address_name, place_name}) {
 
 // function onGeoOk(position) {
 //   lat = position.coords.latitude; // 위도 37.5978643
@@ -70,10 +70,10 @@ function PharmacyList({ test2 }) {
       <div className="pharmacyImage"></div>
       <div className="pharmacyList">
         <div className="pharmacyName">
-          <p className="name">{test2} 이름</p>
+          <p className="name">{address_name}</p>
         </div>
         <div className="pharmacyAddress">
-          <p className="address">상세 주소 , 도로명 주소</p>
+          <p className="address">{place_name}</p>
         </div>
       </div>
       <div className="pharmacyDistance">
