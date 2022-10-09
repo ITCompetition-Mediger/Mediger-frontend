@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Layout from '../../components/Layout';
 import PharmacyList from './PharmacyList';
@@ -34,7 +34,6 @@ const PharmacyListComponentWrapper = styled.div`
   align-items: center;
 `;
 
-
 function PharmacyListPage() {
   return (
     <div>
@@ -45,7 +44,6 @@ function PharmacyListPage() {
               <p className="title">💊 현위치 주변 약국</p>
             </div>
             <PharmacyListComponentWrapper>
-
               <PharmacyList />
             </PharmacyListComponentWrapper>
           </Wrapper>

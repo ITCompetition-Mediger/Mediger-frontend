@@ -55,7 +55,7 @@ function HospitalMapAPI() {
         );
         infowindow.open(map, marker);
       });
-      
+
       console.log(place);
       //   <PharmacyListPage place_name={place.place_name} />;
     }
