@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PharmacyList from './PharmacyList';
 import styled from 'styled-components';
-import PharmacyListPage from './PharmacyListPage';
-import PharmacyMapPage from './PharmacyMapPage';
 
 const KakaoMap = styled.div`
     width: 100%;
@@ -50,22 +48,21 @@ const CustomZoomControl = styled.div`
 
 let lat, lng;
 
-/*function onGeoOk(position) {
+function onGeoOk(position) {
   lat = position.coords.latitude; // 위도 37.5978643
   lng = position.coords.longitude; // 경도 127.0774531
 
-  //   // 성공회대 위치
-  //   lat = 37.488462115938;
-  //   lng = 126.82474771924;
+  // 성공회대 위치
+  lat = 37.488462115938;
+  lng = 126.82474771924;
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk);
-*/
 
 const { kakao } = window;
 
 function PharmacyMapAPI() {
-  const [listItems, setListItems] = useState([]);
+  //   const [listItems, setList] = useState([]);
 
   useEffect(() => {
     // console.log(lat, lng);
@@ -74,7 +71,7 @@ function PharmacyMapAPI() {
 
     var container = document.getElementById('pharmacyMap');
     var options = {
-      center: new kakao.maps.LatLng(37.488462115938, 126.82474771924),
+      center: new kakao.maps.LatLng(lat, lng),
       level: 5,
     };
     var map = new kakao.maps.Map(container, options);
@@ -108,9 +105,9 @@ function PharmacyMapAPI() {
         infowindow.open(map, marker);
       });
 
-    setListItems((listItems) => [...listItems, place]);
+      setListItems((listItems) => [...listItems, place]);
+      //   console.log(place);
     }
-
 
     // 현위치 마커
     // var markerPosition = new kakao.maps.LatLng(lat, lng);
@@ -124,14 +121,6 @@ function PharmacyMapAPI() {
     console.log(listItems);
   },[listItems]);
 
-  {listItems.map((listItem) =>
-          <PharmacyList
-            key={listItem.id}
-            address_name={listItem.address_name}
-            place_name={listItem.place_name}
-          />
-    )}
-    
   return (
     <div
       id="pharmacyMap"
@@ -140,9 +129,14 @@ function PharmacyMapAPI() {
         height: '75vh',
       }}
     >
-      {/* <PharmacyMapPage name="약국" /> */}
+      {listItems.map((listItem) =>
+          <PharmacyList
+            key={listItem.id}
+            address_name={listItem.address_name}
+            place_name={listItem.place_name}
+          />
+    )}
     </div>
   );
 }
-
 export default PharmacyMapAPI;
