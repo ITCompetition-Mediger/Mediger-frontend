@@ -102,20 +102,8 @@ function PillSearchPlusPage({itemSeq}) {
 
     useEffect(() => {
         getPillSearchPlusAPI();
+        console.log(pillDetails);
     }, []);
-
-    {pillDetails.map((pillDetail) =>
-          <PillContentList
-            itemImage={pillDetail.itemImage}
-            efcyQesitm={pillDetail.efcyQesitm}
-            useMethodQesitm={pillDetail.useMethodQesitm}
-            atpnQesitm={pillDetail.atpnQesitm}
-            atpnWarnQesitm={pillDetail.atpnWarnQesitm}
-            seQesitm={pillDetail.seQesitm}
-            depositMethodQesitm={pillDetail.depositMethodQesitm}
-            intrcQesitm={pillDetail.intrcQesitm}
-          />
-    )}
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -151,7 +139,18 @@ function PillSearchPlusPage({itemSeq}) {
               </div>
             </PillContentHeaderWrapper>
             <PillContentListWrapper>
-              <PillContentList />
+              {pillDetails.map((pillDetail) =>
+                <PillContentList
+                  itemImage={pillDetail.itemImage}
+                  efcyQesitm={pillDetail.efcyQesitm}
+                  useMethodQesitm={pillDetail.useMethodQesitm}
+                  atpnQesitm={pillDetail.atpnQesitm}
+                  atpnWarnQesitm={pillDetail.atpnWarnQesitm}
+                  seQesitm={pillDetail.seQesitm}
+                  depositMethodQesitm={pillDetail.depositMethodQesitm}
+                  intrcQesitm={pillDetail.intrcQesitm}
+                />
+              )}
             </PillContentListWrapper>
           </PillSearchPlusWrapper>
         </Layout>
