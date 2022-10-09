@@ -67,15 +67,6 @@ function PillSearchPage({inputValue, type}) {
         getPillSearchAPI();
     }, []);
 
-    {pills.map((pill) =>
-          <PillSearchList
-            itemImage={pill.itemImage}
-            itemName={pill.itemName}
-            entpName={pill.entpName}
-            itemSeq={pill.itemSeq}
-            />
-    )}
-
   //객체 개수 반환
   //const count = Object.keys(json).length;
 
@@ -95,7 +86,14 @@ function PillSearchPage({inputValue, type}) {
                 <hr />
               </div>
               <div className="ResultPillBox">
-                <PillSearchList/>
+                {pills.map((pill) =>
+          <PillSearchList
+            itemImage={pill.itemImage}
+            itemName={pill.itemName}
+            entpName={pill.entpName}
+            itemSeq={pill.itemSeq}
+            />
+    )}
               </div>
             </PillSearchResultBox>
           </Wrapper>
