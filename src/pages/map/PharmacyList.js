@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const PharmacyListWrapper = styled.div`
@@ -51,34 +52,38 @@ const PharmacyListWrapper = styled.div`
   }
 `;
 
-function PharmacyList({address_name, place_name}) {
+function PharmacyList({ address_name, place_name }) {
+  //   console.log(address_name);
+  const [placeName, setPlaceName] = useState([]);
 
-// function onGeoOk(position) {
-//   lat = position.coords.latitude; // 위도 37.5978643
-//   lng = position.coords.longitude; // 경도 127.0774531
-//   //   console.log(lat, lng);
-// }
+  //   useEffect(() => {
+  //     setPlaceName = () => {
+  //       const localData = JSON.parse(localStorage.getItem('pharmacy_place_name'));
+  //       console.log(localData);
+  //     };
+  //   }, []);
+  useEffect(() => {
+    const localData = localStorage.getItem('pharmacy_place_name');
+    setPlaceName(JSON.parse(localData));
+  }, []);
 
-// navigator.geolocation.getCurrentPosition(onGeoOk);
-
-// const { kakao } = window;
-
-function PharmacyList({ test2 }) {
-  console.log(test2);
   return (
     <PharmacyListWrapper>
-      <div className="pharmacyImage"></div>
+      {/* <div className="pharmacyImage"></div> */}
       <div className="pharmacyList">
-        <div className="pharmacyName">
-          <p className="name">{address_name}</p>
-        </div>
+        {placeName.map((place) => (
+          <div className="pharmacyName">
+            <p className="name">{place}</p>
+          </div>
+        ))}
+        {/* <p className="name">{address_name}</p> */}
         <div className="pharmacyAddress">
           <p className="address">{place_name}</p>
         </div>
       </div>
-      <div className="pharmacyDistance">
+      {/* <div className="pharmacyDistance">
         <p className="distance">100m</p>
-      </div>
+      </div> */}
     </PharmacyListWrapper>
   );
 }

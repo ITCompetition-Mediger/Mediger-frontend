@@ -5,7 +5,7 @@ import PharmacyList from './PharmacyList';
 import styled from 'styled-components';
 import PharmacyListPage from './PharmacyListPage';
 import PharmacyMapPage from './PharmacyMapPage';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 const KakaoMap = styled.div`
   width: 100%;
@@ -67,6 +67,7 @@ const { kakao } = window;
 
 function PharmacyMapAPI() {
   const [listItems, setListItems] = useState([]);
+  const [placeName, setPlaceName] = useState([]);
 
   useEffect(() => {
     // console.log(lat, lng);
@@ -89,9 +90,12 @@ function PharmacyMapAPI() {
           displayMarker(data[i]);
           //   console.log(data[i].place_name);
           //   setList(data[i].place_name);
+          //   localStorage.setItem('pharmacy_place_name', data[i].place_name);
         }
       }
     }
+    // console.log(placeName);
+    // localStorage.setItem('pharmacy_place_name', placeName);
 
     function displayMarker(place) {
       let marker = new kakao.maps.Marker({
@@ -109,39 +113,43 @@ function PharmacyMapAPI() {
         infowindow.open(map, marker);
       });
 
-    setListItems((listItems) => [...listItems, place]);
+      //   setListItems((listItems) => [...listItems, place]);
+      setListItems((listItems) => [...listItems, place.place_name]);
     }
-
-
-    // 현위치 마커
-    // var markerPosition = new kakao.maps.LatLng(lat, lng);
-    // var marker = new kakao.maps.Marker({
-    //   position: markerPosition,
-    // });
-    // marker.setMap(map);
+    // console.log(listItems);
+    // localStorage.setItem('pharmacy_place_name', JSON.stringify(listItems));
   }, []);
 
   useEffect(() => {
-    console.log(listItems);
-  },[listItems]);
+    localStorage.setItem('pharmacy_place_name', JSON.stringify(listItems));
+  }, [listItems]);
 
-  {listItems.map((listItem) =>
-          <PharmacyList
-            key={listItem.id}
-            address_name={listItem.address_name}
-            place_name={listItem.place_name}
-          />
-    )}
-    
+  // {
+  //   listItems.map((listItem) => (
+  //     <PharmacyList
+  //       key={listItem.id}
+  //       address_name={listItem.address_name}
+  //       place_name={listItem.place_name}
+  //     />
+  //   ));
+  // }
+
   return (
-    <div
-      id="pharmacyMap"
-      style={{
-        width: '100vw',
-        height: '75vh',
-      }}
-    >
-      {/* <PharmacyMapPage name="약국" /> */}
+    <div>
+      <div
+        id="pharmacyMap"
+        style={{
+          width: '100vw',
+          height: '75vh',
+        }}
+      ></div>
+      {/* {listItems.map((listItem) => (
+        <PharmacyList
+          key={listItem.id}
+          address_name={listItem.address_name}
+          place_name={listItem.place_name}
+        />
+      ))} */}
     </div>
   );
 }
