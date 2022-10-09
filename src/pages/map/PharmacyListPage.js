@@ -35,21 +35,14 @@ const PharmacyListComponentWrapper = styled.div`
 `;
 
 function PharmacyListPage() {
-  function location(){
-    navigator.geolocation.getCurrentPosition(function(position){
-    let lat = position.coords.latitude, // 위도
-        lon = position.coords.longitude; // 경도
-    return lat,lon;
-    })
-  }
 
   const [pharmacys, setPharmacys] = useState();
   //약국 조회 상세 api 호출
   const getPharmacyAPI = async() =>{
-    location();
+    //location();
     const response = await 
       fetch(`
-        http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyLcinfoInqire?WGS84_LON=${lon}_LAT=${lat}
+        http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyLcinfoInqire?WGS84_LON=${126.8252}_LAT=${37.4877}
       `);
 
       const data = await response.json();

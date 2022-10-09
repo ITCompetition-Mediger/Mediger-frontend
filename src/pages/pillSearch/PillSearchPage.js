@@ -49,14 +49,16 @@ const PillSearchResultBox = styled.div`
   }
 `;
 
-function PillSearchPage({inputValue, type}) {
+function PillSearchPage() {
   const [pills, setPills] = useState([]); //약 정보 담는 배열
+  const [inputValue, setInputValue] = useState('');
+  const [type, setType] = useState('');
 
     //의약품 검색 api를 불러옴, 의약품명으로 검색시/ 증상으로 검색시
     const getPillSearchAPI = async() =>{
         const response = await 
           fetch(`
-            http://localhost:8080/home/search?type=${type}&keyword=${inputValue}
+            /home/search?type=${type}&keyword=${inputValue}
           `);
 
         const json = await response.json();
@@ -85,7 +87,11 @@ function PillSearchPage({inputValue, type}) {
       <Mobile>
         <Layout>
           <Wrapper>
-            <SearchBar />
+            <SearchBar 
+              setType={setType}
+              setInputValue={setInputValue}
+              inputValue={inputValue}
+            />
             <PillSearchResultBox>
               <div className="ResultBox">
                 <div className="pillTotal">

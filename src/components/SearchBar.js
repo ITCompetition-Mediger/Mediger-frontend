@@ -76,9 +76,9 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function SearchBar() {
+function SearchBar({setInputValue, setType, inputValue}) {
   //입력값 컨트롤러
-  const [inputValue, setInputValue] = useState('');
+  //const [inputValue, setInputValue] = useState('');
   const inputHandler = (event) => {
     setInputValue(event.currentTarget.value);
   };
@@ -86,8 +86,7 @@ function SearchBar() {
   //select option 컨트롤러
   const optionChange = () => {
     let searchType  = document.getElementsById("searchType");
-		let type = (searchType.options[searchType.selectedIndex].value);
-    return type;
+		setType(searchType.options[searchType.selectedIndex].value);
   }
 
   //검색 시 컨트롤러

@@ -89,10 +89,10 @@ function PillSearchPlusPage({itemSeq}) {
   const [itemName, setItemName] = useState([]); //약품명 호출
 
     //의약품 검색 상세 api 호출
-    const getPillSearchPlusAPI = async() =>{
+    const getPillSearchPlusAPI = async(itemSeq) =>{
         const response = await 
           fetch(`
-            http://localhost:8080/home/searchByItemSeq/Detail?itemSeq=${itemSeq}
+            /home/searchByItemSeq/Detail?itemSeq=${itemSeq}
           `);
 
       const data = await response.json();
@@ -101,7 +101,8 @@ function PillSearchPlusPage({itemSeq}) {
     }
 
     useEffect(() => {
-        getPillSearchPlusAPI();
+        getPillSearchPlusAPI(itemSeq);
+        console.log(itemSeq);
     }, []);
 
     {pillDetails.map((pillDetail) =>
