@@ -82,5 +82,5 @@ function PharmacyList({ test2 }) {
     </PharmacyListWrapper>
   );
 }
-
+}
 export default PharmacyList;
