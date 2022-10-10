@@ -6,6 +6,7 @@ import { Desktop, Mobile, Tablet } from '../../components/ReactResponsive';
 import Layout from '../../components/Layout';
 import DesktopView from '../../components/DesktopView';
 import TabletView from '../../components/TabletView';
+import pillSearchAPI from '../../lib/api/pillSearchApi';
 
 const Wrapper = styled.form`
   display: flex;
@@ -51,23 +52,21 @@ const PillSearchResultBox = styled.div`
 
 function PillSearchPage() {
   const [pills, setPills] = useState([]); //약 정보 담는 배열
-  const [inputValue, setInputValue] = useState('');
-  const [type, setType] = useState('');
+  const [searchParam, setSearchParam] = useState({inputValue : "", type: ""});
 
     //의약품 검색 api를 불러옴, 의약품명으로 검색시/ 증상으로 검색시
     const getPillSearchAPI = async() =>{
-        const response = await 
-          fetch(`
-            /home/search?type=${type}&keyword=${inputValue}
-          `);
-
-        const json = await response.json();
-        setPills(json);
-    }
+      await pillSearchAPI
+      .getPillSearchAPI(searchParam.type, searchParam.inputValue)
+      .then((res)=> {
+        setPills(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
     useEffect(() => {
-        getPillSearchAPI();
-    }, []);
+      getPillSearchAPI(searchParam.type, searchParam.inputValue);
+    }, [searchParam]);
 
     {pills.map((pill) =>
           <PillSearchList
@@ -87,11 +86,7 @@ function PillSearchPage() {
       <Mobile>
         <Layout>
           <Wrapper>
-            <SearchBar 
-              setType={setType}
-              setInputValue={setInputValue}
-              inputValue={inputValue}
-            />
+            <SearchBar searchParam={searchParam} setSearchParam={setSearchParam}/>
             <PillSearchResultBox>
               <div className="ResultBox">
                 <div className="pillTotal">
