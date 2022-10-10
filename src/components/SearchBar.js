@@ -76,24 +76,40 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function SearchBar({setInputValue, setType, inputValue}) {
+function SearchBar(props) {
+  const { searchParam, setSearchParam } = props;
+
   //입력값 컨트롤러
   //const [inputValue, setInputValue] = useState('');
   const inputHandler = (event) => {
-    setInputValue(event.currentTarget.value);
+    // setSearchParam(event.currentTarget.value);
+    setSearchParam((current) => {
+      let param = {...current};
+      param['inputValue'] = event.target.value;
+      return param;
+    });
+    console.log(searchParam);
   };
 
   //select option 컨트롤러
-  const optionChange = () => {
-    let searchType  = document.getElementsById("searchType");
-		setType(searchType.options[searchType.selectedIndex].value);
+  const optionChange = (e) => {
+    // TODO: 송경석 - getElementsById 함수 쓰는 것은 지양해야 되고 e.target.value로 바로 값 가져올 수 있음
+    // let searchType  = document.getElementsById("searchType");
+		// let type = (searchType.options[searchType.selectedIndex].value);
+
+    setSearchParam((current) => {
+      let param = {...current};
+      param['type'] = e.target.value;
+      return param;
+    });
   }
+
 
   //검색 시 컨트롤러
   const onSubmit = (event) => {
     event.preventDefault();
     //추후 수정 필요
-    if (inputValue == ' ') {
+    if (searchParam.inputValue == ' ') {
       document.getElementById('checkInputValue').innerHTML =
         '<b>▲검색어를 다시 확인해주세요.<b>';
       document.getElementById('checkInputValue').style.fontSize = '1rem';
@@ -131,7 +147,7 @@ function SearchBar({setInputValue, setType, inputValue}) {
           </form>
           <input
             placeholder="의약품명 및 증상 검색"
-            value={inputValue}
+            value={searchParam.inputValue}
             onChange={inputHandler}
             className="searchInput"
           />
