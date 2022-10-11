@@ -92,33 +92,30 @@ const StyledLink = styled(Link)`
 `;
 
 function MonthlyMediger() {
-  const getAPI = async () => {
-    const response = await fetch(`
-      http://localhost:8080/home/mypage/monthly
-      `);
-    const json = await response.json();
-    console.log(json);
-  };
-  useEffect(() => {
-    getAPI();
-  }, []);
-
-  //   const [pills, setPills] = useState([]);
-  //   const getAPI = () => {
-  //     const url = 'http://localhost:8080/home';
-  //     axios
-  //       .get(url)
-  //       .then(function (response) {
-  //         setPills(response.data);
-  //         console.log('성공');
-  //       })
-  //       .catch(function (error) {
-  //         console.log('실패');
-  //       });
+  //   const getAPI = async () => {
+  //     const response = await fetch(`
+  //       http://localhost:8080/home/mypage/monthly
+  //       `);
+  //     const json = await response.json();
+  //     console.log(json);
   //   };
-  //   getAPI();
+  //   useEffect(() => {
+  //     getAPI();
+  //   }, []);
 
   const [value, onChange] = useState(new Date());
+
+  //   const today = value;
+  //   console.log(today);
+
+  const [today, setToday] = useState();
+
+  //   setTodaytoday(value);
+
+  useEffect(() => {
+    setToday(value);
+  }, [value]);
+  //   console.log(today);
 
   return (
     <MypageLayout>
@@ -152,7 +149,7 @@ function MonthlyMediger() {
             to={`/myMediger/DailyMediger/${moment(value).format('YYYYMMDD')}`}
           >
             <div className="ContentBox">
-              <DailyMedigerWidget />
+              <DailyMedigerWidget day={today} />
             </div>
           </StyledLink>
         </div>

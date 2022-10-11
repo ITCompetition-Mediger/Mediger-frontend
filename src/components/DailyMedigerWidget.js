@@ -43,7 +43,8 @@ const DailyWidget = styled.div`
   }
 `;
 
-function DailyMedigerWidget() {
+function DailyMedigerWidget({ day }) {
+  //   console.log(typeof day);
   // api 저장
   const [loading, setLoading] = useState(false);
   const [medigers, setMedigers] = useState([]);
@@ -65,14 +66,25 @@ function DailyMedigerWidget() {
 
   useEffect(() => {
     getAPI();
-    checkDate();
+    // checkDate();
   }, [loading]);
 
   // 날짜로 추려내기
   // 후에 props로 들어오는 날짜로 수정
-  const today = new Date();
+  //   const today = day;
+  //   console.log(today);
+
+  const [today, setToday] = useState();
+  useEffect(() => {
+    setToday(day);
+    setMorn([]);
+    setAfter([]);
+    setEven([]);
+    checkDate();
+  }, [day]);
 
   const checkDate = () => {
+    // console.log(today);
     for (let i = 0; i < medigers.length; i++) {
       const start = new Date(medigers[i].startDate);
       const last = new Date(medigers[i].lastDate);
@@ -88,7 +100,7 @@ function DailyMedigerWidget() {
     }
     // console.log(daily);
     // console.log('==아침==');
-    console.log(morn);
+    // console.log(morn);
     // console.log('==점심==');
     // console.log(after);
     // console.log('==저녁==');

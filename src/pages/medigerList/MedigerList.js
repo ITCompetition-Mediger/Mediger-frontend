@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
@@ -53,6 +54,21 @@ const All = styled.div`
 `;
 
 function MedigerList() {
+  const [medigerLists, setMedigerLists] = useState([]);
+  const getAPI = async () => {
+    const json = await (
+      await fetch(`
+      /home/scrap
+            `)
+    ).json();
+    setMedigerLists(json.list);
+    console.log(medigerLists);
+  };
+
+  useEffect(() => {
+    getAPI();
+  }, []);
+
   return (
     <div>
       <Mobile>
@@ -69,11 +85,6 @@ function MedigerList() {
               </div>
               <div className="ListBox">
                 <Medicine />
-                <Medicine />
-                <Medicine />
-                <Medicine />
-                <Medicine />
-                <Medicine />
               </div>
             </div>
           </All>
@@ -83,11 +94,11 @@ function MedigerList() {
         <DesktopView />
       </Desktop>
       <Tablet>
-      <TabletView />
-    </Tablet>
-    <Tablet>
-      <TabletView />
-    </Tablet>
+        <TabletView />
+      </Tablet>
+      <Tablet>
+        <TabletView />
+      </Tablet>
     </div>
   );
 }

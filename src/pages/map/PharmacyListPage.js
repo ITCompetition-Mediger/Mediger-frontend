@@ -36,8 +36,6 @@ const PharmacyListComponentWrapper = styled.div`
 
 function PharmacyListPage() {
   const [pharmacy, setPharmacy] = useState([]);
-  //   const [placeName, setPlaceName] = useState([]);
-  //   const [placeAddress, setPlaceAddress] = useState([]);
 
   useEffect(() => {
     const localData = localStorage.getItem('pharmacy');

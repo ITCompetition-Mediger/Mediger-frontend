@@ -112,14 +112,28 @@ function Mypage() {
     ).json();
     setUser(json.userName);
     setMedigerLists(json.list);
-    console.log(json);
+    // console.log(json);
   };
 
   useEffect(() => {
     getAPI();
   }, []);
 
-  console.log(medigerLists);
+  //   console.log(medigerLists);
+  const today = new Date();
+  //   console.log(today);
+
+  //   const [dayday, setDayday] = useState(new Date());
+
+  //   setDayday = () => {
+  //     new Date('2022-01-07');
+  //   };
+
+  //   useEffect(() => {
+  //     setDayday();
+  //   }, []);
+
+  //   console.log(dayday);
 
   return (
     <div>
@@ -141,7 +155,7 @@ function Mypage() {
             </div>
             <StyledLink to={`/myMediger/MonthlyMediger`}>
               <div className="ContentBox">
-                <DailyMedigerWidget />
+                <DailyMedigerWidget day={today} />
               </div>
             </StyledLink>
           </div>
