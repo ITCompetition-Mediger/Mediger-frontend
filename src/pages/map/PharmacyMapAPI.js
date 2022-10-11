@@ -66,8 +66,6 @@ const { kakao } = window;
 
 function PharmacyMapAPI() {
   const [listItems, setListItems] = useState([]);
-  //   const [placeName, setPlaceName] = useState([]);
-  //   const [placeAddress, setPlaceAddress] = useState([]);
 
   useEffect(() => {
     // console.log(lat, lng);
@@ -108,6 +106,7 @@ function PharmacyMapAPI() {
         infowindow.open(map, marker);
       });
 
+      // object array type => localStorage에 저장
       setListItems((listItems) => [
         ...listItems,
         {
@@ -119,6 +118,7 @@ function PharmacyMapAPI() {
     }
   }, []);
 
+  // localStorage에 저장
   useEffect(() => {
     localStorage.setItem('pharmacy', JSON.stringify(listItems));
   }, [listItems]);
