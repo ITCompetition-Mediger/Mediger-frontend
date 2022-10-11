@@ -70,7 +70,7 @@ function DailyMedigerWidget() {
 
   // 날짜로 추려내기
   // 후에 props로 들어오는 날짜로 수정
-  const today = new Date('2021-08-30');
+  const today = new Date();
 
   const checkDate = () => {
     for (let i = 0; i < medigers.length; i++) {
@@ -109,7 +109,7 @@ function DailyMedigerWidget() {
         <div className="TimeTitle">점심</div>
         <div className="MedicineBox">
           {after.map((item) => (
-            <DailyMedigerIconWidget img={item.itemImage} />
+            <DailyMedigerIconWidget coverImg={item.itemImage} />
           ))}
         </div>
       </div>
@@ -117,7 +117,7 @@ function DailyMedigerWidget() {
         <div className="TimeTitle">저녁</div>
         <div className="MedicineBox">
           {even.map((item) => (
-            <DailyMedigerIconWidget img={item.itemImage} />
+            <DailyMedigerIconWidget coverImg={item.itemImage} />
           ))}
         </div>
       </div>

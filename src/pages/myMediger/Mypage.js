@@ -103,7 +103,7 @@ const StyledLink = styled(Link)`
 
 function Mypage() {
   const [user, setUser] = useState();
-  const [medigers, setMedigers] = useState([]);
+  const [medigerLists, setMedigerLists] = useState([]);
   const getAPI = async () => {
     const json = await (
       await fetch(`
@@ -111,13 +111,15 @@ function Mypage() {
           `)
     ).json();
     setUser(json.userName);
-    setMedigers(json.daily);
-    // console.log(medigers);
+    setMedigerLists(json.list);
+    console.log(json);
   };
 
   useEffect(() => {
     getAPI();
-  }, [user]);
+  }, []);
+
+  console.log(medigerLists);
 
   return (
     <div>
@@ -152,14 +154,12 @@ function Mypage() {
             <StyledLink to={`/MedigerList`}>
               <div className="ContentBox">
                 <div className="MedigerBox">
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
+                  {medigerLists.map((item) => (
+                    <MedigerListWidget
+                      coverImg={item.itemImage}
+                      name={item.itemName}
+                    />
+                  ))}
                 </div>
                 <div className="AddBtnBox">
                   <Link to={`/pillSearch`}>
