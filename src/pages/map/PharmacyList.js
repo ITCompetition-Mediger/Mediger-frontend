@@ -10,7 +10,7 @@ const PharmacyListWrapper = styled.div`
   border-radius: 2vw;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   .pharmacyImage {
     width: 12vw;
@@ -18,6 +18,10 @@ const PharmacyListWrapper = styled.div`
     border-radius: 50%;
     background-color: white;
     margin-right: 4vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .pharmacyList {
@@ -49,24 +53,22 @@ const PharmacyListWrapper = styled.div`
   .distance {
     color: #97a9a4;
     font-size: 3vw;
+    margin-top: 0.5vw;
   }
 `;
 
-function PharmacyList({ placeName }) {
+function PharmacyList({ placeName, placeAddress, placeNumber }) {
   return (
     <PharmacyListWrapper>
-      <div className="pharmacyImage"></div>
+      <div className="pharmacyImage">🏬</div>
       <div className="pharmacyList">
         <div className="pharmacyName">
           <p className="name">{placeName}</p>
         </div>
-        {/* <p className="name">{address_name}</p> */}
         <div className="pharmacyAddress">
-          <p className="address">주소</p>
+          <p className="address">{placeAddress}</p>
+          <p className="distance">{placeNumber}</p>
         </div>
-      </div>
-      <div className="pharmacyDistance">
-        <p className="distance">100m</p>
       </div>
     </PharmacyListWrapper>
   );
