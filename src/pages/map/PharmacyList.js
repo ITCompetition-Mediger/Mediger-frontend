@@ -52,38 +52,22 @@ const PharmacyListWrapper = styled.div`
   }
 `;
 
-function PharmacyList({ address_name, place_name }) {
-  //   console.log(address_name);
-  const [placeName, setPlaceName] = useState([]);
-
-  //   useEffect(() => {
-  //     setPlaceName = () => {
-  //       const localData = JSON.parse(localStorage.getItem('pharmacy_place_name'));
-  //       console.log(localData);
-  //     };
-  //   }, []);
-  useEffect(() => {
-    const localData = localStorage.getItem('pharmacy_place_name');
-    setPlaceName(JSON.parse(localData));
-  }, []);
-
+function PharmacyList({ placeName }) {
   return (
     <PharmacyListWrapper>
-      {/* <div className="pharmacyImage"></div> */}
+      <div className="pharmacyImage"></div>
       <div className="pharmacyList">
-        {placeName.map((place) => (
-          <div className="pharmacyName">
-            <p className="name">{place}</p>
-          </div>
-        ))}
+        <div className="pharmacyName">
+          <p className="name">{placeName}</p>
+        </div>
         {/* <p className="name">{address_name}</p> */}
         <div className="pharmacyAddress">
-          <p className="address">{place_name}</p>
+          <p className="address">주소</p>
         </div>
       </div>
-      {/* <div className="pharmacyDistance">
+      <div className="pharmacyDistance">
         <p className="distance">100m</p>
-      </div> */}
+      </div>
     </PharmacyListWrapper>
   );
 }

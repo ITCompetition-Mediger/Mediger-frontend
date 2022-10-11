@@ -35,6 +35,19 @@ const PharmacyListComponentWrapper = styled.div`
 `;
 
 function PharmacyListPage() {
+  const [placeName, setPlaceName] = useState([]);
+  const [placeAddress, setPlaceAddress] = useState([]);
+
+  useEffect(() => {
+    const localData_placeName = localStorage.getItem('pharmacy_place_name');
+    setPlaceName(JSON.parse(localData_placeName));
+
+    const localData_placeAddress = localStorage.getItem(
+      'pharmacy_place_address',
+    );
+    setPlaceAddress(JSON.parse(localData_placeAddress));
+  }, []);
+
   return (
     <div>
       <Mobile>
@@ -44,7 +57,9 @@ function PharmacyListPage() {
               <p className="title">💊 현위치 주변 약국</p>
             </div>
             <PharmacyListComponentWrapper>
-              <PharmacyList />
+              {placeName.map((item) => (
+                <PharmacyList placeName={item} />
+              ))}
             </PharmacyListComponentWrapper>
           </Wrapper>
         </Layout>
