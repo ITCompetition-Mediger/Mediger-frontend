@@ -108,14 +108,14 @@ function MonthlyMediger() {
   //   const today = value;
   //   console.log(today);
 
-  const [today, setToday] = useState();
+  //   const [today, setToday] = useState();
 
   //   setTodaytoday(value);
 
-  useEffect(() => {
-    setToday(value);
-  }, [value]);
-  //   console.log(today);
+  //   useEffect(() => {
+  //     setToday(value);
+  //   }, [value]);
+  console.log('날짜: ' + value);
 
   return (
     <MypageLayout>
@@ -146,10 +146,10 @@ function MonthlyMediger() {
             <hr />
           </div>
           <StyledLink
-            to={`/myMediger/DailyMediger/${moment(value).format('YYYYMMDD')}`}
+            to={`/myMediger/DailyMediger/${moment(value).format('YYYY-MM-DD')}`}
           >
             <div className="ContentBox">
-              <DailyMedigerWidget day={today} />
+              <DailyMedigerWidget day={value} />
             </div>
           </StyledLink>
         </div>

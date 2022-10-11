@@ -1,10 +1,12 @@
 // 마이페이지 > 일간 메디저 페이지
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import Mediger from '../../components/Mediger';
 import MypageLayout from '../../components/MypageLayout';
+import { af } from 'date-fns/locale';
 // import MonthlyMediger from './MonthlyMediger';
 
 const DailyMedigerBox = styled.div`
@@ -19,6 +21,7 @@ const DailyMedigerBox = styled.div`
   .TitleBox {
     width: 85vw;
     padding: 0 7.5vw;
+    margin-bottom: 8vh;
 
     height: 40px;
     display: flex;
@@ -42,7 +45,7 @@ const DailyMedigerBox = styled.div`
     font-size: 16px;
     color: #3c7466;
     font-weight: 600;
-    margin: 1vh 0;
+    margin: 0.5vw 0;
   }
 
   .MedicineBox {
@@ -71,11 +74,87 @@ const StyledLink = styled(Link)`
 `;
 
 function DailyMediger() {
+  const { selectDay } = useParams();
+  //   console.log(typeof selectDay);
+  //   const day = new Date(selectDay);
+  //   console.log(day);
+
+  //   console.log(typeof day);
+  // api 저장
+  const [loading, setLoading] = useState(false);
+  const [medigers, setMedigers] = useState([]);
+  //   const [daily, setDaily] = useState([]);
+  const [morn, setMorn] = useState([]);
+  const [after, setAfter] = useState([]);
+  const [even, setEven] = useState([]);
+
+  const getAPI = async () => {
+    const json = await (
+      await fetch(`
+            /home/mypage
+            `)
+    ).json();
+    setLoading(true);
+    setMedigers(json.daily);
+    // console.log(medigers);
+
+    // const day = new Date(selectDay);
+    // console.log(day);
+  };
+
+  useEffect(() => {
+    getAPI();
+    checkDate();
+  }, [loading]);
+
+  //   console.log(day);
+  const [today, setToday] = useState();
+  const [num, setNum] = useState(1);
+  useEffect(() => {
+    const day = new Date(selectDay);
+    console.log(day);
+    // {
+    //   day == 'today' ? setToday(now) : setToday(day);
+    // }
+    setToday(day);
+    setMorn([]);
+    setAfter([]);
+    setEven([]);
+    checkDate();
+  }, []);
+
+  const checkDate = () => {
+    // console.log(today);
+    for (let i = 0; i < medigers.length; i++) {
+      const start = new Date(medigers[i].startDate);
+      const last = new Date(medigers[i].lastDate);
+      if (start <= today && last >= today) {
+        // console.log(medigers[i]);
+        // setDaily((daily) => [...daily, medigers[i]]);
+        if (medigers[i].when == 'Morn')
+          setMorn((morn) => [...morn, medigers[i]]);
+        else if (medigers[i].when == 'After')
+          setAfter((after) => [...after, medigers[i]]);
+        else setEven((even) => [...even, medigers[i]]);
+      }
+    }
+
+    console.log('아침');
+    console.log(morn);
+    console.log('점심');
+    console.log(after);
+    console.log('저녁');
+    console.log(even);
+  };
+
   return (
     <MypageLayout>
       <DailyMedigerBox>
         <div className="TitleBox ContentBox">
-          <p className="Title">일간 메디저</p>
+          <p className="Title">
+            {selectDay} <br />
+            일간 메디저
+          </p>
           {/* <p className="Title">{date}</p> */}
           {/* <p className="Title">
               <MonthlyMediger date={date} />
@@ -89,25 +168,37 @@ function DailyMediger() {
         <div className="ContentBox">
           <p className="SubTitle">아침</p>
           <div className="MedicineBox">
-            <Mediger />
-            <Mediger />
-            <Mediger />
+            {morn.map((item) => (
+              <Mediger
+                coverImg={item.itemImage}
+                name={item.itemName}
+                many={item.many}
+              />
+            ))}
           </div>
         </div>
         <div className="ContentBox">
           <p className="SubTitle">점심</p>
           <div className="MedicineBox">
-            <Mediger />
-            <Mediger />
-            <Mediger />
-            <Mediger />
+            {after.map((item) => (
+              <Mediger
+                coverImg={item.itemImage}
+                name={item.itemName}
+                many={item.many}
+              />
+            ))}
           </div>
         </div>
         <div className="ContentBox">
           <p className="SubTitle">저녁</p>
           <div className="MedicineBox">
-            <Mediger />
-            <Mediger />
+            {even.map((item) => (
+              <Mediger
+                coverImg={item.itemImage}
+                name={item.itemName}
+                many={item.many}
+              />
+            ))}
           </div>
         </div>
       </DailyMedigerBox>

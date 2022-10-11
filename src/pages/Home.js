@@ -136,7 +136,6 @@ function Home() {
   //   console.log(today);
 
   const today = new Date();
-  console.log('얍');
 
   return (
     <MainBox>

@@ -30,7 +30,10 @@ function App() {
       <Route path="/map/pharmacyList" element={<PharmacyListPage />} />
       <Route path="/map/hospitalList" element={<HospitalListPage />} />
       <Route path="/myMediger/AddToMediger" element={<AddToMediger />} />
-      <Route path="/myMediger/DailyMediger/:id" element={<DailyMediger />} />
+      <Route
+        path="/myMediger/DailyMediger/:selectDay"
+        element={<DailyMediger />}
+      />
       <Route path="/myMediger/MonthlyMediger" element={<MonthlyMediger />} />
       <Route path="/myMediger/Mypage" element={<Mypage />} />
       <Route path="/pages/Home" element={<Main />} />
