@@ -85,12 +85,12 @@ function DailyMedigerWidget({ day }) {
       const start = new Date(medigers[i].startDate);
       const last = new Date(medigers[i].lastDate);
       if (start <= today && last >= today) {
-        // console.log(medigers[i]);
+        console.log(medigers[i]);
         // console.log(today);
         // setDaily((daily) => [...daily, medigers[i]]);
-        if (medigers[i].time == 'Morn')
+        if (medigers[i].when == 'Morn')
           setMorn((morn) => [...morn, medigers[i]]);
-        else if (medigers[i].time == 'After')
+        else if (medigers[i].when == 'After')
           setAfter((after) => [...after, medigers[i]]);
         else setEven((even) => [...even, medigers[i]]);
       }
