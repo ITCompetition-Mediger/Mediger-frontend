@@ -102,18 +102,22 @@ const StyledLink = styled(Link)`
 `;
 
 function Mypage() {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState();
+  const [mediger, setMediger] = useState([]);
   const getAPI = async () => {
-    const response = await fetch(`
-          http://localhost:8080/home/mypage
-          `);
-    const json = await response.json();
-    // setKakao(json.kakao);
-    console.log(json);
+    const json = await (
+      await fetch(`
+          /home/mypage
+          `)
+    ).json();
+    setUser(json.userName);
+    setMediger(json.daily);
+    console.log(mediger);
   };
+
   useEffect(() => {
     getAPI();
-  }, []);
+  }, [user]);
 
   return (
     <div>
@@ -124,7 +128,7 @@ function Mypage() {
             <div className="Hello">
               잠깐,
               <br />
-              User1님! 잊지 않으셨죠?
+              {user}님! 잊지 않으셨죠?
             </div>
           </div>
 
