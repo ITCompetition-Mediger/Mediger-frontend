@@ -58,16 +58,18 @@ function MedigerList() {
   const getAPI = async () => {
     const json = await (
       await fetch(`
-      /home/scrap
+            /home/mypage
             `)
     ).json();
-    setMedigerLists(json.list);
-    console.log(medigerLists);
+    setMedigerLists(json.scrapList);
+    // console.log(medigerLists);
   };
 
   useEffect(() => {
     getAPI();
   }, []);
+
+  console.log(medigerLists);
 
   return (
     <div>
@@ -84,7 +86,14 @@ function MedigerList() {
                 </Link>
               </div>
               <div className="ListBox">
-                <Medicine />
+                {medigerLists.map((item) => (
+                  <Medicine
+                    coverImg={item.itemImage}
+                    name={item.itemName}
+                    entpName={item.entpName}
+                    seq={item.itemSeq}
+                  />
+                ))}
               </div>
             </div>
           </All>

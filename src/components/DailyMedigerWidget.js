@@ -74,14 +74,20 @@ function DailyMedigerWidget({ day }) {
   //   const today = day;
   //   console.log(today);
 
+  //   console.log(day);
   const [today, setToday] = useState();
   useEffect(() => {
+    // {
+    //   day == 'today' ? setToday(now) : setToday(day);
+    // }
     setToday(day);
     setMorn([]);
     setAfter([]);
     setEven([]);
     checkDate();
   }, [day]);
+
+  //   console.log(today);
 
   const checkDate = () => {
     // console.log(today);

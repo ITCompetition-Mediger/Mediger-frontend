@@ -111,7 +111,7 @@ function Mypage() {
           `)
     ).json();
     setUser(json.userName);
-    setMedigerLists(json.list);
+    setMedigerLists(json.scrapList);
     // console.log(json);
   };
 
@@ -119,8 +119,9 @@ function Mypage() {
     getAPI();
   }, []);
 
-  //   console.log(medigerLists);
+  console.log(medigerLists);
   const today = new Date();
+
   //   console.log(today);
 
   //   const [dayday, setDayday] = useState(new Date());

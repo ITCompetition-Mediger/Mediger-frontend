@@ -112,18 +112,31 @@ const StyledLink = styled(Link)`
 `;
 
 function Home() {
-  const [user, setUser] = useState([]);
-  const getAPI = async () => {
-    const response = await fetch(`
-    /home
-            `);
-    const json = await response.json();
-    // setKakao(json.kakao);
-    console.log(json);
-  };
-  useEffect(() => {
-    getAPI();
-  }, []);
+  //   const [loading, setLoading] = useState(true);
+  //   const [today, setDay] = useState();
+  //   const [user, setUser] = useState([]);
+  //   const getAPI = async () => {
+  //     const response = await fetch(`
+  //       /home
+  //               `);
+  //     const json = await response.json();
+  //     // setKakao(json.kakao);
+  //     console.log(json);
+
+  //     setLoading(false);
+  //   };
+  //   useEffect(() => {
+  //     getAPI();
+  //   }, []);
+
+  //   useEffect(() => {
+  //     console.log('얍');
+  //     setDay(new Date('2021-09-20'));
+  //   }, [loading]);
+  //   console.log(today);
+
+  const today = new Date();
+  console.log('얍');
 
   return (
     <MainBox>
@@ -145,7 +158,7 @@ function Home() {
           </div>
           <StyledLink to={`/myMediger/MonthlyMediger`}>
             <div className="ContentBox">
-              <DailyMedigerWidget />
+              <DailyMedigerWidget day={today} />
             </div>
           </StyledLink>
         </div>
