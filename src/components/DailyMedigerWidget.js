@@ -1,5 +1,6 @@
 // 마이페이지 메인에 나오는 일간 메디저 위젯
 import React from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import styled from 'styled-components';
@@ -43,37 +44,81 @@ const DailyWidget = styled.div`
 `;
 
 function DailyMedigerWidget() {
+  // api 저장
+  const [loading, setLoading] = useState(false);
+  const [medigers, setMedigers] = useState([]);
+  //   const [daily, setDaily] = useState([]);
+  const [morn, setMorn] = useState([]);
+  const [after, setAfter] = useState([]);
+  const [even, setEven] = useState([]);
+
+  const getAPI = async () => {
+    const json = await (
+      await fetch(`
+            /home/mypage
+            `)
+    ).json();
+    setLoading(true);
+    setMedigers(json.daily);
+    // console.log(medigers);
+  };
+
+  useEffect(() => {
+    getAPI();
+    checkDate();
+  }, [loading]);
+
+  // 날짜로 추려내기
+  // 후에 props로 들어오는 날짜로 수정
+  const today = new Date('2021-08-30');
+
+  const checkDate = () => {
+    for (let i = 0; i < medigers.length; i++) {
+      const start = new Date(medigers[i].startDate);
+      const last = new Date(medigers[i].lastDate);
+      if (start <= today && last >= today) {
+        // console.log(medigers[i]);
+        // setDaily((daily) => [...daily, medigers[i]]);
+        if (medigers[i].time == 'Morn')
+          setMorn((morn) => [...morn, medigers[i]]);
+        else if (medigers[i].time == 'After')
+          setAfter((after) => [...after, medigers[i]]);
+        else setEven((even) => [...even, medigers[i]]);
+      }
+    }
+    // console.log(daily);
+    // console.log('==아침==');
+    console.log(morn);
+    // console.log('==점심==');
+    // console.log(after);
+    // console.log('==저녁==');
+    // console.log(even);
+  };
+
   return (
     <DailyWidget>
       <div className="TimeBox">
         <div className="TimeTitle">아침</div>
         <div className="MedicineBox">
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
+          {morn.map((item) => (
+            <DailyMedigerIconWidget coverImg={item.itemImage} />
+          ))}
         </div>
       </div>
       <div className="TimeBox">
         <div className="TimeTitle">점심</div>
         <div className="MedicineBox">
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
+          {after.map((item) => (
+            <DailyMedigerIconWidget img={item.itemImage} />
+          ))}
         </div>
       </div>
       <div className="TimeBox">
         <div className="TimeTitle">저녁</div>
         <div className="MedicineBox">
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
-          <DailyMedigerIconWidget />
+          {even.map((item) => (
+            <DailyMedigerIconWidget img={item.itemImage} />
+          ))}
         </div>
       </div>
     </DailyWidget>

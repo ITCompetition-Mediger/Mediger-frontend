@@ -103,7 +103,7 @@ const StyledLink = styled(Link)`
 
 function Mypage() {
   const [user, setUser] = useState();
-  const [mediger, setMediger] = useState([]);
+  const [medigers, setMedigers] = useState([]);
   const getAPI = async () => {
     const json = await (
       await fetch(`
@@ -111,8 +111,8 @@ function Mypage() {
           `)
     ).json();
     setUser(json.userName);
-    setMediger(json.daily);
-    console.log(mediger);
+    setMedigers(json.daily);
+    // console.log(medigers);
   };
 
   useEffect(() => {
