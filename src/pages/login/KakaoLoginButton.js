@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
+<<<<<<< HEAD
 
 const LoginApi = styled.div`
   a {
@@ -20,6 +21,8 @@ const LoginApi = styled.div`
 
 import UserService from '../../services/UserService';
 import { tsConstructorType } from '../../../../../../AppData/Local/Microsoft/TypeScript/4.8/node_modules/@babel/types/lib/index';
+=======
+>>>>>>> 3fd606d (Etc: user 저장 시도)
 
 const LoginApi = styled.div`
   a {
