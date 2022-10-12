@@ -51,6 +51,8 @@ const PillSearchResultBox = styled.div`
 `;
 
 function PillSearchPage({ inputValue, type }) {
+  const [pills, setPills] = useState([]); //약 정보 담는 배열
+
   //의약품 검색 api를 불러옴, 의약품명으로 검색시/ 증상으로 검색시
   const getPillSearchAPI = async () => {
     const response = await fetch(`
