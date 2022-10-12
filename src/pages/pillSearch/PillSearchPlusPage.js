@@ -7,6 +7,7 @@ import Layout from '../../components/Layout';
 import DesktopView from '../../components/DesktopView';
 import TabletView from '../../components/TabletView';
 import PillContentList from './PillContentList';
+import ScrapAPI from '../../lib/api/ScrapAPI';
 
 const PillSearchPlusWrapper = styled.form`
   display: flex;
@@ -84,25 +85,25 @@ const PillContentListWrapper = styled.div`
   }
 `;
 
-function PillSearchPlusPage({itemSeq}) {
+function PillSearchPlusPage() {
   const [pillDetails, setPillDetails] = useState([]); //약 정보 호출 담는 배열
   const [itemName, setItemName] = useState([]); //약품명 호출
+  const [searchParam, setSearchParam] = useState({itemSeq : ""});
 
     //의약품 검색 상세 api 호출
     const getPillSearchPlusAPI = async() =>{
-        const response = await 
-          fetch(`
-            http://localhost:8080/home/searchByItemSeq/Detail?itemSeq=${itemSeq}
-          `);
-
-      const data = await response.json();
-      setPillDetails(data); //pillDetails를 저장
-      setItemName(data.itemName); //itemName만 따로 저장
+      await pillSearchAPI
+      .getPillSearchPlusAPI(searchParam.itemSeq)
+      .then((res)=> {
+        setPillDetails(res.data);
+        setItemName(res.data);
+      })
+      .catch((err) => console.log(err));
     }
 
     useEffect(() => {
-        getPillSearchPlusAPI();
-    }, []);
+      getPillSearchPlusAPI(searchParam.itemSeq);
+    }, [searchParam]);
 
     {pillDetails.map((pillDetail) =>
           <PillContentList
@@ -123,8 +124,12 @@ function PillSearchPlusPage({itemSeq}) {
     setIsOpen(!isOpen);
   };
 
+  const AddScrap = () => {
+    getScrapAPI();
+  }
+
   return (
-    <>
+    <div>
       <Mobile>
         <Layout>
           <PillSearchPlusWrapper>
@@ -164,7 +169,7 @@ function PillSearchPlusPage({itemSeq}) {
       <Tablet>
         <TabletView />
       </Tablet>
-    </>
+    </div>
   );
 }
 

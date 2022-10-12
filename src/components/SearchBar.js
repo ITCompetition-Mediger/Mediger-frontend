@@ -76,9 +76,11 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function SearchBar() {
+function SearchBar(props) {
+  const { searchParam, setSearchParam } = props;
+
   //입력값 컨트롤러
-  const [inputValue, setInputValue] = useState('');
+  //const [inputValue, setInputValue] = useState('');
   const inputHandler = (event) => {
     console.dir(event);
     setInputValue(event.currentTarget.value);
@@ -95,7 +97,7 @@ function SearchBar() {
   const onSubmit = (event) => {
     event.preventDefault();
     //추후 수정 필요
-    if (inputValue == ' ') {
+    if (searchParam.inputValue == ' ') {
       document.getElementById('checkInputValue').innerHTML =
         '<b>▲검색어를 다시 확인해주세요.<b>';
       document.getElementById('checkInputValue').style.fontSize = '1rem';
@@ -133,7 +135,7 @@ function SearchBar() {
           </form>
           <input
             placeholder="의약품명 및 증상 검색"
-            value={inputValue}
+            value={searchParam.inputValue}
             onChange={inputHandler}
             className="searchInput"
           />

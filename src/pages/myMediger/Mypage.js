@@ -114,28 +114,7 @@ function Mypage() {
     setMedigerLists(json.scrapList);
     // console.log(json);
   };
-
-  useEffect(() => {
-    getAPI();
-  }, []);
-
-  console.log(medigerLists);
-  const today = new Date();
-
-  //   console.log(today);
-
-  //   const [dayday, setDayday] = useState(new Date());
-
-  //   setDayday = () => {
-  //     new Date('2022-01-07');
-  //   };
-
-  //   useEffect(() => {
-  //     setDayday();
-  //   }, []);
-
-  //   console.log(dayday);
-
+  
   return (
     <div>
       <MypageLayout>
