@@ -35,31 +35,12 @@ const PharmacyListComponentWrapper = styled.div`
 `;
 
 function PharmacyListPage() {
+  const [pharmacy, setPharmacy] = useState([]);
 
-  const [pharmacys, setPharmacys] = useState();
-  //약국 조회 상세 api 호출
-  const getPharmacyAPI = async() =>{
-    //location();
-    const response = await 
-      fetch(`
-        http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyLcinfoInqire?WGS84_LON=${126.8252}_LAT=${37.4877}
-      `);
-
-      const data = await response.json();
-      setPharmacys(data); //pillDetails를 저장
-    }
-
-    useEffect(() => {
-        getPharmacyAPI();
-    }, []);
-
-    {pharmacys.map((pharmacy) =>
-          <PharmacyList
-            distance={pharmacy.distance}
-            dutyName={pharmacy.dutyName}
-            dutyAddr={pharmacy.dutyAddr}
-          />
-    )}
+  useEffect(() => {
+    const localData = localStorage.getItem('pharmacy');
+    setPharmacy(JSON.parse(localData));
+  }, []);
 
   return (
     <div>
@@ -67,10 +48,16 @@ function PharmacyListPage() {
         <Layout>
           <Wrapper>
             <div className="nameHeader">
-              <p className="title">💊 현위치 주변 약국</p>
+              <p className="title">🏬 현위치 주변 약국</p>
             </div>
             <PharmacyListComponentWrapper>
-              <PharmacyList />
+              {pharmacy.map((item) => (
+                <PharmacyList
+                  placeName={item.placeName}
+                  placeAddress={item.placeAddress}
+                  placeNumber={item.placeNumber}
+                />
+              ))}
             </PharmacyListComponentWrapper>
           </Wrapper>
         </Layout>

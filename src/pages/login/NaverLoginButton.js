@@ -56,6 +56,7 @@ function NaverLoginButton() {
 
   return (
     <a target="_self" href={`${logout}`}>
+    <StyledLink to={`/pages/Home`}>
       <Wrapper>
         <div className="NaverImage">
           <img

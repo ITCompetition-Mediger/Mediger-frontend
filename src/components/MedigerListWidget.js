@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import styled from 'styled-components';
+import notFoundImg from '../images/notFoundImg.png';
 
 const MedigerWidget = styled.div`
   width: 18vw;
@@ -16,10 +17,20 @@ const MedigerWidget = styled.div`
   justify-content: center;
   align-items: center;
 
+  overflow: auto;
+
   .MedigerImg {
     width: 13vw;
     height: 13vw;
     border-radius: 50%;
+    background-color: white;
+  }
+
+  img {
+    width: 13vw;
+    height: 13vw;
+    border-radius: 50%;
+    /* background-color: #ecf2f0; */
     background-color: white;
   }
 
@@ -32,11 +43,17 @@ const MedigerWidget = styled.div`
   }
 `;
 
-function MedigerListWidget() {
+function MedigerListWidget({ coverImg, name }) {
   return (
     <MedigerWidget>
-      <div className="MedigerImg"></div>
-      <div className="MedigerName">약 이름</div>
+      <div className="MedigerImg">
+        {coverImg == 'blank' ? (
+          <img src={notFoundImg}></img>
+        ) : (
+          <img src={coverImg}></img>
+        )}
+      </div>
+      <div className="MedigerName">{name}</div>
     </MedigerWidget>
   );
 }

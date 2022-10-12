@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const PharmacyListWrapper = styled.div`
@@ -9,7 +10,7 @@ const PharmacyListWrapper = styled.div`
   border-radius: 2vw;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   .pharmacyImage {
     width: 12vw;
@@ -17,6 +18,10 @@ const PharmacyListWrapper = styled.div`
     border-radius: 50%;
     background-color: white;
     margin-right: 4vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .pharmacyList {
@@ -48,83 +53,25 @@ const PharmacyListWrapper = styled.div`
   .distance {
     color: #97a9a4;
     font-size: 3vw;
+    margin-top: 0.5vw;
   }
 `;
 
-function PharmacyList({distance, dutyAddr, dutyName}) {
+function PharmacyList({ placeName, placeAddress, placeNumber }) {
   return (
     <PharmacyListWrapper>
-      <div className="pharmacyImage"></div>
+      <div className="pharmacyImage">🏬</div>
       <div className="pharmacyList">
         <div className="pharmacyName">
-          <p className="name">{dutyName}</p>
+          <p className="name">{placeName}</p>
         </div>
         <div className="pharmacyAddress">
-          <p className="address">{dutyAddr}</p>
+          <p className="address">{placeAddress}</p>
+          <p className="distance">{placeNumber}</p>
         </div>
-      </div>
-      <div className="pharmacyDistance">
-        <p className="distance">{distance}m</p>
       </div>
     </PharmacyListWrapper>
   );
 }
 
 export default PharmacyList;
-
-// import React from "react"
-// import styled from "styled-components"
-
-// const PharmacyListWrapper = styled.div`
-//     background-color: #ECF2F0;
-//     width: 70%;
-//     height: 8vh;
-//     display: flex;
-//     border-radius: 0.8rem;
-//     flex-direction: row;
-//     justify-content: space-around;
-//     margin: 0.7rem;
-
-//     .pharmacyList {
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-//     }
-
-//     .pharmacyName {
-//         color: #3C7466;
-//         font-size: 1rem;
-//         font-weight: bold;
-//         margin-bottom: 0.7rem;
-//     }
-
-//     .pharmacyAddress {
-//         color: #42514D;
-//         font-size: 0.5rem;
-//     }
-
-//     .pharmacyDistance {
-//         color: #42514D;
-//         display: flex;
-//         align-items: center;
-//     }
-// `;
-
-// function PharmacyList(){
-//     return(
-//         <PharmacyListWrapper>
-//             <div className="pharmacyImage">
-//                 이미지
-//             </div>
-//             <div className="pharmacyList">
-//                 <div className="pharmacyName">ABC 약국</div>
-//                 <div className="pharmacyAddress">서울특별시 서울구 서울동 123길 45</div>
-//             </div>
-//             <div className="pharmacyDistance">
-//                 100m
-//             </div>
-//         </PharmacyListWrapper>
-//     );
-// }
-
-// export default PharmacyList;
