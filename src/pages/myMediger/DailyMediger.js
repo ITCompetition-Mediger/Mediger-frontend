@@ -135,18 +135,17 @@ function DailyMediger() {
       <DailyMedigerBox>
         <div className="TitleBox ContentBox">
           <p className="Title">
-            {selectDay} <br />
-            일간 메디저
+            일간 메디저 <br />[ {selectDay} ]
           </p>
           {/* <p className="Title">{date}</p> */}
           {/* <p className="Title">
               <MonthlyMediger date={date} />
             </p> */}
-          <div className="PlusBtn">
+          {/* <div className="PlusBtn">
             <StyledLink to={`/myMediger/AddToMediger`}>
               <IoIosAddCircle />
             </StyledLink>
-          </div>
+          </div> */}
         </div>
         <div className="ContentBox">
           <p className="SubTitle">아침</p>
