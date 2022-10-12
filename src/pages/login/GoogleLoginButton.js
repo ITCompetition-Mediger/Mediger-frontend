@@ -50,15 +50,7 @@ function GoogleLoginButton() {
           `);
     const json = await response.json();
     setGoogle(json.google);
-<<<<<<< HEAD
-<<<<<<< HEAD
     // console.log(json);
-=======
-    console.log(json);
->>>>>>> 8cab805 (ETC: google login api 연결 + <a> css 수정)
-=======
-    // console.log(json);
->>>>>>> 3fd606d (Etc: user 저장 시도)
   };
   useEffect(() => {
     getAPI();

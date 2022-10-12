@@ -2,27 +2,6 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
-<<<<<<< HEAD
-
-const LoginApi = styled.div`
-  a {
-    text-decoration: none;
-
-    &:focus,
-    &:hover,
-    &:visited,
-    &:link,
-    &:active {
-      text-decoration: none;
-      color: #3c7466;
-    }
-  }
-`;
-
-import UserService from '../../services/UserService';
-import { tsConstructorType } from '../../../../../../AppData/Local/Microsoft/TypeScript/4.8/node_modules/@babel/types/lib/index';
-=======
->>>>>>> 3fd606d (Etc: user 저장 시도)
 
 const LoginApi = styled.div`
   a {
@@ -61,22 +40,6 @@ const Wrapper = styled.div`
     width: 5vh;
     height: 5vh;
   }
-<<<<<<< HEAD
-
-  a {
-    text-decoration: none;
-
-    &:focus,
-    &:hover,
-    &:visited,
-    &:link,
-    &:active {
-      text-decoration: none;
-      color: #3c7466;
-    }
-  }
-=======
->>>>>>> 8cab805 (ETC: google login api 연결 + <a> css 수정)
 `;
 
 function KakaoLoginButton() {
@@ -94,8 +57,6 @@ function KakaoLoginButton() {
   }, []);
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
     // <a target="_blank" href={`${kakao}`}>
     <LoginApi>
       <a target="_self" href={`${kakao}`}>
@@ -111,41 +72,6 @@ function KakaoLoginButton() {
         </Wrapper>
       </a>
     </LoginApi>
-=======
-    <a target="_blank" href={`${kakao}`}>
-=======
-    // <a target="_blank" href={`${kakao}`}>
-<<<<<<< HEAD
-    <a target="_self" href={`${kakao}`}>
->>>>>>> 5be1bcd (ETC: kakao 로그인 api 연결)
-      <Wrapper>
-        <div className="kakaoImage">
-          <img
-            src="https://gseyecenter.com/assets/img/member/join_kakao.png"
-            className="Img"
-          ></img>
-        </div>
-
-        <div className="snsKakao">Kakao로 시작하기</div>
-      </Wrapper>
-    </a>
->>>>>>> 71523f1 (Feat : http-proxy-meddleware 설치 및 setProxy.js 생성)
-=======
-    <LoginApi>
-      <a target="_self" href={`${kakao}`}>
-        <Wrapper>
-          <div className="kakaoImage">
-            <img
-              src="https://gseyecenter.com/assets/img/member/join_kakao.png"
-              className="Img"
-            ></img>
-          </div>
-
-          <div className="snsKakao">Kakao로 시작하기</div>
-        </Wrapper>
-      </a>
-    </LoginApi>
->>>>>>> 8cab805 (ETC: google login api 연결 + <a> css 수정)
   );
 }
 
