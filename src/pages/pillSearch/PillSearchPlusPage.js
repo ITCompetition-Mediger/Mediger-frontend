@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import { ModalWrapper, StyledModal } from '../../components/StyledModal';
@@ -84,38 +85,26 @@ const PillContentListWrapper = styled.div`
   }
 `;
 
-function PillSearchPlusPage({itemSeq}) {
+function PillSearchPlusPage() {
+  const { itemSeq } = useParams();
+  console.log(itemSeq);
   const [pillDetails, setPillDetails] = useState([]); //약 정보 호출 담는 배열
   const [itemName, setItemName] = useState([]); //약품명 호출
 
-    //의약품 검색 상세 api 호출
-    const getPillSearchPlusAPI = async() =>{
-        const response = await 
-          fetch(`
+  //의약품 검색 상세 api 호출
+  const getPillSearchPlusAPI = async () => {
+    const response = await fetch(`
             http://localhost:8080/home/searchByItemSeq/Detail?itemSeq=${itemSeq}
           `);
 
-      const data = await response.json();
-      setPillDetails(data); //pillDetails를 저장
-      setItemName(data.itemName); //itemName만 따로 저장
-    }
+    const data = await response.json();
+    setPillDetails(data); //pillDetails를 저장
+    setItemName(data.itemName); //itemName만 따로 저장
+  };
 
-    useEffect(() => {
-        getPillSearchPlusAPI();
-    }, []);
-
-    {pillDetails.map((pillDetail) =>
-          <PillContentList
-            itemImage={pillDetail.itemImage}
-            efcyQesitm={pillDetail.efcyQesitm}
-            useMethodQesitm={pillDetail.useMethodQesitm}
-            atpnQesitm={pillDetail.atpnQesitm}
-            atpnWarnQesitm={pillDetail.atpnWarnQesitm}
-            seQesitm={pillDetail.seQesitm}
-            depositMethodQesitm={pillDetail.depositMethodQesitm}
-            intrcQesitm={pillDetail.intrcQesitm}
-          />
-    )}
+  useEffect(() => {
+    getPillSearchPlusAPI();
+  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
 

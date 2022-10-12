@@ -96,7 +96,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function SearchTest() {
+function SearchTest({ searchData }) {
   // 입력한 값
   let [inputValue, setInputValue] = useState('');
   let [selected, setSelected] = useState('의약품명');
@@ -106,7 +106,9 @@ function SearchTest() {
       `http://localhost:8080/home/search?type=${selected}&keyword=${inputValue}`,
     );
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
+
+    searchData(json);
   };
 
   const selectOnChange = (event) => {
@@ -125,6 +127,7 @@ function SearchTest() {
     // console.log(inputValue);
     search();
   };
+
   return (
     <>
       <SearchBarWrapper>
