@@ -89,7 +89,7 @@ function PharmacyMapAPI() {
         }
       }
     }
-
+    
     function displayMarker(place) {
       let marker = new kakao.maps.Marker({
         map: map,

@@ -92,16 +92,16 @@ const StyledLink = styled(Link)`
 `;
 
 function MonthlyMediger() {
-  //   const getAPI = async () => {
-  //     const response = await fetch(`
-  //       http://localhost:8080/home/mypage/monthly
-  //       `);
-  //     const json = await response.json();
-  //     console.log(json);
-  //   };
-  //   useEffect(() => {
-  //     getAPI();
-  //   }, []);
+  const getAPI = async () => {
+    const response = await fetch(`
+      http://localhost:8080/home/mypage/monthly
+      `);
+    const json = await response.json();
+    console.log(json);
+  };
+  useEffect(() => {
+    getAPI();
+  }, []);
 
   const [value, onChange] = useState(new Date());
 
