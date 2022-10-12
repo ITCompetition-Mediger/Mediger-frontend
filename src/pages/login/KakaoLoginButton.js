@@ -74,6 +74,7 @@ function KakaoLoginButton() {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     // <a target="_blank" href={`${kakao}`}>
     <LoginApi>
       <a target="_self" href={`${kakao}`}>
@@ -91,6 +92,10 @@ function KakaoLoginButton() {
     </LoginApi>
 =======
     <a target="_blank" href={`${kakao}`}>
+=======
+    // <a target="_blank" href={`${kakao}`}>
+    <a target="_self" href={`${kakao}`}>
+>>>>>>> 5be1bcd (ETC: kakao 로그인 api 연결)
       <Wrapper>
         <div className="kakaoImage">
           <img
