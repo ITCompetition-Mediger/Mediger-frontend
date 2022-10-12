@@ -82,28 +82,16 @@ function SearchBar(props) {
   //입력값 컨트롤러
   //const [inputValue, setInputValue] = useState('');
   const inputHandler = (event) => {
-    // setSearchParam(event.currentTarget.value);
-    setSearchParam((current) => {
-      let param = {...current};
-      param['inputValue'] = event.target.value;
-      return param;
-    });
-    console.log(searchParam);
+    console.dir(event);
+    setInputValue(event.currentTarget.value);
   };
 
   //select option 컨트롤러
-  const optionChange = (e) => {
-    // TODO: 송경석 - getElementsById 함수 쓰는 것은 지양해야 되고 e.target.value로 바로 값 가져올 수 있음
-    // let searchType  = document.getElementsById("searchType");
-		// let type = (searchType.options[searchType.selectedIndex].value);
-
-    setSearchParam((current) => {
-      let param = {...current};
-      param['type'] = e.target.value;
-      return param;
-    });
-  }
-
+  const optionChange = () => {
+    let searchType = document.getElementsById('searchType');
+    let type = searchType.options[searchType.selectedIndex].value;
+    return type;
+  };
 
   //검색 시 컨트롤러
   const onSubmit = (event) => {
@@ -154,9 +142,7 @@ function SearchBar(props) {
           <span className="searchIcon">
             <StyledLink to={`/pillSearch`}>
               {/* home에서 검색페이지로 넘어가려면 onClick 이벤트 리스너 없어야 함 */}
-              <HiSearch 
-                onsubmit={onSubmit}
-              />
+              <HiSearch onsubmit={onSubmit} />
             </StyledLink>
           </span>
         </div>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import DailyMedigerWidget from '../components/DailyMedigerWidget';
 import SearchBar from '../components/SearchBar';
+import SearchTest from './pillSearch/SearchTest';
 import NavBar from '../components/NavBar';
 import LogoImg from '../images/Logo1.png';
 import LogoImg2 from '../images/Logo2.png';
@@ -149,7 +150,7 @@ function Home() {
         </div>
       </StyledLink>
       <div className="MainContentBox">
-        <SearchBar />
+        <SearchTest />
         <div className="DailyMedigerBox">
           <div className="TitleBox">
             <p className="Title">TODAY</p>
