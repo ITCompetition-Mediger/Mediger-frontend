@@ -73,9 +73,9 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function Mediger({ coverImg, name, many }) {
+function Mediger({ coverImg, name, many, itemSeq }) {
   return (
-    <StyledLink to={`/pillSearch/detail`}>
+    <StyledLink to={`/pillSearch/detail/${itemSeq}`}>
       <MedigerBox>
         <div class="MedigerImg">
           {coverImg == 'blank' ? (
