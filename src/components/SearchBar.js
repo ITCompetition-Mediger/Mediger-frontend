@@ -80,15 +80,16 @@ function SearchBar() {
   //입력값 컨트롤러
   const [inputValue, setInputValue] = useState('');
   const inputHandler = (event) => {
+    console.dir(event);
     setInputValue(event.currentTarget.value);
   };
 
   //select option 컨트롤러
   const optionChange = () => {
-    let searchType  = document.getElementsById("searchType");
-		let type = (searchType.options[searchType.selectedIndex].value);
+    let searchType = document.getElementsById('searchType');
+    let type = searchType.options[searchType.selectedIndex].value;
     return type;
-  }
+  };
 
   //검색 시 컨트롤러
   const onSubmit = (event) => {
@@ -139,9 +140,7 @@ function SearchBar() {
           <span className="searchIcon">
             <StyledLink to={`/pillSearch`}>
               {/* home에서 검색페이지로 넘어가려면 onClick 이벤트 리스너 없어야 함 */}
-              <HiSearch 
-                onsubmit={onSubmit}
-              />
+              <HiSearch onsubmit={onSubmit} />
             </StyledLink>
           </span>
         </div>
