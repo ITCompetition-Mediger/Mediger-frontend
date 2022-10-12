@@ -10,7 +10,10 @@ import DesktopView from '../../components/DesktopView';
 import TabletView from '../../components/TabletView';
 import PillContentList from './PillContentList';
 import notFoundImg from '../../images/notFoundImg.png';
-import reactStringReplace from 'react-string-replace';
+// import reactStringReplace from 'react-string-replace';
+import { OpenModal } from '../../components/OpenModal';
+import { CloseModal } from '../../components/CloseModal';
+import { IoIosAddCircle } from 'react-icons/io';
 
 const PillSearchPlusWrapper = styled.div`
   display: flex;
@@ -35,9 +38,22 @@ const PillContentHeaderWrapper = styled.div`
     margin: 1.5vh 0;
   }
 
+  .SubHeaderBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .pillName {
+    width: 68vw;
     font-size: 6vw;
     font-weight: bolder;
+    color: #3c7466;
+  }
+
+  .AddBtn {
+    height: 6vw;
+    font-size: 6vw;
     color: #3c7466;
   }
 
@@ -45,6 +61,7 @@ const PillContentHeaderWrapper = styled.div`
     height: 6vw;
     font-size: 6vw;
     color: #97a9a4;
+    margin-right: 2vw;
   }
 `;
 
@@ -102,6 +119,20 @@ const PillContentListWrapper = styled.div`
   }
 `;
 
+const StyledLink = styled(Link)`
+  color: #3c7466;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: #3c7466;
+  }
+`;
+
 function PillSearchPlusPage() {
   // replace 객체
   //   const reactStringReplace = require('react-string-replace');
@@ -130,8 +161,47 @@ function PillSearchPlusPage() {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleModal = (event) => {
+  const openModal = () => {
     setIsOpen(!isOpen);
+    //스크랩 추가
+    fetch(`http://localhost:8080/home/srcap`, {
+      method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ItemName: itemSeq,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.success) {
+          <ModalWrapper>
+            <StyledModal>
+              <OpenModal />
+            </StyledModal>
+          </ModalWrapper>;
+        }
+      });
+  };
+
+  const closeModal = () => {
+    setIsOpen(!isOpen);
+    //스크랩 삭제
+    fetch('http://localhost:8080/home/srcap', {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.success) {
+          <ModalWrapper>
+            <StyledModal>
+              <CloseModal />
+            </StyledModal>
+          </ModalWrapper>;
+        }
+      });
   };
 
   return (
@@ -144,20 +214,19 @@ function PillSearchPlusPage() {
                 <div className="pillTitle">
                   <p className="pillName">{pillDetails.itemName}</p>
                 </div>
-                <div className="pillScrap" onClick={handleModal}>
-                  {isOpen === false ? <AiOutlineStar /> : <AiFillStar />}
-                  {isOpen === false ? null : (
-                    <ModalWrapper>
-                      <StyledModal>
-                        <p className="modalContent">
-                          메디저 리스트에 추가되었습니다!
-                        </p>
-                        <button className="modalBtn">
-                          <p class="ok">확인</p>
-                        </button>
-                      </StyledModal>
-                    </ModalWrapper>
-                  )}
+                <div className="SubHeaderBox">
+                  <div className="pillScrap">
+                    {isOpen === false ? (
+                      <AiOutlineStar onClick={openModal} />
+                    ) : (
+                      <AiFillStar onClick={closeModal} />
+                    )}
+                  </div>
+                  <div className="AddBtn">
+                    <StyledLink to={`/pillSearch`}>
+                      <IoIosAddCircle />
+                    </StyledLink>
+                  </div>
                 </div>
               </div>
             </PillContentHeaderWrapper>

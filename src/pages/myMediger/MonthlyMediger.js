@@ -122,11 +122,11 @@ function MonthlyMediger() {
       <MonthlyMedigerBox>
         <div className="TitleBox">
           <p className="Title">월간 메디저</p>
-          <div className="PlusBtn">
+          {/* <div className="PlusBtn">
             <StyledLink to={`/myMediger/AddToMediger`}>
               <IoIosAddCircle />
             </StyledLink>
-          </div>
+          </div> */}
         </div>
 
         <div className="CalendarBox">
