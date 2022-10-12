@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Layout from '../../components/Layout';
 import PharmacyList from './PharmacyList';
@@ -35,16 +35,29 @@ const PharmacyListComponentWrapper = styled.div`
 `;
 
 function PharmacyListPage() {
+  const [pharmacy, setPharmacy] = useState([]);
+
+  useEffect(() => {
+    const localData = localStorage.getItem('pharmacy');
+    setPharmacy(JSON.parse(localData));
+  }, []);
+
   return (
     <div>
       <Mobile>
         <Layout>
           <Wrapper>
             <div className="nameHeader">
-              <p className="title">💊 현위치 주변 약국</p>
+              <p className="title">🏬 현위치 주변 약국</p>
             </div>
             <PharmacyListComponentWrapper>
-              <PharmacyList />
+              {pharmacy.map((item) => (
+                <PharmacyList
+                  placeName={item.placeName}
+                  placeAddress={item.placeAddress}
+                  placeNumber={item.placeNumber}
+                />
+              ))}
             </PharmacyListComponentWrapper>
           </Wrapper>
         </Layout>

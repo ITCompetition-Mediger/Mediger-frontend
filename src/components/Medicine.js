@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import styled from 'styled-components';
+import notFoundImg from '../images/notFoundImg.png';
 
 const MedicineBox = styled.div`
   width: 70vw;
@@ -21,6 +22,16 @@ const MedicineImg = styled.div`
   /* background: #3c7466; */
   background-color: white;
   border-radius: 50%;
+  margin-right: 2vw;
+
+  img {
+    width: 14vw;
+    height: 14vw;
+    /* background: #3c7466; */
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 2vw;
+  }
 `;
 
 const MedicineContent = styled.div`
@@ -43,18 +54,18 @@ const MedicineListBtn = styled.div`
 
 const MedicineTitle = styled.p`
   margin: 0;
-  font-size: 13px;
+  font-size: 4vw;
   font-weight: 600;
   color: #3c7466;
   margin-bottom: 7px;
 `;
 const MedicineCompany = styled.p`
-  font-size: 10px;
+  font-size: 3vw;
   margin: 0;
   color: #42514d;
 `;
 const MedicineCode = styled.p`
-  font-size: 10px;
+  font-size: 3vw;
   margin: 0;
   color: #42514d;
 `;
@@ -73,15 +84,21 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function Medicine() {
+function Medicine({ coverImg, name, entpName, seq }) {
   return (
     <StyledLink to={`/pillSearch/detail`}>
       <MedicineBox>
-        <MedicineImg></MedicineImg>
+        <MedicineImg>
+          {coverImg == 'blank' ? (
+            <img src={notFoundImg}></img>
+          ) : (
+            <img src={coverImg}></img>
+          )}
+        </MedicineImg>
         <MedicineContent>
-          <MedicineTitle>모노틴정</MedicineTitle>
-          <MedicineCompany>업체명 : 한미약품(주)</MedicineCompany>
-          <MedicineCode>품목기준코드 : 20000000</MedicineCode>
+          <MedicineTitle>{name}</MedicineTitle>
+          <MedicineCompany>업체명 : {entpName}</MedicineCompany>
+          <MedicineCode>품목기준코드 : {seq}</MedicineCode>
         </MedicineContent>
         <Link to={'/'}>
           <MedicineListBtn>

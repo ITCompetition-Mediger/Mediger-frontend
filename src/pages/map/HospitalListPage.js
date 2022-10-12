@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Layout from '../../components/Layout';
 import HospitalList from './HospitalList';
@@ -35,6 +35,13 @@ const HospitalListComponentWrapper = styled.div`
 `;
 
 function HospitalListPage() {
+  const [hospital, setHospital] = useState([]);
+
+  useEffect(() => {
+    const localData = localStorage.getItem('hospital');
+    setHospital(JSON.parse(localData));
+  }, []);
+
   return (
     <div>
       <Mobile>
@@ -44,15 +51,13 @@ function HospitalListPage() {
               <p className="title">🏥 현위치 주변 병원</p>
             </div>
             <HospitalListComponentWrapper>
-              <HospitalList />
-              <HospitalList />
-              <HospitalList />
-              <HospitalList />
-              <HospitalList />
-              <HospitalList />
-              <HospitalList />
-              <HospitalList />
-              <HospitalList />
+              {hospital.map((item) => (
+                <HospitalList
+                  placeName={item.placeName}
+                  placeAddress={item.placeAddress}
+                  placeNumber={item.placeNumber}
+                />
+              ))}
             </HospitalListComponentWrapper>
           </Wrapper>
         </Layout>

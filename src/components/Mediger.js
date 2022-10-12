@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import styled from 'styled-components';
+import notFoundImg from '../images/notFoundImg.png';
 
 const MedigerBox = styled.div`
   width: 37vw;
@@ -21,6 +22,13 @@ const MedigerBox = styled.div`
     height: 10vw;
     border-radius: 50%;
     background-color: white;
+
+    img {
+      width: 10vw;
+      height: 10vw;
+      border-radius: 50%;
+      background-color: white;
+    }
   }
 
   .MedigerContent {
@@ -34,7 +42,7 @@ const MedigerBox = styled.div`
   }
 
   .MedigerName {
-    font-size: 3vw;
+    font-size: 3.5vw;
     font-weight: bolder;
     margin-bottom: 0.3vw;
     color: #3c7466;
@@ -43,6 +51,7 @@ const MedigerBox = styled.div`
   .MedigerWay {
     font-size: 2vw;
     color: #42514d;
+    /* margin-top: 1vw; */
   }
 
   p {
@@ -64,14 +73,20 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function Mediger() {
+function Mediger({ coverImg, name, many }) {
   return (
     <StyledLink to={`/pillSearch/detail`}>
       <MedigerBox>
-        <div class="MedigerImg"></div>
+        <div class="MedigerImg">
+          {coverImg == 'blank' ? (
+            <img src={notFoundImg}></img>
+          ) : (
+            <img src={coverImg}></img>
+          )}
+        </div>
         <div class="MedigerContent">
-          <p class="MedigerName">약 이름</p>
-          <p class="MedigerWay">복용 시간, 방법</p>
+          <p class="MedigerName">{name}</p>
+          <p class="MedigerWay">{many}알 복용</p>
         </div>
       </MedigerBox>
     </StyledLink>

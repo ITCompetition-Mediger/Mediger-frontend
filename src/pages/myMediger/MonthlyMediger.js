@@ -103,22 +103,19 @@ function MonthlyMediger() {
     getAPI();
   }, []);
 
-  //   const [pills, setPills] = useState([]);
-  //   const getAPI = () => {
-  //     const url = 'http://localhost:8080/home';
-  //     axios
-  //       .get(url)
-  //       .then(function (response) {
-  //         setPills(response.data);
-  //         console.log('성공');
-  //       })
-  //       .catch(function (error) {
-  //         console.log('실패');
-  //       });
-  //   };
-  //   getAPI();
-
   const [value, onChange] = useState(new Date());
+
+  //   const today = value;
+  //   console.log(today);
+
+  //   const [today, setToday] = useState();
+
+  //   setTodaytoday(value);
+
+  //   useEffect(() => {
+  //     setToday(value);
+  //   }, [value]);
+  console.log('날짜: ' + value);
 
   return (
     <MypageLayout>
@@ -149,10 +146,10 @@ function MonthlyMediger() {
             <hr />
           </div>
           <StyledLink
-            to={`/myMediger/DailyMediger/${moment(value).format('YYYYMMDD')}`}
+            to={`/myMediger/DailyMediger/${moment(value).format('YYYY-MM-DD')}`}
           >
             <div className="ContentBox">
-              <DailyMedigerWidget />
+              <DailyMedigerWidget day={value} />
             </div>
           </StyledLink>
         </div>

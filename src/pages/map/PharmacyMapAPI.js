@@ -51,7 +51,7 @@ const CustomZoomControl = styled.div`
 
 let lat, lng;
 
-/*function onGeoOk(position) {
+function onGeoOk(position) {
   lat = position.coords.latitude; // 위도 37.5978643
   lng = position.coords.longitude; // 경도 127.0774531
 
@@ -61,13 +61,11 @@ let lat, lng;
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk);
-*/
 
 const { kakao } = window;
 
 function PharmacyMapAPI() {
   const [listItems, setListItems] = useState([]);
-  const [placeName, setPlaceName] = useState([]);
 
   useEffect(() => {
     // console.log(lat, lng);
@@ -76,7 +74,7 @@ function PharmacyMapAPI() {
 
     var container = document.getElementById('pharmacyMap');
     var options = {
-      center: new kakao.maps.LatLng(37.488462115938, 126.82474771924),
+      center: new kakao.maps.LatLng(lat, lng),
       level: 5,
     };
     var map = new kakao.maps.Map(container, options);
@@ -88,15 +86,10 @@ function PharmacyMapAPI() {
       if (status === kakao.maps.services.Status.OK) {
         for (var i = 0; i < data.length; i++) {
           displayMarker(data[i]);
-          //   console.log(data[i].place_name);
-          //   setList(data[i].place_name);
-          //   localStorage.setItem('pharmacy_place_name', data[i].place_name);
         }
       }
     }
-    // console.log(placeName);
-    // localStorage.setItem('pharmacy_place_name', placeName);
-
+    
     function displayMarker(place) {
       let marker = new kakao.maps.Marker({
         map: map,
@@ -113,26 +106,22 @@ function PharmacyMapAPI() {
         infowindow.open(map, marker);
       });
 
-      //   setListItems((listItems) => [...listItems, place]);
-      setListItems((listItems) => [...listItems, place.place_name]);
+      // object array type => localStorage에 저장
+      setListItems((listItems) => [
+        ...listItems,
+        {
+          placeName: place.place_name,
+          placeAddress: place.address_name,
+          placeNumber: place.phone,
+        },
+      ]);
     }
-    // console.log(listItems);
-    // localStorage.setItem('pharmacy_place_name', JSON.stringify(listItems));
   }, []);
 
+  // localStorage에 저장
   useEffect(() => {
-    localStorage.setItem('pharmacy_place_name', JSON.stringify(listItems));
+    localStorage.setItem('pharmacy', JSON.stringify(listItems));
   }, [listItems]);
-
-  // {
-  //   listItems.map((listItem) => (
-  //     <PharmacyList
-  //       key={listItem.id}
-  //       address_name={listItem.address_name}
-  //       place_name={listItem.place_name}
-  //     />
-  //   ));
-  // }
 
   return (
     <div>
@@ -143,13 +132,6 @@ function PharmacyMapAPI() {
           height: '75vh',
         }}
       ></div>
-      {/* {listItems.map((listItem) => (
-        <PharmacyList
-          key={listItem.id}
-          address_name={listItem.address_name}
-          place_name={listItem.place_name}
-        />
-      ))} */}
     </div>
   );
 }
