@@ -50,52 +50,35 @@ const PillSearchResultBox = styled.div`
   }
 `;
 
-function PillSearchPage({ inputValue, type }) {
-  const [pills, setPills] = useState([]); //약 정보 담는 배열
+function PillSearchPage() {
+  const [resultData, setResultData] = useState([]);
 
-  //의약품 검색 api를 불러옴, 의약품명으로 검색시/ 증상으로 검색시
-  const getPillSearchAPI = async () => {
-    const response = await fetch(`
-            http://localhost:8080/home/search?type=${type}&keyword=${inputValue}
-          `);
-
-    const json = await response.json();
-    setPills(json);
+  const searchData = (x) => {
+    console.log(x);
+    setResultData(x);
+    // console.log(resultData);
   };
-
-  useEffect(() => {
-    getPillSearchAPI();
-  }, []);
-
-  {
-    pills.map((pill) => (
-      <PillSearchList
-        itemImage={pill.itemImage}
-        itemName={pill.itemName}
-        entpName={pill.entpName}
-        itemSeq={pill.itemSeq}
-      />
-    ));
-  }
-
-  //객체 개수 반환
-  //const count = Object.keys(json).length;
 
   return (
     <div>
       <Mobile>
         <Layout>
           <Wrapper>
-            <SearchTest />
+            <SearchTest searchData={searchData} />
             <PillSearchResultBox>
               <div className="ResultBox">
                 <div className="pillTotal">
-                  <p className="Total">전체 count개</p>
+                  <p className="Total">전체 {PillSearchList.length}개</p>
                 </div>
                 <hr />
               </div>
               <div className="ResultPillBox">
-                <PillSearchList />
+                {resultData.map((item) => (
+                  <PillSearchList
+                    itemName={item.itemName}
+                    itemSeq={item.itemSeq}
+                  />
+                ))}
               </div>
             </PillSearchResultBox>
           </Wrapper>

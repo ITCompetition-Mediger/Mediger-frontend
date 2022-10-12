@@ -15,6 +15,7 @@ import Mypage from './pages/myMediger/Mypage';
 import Splash from '././pages/Splash';
 import MapApiTest from '././pages/map/MapApiTest';
 import SearchTest from './pages/pillSearch/SearchTest';
+import SubmitTest from './pages/myMediger/SubmitTest';
 
 function App() {
   return (
@@ -24,7 +25,10 @@ function App() {
       <Route exact path="/login/oauth2/code" element={<Main />} />
       <Route path="/MedigerList" element={<MedigerList />} />
       <Route path="/pillSearch" element={<PillSearchPage />} />
-      <Route path="/pillSearch/detail" element={<PillSearchPlusPage />} />
+      <Route
+        path="/pillSearch/detail/:itemSeq"
+        element={<PillSearchPlusPage />}
+      />
       <Route path="/map/hospital" element={<HospitalMapPage />} />
       <Route path="/map/pharmacy" element={<PharmacyMapPage />} />
       <Route path="/map/pharmacyList" element={<PharmacyListPage />} />
@@ -40,6 +44,7 @@ function App() {
       <Route path="/pages/Splash" element={<Splash />} />
       <Route path="/map/MapApiTest" element={<MapApiTest />} />
       <Route path="/pillSearch/SearchTest" element={<SearchTest />} />
+      <Route path="/myMediger/SubmitTest" element={<SubmitTest />} />
     </Routes>
   );
 }
