@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import SearchBar from '../../components/SearchBar';
 import PillSearchList from './PillSearchList';
@@ -6,9 +6,9 @@ import { Desktop, Mobile, Tablet } from '../../components/ReactResponsive';
 import Layout from '../../components/Layout';
 import DesktopView from '../../components/DesktopView';
 import TabletView from '../../components/TabletView';
-import pillSearchAPI from '../../lib/api/pillSearchApi';
+import SearchTest from './SearchTest';
 
-const Wrapper = styled.form`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,53 +50,50 @@ const PillSearchResultBox = styled.div`
   }
 `;
 
-function PillSearchPage() {
-  const [pills, setPills] = useState([]); //약 정보 담는 배열
-  const [searchParam, setSearchParam] = useState({inputValue : "", type: ""});
+function PillSearchPage({ inputValue, type }) {
+  //의약품 검색 api를 불러옴, 의약품명으로 검색시/ 증상으로 검색시
+  const getPillSearchAPI = async () => {
+    const response = await fetch(`
+            http://localhost:8080/home/search?type=${type}&keyword=${inputValue}
+          `);
 
-    //의약품 검색 api를 불러옴, 의약품명으로 검색시/ 증상으로 검색시
-    const getPillSearchAPI = async() =>{
-      await pillSearchAPI
-      .getPillSearchAPI(searchParam.type, searchParam.inputValue)
-      .then((res)=> {
-        setPills(res.data);
-      })
-      .catch((err) => console.log(err));
+    const json = await response.json();
+    setPills(json);
+  };
+
+  useEffect(() => {
+    getPillSearchAPI();
+  }, []);
+
+  {
+    pills.map((pill) => (
+      <PillSearchList
+        itemImage={pill.itemImage}
+        itemName={pill.itemName}
+        entpName={pill.entpName}
+        itemSeq={pill.itemSeq}
+      />
+    ));
   }
-
-    useEffect(() => {
-      getPillSearchAPI(searchParam.type, searchParam.inputValue);
-    }, [searchParam]);
-
-    {pills.map((pill) =>
-          <PillSearchList
-            itemImage={pill.itemImage}
-            itemName={pill.itemName}
-            entpName={pill.entpName}
-            itemSeq={pill.itemSeq}
-            />
-    )}
 
   //객체 개수 반환
   //const count = Object.keys(json).length;
-
 
   return (
     <div>
       <Mobile>
         <Layout>
           <Wrapper>
-            <SearchBar searchParam={searchParam} setSearchParam={setSearchParam}/>
+            <SearchTest />
             <PillSearchResultBox>
               <div className="ResultBox">
                 <div className="pillTotal">
-                  <p className="Total">전체 count개
-                  </p>
+                  <p className="Total">전체 count개</p>
                 </div>
                 <hr />
               </div>
               <div className="ResultPillBox">
-                <PillSearchList/>
+                <PillSearchList />
               </div>
             </PillSearchResultBox>
           </Wrapper>

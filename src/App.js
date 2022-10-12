@@ -14,7 +14,7 @@ import MonthlyMediger from './pages/myMediger/MonthlyMediger';
 import Mypage from './pages/myMediger/Mypage';
 import Splash from '././pages/Splash';
 import MapApiTest from '././pages/map/MapApiTest';
-import NewLogin from './pages/login/NewLogin';
+import SearchTest from './pages/pillSearch/SearchTest';
 
 function App() {
   return (
@@ -39,6 +39,7 @@ function App() {
       <Route path="/pages/Home" element={<Main />} />
       <Route path="/pages/Splash" element={<Splash />} />
       <Route path="/map/MapApiTest" element={<MapApiTest />} />
+      <Route path="/pillSearch/SearchTest" element={<SearchTest />} />
     </Routes>
   );
 }
