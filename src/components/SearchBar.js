@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HiSearch } from 'react-icons/hi';
 
+/*
 const SearchBarWrapper = styled.div`
   display: flex;
   width: 100vw;
@@ -12,7 +13,7 @@ const SearchBarWrapper = styled.div`
   align-items: center;
   /* background-color: red; */
 
-  .searchTypeBox {
+  /*.searchTypeBox {
     display: flex;
     justify-content: center;
   }
@@ -77,7 +78,7 @@ const StyledLink = styled(Link)`
 `;
 
 function SearchBar(props) {
-  const { searchParam, setSearchParam } = props;
+  const { searchParam } = props;
 
   //입력값 컨트롤러
   //const [inputValue, setInputValue] = useState('');
@@ -114,7 +115,7 @@ function SearchBar(props) {
         */
 
     //추후 삭제 필요
-    else {
+   /* else {
       alert('검색완료');
     }
   };
@@ -141,8 +142,8 @@ function SearchBar(props) {
           />
           <span className="searchIcon">
             <StyledLink to={`/pillSearch`}>
-              {/* home에서 검색페이지로 넘어가려면 onClick 이벤트 리스너 없어야 함 */}
-              <HiSearch onsubmit={onSubmit} />
+              /* home에서 검색페이지로 넘어가려면 onClick 이벤트 리스너 없어야 함 */
+           /*   <HiSearch onsubmit={onSubmit} />
             </StyledLink>
           </span>
         </div>
@@ -155,6 +156,7 @@ function SearchBar(props) {
 }
 
 export default SearchBar;
+*/
 
 // import styled from "styled-components";
 // import React, { useState } from "react";
