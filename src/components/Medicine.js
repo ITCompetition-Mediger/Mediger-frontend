@@ -86,7 +86,7 @@ const StyledLink = styled(Link)`
 
 function Medicine({ coverImg, name, entpName, seq }) {
   return (
-    <StyledLink to={`/pillSearch/detail`}>
+    <StyledLink to={`/pillSearch/detail/${seq}`}>
       <MedicineBox>
         <MedicineImg>
           {coverImg == 'blank' ? (

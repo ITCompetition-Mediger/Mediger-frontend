@@ -119,7 +119,7 @@ function DailyMediger() {
       const start = new Date(medigers[i].startDate);
       const last = new Date(medigers[i].lastDate);
       if (start <= today && last >= today) {
-        // console.log(medigers[i]);
+        // console.log(medigers[i].medigerDruglist.itemSeq);
         // setDaily((daily) => [...daily, medigers[i]]);
         if (medigers[i].when == 'Morn')
           setMorn((morn) => [...morn, medigers[i]]);
@@ -156,6 +156,7 @@ function DailyMediger() {
                 coverImg={item.itemImage}
                 name={item.itemName}
                 many={item.many}
+                itemSeq={item.medigerDruglist.itemSeq}
               />
             ))}
           </div>

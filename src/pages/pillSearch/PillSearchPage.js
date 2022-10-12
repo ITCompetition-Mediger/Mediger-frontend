@@ -54,9 +54,8 @@ function PillSearchPage() {
   const [resultData, setResultData] = useState([]);
 
   const searchData = (x) => {
-    console.log(x);
+    // console.log(x);
     setResultData(x);
-    // console.log(resultData);
   };
 
   return (
@@ -68,7 +67,7 @@ function PillSearchPage() {
             <PillSearchResultBox>
               <div className="ResultBox">
                 <div className="pillTotal">
-                  <p className="Total">전체 {PillSearchList.length}개</p>
+                  <p className="Total">전체 {resultData.length}개</p>
                 </div>
                 <hr />
               </div>
