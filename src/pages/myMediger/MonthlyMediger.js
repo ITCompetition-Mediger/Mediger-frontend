@@ -8,7 +8,11 @@ import './MonthlyCalender.css';
 import moment from 'moment';
 import MypageLayout from '../../components/MypageLayout';
 // import DailyMediger from './DailyMediger';
+<<<<<<< HEAD
 // import axios from 'axios';
+=======
+import axios from 'axios';
+>>>>>>> 71523f1 (Feat : http-proxy-meddleware 설치 및 setProxy.js 생성)
 
 const MonthlyMedigerBox = styled.div`
   flex-direction: column;

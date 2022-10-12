@@ -18,6 +18,9 @@ const LoginApi = styled.div`
   }
 `;
 
+import UserService from '../../services/UserService';
+import { tsConstructorType } from '../../../../../../AppData/Local/Microsoft/TypeScript/4.8/node_modules/@babel/types/lib/index';
+
 const Wrapper = styled.div`
   width: 65vw;
   height: 7vh;
@@ -40,6 +43,19 @@ const Wrapper = styled.div`
     width: 5vh;
     height: 5vh;
   }
+
+  a {
+    text-decoration: none;
+
+    &:focus,
+    &:hover,
+    &:visited,
+    &:link,
+    &:active {
+      text-decoration: none;
+      color: #3c7466;
+    }
+  }
 `;
 
 function KakaoLoginButton() {
@@ -57,6 +73,7 @@ function KakaoLoginButton() {
   }, []);
 
   return (
+<<<<<<< HEAD
     // <a target="_blank" href={`${kakao}`}>
     <LoginApi>
       <a target="_self" href={`${kakao}`}>
@@ -72,6 +89,20 @@ function KakaoLoginButton() {
         </Wrapper>
       </a>
     </LoginApi>
+=======
+    <a target="_blank" href={`${kakao}`}>
+      <Wrapper>
+        <div className="kakaoImage">
+          <img
+            src="https://gseyecenter.com/assets/img/member/join_kakao.png"
+            className="Img"
+          ></img>
+        </div>
+
+        <div className="snsKakao">Kakao로 시작하기</div>
+      </Wrapper>
+    </a>
+>>>>>>> 71523f1 (Feat : http-proxy-meddleware 설치 및 setProxy.js 생성)
   );
 }
 
