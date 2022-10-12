@@ -102,18 +102,39 @@ const StyledLink = styled(Link)`
 `;
 
 function Mypage() {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState();
+  const [medigerLists, setMedigerLists] = useState([]);
   const getAPI = async () => {
-    const response = await fetch(`
-          http://localhost:8080/home/mypage
-          `);
-    const json = await response.json();
-    // setKakao(json.kakao);
-    console.log(json);
+    const json = await (
+      await fetch(`
+          /home/mypage
+          `)
+    ).json();
+    setUser(json.userName);
+    setMedigerLists(json.scrapList);
+    // console.log(json);
   };
+
   useEffect(() => {
     getAPI();
   }, []);
+
+  console.log(medigerLists);
+  const today = new Date();
+
+  //   console.log(today);
+
+  //   const [dayday, setDayday] = useState(new Date());
+
+  //   setDayday = () => {
+  //     new Date('2022-01-07');
+  //   };
+
+  //   useEffect(() => {
+  //     setDayday();
+  //   }, []);
+
+  //   console.log(dayday);
 
   return (
     <div>
@@ -124,7 +145,7 @@ function Mypage() {
             <div className="Hello">
               잠깐,
               <br />
-              User1님! 잊지 않으셨죠?
+              {user}님! 잊지 않으셨죠?
             </div>
           </div>
 
@@ -135,7 +156,7 @@ function Mypage() {
             </div>
             <StyledLink to={`/myMediger/MonthlyMediger`}>
               <div className="ContentBox">
-                <DailyMedigerWidget />
+                <DailyMedigerWidget day={today} />
               </div>
             </StyledLink>
           </div>
@@ -148,14 +169,12 @@ function Mypage() {
             <StyledLink to={`/MedigerList`}>
               <div className="ContentBox">
                 <div className="MedigerBox">
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
-                  <MedigerListWidget />
+                  {medigerLists.map((item) => (
+                    <MedigerListWidget
+                      coverImg={item.itemImage}
+                      name={item.itemName}
+                    />
+                  ))}
                 </div>
                 <div className="AddBtnBox">
                   <Link to={`/pillSearch`}>

@@ -9,7 +9,7 @@ const HospitalListWrapper = styled.div`
   border-radius: 2vw;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   .HospitalImage {
     width: 12vw;
@@ -17,6 +17,10 @@ const HospitalListWrapper = styled.div`
     border-radius: 50%;
     background-color: white;
     margin-right: 4vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .HospitalList {
@@ -48,23 +52,22 @@ const HospitalListWrapper = styled.div`
   .distance {
     color: #97a9a4;
     font-size: 3vw;
+    margin-top: 0.5vw;
   }
 `;
 
-function HospitalList() {
+function HospitalList({ placeName, placeAddress, placeNumber }) {
   return (
     <HospitalListWrapper>
-      <div className="HospitalImage"></div>
+      <div className="HospitalImage">🏥</div>
       <div className="HospitalList">
         <div className="HospitalName">
-          <p className="name">병원 이름</p>
+          <p className="name">{placeName}</p>
         </div>
         <div className="HospitalAddress">
-          <p className="address">상세 주소 , 도로명 주소</p>
+          <p className="address">{placeAddress}</p>
+          <p className="distance">{placeNumber}</p>
         </div>
-      </div>
-      <div className="HospitalDistance">
-        <p className="distance">100m</p>
       </div>
     </HospitalListWrapper>
   );

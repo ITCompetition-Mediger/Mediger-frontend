@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 let lat, lng;
@@ -17,8 +18,10 @@ navigator.geolocation.getCurrentPosition(onGeoOk);
 const { kakao } = window;
 
 function HospitalMapAPI() {
+  const [listItems, setListItems] = useState([]);
+
   useEffect(() => {
-    console.log(lat, lng);
+    // console.log(lat, lng);
 
     var infowindow = new kakao.maps.InfoWindow({ zindex: 1 });
 
@@ -56,17 +59,21 @@ function HospitalMapAPI() {
         infowindow.open(map, marker);
       });
 
-      console.log(place);
-      //   <PharmacyListPage place_name={place.place_name} />;
+      setListItems((listItems) => [
+        ...listItems,
+        {
+          placeName: place.place_name,
+          placeAddress: place.address_name,
+          placeNumber: place.phone,
+        },
+      ]);
     }
-
-    // 현위치 마커
-    // var markerPosition = new kakao.maps.LatLng(lat, lng);
-    // var marker = new kakao.maps.Marker({
-    //   position: markerPosition,
-    // });
-    // marker.setMap(map);
   }, []);
+
+  // localStorage에 저장
+  useEffect(() => {
+    localStorage.setItem('hospital', JSON.stringify(listItems));
+  }, [listItems]);
 
   return (
     <div
