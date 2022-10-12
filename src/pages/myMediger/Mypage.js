@@ -112,13 +112,14 @@ function Mypage() {
     ).json();
     setUser(json.userName);
     setMedigerLists(json.scrapList);
-    // console.log(json);
+    console.log(json);
   };
 
   useEffect(() => {
     getAPI();
   }, []);
 
+  console.log(user);
   console.log(medigerLists);
   const today = new Date();
 

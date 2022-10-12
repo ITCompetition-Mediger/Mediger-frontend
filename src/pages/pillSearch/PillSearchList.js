@@ -75,10 +75,10 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function PillSearchList({itemImage, itemName, entpName, itemSeq}) {
+function PillSearchList({ itemImage, itemName, entpName, itemSeq }) {
   return (
     <PillListWrapper>
-      <StyledLink to={`/pillSearch/detail`}>
+      <StyledLink to={`/pillSearch/detail/${itemSeq}`}>
         <div className="PillBox">
           <div className="pillImage">{itemImage}</div>
           <div className="pillList">
@@ -99,11 +99,11 @@ function PillSearchList({itemImage, itemName, entpName, itemSeq}) {
   );
 }
 
-PillSearchList.ProtoTypes ={
-    itemImage: PropTypes.string.isRequired,
-    itemName: PropTypes.string.isRequired,
-    entpName: PropTypes.string.isRequired,
-    itemSeq: PropTypes.string.isRequired,
-}
+PillSearchList.ProtoTypes = {
+  itemImage: PropTypes.string.isRequired,
+  itemName: PropTypes.string.isRequired,
+  entpName: PropTypes.string.isRequired,
+  itemSeq: PropTypes.string.isRequired,
+};
 
 export default PillSearchList;
