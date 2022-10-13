@@ -28,6 +28,21 @@ const MypageBox = styled.div`
     margin-right: 3vw;
   }
 
+  a {
+    font-size: 10vw;
+
+    text-decoration: none;
+
+    &:focus,
+    &:hover,
+    &:visited,
+    &:link,
+    &:active {
+      text-decoration: none;
+      color: #3c7466;
+    }
+  }
+
   .Hello {
     font-size: 5.5vw;
     font-weight: bold;
@@ -142,7 +157,9 @@ function Mypage() {
       <MypageLayout>
         <MypageBox>
           <div className="HelloBox">
-            <div className="HelloIcon">💊</div>
+            <div className="HelloIcon">
+              <a href="http://localhost:8080/login">🙌</a>
+            </div>
             <div className="Hello">
               잠깐,
               <br />
