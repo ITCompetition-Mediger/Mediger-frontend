@@ -11,14 +11,14 @@ to{
     opacity: 1;
 }
 from{
-    top: 40vh;
+    top: 30vh;
     opacity: 1;
 }
 `;
 
 const Wrapper = styled.form`
   width: 100vw;
-  height: 40vh;
+  height: 30vh;
 
   display: flex;
   justify-content: center;

@@ -8,13 +8,13 @@ to{
     bottom: 0;
 }
 from{
-    bottom: 60vh;
+    bottom: 70vh;
 }
 `;
 
 const LoginHeaderContents = styled.div`
   width: 100%;
-  height: 60vh;
+  height: 70vh;
   background-color: #3c7466;
 
   display: flex;
@@ -53,7 +53,7 @@ const LoginHeaderContents = styled.div`
 
   hr {
     position: relative;
-    top: 15vh;
+    top: 20vh;
     width: 100vw;
     background: white;
     height: 3px;
@@ -65,7 +65,7 @@ const LoginHeaderContents = styled.div`
     padding: 0 1vw;
 
     position: relative;
-    top: 17vh;
+    top: 22vh;
     z-index: 1;
 
     background-color: #3c7466;
