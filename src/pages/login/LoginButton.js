@@ -87,9 +87,9 @@ function LoginButton() {
         <div class="Login2">
           <KakaoLoginButton />
         </div>
-        <div class="Login3">
+        {/* <div class="Login3">
           <NaverLoginButton />
-        </div>
+        </div> */}
       </div>
     </Wrapper>
   );
