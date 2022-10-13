@@ -54,7 +54,6 @@ function PillSearchPage() {
   const [resultData, setResultData] = useState([]);
 
   const searchData = (x) => {
-    console.log(x);
     setResultData(x);
   };
 

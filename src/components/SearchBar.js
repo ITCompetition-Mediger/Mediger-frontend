@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HiSearch } from 'react-icons/hi';
 
+/*
 const SearchBarWrapper = styled.div`
   display: flex;
   width: 100vw;
@@ -12,7 +13,7 @@ const SearchBarWrapper = styled.div`
   align-items: center;
   /* background-color: red; */
 
-  .searchTypeBox {
+  /*.searchTypeBox {
     display: flex;
     justify-content: center;
   }
@@ -76,9 +77,11 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function SearchBar() {
+function SearchBar(props) {
+  const { searchParam } = props;
+
   //입력값 컨트롤러
-  const [inputValue, setInputValue] = useState('');
+  //const [inputValue, setInputValue] = useState('');
   const inputHandler = (event) => {
     console.dir(event);
     setInputValue(event.currentTarget.value);
@@ -95,7 +98,7 @@ function SearchBar() {
   const onSubmit = (event) => {
     event.preventDefault();
     //추후 수정 필요
-    if (inputValue == ' ') {
+    if (searchParam.inputValue == ' ') {
       document.getElementById('checkInputValue').innerHTML =
         '<b>▲검색어를 다시 확인해주세요.<b>';
       document.getElementById('checkInputValue').style.fontSize = '1rem';
@@ -112,7 +115,7 @@ function SearchBar() {
         */
 
     //추후 삭제 필요
-    else {
+   /* else {
       alert('검색완료');
     }
   };
@@ -133,14 +136,14 @@ function SearchBar() {
           </form>
           <input
             placeholder="의약품명 및 증상 검색"
-            value={inputValue}
+            value={searchParam.inputValue}
             onChange={inputHandler}
             className="searchInput"
           />
           <span className="searchIcon">
             <StyledLink to={`/pillSearch`}>
-              {/* home에서 검색페이지로 넘어가려면 onClick 이벤트 리스너 없어야 함 */}
-              <HiSearch onsubmit={onSubmit} />
+              /* home에서 검색페이지로 넘어가려면 onClick 이벤트 리스너 없어야 함 */
+           /*   <HiSearch onsubmit={onSubmit} />
             </StyledLink>
           </span>
         </div>
@@ -153,6 +156,7 @@ function SearchBar() {
 }
 
 export default SearchBar;
+*/
 
 // import styled from "styled-components";
 // import React, { useState } from "react";
