@@ -158,7 +158,7 @@ function Mypage() {
         <MypageBox>
           <div className="HelloBox">
             <div className="HelloIcon">
-              <a href="http://localhost:8080/login">🙌</a>
+              <a href="http://localhost:8080/logout">🙌</a>
             </div>
             <div className="Hello">
               잠깐,
