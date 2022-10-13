@@ -119,7 +119,7 @@ function DailyMediger() {
       const start = new Date(medigers[i].startDate);
       const last = new Date(medigers[i].lastDate);
       if (start <= today && last >= today) {
-        // console.log(medigers[i]);
+        // console.log(medigers[i].medigerDruglist.itemSeq);
         // setDaily((daily) => [...daily, medigers[i]]);
         if (medigers[i].when == 'Morn')
           setMorn((morn) => [...morn, medigers[i]]);
@@ -135,18 +135,17 @@ function DailyMediger() {
       <DailyMedigerBox>
         <div className="TitleBox ContentBox">
           <p className="Title">
-            {selectDay} <br />
-            일간 메디저
+            일간 메디저 <br />[ {selectDay} ]
           </p>
           {/* <p className="Title">{date}</p> */}
           {/* <p className="Title">
               <MonthlyMediger date={date} />
             </p> */}
-          <div className="PlusBtn">
+          {/* <div className="PlusBtn">
             <StyledLink to={`/myMediger/AddToMediger`}>
               <IoIosAddCircle />
             </StyledLink>
-          </div>
+          </div> */}
         </div>
         <div className="ContentBox">
           <p className="SubTitle">아침</p>
@@ -156,6 +155,7 @@ function DailyMediger() {
                 coverImg={item.itemImage}
                 name={item.itemName}
                 many={item.many}
+                itemSeq={item.medigerDruglist.itemSeq}
               />
             ))}
           </div>
