@@ -54,8 +54,14 @@ function PillSearchPage() {
   const [resultData, setResultData] = useState([]);
 
   const searchData = (x) => {
+<<<<<<< HEAD
     // console.log(x);
     setResultData(x);
+=======
+    console.log(x);
+    setResultData(x);
+    // console.log(resultData);
+>>>>>>> c4f6852 (ETC: Search Detail 연결)
   };
 
   return (
@@ -67,7 +73,11 @@ function PillSearchPage() {
             <PillSearchResultBox>
               <div className="ResultBox">
                 <div className="pillTotal">
+<<<<<<< HEAD
                   <p className="Total">전체 {resultData.length}개</p>
+=======
+                  <p className="Total">전체 {PillSearchList.length}개</p>
+>>>>>>> c4f6852 (ETC: Search Detail 연결)
                 </div>
                 <hr />
               </div>

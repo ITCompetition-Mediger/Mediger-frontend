@@ -119,6 +119,7 @@ const PillContentListWrapper = styled.div`
   }
 `;
 
+<<<<<<< HEAD
 const StyledLink = styled(Link)`
   color: #3c7466;
   text-decoration: none;
@@ -141,10 +142,18 @@ function PillSearchPlusPage() {
   //   console.log(itemSeq);
   const [pillDetails, setPillDetails] = useState([]); //약 정보 호출 담는 배열
   //   const [itemName, setItemName] = useState([]); //약품명 호출
+=======
+function PillSearchPlusPage() {
+  const { itemSeq } = useParams();
+  console.log(itemSeq);
+  const [pillDetails, setPillDetails] = useState([]); //약 정보 호출 담는 배열
+  const [itemName, setItemName] = useState([]); //약품명 호출
+>>>>>>> c4f6852 (ETC: Search Detail 연결)
 
   //의약품 검색 상세 api 호출
   const getPillSearchPlusAPI = async () => {
     const response = await fetch(`
+<<<<<<< HEAD
               http://localhost:8080/home/searchByItemSeq/Detail?itemSeq=${itemSeq}
             `);
 
@@ -153,6 +162,14 @@ function PillSearchPlusPage() {
     setPillDetails(data);
     // console.log(pillDetails);
     // setItemName(data.itemName); //itemName만 따로 저장
+=======
+            http://localhost:8080/home/searchByItemSeq/Detail?itemSeq=${itemSeq}
+          `);
+
+    const data = await response.json();
+    setPillDetails(data); //pillDetails를 저장
+    setItemName(data.itemName); //itemName만 따로 저장
+>>>>>>> c4f6852 (ETC: Search Detail 연결)
   };
 
   useEffect(() => {
