@@ -140,7 +140,7 @@ function Home() {
 
   return (
     <MainBox>
-      <StyledLink to="/">
+      <div>
         <div className="headerTitle">
           <div className="TitleContent">
             <p className="mainTitle">내가 먹는 약이 궁금하다면?</p>
@@ -148,7 +148,7 @@ function Home() {
             <img src={LogoImg} className="Logo2"></img>
           </div>
         </div>
-      </StyledLink>
+      </div>
       <div className="MainContentBox">
         <SearchTest />
         <div className="DailyMedigerBox">
