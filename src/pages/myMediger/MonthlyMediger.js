@@ -103,7 +103,12 @@ function MonthlyMediger() {
   //     getAPI();
   //   }, []);
 
+  // const defaultToday = new Date().getDate();
+  // console.log(defaultToday)
+
   const [value, onChange] = useState(new Date());
+  // const [value, onChange] = useState(defaultToday);
+  console.log(value);
 
   //   const today = value;
   //   console.log(today);
