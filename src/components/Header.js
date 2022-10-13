@@ -46,13 +46,13 @@ const StyledLink = styled(Link)`
 function Header() {
   return (
     <Head>
-      <StyledLink to="/">
+      <div>
         {/* <Logo>Mediger</Logo> */}
         <Logo>
           {/* <img src={LogoImg} className="Logo1"></img> */}
           <img src={LogoImg2} className="Logo2"></img>
         </Logo>
-      </StyledLink>
+      </div>
     </Head>
   );
 }
