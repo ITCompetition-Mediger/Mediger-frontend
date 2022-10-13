@@ -54,7 +54,6 @@ function PillSearchPage() {
   const [resultData, setResultData] = useState([]);
 
   const searchData = (x) => {
-    // console.log(x);
     setResultData(x);
   };
 
@@ -76,6 +75,8 @@ function PillSearchPage() {
                   <PillSearchList
                     itemName={item.itemName}
                     itemSeq={item.itemSeq}
+                    entpName={item.entpName}
+                    itemImage={item.itemImage}
                   />
                 ))}
               </div>
