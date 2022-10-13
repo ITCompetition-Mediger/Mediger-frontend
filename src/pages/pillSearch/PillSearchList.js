@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { AiOutlineStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import notFoundImg from '../../images/notFoundImg.png';
 
 const PillListWrapper = styled.div`
   background-color: #ecf2f0;
@@ -23,6 +24,14 @@ const PillListWrapper = styled.div`
   }
 
   .pillImage {
+    width: 16vw;
+    height: 16vw;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: 4vw;
+  }
+
+  img {
     width: 16vw;
     height: 16vw;
     border-radius: 50%;
@@ -80,7 +89,14 @@ function PillSearchList({ itemImage, itemName, entpName, itemSeq }) {
     <PillListWrapper>
       <StyledLink to={`/pillSearch/detail/${itemSeq}`}>
         <div className="PillBox">
-          <div className="pillImage">{itemImage}</div>
+          <div className="pillImage">
+            {' '}
+            {itemImage == 'blank' ? (
+              <img src={notFoundImg}></img>
+            ) : (
+              <img src={itemImage}></img>
+            )}
+          </div>
           <div className="pillList">
             <div className="pillTitle">
               <p className="pillName">{itemName}</p>

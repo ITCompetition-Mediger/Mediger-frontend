@@ -75,6 +75,8 @@ function PillSearchPage() {
                   <PillSearchList
                     itemName={item.itemName}
                     itemSeq={item.itemSeq}
+                    entpName={item.entpName}
+                    itemImage={item.itemImage}
                   />
                 ))}
               </div>

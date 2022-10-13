@@ -62,6 +62,8 @@ function DailyMedigerWidget({ day }) {
     ).json();
     setLoading(true);
     setMedigers(json.daily);
+    console.log(json);
+    checkDate();
   };
 
   useEffect(() => {
@@ -69,12 +71,12 @@ function DailyMedigerWidget({ day }) {
     // checkDate();
   }, [loading]);
 
-  useEffect(() => {
-    setMorn([]);
-    setAfter([]);
-    setEven([]);
-    checkDate();
-  }, [day]);
+  // useEffect(() => {
+  //   setMorn([]);
+  //   setAfter([]);
+  //   setEven([]);
+  //   checkDate();
+  // }, [day]);
 
   //   console.log(today);
 
