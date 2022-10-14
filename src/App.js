@@ -33,7 +33,10 @@ function App() {
       <Route path="/map/pharmacy" element={<PharmacyMapPage />} />
       <Route path="/map/pharmacyList" element={<PharmacyListPage />} />
       <Route path="/map/hospitalList" element={<HospitalListPage />} />
-      <Route path="/myMediger/AddToMediger" element={<AddToMediger />} />
+      <Route
+        path="/myMediger/AddToMediger/:itemSeq"
+        element={<AddToMediger />}
+      />
       <Route
         path="/myMediger/DailyMediger/:selectDay"
         element={<DailyMediger />}

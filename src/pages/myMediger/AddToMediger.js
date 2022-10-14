@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useState } from 'react';
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import MypageLayout from '../../components/MypageLayout';
+import PillSearchList from '../pillSearch/PillSearchList';
 
-const AddToMedigerBox = styled.div`
+const AddToMedigerBox = styled.form`
   display: flex;
   flex-direction: column;
 
@@ -18,7 +18,7 @@ const AddToMedigerBox = styled.div`
   .TitleBox {
     width: 85vw;
     padding: 0 7.5vw;
-    margin-bottom: 5vh;
+    margin-bottom: 2vh;
   }
 
   .TitleBoxContent {
@@ -52,6 +52,11 @@ const AddToMedigerBox = styled.div`
     color: #3c7466;
   }
 
+  button {
+    border: none;
+    background-color: white;
+  }
+
   hr {
     width: 85vw;
     background: #3c7466;
@@ -68,9 +73,10 @@ const AddToMedigerBox = styled.div`
 
   .AddBox {
     width: 85vw;
-    height: 8vh;
+    /* height: 12vh; */
+    margin-top: 0.7vh;
     border-radius: 10px;
-    background-color: #ecf2f0;
+    /* background-color: red; */
 
     display: flex;
     justify-content: center;
@@ -160,20 +166,89 @@ const StyledLink = styled(Link)`
 `;
 
 function AddToMediger() {
+  // 사용자가 작성한 내용
+  const [postMediger, setPostMediger] = useState({
+    itemName: '',
+    start: '',
+    last: '',
+    when: '',
+    how: '',
+    many: '',
+  });
+
+  const { itemSeq } = useParams();
+  //   console.log(itemSeq);
+  const [pillDetails, setPillDetails] = useState([]); //약 정보 호출 담는 배열
+  //   const [itemName, setItemName] = useState([]); //약품명 호출
+
+  //의약품 검색 상세 api 호출
+  const getPillSearchPlusAPI = async () => {
+    const response = await fetch(`
+              http://localhost:8080/home/searchByItemSeq/Detail?itemSeq=${itemSeq}
+            `);
+
+    const data = await response.json();
+    // console.log(data);
+    setPillDetails(data);
+    // console.log(pillDetails);
+    // setItemName(data.itemName); //itemName만 따로 저장
+    setPostMediger((prevState) => ({
+      ...prevState,
+      itemName: data.itemName,
+      start: startDate,
+      last: endDate,
+      when: selectedWhen,
+      how: selectedHow,
+      many: inputMany,
+    }));
+  };
+
+  useEffect(() => {
+    getPillSearchPlusAPI();
+  }, []);
+
+  // 날짜 라이브러리
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
+  // 복용 방법 상태
+  const [selectedWhen, setSelectedWhen] = useState('아침');
+  const [selectedHow, setSelectedHow] = useState('식전 30분');
+  const [inputMany, setInputMany] = useState(0);
+
+  const onChangeWhen = (event) => {
+    setSelectedWhen(event.target.value);
+    // console.log(event.target.value);
+    // console.log(selectedWhen);
+    setPostMediger((prevState) => ({ ...prevState, when: event.target.value }));
+  };
+  const onChangeHow = (event) => {
+    setSelectedHow(event.target.value);
+    setPostMediger((prevState) => ({ ...prevState, how: event.target.value }));
+  };
+  const onChangeMany = (event) => {
+    setInputMany(event.target.value);
+    setPostMediger((prevState) => ({ ...prevState, many: event.target.value }));
+  };
+
+  // 제출하면
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(postMediger);
+    // console.log('제출');
+  };
+
   return (
     <MypageLayout>
-      <AddToMedigerBox>
+      <AddToMedigerBox onSubmit={onSubmit}>
         <div className="TitleBox">
           <div className="TitleBoxContent">
             <p className="Title">메디저 추가</p>
-            <div className="PlusBtn">
-              <StyledLink to={`/myMediger/DailyMediger`}>
-                <IoIosAddCircle />
-              </StyledLink>
-            </div>
+            <button className="PlusBtn">
+              {/* <StyledLink to={`/myMediger/MonthlyMediger`}> */}
+              <IoIosAddCircle />
+              {/* </StyledLink> */}
+            </button>
           </div>
           <hr />
         </div>
@@ -181,11 +256,12 @@ function AddToMediger() {
         <div className="MedicineToTakeBox ContentBox">
           <p className="SubTitle">복용할 약</p>
           <div className="AddBox">
-            <div className="AddBtn">
-              <StyledLink to={`/pillSearch`}>
-                <IoIosAddCircle />
-              </StyledLink>
-            </div>
+            <PillSearchList
+              itemName={pillDetails.itemName}
+              itemSeq={pillDetails.itemSeq}
+              entpName={pillDetails.entpName}
+              itemImage={pillDetails.itemImage}
+            />
           </div>
         </div>
 
@@ -195,7 +271,14 @@ function AddToMediger() {
             <div className="CalenderContainer">
               <MyDatePicker
                 selected={startDate}
-                onChange={(date) => setStartDate(date)}
+                // onChange={(date) => setStartDate(date)}
+                onChange={(date) => {
+                  setStartDate(date);
+                  setPostMediger((prevState) => ({
+                    ...prevState,
+                    start: date,
+                  }));
+                }}
                 dateFormat="yyyy.MM.dd"
                 selectsStart
                 startDate={startDate}
@@ -206,7 +289,14 @@ function AddToMediger() {
             <div className="CalenderContainer">
               <MyDatePicker
                 selected={endDate}
-                onChange={(date) => setEndDate(date)}
+                // onChange={(date) => setEndDate(date)}
+                onChange={(date) => {
+                  setEndDate(date);
+                  setPostMediger((prevState) => ({
+                    ...prevState,
+                    last: date,
+                  }));
+                }}
                 dateFormat="yyyy.MM.dd"
                 selectsEnd
                 startDate={startDate}
@@ -218,23 +308,40 @@ function AddToMediger() {
           </div>
           <div className="WayBox">
             <div className="TimeContainer">
-              <select className="TimingSelectBox">
-                <option value="morning">아침</option>
-                <option value="lunch">점심</option>
-                <option value="evening">저녁</option>
-                <option value="beforeBed">자기 전</option>
+              <select
+                onChange={onChangeWhen}
+                value={selectedWhen}
+                className="TimingSelectBox"
+              >
+                <option value="아침">아침</option>
+                <option value="점심">점심</option>
+                <option value="저녁">저녁</option>
+                <option value="자기 전">자기 전</option>
               </select>
-              <select className="TimeSelectBox">
-                <option value="before30">식전 30분</option>
+              <select
+                onChange={onChangeHow}
+                value={selectedHow}
+                className="TimeSelectBox"
+              >
+                <option value="식전 30분">식전 30분</option>
+                <option value="식사 직후">식사 직후</option>
+                <option value="식후 30분">식후 30분</option>
+                {/* <option value="before30">식전 30분</option>
                 <option value="at">식사 직후</option>
-                <option value="after30">식후 30분</option>
+                <option value="after30">식후 30분</option> */}
               </select>
             </div>
             <div className="SubText">에</div>
           </div>
           <div className="WayBox">
             <div className="CountContainer">
-              <input type="number" min="0" className="CountBox"></input>
+              <input
+                onChange={onChangeMany}
+                value={inputMany}
+                type="number"
+                min="0"
+                className="CountBox"
+              ></input>
             </div>
             <div className="SubText">개씩</div>
           </div>
