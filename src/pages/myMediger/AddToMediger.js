@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import MypageLayout from '../../components/MypageLayout';
 import PillSearchList from '../pillSearch/PillSearchList';
 
-const AddToMedigerBox = styled.div`
+const AddToMedigerBox = styled.form`
   display: flex;
   flex-direction: column;
 
@@ -18,7 +18,7 @@ const AddToMedigerBox = styled.div`
   .TitleBox {
     width: 85vw;
     padding: 0 7.5vw;
-    margin-bottom: 5vh;
+    margin-bottom: 2vh;
   }
 
   .TitleBoxContent {
@@ -52,6 +52,11 @@ const AddToMedigerBox = styled.div`
     color: #3c7466;
   }
 
+  button {
+    border: none;
+    background-color: white;
+  }
+
   hr {
     width: 85vw;
     background: #3c7466;
@@ -68,7 +73,7 @@ const AddToMedigerBox = styled.div`
 
   .AddBox {
     width: 85vw;
-    height: 12vh;
+    height: 14vh;
     border-radius: 10px;
     /* background-color: red; */
 
@@ -160,6 +165,16 @@ const StyledLink = styled(Link)`
 `;
 
 function AddToMediger() {
+  // 사용자가 작성한 내용
+  const [postMediger, setPostMediger] = useState({
+    itemName: '',
+    start: '',
+    last: '',
+    when: '',
+    how: '',
+    many: '',
+  });
+
   const { itemSeq } = useParams();
   //   console.log(itemSeq);
   const [pillDetails, setPillDetails] = useState([]); //약 정보 호출 담는 배열
@@ -174,28 +189,64 @@ function AddToMediger() {
     const data = await response.json();
     // console.log(data);
     setPillDetails(data);
-    console.log(pillDetails);
+    // console.log(pillDetails);
     // setItemName(data.itemName); //itemName만 따로 저장
+    setPostMediger((prevState) => ({
+      ...prevState,
+      itemName: data.itemName,
+      start: startDate,
+      last: endDate,
+      when: selectedWhen,
+      how: selectedHow,
+      many: inputMany,
+    }));
   };
 
   useEffect(() => {
     getPillSearchPlusAPI();
   }, []);
 
+  // 날짜 라이브러리
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
+  // 복용 방법 상태
+  const [selectedWhen, setSelectedWhen] = useState('아침');
+  const [selectedHow, setSelectedHow] = useState('식전 30분');
+  const [inputMany, setInputMany] = useState(0);
+
+  const onChangeWhen = (event) => {
+    setSelectedWhen(event.target.value);
+    console.log('변경');
+    setPostMediger((prevState) => ({ ...prevState, when: selectedWhen }));
+  };
+  const onChangeHow = (event) => {
+    setSelectedHow(event.target.value);
+    setPostMediger((prevState) => ({ ...prevState, how: selectedHow }));
+  };
+  const onChangeMany = (event) => {
+    setInputMany(event.target.value);
+    setPostMediger((prevState) => ({ ...prevState, many: inputMany }));
+  };
+
+  // 제출하면
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(postMediger);
+    // console.log('제출');
+  };
+
   return (
     <MypageLayout>
-      <AddToMedigerBox>
+      <AddToMedigerBox onSubmit={onSubmit}>
         <div className="TitleBox">
           <div className="TitleBoxContent">
             <p className="Title">메디저 추가</p>
-            <div className="PlusBtn">
-              <StyledLink to={`/myMediger/MonthlyMediger`}>
-                <IoIosAddCircle />
-              </StyledLink>
-            </div>
+            <button className="PlusBtn">
+              {/* <StyledLink to={`/myMediger/MonthlyMediger`}> */}
+              <IoIosAddCircle />
+              {/* </StyledLink> */}
+            </button>
           </div>
           <hr />
         </div>
@@ -223,7 +274,14 @@ function AddToMediger() {
             <div className="CalenderContainer">
               <MyDatePicker
                 selected={startDate}
-                onChange={(date) => setStartDate(date)}
+                // onChange={(date) => setStartDate(date)}
+                onChange={(date) => {
+                  setStartDate(date);
+                  setPostMediger((prevState) => ({
+                    ...prevState,
+                    start: date,
+                  }));
+                }}
                 dateFormat="yyyy.MM.dd"
                 selectsStart
                 startDate={startDate}
@@ -234,7 +292,14 @@ function AddToMediger() {
             <div className="CalenderContainer">
               <MyDatePicker
                 selected={endDate}
-                onChange={(date) => setEndDate(date)}
+                // onChange={(date) => setEndDate(date)}
+                onChange={(date) => {
+                  setEndDate(date);
+                  setPostMediger((prevState) => ({
+                    ...prevState,
+                    last: date,
+                  }));
+                }}
                 dateFormat="yyyy.MM.dd"
                 selectsEnd
                 startDate={startDate}
@@ -246,13 +311,21 @@ function AddToMediger() {
           </div>
           <div className="WayBox">
             <div className="TimeContainer">
-              <select className="TimingSelectBox">
+              <select
+                onChange={onChangeWhen}
+                value={selectedWhen}
+                className="TimingSelectBox"
+              >
                 <option value="morning">아침</option>
                 <option value="lunch">점심</option>
                 <option value="evening">저녁</option>
                 <option value="beforeBed">자기 전</option>
               </select>
-              <select className="TimeSelectBox">
+              <select
+                onChange={onChangeHow}
+                value={selectedHow}
+                className="TimeSelectBox"
+              >
                 <option value="before30">식전 30분</option>
                 <option value="at">식사 직후</option>
                 <option value="after30">식후 30분</option>
@@ -262,7 +335,13 @@ function AddToMediger() {
           </div>
           <div className="WayBox">
             <div className="CountContainer">
-              <input type="number" min="0" className="CountBox"></input>
+              <input
+                onChange={onChangeMany}
+                value={inputMany}
+                type="number"
+                min="0"
+                className="CountBox"
+              ></input>
             </div>
             <div className="SubText">개씩</div>
           </div>
