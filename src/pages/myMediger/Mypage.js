@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosAddCircle } from 'react-icons/io';
+import { FiLogOut } from 'react-icons/fi';
 import styled from 'styled-components';
 import MedigerListWidget from '../../components/MedigerListWidget';
 import DailyMedigerWidget from '../../components/DailyMedigerWidget';
@@ -29,7 +30,7 @@ const MypageBox = styled.div`
   }
 
   a {
-    font-size: 10vw;
+    /* font-size: 10vw; */
 
     text-decoration: none;
 
@@ -44,9 +45,15 @@ const MypageBox = styled.div`
   }
 
   .Hello {
-    font-size: 5.5vw;
+    font-size: 5.3vw;
     font-weight: bold;
     color: #3c7466;
+  }
+
+  .logoutBtn {
+    font-size: 4vw;
+    color: #3c7466;
+    margin-left: 3vw;
   }
 
   .TitleBox {
@@ -157,13 +164,14 @@ function Mypage() {
       <MypageLayout>
         <MypageBox>
           <div className="HelloBox">
-            <div className="HelloIcon">
-              <a href="http://localhost:8080/logout">🙌</a>
-            </div>
+            <div className="HelloIcon">💊</div>
             <div className="Hello">
               잠깐,
               <br />
               {user}님! 잊지 않으셨죠?
+              <a href="http://localhost:8080/logout">
+                <FiLogOut className="logoutBtn" />
+              </a>
             </div>
           </div>
 

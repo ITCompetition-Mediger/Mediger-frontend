@@ -162,14 +162,13 @@ function PillSearchPlusPage() {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    console.log(typeof itemSeq)
     setIsOpen(!isOpen);
     //스크랩 추가
-    fetch(`http://localhost:8080/home/scrap`, {
+    fetch(`http://localhost:8080/home/srcap`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      //   headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        itemSeq: itemSeq
+        ItemName: itemSeq,
       }),
     })
       .then((res) => res.json())
@@ -182,21 +181,12 @@ function PillSearchPlusPage() {
           </ModalWrapper>;
         }
       });
-    // Send a POST request
-    // axios({
-    //   method: 'post',
-    //   url: 'http://localhost:8080/home/scrap',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   data: {
-    //     itemSeq
-    //     }
-    //   });
-    // };
+  };
 
   const closeModal = () => {
     setIsOpen(!isOpen);
     //스크랩 삭제
-    fetch('http://localhost:8080/home/scrap', {
+    fetch('http://localhost:8080/home/srcap', {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json',
@@ -372,5 +362,5 @@ function PillSearchPlusPage() {
     </>
   );
 }
-}
+
 export default PillSearchPlusPage;
