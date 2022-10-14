@@ -99,6 +99,11 @@ const PillContentListWrapper = styled.div`
     color: gray;
   }
 
+  .notFoundImg {
+    width: 20vw;
+    height: 18vw;
+  }
+
   .pillConentListBox {
   }
 
@@ -233,7 +238,7 @@ function PillSearchPlusPage() {
             <PillContentListWrapper>
               <div className="pillImage">
                 {pillDetails.itemImage == 'blank' ? (
-                  <img src={notFoundImg}></img>
+                  <img src={notFoundImg} className="notFoundImg"></img>
                 ) : (
                   <img src={pillDetails.itemImage}></img>
                 )}

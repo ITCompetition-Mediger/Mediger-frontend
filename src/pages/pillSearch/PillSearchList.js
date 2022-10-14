@@ -52,6 +52,7 @@ const PillListWrapper = styled.div`
   }
 
   .pillName {
+    width: 49vw;
     font-size: 4vw;
     color: #3c7466;
     font-weight: bolder;
