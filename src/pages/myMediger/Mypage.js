@@ -13,13 +13,14 @@ const MypageBox = styled.div`
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
-  /* align-items: center; */
+  align-items: center;
 
   /* background-color: aliceblue; */
 
   .HelloBox {
+    width: 80vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: 5vh;
   }
@@ -170,9 +171,9 @@ function Mypage() {
           <div className="HelloBox">
             <div className="HelloIcon">💊</div>
             <div className="Hello">
-              잠깐,
+              잠깐, {user}님!
               <br />
-              {user}님! 잊지 않으셨죠?
+              오늘도 잊지 않으셨죠?
               <a href="http://localhost:8080/logout">
                 <FiLogOut className="logoutBtn" />
               </a>

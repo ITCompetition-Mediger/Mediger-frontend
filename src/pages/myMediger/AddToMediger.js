@@ -73,7 +73,8 @@ const AddToMedigerBox = styled.form`
 
   .AddBox {
     width: 85vw;
-    height: 14vh;
+    /* height: 12vh; */
+    margin-top: 0.7vh;
     border-radius: 10px;
     /* background-color: red; */
 
@@ -217,16 +218,17 @@ function AddToMediger() {
 
   const onChangeWhen = (event) => {
     setSelectedWhen(event.target.value);
-    console.log('변경');
-    setPostMediger((prevState) => ({ ...prevState, when: selectedWhen }));
+    // console.log(event.target.value);
+    // console.log(selectedWhen);
+    setPostMediger((prevState) => ({ ...prevState, when: event.target.value }));
   };
   const onChangeHow = (event) => {
     setSelectedHow(event.target.value);
-    setPostMediger((prevState) => ({ ...prevState, how: selectedHow }));
+    setPostMediger((prevState) => ({ ...prevState, how: event.target.value }));
   };
   const onChangeMany = (event) => {
     setInputMany(event.target.value);
-    setPostMediger((prevState) => ({ ...prevState, many: inputMany }));
+    setPostMediger((prevState) => ({ ...prevState, many: event.target.value }));
   };
 
   // 제출하면
@@ -254,11 +256,6 @@ function AddToMediger() {
         <div className="MedicineToTakeBox ContentBox">
           <p className="SubTitle">복용할 약</p>
           <div className="AddBox">
-            {/* <div className="AddBtn">
-              <StyledLink to={`/pillSearch`}>
-                <IoIosAddCircle />
-              </StyledLink>
-            </div> */}
             <PillSearchList
               itemName={pillDetails.itemName}
               itemSeq={pillDetails.itemSeq}
@@ -316,19 +313,22 @@ function AddToMediger() {
                 value={selectedWhen}
                 className="TimingSelectBox"
               >
-                <option value="morning">아침</option>
-                <option value="lunch">점심</option>
-                <option value="evening">저녁</option>
-                <option value="beforeBed">자기 전</option>
+                <option value="아침">아침</option>
+                <option value="점심">점심</option>
+                <option value="저녁">저녁</option>
+                <option value="자기 전">자기 전</option>
               </select>
               <select
                 onChange={onChangeHow}
                 value={selectedHow}
                 className="TimeSelectBox"
               >
-                <option value="before30">식전 30분</option>
+                <option value="식전 30분">식전 30분</option>
+                <option value="식사 직후">식사 직후</option>
+                <option value="식후 30분">식후 30분</option>
+                {/* <option value="before30">식전 30분</option>
                 <option value="at">식사 직후</option>
-                <option value="after30">식후 30분</option>
+                <option value="after30">식후 30분</option> */}
               </select>
             </div>
             <div className="SubText">에</div>
