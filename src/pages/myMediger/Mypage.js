@@ -95,7 +95,10 @@ const MypageBox = styled.div`
 
     display: flex;
     overflow: auto;
-    // background-color: yellow;
+  }
+
+  .MedigerBoxItem {
+    display: flex;
   }
 
   .PlusBtn {
@@ -200,12 +203,14 @@ function Mypage() {
             <StyledLink to={`/MedigerList`}>
               <div className="ContentBox">
                 <div className="MedigerBox">
-                  {medigerLists.map((item) => (
-                    <MedigerListWidget
-                      coverImg={item.itemImage}
-                      name={item.itemName}
-                    />
-                  ))}
+                  <div className="MedigerBoxItem">
+                    {medigerLists.map((item) => (
+                      <MedigerListWidget
+                        coverImg={item.itemImage}
+                        name={item.itemName}
+                      />
+                    ))}
+                  </div>
                 </div>
                 <div className="AddBtnBox">
                   <Link to={`/pillSearch`}>
