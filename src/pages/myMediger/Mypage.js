@@ -126,6 +126,8 @@ const StyledLink = styled(Link)`
 function Mypage() {
   const [user, setUser] = useState();
   const [medigerLists, setMedigerLists] = useState([]);
+  const today = new Date();
+
   const getAPI = async () => {
     const json = await (
       await fetch(`
@@ -134,16 +136,18 @@ function Mypage() {
     ).json();
     setUser(json.userName);
     setMedigerLists(json.scrapList);
-    console.log(json);
+    // console.log(json);
+    console.log('mypage 실행');
   };
 
   useEffect(() => {
     getAPI();
-  }, []);
+  }, [user]);
 
-  console.log(user);
-  console.log(medigerLists);
-  const today = new Date();
+  // console.log(user);
+  // console.log(medigerLists);
+  // const today = new Date();
+  console.log('mypage 실행 2');
 
   //   console.log(today);
 

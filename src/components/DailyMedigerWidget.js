@@ -45,7 +45,7 @@ const DailyWidget = styled.div`
 
 function DailyMedigerWidget({ day }) {
   const today = day;
-  console.log('위젯업데이트: ' + today);
+  // console.log('위젯업데이트: ' + today);
   // api 저장
   const [loading, setLoading] = useState(false);
   const [medigers, setMedigers] = useState([]);
@@ -88,7 +88,7 @@ function DailyMedigerWidget({ day }) {
       const start = new Date(medigers[i].startDate);
       const last = new Date(medigers[i].lastDate);
       if (start <= today && last >= today) {
-        console.log(medigers[i]);
+        // console.log(medigers[i]);
         // console.log(today);
         // setDaily((daily) => [...daily, medigers[i]]);
         if (medigers[i].when == 'Morn')
