@@ -45,7 +45,7 @@ const DailyWidget = styled.div`
 
 function DailyMedigerWidget({ day }) {
   const today = day;
-  //   console.log('날짜2: ' + today);
+  console.log('위젯업데이트: ' + today);
   // api 저장
   const [loading, setLoading] = useState(false);
   const [medigers, setMedigers] = useState([]);
@@ -71,16 +71,17 @@ function DailyMedigerWidget({ day }) {
     // checkDate();
   }, [loading]);
 
-  // useEffect(() => {
-  //   setMorn([]);
-  //   setAfter([]);
-  //   setEven([]);
-  //   checkDate();
-  // }, [day]);
+  useEffect(() => {
+    setMorn([]);
+    setAfter([]);
+    setEven([]);
+    checkDate();
+  }, [day]);
 
   //   console.log(today);
 
   const checkDate = () => {
+    console.log('checkDate 실행');
     // setToday(day);
     // console.log(today);
     for (let i = 0; i < medigers.length; i++) {
