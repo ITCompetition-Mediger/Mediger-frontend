@@ -53,7 +53,9 @@ function MedigerListWidget({ coverImg, name }) {
           <img src={coverImg}></img>
         )}
       </div>
-      <div className="MedigerName">{name}</div>
+      <div className="MedigerName">
+        {name.length > 9 ? `${name.slice(0, 9)} ...` : name}
+      </div>
     </MedigerWidget>
   );
 }

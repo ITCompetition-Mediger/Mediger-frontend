@@ -223,7 +223,7 @@ function PillSearchPlusPage() {
                     )}
                   </div>
                   <div className="AddBtn">
-                    <StyledLink to={`/pillSearch`}>
+                    <StyledLink to={`/myMediger/AddToMediger/${itemSeq}`}>
                       <IoIosAddCircle />
                     </StyledLink>
                   </div>

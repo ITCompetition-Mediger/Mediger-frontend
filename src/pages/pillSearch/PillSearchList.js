@@ -21,6 +21,8 @@ const PillListWrapper = styled.div`
 
   .PillBox {
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .pillImage {
@@ -50,7 +52,7 @@ const PillListWrapper = styled.div`
   }
 
   .pillName {
-    font-size: 4.5vw;
+    font-size: 4vw;
     color: #3c7466;
     font-weight: bolder;
     margin-bottom: 1vw;
@@ -90,7 +92,6 @@ function PillSearchList({ itemImage, itemName, entpName, itemSeq }) {
       <StyledLink to={`/pillSearch/detail/${itemSeq}`}>
         <div className="PillBox">
           <div className="pillImage">
-            {' '}
             {itemImage == 'blank' ? (
               <img src={notFoundImg}></img>
             ) : (
@@ -102,8 +103,8 @@ function PillSearchList({ itemImage, itemName, entpName, itemSeq }) {
               <p className="pillName">{itemName}</p>
             </div>
             <div className="pillContent">
-              <p className="pillCompany">{entpName}</p>
-              <p className="pillCode">{itemSeq}</p>
+              <p className="pillCompany">업체명 : {entpName}</p>
+              <p className="pillCode">품목 기준 코드 : {itemSeq}</p>
             </div>
           </div>
         </div>

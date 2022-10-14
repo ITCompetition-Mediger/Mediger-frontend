@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useState } from 'react';
 import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import MypageLayout from '../../components/MypageLayout';
+import PillSearchList from '../pillSearch/PillSearchList';
 
 const AddToMedigerBox = styled.div`
   display: flex;
@@ -68,9 +68,9 @@ const AddToMedigerBox = styled.div`
 
   .AddBox {
     width: 85vw;
-    height: 8vh;
+    height: 12vh;
     border-radius: 10px;
-    background-color: #ecf2f0;
+    /* background-color: red; */
 
     display: flex;
     justify-content: center;
@@ -160,6 +160,28 @@ const StyledLink = styled(Link)`
 `;
 
 function AddToMediger() {
+  const { itemSeq } = useParams();
+  //   console.log(itemSeq);
+  const [pillDetails, setPillDetails] = useState([]); //약 정보 호출 담는 배열
+  //   const [itemName, setItemName] = useState([]); //약품명 호출
+
+  //의약품 검색 상세 api 호출
+  const getPillSearchPlusAPI = async () => {
+    const response = await fetch(`
+              http://localhost:8080/home/searchByItemSeq/Detail?itemSeq=${itemSeq}
+            `);
+
+    const data = await response.json();
+    // console.log(data);
+    setPillDetails(data);
+    console.log(pillDetails);
+    // setItemName(data.itemName); //itemName만 따로 저장
+  };
+
+  useEffect(() => {
+    getPillSearchPlusAPI();
+  }, []);
+
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -170,7 +192,7 @@ function AddToMediger() {
           <div className="TitleBoxContent">
             <p className="Title">메디저 추가</p>
             <div className="PlusBtn">
-              <StyledLink to={`/myMediger/DailyMediger`}>
+              <StyledLink to={`/myMediger/MonthlyMediger`}>
                 <IoIosAddCircle />
               </StyledLink>
             </div>
@@ -181,11 +203,17 @@ function AddToMediger() {
         <div className="MedicineToTakeBox ContentBox">
           <p className="SubTitle">복용할 약</p>
           <div className="AddBox">
-            <div className="AddBtn">
+            {/* <div className="AddBtn">
               <StyledLink to={`/pillSearch`}>
                 <IoIosAddCircle />
               </StyledLink>
-            </div>
+            </div> */}
+            <PillSearchList
+              itemName={pillDetails.itemName}
+              itemSeq={pillDetails.itemSeq}
+              entpName={pillDetails.entpName}
+              itemImage={pillDetails.itemImage}
+            />
           </div>
         </div>
 
