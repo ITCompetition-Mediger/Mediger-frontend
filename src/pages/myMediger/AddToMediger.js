@@ -6,6 +6,7 @@ import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import MypageLayout from '../../components/MypageLayout';
 import PillSearchList from '../pillSearch/PillSearchList';
+import { StyledModal, ModalWrapper } from '../../components/StyledModal';
 
 const AddToMedigerBox = styled.form`
   display: flex;
@@ -234,6 +235,9 @@ function AddToMediger() {
     setPostMediger((prevState) => ({ ...prevState, many: event.target.value }));
   };
 
+  //모달창 조정 컨트롤러
+  const [isOpen, setIsopen] = useState(false);
+
   // 제출하면
   const onSubmit = (event) => {
     event.preventDefault();
@@ -245,7 +249,7 @@ function AddToMediger() {
     });
     // alert('추가되었습니다!');
     setIsSubmit(true);
-
+    setIsopen(!isOpen);
     // console.log('제출');
   };
 
@@ -260,12 +264,21 @@ function AddToMediger() {
           <div className="TitleBoxContent">
             <p className="Title">메디저 추가</p>
             {/* <StyledLink to={`/myMediger/MonthlyMediger`}> */}
-            {!isSubmit ? (
+            {!isSubmit && !isOpen ? (
               <button className="PlusBtn">
                 <IoIosAddCircle />
               </button>
             ) : (
-              <p>✅</p>
+              <p>
+                <ModalWrapper>
+                  <StyledModal>
+                    <p className="modalContent">추가되었습니다!</p>
+                      <button className="modalBtn">
+                    <p className="ok" onClick={onSubmit}>확인</p>
+                    </button>
+                  </StyledModal>
+                </ModalWrapper>
+              </p>
             )}
             {/* <button className="PlusBtn">
               <IoIosAddCircle />
