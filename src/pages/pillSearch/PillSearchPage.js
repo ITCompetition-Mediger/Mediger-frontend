@@ -55,11 +55,15 @@ function PillSearchPage() {
 
   const searchData = (x) => {
     setResultData(x);
+    console.log(x);
   };
 
-  // 스크랩 아이콘 관련
+  // --- 스크랩 아이콘 관련
   const [medigerList, setMedigerList] = useState([]);
-  // let [medigerListIcon, setMedigerListIcon] = useState([]);
+  // 검색 결과 중 스크랩 리스트에 있으면
+  let [medigerListIcon, setMedigerListIcon] = useState([]);
+  // 검색 결과 중 스크랩 리스트에 없으면
+  let [notMedigerListIcon, setNotMedigerListIcon] = useState([]);
 
   const getAPI = async () => {
     const json = await (
@@ -68,18 +72,32 @@ function PillSearchPage() {
           `)
     ).json();
     setMedigerList(json.scrapList);
+
+    getMedigerList();
+
     // console.log(medigerList);
 
-    let resultMedigerList = resultData.filter((item) =>
-      medigerList.some((i) => i.itemSeq === item.itemSeq),
-    );
     // resultMedigerList.map((item) => ({ itemName: '포함' }));
-    // console.log(resultMedigerList);
   };
 
   useEffect(() => {
     getAPI();
   }, [resultData]);
+
+  const getMedigerList = () => {
+    let resultMedigerList = resultData.filter((item) =>
+      medigerList.some((i) => i.itemSeq === item.itemSeq),
+    );
+    setMedigerListIcon(resultMedigerList);
+
+    let notResultMedigerList = resultData.filter(
+      (item) => !medigerList.some((i) => i.itemSeq === item.itemSeq),
+    );
+    setNotMedigerListIcon(notResultMedigerList);
+  };
+
+  console.log(medigerListIcon);
+  console.log(notMedigerListIcon);
 
   return (
     <div>
@@ -95,14 +113,32 @@ function PillSearchPage() {
                 <hr />
               </div>
               <div className="ResultPillBox">
-                {resultData.map((item) => (
+                {medigerListIcon.map((item) => (
+                  <PillSearchList
+                    itemName={item.itemName}
+                    itemSeq={item.itemSeq}
+                    entpName={item.entpName}
+                    itemImage={item.itemImage}
+                    log={true}
+                  />
+                ))}
+                {notMedigerListIcon.map((item) => (
+                  <PillSearchList
+                    itemName={item.itemName}
+                    itemSeq={item.itemSeq}
+                    entpName={item.entpName}
+                    itemImage={item.itemImage}
+                    log={false}
+                  />
+                ))}
+                {/* {resultData.map((item) => (
                   <PillSearchList
                     itemName={item.itemName}
                     itemSeq={item.itemSeq}
                     entpName={item.entpName}
                     itemImage={item.itemImage}
                   />
-                ))}
+                ))} */}
               </div>
             </PillSearchResultBox>
           </Wrapper>

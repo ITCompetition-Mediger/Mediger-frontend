@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { AiOutlineStar } from 'react-icons/ai';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import notFoundImg from '../../images/notFoundImg.png';
@@ -88,7 +88,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function PillSearchList({ itemImage, itemName, entpName, itemSeq }) {
+function PillSearchList({ itemImage, itemName, entpName, itemSeq, log }) {
   return (
     <PillListWrapper>
       <StyledLink to={`/pillSearch/detail/${itemSeq}`}>
@@ -112,7 +112,8 @@ function PillSearchList({ itemImage, itemName, entpName, itemSeq }) {
         </div>
       </StyledLink>
       <div className="scrap">
-        <AiOutlineStar />
+        {log ? <AiFillStar /> : <AiOutlineStar />}
+        {/* <AiOutlineStar /> */}
       </div>
     </PillListWrapper>
   );
