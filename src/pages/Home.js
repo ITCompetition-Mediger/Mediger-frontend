@@ -126,7 +126,7 @@ const SearchBarWrapper = styled.div`
     width: 70vw;
     height: 5vw;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     background-color: white;
 
@@ -140,6 +140,7 @@ const SearchBarWrapper = styled.div`
   .searchBarInfo {
     color: #3c7466;
     opacity: 0.6;
+    font-size: 3.5vw;
   }
 
   .searchIcon {
