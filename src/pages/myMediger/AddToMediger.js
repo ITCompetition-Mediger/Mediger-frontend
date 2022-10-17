@@ -166,6 +166,7 @@ const StyledLink = styled(Link)`
 `;
 
 function AddToMediger() {
+  const [isSubmit, setIsSubmit] = useState(false);
   // 사용자가 작성한 내용
   const [postMediger, setPostMediger] = useState({
     id: '',
@@ -242,6 +243,8 @@ function AddToMediger() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(postMediger),
     });
+    // alert('추가되었습니다!');
+    setIsSubmit(true);
 
     // console.log('제출');
   };
@@ -257,9 +260,16 @@ function AddToMediger() {
           <div className="TitleBoxContent">
             <p className="Title">메디저 추가</p>
             {/* <StyledLink to={`/myMediger/MonthlyMediger`}> */}
-            <button className="PlusBtn">
+            {!isSubmit ? (
+              <button className="PlusBtn">
+                <IoIosAddCircle />
+              </button>
+            ) : (
+              <p>✅</p>
+            )}
+            {/* <button className="PlusBtn">
               <IoIosAddCircle />
-            </button>
+            </button> */}
             {/* </StyledLink> */}
           </div>
           <hr />
