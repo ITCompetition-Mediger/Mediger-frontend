@@ -169,11 +169,12 @@ function PillSearchPlusPage() {
   const openModal = () => {
     setIsOpen(!isOpen);
     //스크랩 추가
-    fetch(`http://localhost:8080/home/srcap`, {
+    fetch(`http://localhost:8080/home/scrap`, {
       method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        ItemName: itemSeq,
+        ItemSeq: itemSeq,
+        id: localStorage.getItem('id'),
       }),
     })
       .then((res) => res.json())
@@ -191,11 +192,15 @@ function PillSearchPlusPage() {
   const closeModal = () => {
     setIsOpen(!isOpen);
     //스크랩 삭제
-    fetch('http://localhost:8080/home/srcap', {
+    fetch('http://localhost:8080/home/scrap', {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json',
       },
+      body: JSON.stringify({
+        ItemSeq: itemSeq,
+        id: localStorage.getItem('id'),
+      }),
     })
       .then((res) => res.json())
       .then((res) => {
