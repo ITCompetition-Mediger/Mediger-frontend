@@ -8,6 +8,7 @@ import SearchTest from './pillSearch/SearchTest';
 import NavBar from '../components/NavBar';
 import LogoImg from '../images/Logo1.png';
 import LogoImg2 from '../images/Logo2.png';
+import { IoIosSearch } from 'react-icons/io';
 
 const MainBox = styled.div`
   width: 100vw;
@@ -112,6 +113,42 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const SearchBarWrapper = styled.div`
+  display: flex;
+  width: 100vw;
+  height: 8vh;
+  margin: 2vh 0;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+
+  .searchBarBox {
+    width: 70vw;
+    height: 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+
+    padding: 1vw 4vw;
+    border: 2vw solid #3c7466;
+    border-radius: 8vw;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+
+  .searchBarInfo {
+    color: #3c7466;
+    opacity: 0.6;
+    font-size: 3.5vw;
+  }
+
+  .searchIcon {
+    font-size: 5vw;
+    opacity: 0.6;
+  }
+`;
+
 function Home() {
   //   const [loading, setLoading] = useState(true);
   //   const [today, setDay] = useState();
@@ -136,6 +173,13 @@ function Home() {
   //   }, [loading]);
   //   console.log(today);
 
+  // 검색 관련
+  // const [resultData, setResultData] = useState([]);
+
+  // const searchData = (x) => {
+  //   setResultData(x);
+  // };
+
   const today = new Date();
 
   return (
@@ -150,7 +194,16 @@ function Home() {
         </div>
       </div>
       <div className="MainContentBox">
-        <SearchTest />
+        {/* <SearchTest info="검색 페이지에서 의약품 및 증상을 검색해보세요!" /> */}
+        <StyledLink to={`/pillSearch`}>
+          <SearchBarWrapper>
+            <div className="searchBarBox">
+              {/* <IoSearchCircle className="searchIcon" /> */}
+              <p className="searchBarInfo">의약품 및 증상 검색하러 가기</p>
+              <IoIosSearch className="searchIcon" />
+            </div>
+          </SearchBarWrapper>
+        </StyledLink>
         <div className="DailyMedigerBox">
           <div className="TitleBox">
             <p className="Title">TODAY</p>

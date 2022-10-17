@@ -85,7 +85,9 @@ function Mediger({ coverImg, name, many, itemSeq }) {
           )}
         </div>
         <div class="MedigerContent">
-          <p class="MedigerName">{name}</p>
+          <p class="MedigerName">
+            {name.length > 9 ? `${name.slice(0, 9)} ...` : name}
+          </p>
           <p class="MedigerWay">{many}알 복용</p>
         </div>
       </MedigerBox>

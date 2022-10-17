@@ -168,6 +168,7 @@ function DailyMediger() {
                 coverImg={item.itemImage}
                 name={item.itemName}
                 many={item.many}
+                itemSeq={item.medigerDruglist.itemSeq}
               />
             ))}
           </div>
@@ -180,6 +181,7 @@ function DailyMediger() {
                 coverImg={item.itemImage}
                 name={item.itemName}
                 many={item.many}
+                itemSeq={item.medigerDruglist.itemSeq}
               />
             ))}
           </div>

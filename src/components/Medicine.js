@@ -100,13 +100,13 @@ function Medicine({ coverImg, name, entpName, seq }) {
           <MedicineCompany>업체명 : {entpName}</MedicineCompany>
           <MedicineCode>품목기준코드 : {seq}</MedicineCode>
         </MedicineContent>
-        <Link to={'/'}>
-          <MedicineListBtn>
-            <AiFillStar />
-            {/* 빈 테두리 별은 if문으로 사용 - 근데 메디저 리스트에서는 즐겨찾기라 사용하지 않음
+        {/* <Link to={'/'}> */}
+        <MedicineListBtn>
+          <AiFillStar />
+          {/* 빈 테두리 별은 if문으로 사용 - 근데 메디저 리스트에서는 즐겨찾기라 사용하지 않음
           <AiOutlineStar /> */}
-          </MedicineListBtn>
-        </Link>
+        </MedicineListBtn>
+        {/* </Link> */}
       </MedicineBox>
     </StyledLink>
   );

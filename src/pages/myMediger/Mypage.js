@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosAddCircle } from 'react-icons/io';
+import { FiLogOut } from 'react-icons/fi';
 import styled from 'styled-components';
 import MedigerListWidget from '../../components/MedigerListWidget';
 import DailyMedigerWidget from '../../components/DailyMedigerWidget';
@@ -12,13 +13,14 @@ const MypageBox = styled.div`
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
-  /* align-items: center; */
+  align-items: center;
 
   /* background-color: aliceblue; */
 
   .HelloBox {
+    width: 80vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: 5vh;
   }
@@ -29,7 +31,7 @@ const MypageBox = styled.div`
   }
 
   a {
-    font-size: 10vw;
+    /* font-size: 10vw; */
 
     text-decoration: none;
 
@@ -44,9 +46,15 @@ const MypageBox = styled.div`
   }
 
   .Hello {
-    font-size: 5.5vw;
+    font-size: 5.3vw;
     font-weight: bold;
     color: #3c7466;
+  }
+
+  .logoutBtn {
+    font-size: 4vw;
+    color: #3c7466;
+    margin-left: 3vw;
   }
 
   .TitleBox {
@@ -87,7 +95,10 @@ const MypageBox = styled.div`
 
     display: flex;
     overflow: auto;
-    // background-color: yellow;
+  }
+
+  .MedigerBoxItem {
+    display: flex;
   }
 
   .PlusBtn {
@@ -118,25 +129,32 @@ const StyledLink = styled(Link)`
 
 function Mypage() {
   const [user, setUser] = useState();
+  const [id, setId] = useState();
   const [medigerLists, setMedigerLists] = useState([]);
+  const today = new Date();
+
   const getAPI = async () => {
     const json = await (
       await fetch(`
           /home/mypage
           `)
     ).json();
+    setId(json.id);
+    localStorage.setItem('id', json.id);
     setUser(json.userName);
     setMedigerLists(json.scrapList);
-    console.log(json);
+    // console.log(json);
+    console.log('mypage 실행');
   };
 
   useEffect(() => {
     getAPI();
-  }, []);
+  }, [user]);
 
-  console.log(user);
-  console.log(medigerLists);
-  const today = new Date();
+  // console.log(user);
+  // console.log(medigerLists);
+  // const today = new Date();
+  // console.log('mypage 실행 2');
 
   //   console.log(today);
 
@@ -157,13 +175,14 @@ function Mypage() {
       <MypageLayout>
         <MypageBox>
           <div className="HelloBox">
-            <div className="HelloIcon">
-              <a href="http://localhost:8080/logout">🙌</a>
-            </div>
+            <div className="HelloIcon">💊</div>
             <div className="Hello">
-              잠깐,
+              잠깐, {user}님!
               <br />
-              {user}님! 잊지 않으셨죠?
+              오늘도 잊지 않으셨죠?
+              <a href="http://localhost:8080/logout">
+                <FiLogOut className="logoutBtn" />
+              </a>
             </div>
           </div>
 
@@ -187,12 +206,14 @@ function Mypage() {
             <StyledLink to={`/MedigerList`}>
               <div className="ContentBox">
                 <div className="MedigerBox">
-                  {medigerLists.map((item) => (
-                    <MedigerListWidget
-                      coverImg={item.itemImage}
-                      name={item.itemName}
-                    />
-                  ))}
+                  <div className="MedigerBoxItem">
+                    {medigerLists.map((item) => (
+                      <MedigerListWidget
+                        coverImg={item.itemImage}
+                        name={item.itemName}
+                      />
+                    ))}
+                  </div>
                 </div>
                 <div className="AddBtnBox">
                   <Link to={`/pillSearch`}>
