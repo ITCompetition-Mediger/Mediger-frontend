@@ -6,7 +6,7 @@ import { IoIosAddCircle } from 'react-icons/io';
 import styled from 'styled-components';
 import MypageLayout from '../../components/MypageLayout';
 import PillSearchList from '../pillSearch/PillSearchList';
-import { StyledModal, ModalWrapper } from '../../components/StyledModal';
+import { StyledMedigerListModal } from '../../components/StyledModal';
 
 const AddToMedigerBox = styled.form`
   display: flex;
@@ -270,14 +270,12 @@ function AddToMediger() {
               </button>
             ) : (
               <p>
-                <ModalWrapper>
-                  <StyledModal>
+                  <StyledMedigerListModal>
                     <p className="modalContent">추가되었습니다!</p>
                       <button className="modalBtn">
                     <p className="ok" onClick={onSubmit}>확인</p>
                     </button>
-                  </StyledModal>
-                </ModalWrapper>
+                  </StyledMedigerListModal>
               </p>
             )}
             {/* <button className="PlusBtn">
