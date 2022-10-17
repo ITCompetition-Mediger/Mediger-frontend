@@ -242,7 +242,12 @@ function AddToMediger() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(postMediger),
     });
+
     // console.log('제출');
+  };
+
+  const onClickBtn = () => {
+    document.location.href('/myMediger/MonthlyMediger');
   };
 
   return (
@@ -251,11 +256,11 @@ function AddToMediger() {
         <div className="TitleBox">
           <div className="TitleBoxContent">
             <p className="Title">메디저 추가</p>
+            {/* <StyledLink to={`/myMediger/MonthlyMediger`}> */}
             <button className="PlusBtn">
-              {/* <StyledLink to={`/myMediger/MonthlyMediger`}> */}
               <IoIosAddCircle />
-              {/* </StyledLink> */}
             </button>
+            {/* </StyledLink> */}
           </div>
           <hr />
         </div>
@@ -323,7 +328,6 @@ function AddToMediger() {
                 <option value="아침">아침</option>
                 <option value="점심">점심</option>
                 <option value="저녁">저녁</option>
-                <option value="자기 전">자기 전</option>
               </select>
               <select
                 onChange={onChangeHow}
