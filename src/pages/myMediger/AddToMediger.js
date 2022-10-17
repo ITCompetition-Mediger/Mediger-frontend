@@ -269,14 +269,9 @@ function AddToMediger() {
                 <IoIosAddCircle />
               </button>
             ) : (
-              <p>
-                  <StyledMedigerListModal>
-                    <p className="modalContent">추가되었습니다!</p>
-                      <button className="modalBtn">
-                    <p className="ok" onClick={onSubmit}>확인</p>
-                    </button>
-                  </StyledMedigerListModal>
-              </p>
+              <StyledMedigerListModal>
+                <p className="modalContent">✅ 복용 일정이 추가되었습니다!</p>
+              </StyledMedigerListModal>
             )}
             {/* <button className="PlusBtn">
               <IoIosAddCircle />
