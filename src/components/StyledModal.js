@@ -41,19 +41,23 @@ export const StyledModal = styled.div`
 `;
 
 export const StyledMedigerListModal = styled.div`
-  background: white;
-  padding: 2vh 3vw;
-  border-radius: 4px;
+  background: #ecf2f0;
+  /* background: #3c7466; */
+  /* background: white; */
+  padding: 0 3vw;
+  border-radius: 2vw;
   width: 70vw;
   text-align: center;
   position: fixed;
-  top: 50%;
+  top: 10vh;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 
   .modalContent {
     color: #3c7466;
-    font-size: 4.5vw;
+    /* color: white; */
+    font-size: 4vw;
   }
 
   .modalBtn {

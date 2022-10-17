@@ -156,6 +156,7 @@ function DailyMediger() {
                 name={item.itemName}
                 many={item.many}
                 itemSeq={item.medigerDruglist.itemSeq}
+                how={item.how}
               />
             ))}
           </div>
@@ -169,6 +170,7 @@ function DailyMediger() {
                 name={item.itemName}
                 many={item.many}
                 itemSeq={item.medigerDruglist.itemSeq}
+                how={item.how}
               />
             ))}
           </div>
@@ -182,6 +184,7 @@ function DailyMediger() {
                 name={item.itemName}
                 many={item.many}
                 itemSeq={item.medigerDruglist.itemSeq}
+                how={item.how}
               />
             ))}
           </div>
