@@ -40,6 +40,37 @@ export const StyledModal = styled.div`
   }
 `;
 
+export const StyledMedigerListModal = styled.div`
+  background: white;
+  padding: 2vh 3vw;
+  border-radius: 4px;
+  width: 70vw;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .modalContent {
+    color: #3c7466;
+    font-size: 4.5vw;
+  }
+
+  .modalBtn {
+    color: #3c7466;
+    background-color: #ecf2f0;
+    border: none;
+    border-radius: 5vw;
+    width: 15vw;
+    height: 3vh;
+    margin-top: 3vh;
+  }
+
+  .ok {
+    font-size: 2.5vw;
+  }
+`;
+
 // import styled from 'styled-components';
 
 // export const ModalWrapper = styled.div`
