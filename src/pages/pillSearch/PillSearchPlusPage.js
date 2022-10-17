@@ -205,6 +205,7 @@ function PillSearchPlusPage() {
       .then((res) => res.json())
       .then((res) => {
         if (res.success) {
+          console.log('삭제되었습니다.');
           <ModalWrapper>
             <StyledModal>
               <CloseModal />

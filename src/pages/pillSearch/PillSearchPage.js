@@ -57,6 +57,30 @@ function PillSearchPage() {
     setResultData(x);
   };
 
+  // 스크랩 아이콘 관련
+  const [medigerList, setMedigerList] = useState([]);
+  // let [medigerListIcon, setMedigerListIcon] = useState([]);
+
+  const getAPI = async () => {
+    const json = await (
+      await fetch(`
+          /home/mypage
+          `)
+    ).json();
+    setMedigerList(json.scrapList);
+    // console.log(medigerList);
+
+    let resultMedigerList = resultData.filter((item) =>
+      medigerList.some((i) => i.itemSeq === item.itemSeq),
+    );
+    // resultMedigerList.map((item) => ({ itemName: '포함' }));
+    // console.log(resultMedigerList);
+  };
+
+  useEffect(() => {
+    getAPI();
+  }, [resultData]);
+
   return (
     <div>
       <Mobile>

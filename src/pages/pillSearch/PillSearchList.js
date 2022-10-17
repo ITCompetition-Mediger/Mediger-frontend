@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { AiOutlineStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
