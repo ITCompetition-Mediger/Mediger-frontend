@@ -168,6 +168,7 @@ const StyledLink = styled(Link)`
 function AddToMediger() {
   // 사용자가 작성한 내용
   const [postMediger, setPostMediger] = useState({
+    id: '',
     itemName: '',
     start: '',
     last: '',
@@ -194,6 +195,7 @@ function AddToMediger() {
     // setItemName(data.itemName); //itemName만 따로 저장
     setPostMediger((prevState) => ({
       ...prevState,
+      id: localStorage.getItem('id'),
       itemName: data.itemName,
       start: startDate,
       last: endDate,
@@ -235,6 +237,11 @@ function AddToMediger() {
   const onSubmit = (event) => {
     event.preventDefault();
     console.log(postMediger);
+    fetch(`/home/mypage/medigerplus`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(postMediger),
+    });
     // console.log('제출');
   };
 
