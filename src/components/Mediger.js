@@ -9,7 +9,7 @@ const MedigerBox = styled.div`
   width: 37vw;
   height: 8vh;
   margin: 1vw;
-  padding: 1vw;
+  padding: 2.5vw 1vw;
   border-radius: 2vw;
   background-color: #ecf2f0;
 
@@ -49,7 +49,7 @@ const MedigerBox = styled.div`
   }
 
   .MedigerWay {
-    font-size: 2vw;
+    font-size: 3vw;
     color: #42514d;
     /* margin-top: 1vw; */
   }
@@ -73,7 +73,19 @@ const StyledLink = styled(Link)`
   }
 `;
 
-function Mediger({ coverImg, name, many, itemSeq }) {
+function Mediger({ coverImg, name, many, itemSeq, how }) {
+  const setHow = () => {
+    if (how == 'beforeMeal') {
+      how = '식전 30분';
+    } else if (how == 'afterMeal') {
+      how = '식후 30분';
+    } else {
+      how = '식사 직후';
+    }
+  };
+
+  setHow();
+
   return (
     <StyledLink to={`/pillSearch/detail/${itemSeq}`}>
       <MedigerBox>
@@ -88,7 +100,11 @@ function Mediger({ coverImg, name, many, itemSeq }) {
           <p class="MedigerName">
             {name.length > 9 ? `${name.slice(0, 9)} ...` : name}
           </p>
-          <p class="MedigerWay">{many}알 복용</p>
+          <p class="MedigerWay">
+            {how}에,
+            <br />
+            {many}개 복용
+          </p>
         </div>
       </MedigerBox>
     </StyledLink>
