@@ -166,8 +166,10 @@ const StyledLink = styled(Link)`
 `;
 
 function AddToMediger() {
+  const [isSubmit, setIsSubmit] = useState(false);
   // 사용자가 작성한 내용
   const [postMediger, setPostMediger] = useState({
+    id: '',
     itemName: '',
     start: '',
     last: '',
@@ -194,6 +196,7 @@ function AddToMediger() {
     // setItemName(data.itemName); //itemName만 따로 저장
     setPostMediger((prevState) => ({
       ...prevState,
+      id: localStorage.getItem('id'),
       itemName: data.itemName,
       start: startDate,
       last: endDate,
@@ -235,7 +238,19 @@ function AddToMediger() {
   const onSubmit = (event) => {
     event.preventDefault();
     console.log(postMediger);
+    fetch(`/home/mypage/medigerplus`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(postMediger),
+    });
+    // alert('추가되었습니다!');
+    setIsSubmit(true);
+
     // console.log('제출');
+  };
+
+  const onClickBtn = () => {
+    document.location.href('/myMediger/MonthlyMediger');
   };
 
   return (
@@ -244,11 +259,18 @@ function AddToMediger() {
         <div className="TitleBox">
           <div className="TitleBoxContent">
             <p className="Title">메디저 추가</p>
-            <button className="PlusBtn">
-              {/* <StyledLink to={`/myMediger/MonthlyMediger`}> */}
+            {/* <StyledLink to={`/myMediger/MonthlyMediger`}> */}
+            {!isSubmit ? (
+              <button className="PlusBtn">
+                <IoIosAddCircle />
+              </button>
+            ) : (
+              <p>✅</p>
+            )}
+            {/* <button className="PlusBtn">
               <IoIosAddCircle />
-              {/* </StyledLink> */}
-            </button>
+            </button> */}
+            {/* </StyledLink> */}
           </div>
           <hr />
         </div>
@@ -316,7 +338,6 @@ function AddToMediger() {
                 <option value="아침">아침</option>
                 <option value="점심">점심</option>
                 <option value="저녁">저녁</option>
-                <option value="자기 전">자기 전</option>
               </select>
               <select
                 onChange={onChangeHow}

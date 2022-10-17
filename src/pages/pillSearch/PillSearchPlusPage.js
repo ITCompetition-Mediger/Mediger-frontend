@@ -99,6 +99,11 @@ const PillContentListWrapper = styled.div`
     color: gray;
   }
 
+  .notFoundImg {
+    width: 20vw;
+    height: 18vw;
+  }
+
   .pillConentListBox {
   }
 
@@ -134,13 +139,13 @@ const StyledLink = styled(Link)`
 `;
 
 function PillSearchPlusPage() {
-  // replace 객체
-  //   const reactStringReplace = require('react-string-replace');
-
   const { itemSeq } = useParams();
   //   console.log(itemSeq);
   const [pillDetails, setPillDetails] = useState([]); //약 정보 호출 담는 배열
+  const [loading, setLoading] = useState(false);
   //   const [itemName, setItemName] = useState([]); //약품명 호출
+  const [medigerList, setMedigerList] = useState([]); // 스크랩 된 알약
+  const [isScrap, setIsScrap] = useState(false);
 
   //의약품 검색 상세 api 호출
   const getPillSearchPlusAPI = async () => {
@@ -149,26 +154,44 @@ function PillSearchPlusPage() {
             `);
 
     const data = await response.json();
-    // console.log(data);
     setPillDetails(data);
-    // console.log(pillDetails);
-    // setItemName(data.itemName); //itemName만 따로 저장
+    setLoading(true);
   };
 
+  const getAPI = async () => {
+    const json = await (
+      await fetch(`
+           /home/mypage
+           `)
+    ).json();
+    // setMedigerList(json.scrapList);
+
+    for (let i = 0; i < json.scrapList.length; i++) {
+      if (json.scrapList[i].itemSeq == itemSeq) {
+        setIsScrap(true);
+        // console.log(isScrap);
+      }
+    }
+  };
+  console.log(isScrap);
+
   useEffect(() => {
-    getPillSearchPlusAPI();
+    getPillSearchPlusAPI().then(getAPI());
   }, []);
 
+  // 스크랩
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
     setIsOpen(!isOpen);
+    setIsScrap(true);
     //스크랩 추가
-    fetch(`http://localhost:8080/home/srcap`, {
+    fetch(`http://localhost:8080/home/scrap`, {
       method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        ItemName: itemSeq,
+        ItemSeq: itemSeq,
+        id: localStorage.getItem('id'),
       }),
     })
       .then((res) => res.json())
@@ -185,16 +208,22 @@ function PillSearchPlusPage() {
 
   const closeModal = () => {
     setIsOpen(!isOpen);
+    setIsScrap(false);
     //스크랩 삭제
-    fetch('http://localhost:8080/home/srcap', {
+    fetch('http://localhost:8080/home/scrap', {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json',
       },
+      body: JSON.stringify({
+        ItemSeq: itemSeq,
+        id: localStorage.getItem('id'),
+      }),
     })
       .then((res) => res.json())
       .then((res) => {
         if (res.success) {
+          console.log('삭제되었습니다.');
           <ModalWrapper>
             <StyledModal>
               <CloseModal />
@@ -216,7 +245,7 @@ function PillSearchPlusPage() {
                 </div>
                 <div className="SubHeaderBox">
                   <div className="pillScrap">
-                    {isOpen === false ? (
+                    {isScrap === false ? (
                       <AiOutlineStar onClick={openModal} />
                     ) : (
                       <AiFillStar onClick={closeModal} />
@@ -233,7 +262,7 @@ function PillSearchPlusPage() {
             <PillContentListWrapper>
               <div className="pillImage">
                 {pillDetails.itemImage == 'blank' ? (
-                  <img src={notFoundImg}></img>
+                  <img src={notFoundImg} className="notFoundImg"></img>
                 ) : (
                   <img src={pillDetails.itemImage}></img>
                 )}

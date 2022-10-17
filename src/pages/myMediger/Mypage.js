@@ -129,6 +129,7 @@ const StyledLink = styled(Link)`
 
 function Mypage() {
   const [user, setUser] = useState();
+  const [id, setId] = useState();
   const [medigerLists, setMedigerLists] = useState([]);
   const today = new Date();
 
@@ -138,6 +139,8 @@ function Mypage() {
           /home/mypage
           `)
     ).json();
+    setId(json.id);
+    localStorage.setItem('id', json.id);
     setUser(json.userName);
     setMedigerLists(json.scrapList);
     // console.log(json);
@@ -151,7 +154,7 @@ function Mypage() {
   // console.log(user);
   // console.log(medigerLists);
   // const today = new Date();
-  console.log('mypage 실행 2');
+  // console.log('mypage 실행 2');
 
   //   console.log(today);
 

@@ -81,7 +81,7 @@ function DailyMedigerWidget({ day }) {
   //   console.log(today);
 
   const checkDate = () => {
-    console.log('checkDate 실행');
+    // console.log('checkDate 실행');
     // setToday(day);
     // console.log(today);
     for (let i = 0; i < medigers.length; i++) {
