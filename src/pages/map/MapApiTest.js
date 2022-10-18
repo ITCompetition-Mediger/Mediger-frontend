@@ -3,9 +3,8 @@ import React, { useEffect } from 'react';
 let lat, lng;
 
 function onGeoOk(position) {
-  lat = position.coords.latitude; // 위도 37.5978643
-  lng = position.coords.longitude; // 경도 127.0774531
-  //   console.log(lat, lng);
+  lat = position.coords.latitude;
+  lng = position.coords.longitude;
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk);

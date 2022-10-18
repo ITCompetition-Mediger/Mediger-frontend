@@ -1,16 +1,11 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Redirect } from 'react-router-dom';
 
 let lat, lng;
 
 function onGeoOk(position) {
-  lat = position.coords.latitude; // 위도 37.5978643
-  lng = position.coords.longitude; // 경도 127.0774531
-
-  //   // 성공회대 위치
-  //   lat = 37.488462115938;
-  //   lng = 126.82474771924;
+  lat = position.coords.latitude;
+  lng = position.coords.longitude;
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk);
@@ -21,8 +16,6 @@ function HospitalMapAPI() {
   const [listItems, setListItems] = useState([]);
 
   useEffect(() => {
-    // console.log(lat, lng);
-
     var infowindow = new kakao.maps.InfoWindow({ zindex: 1 });
 
     var container = document.getElementById('hospitalMap');
@@ -50,7 +43,6 @@ function HospitalMapAPI() {
       });
 
       kakao.maps.event.addListener(marker, 'click', function () {
-        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
         infowindow.setContent(
           '<div style="padding:5px;font-size:12px;">' +
             place.place_name +
@@ -70,7 +62,6 @@ function HospitalMapAPI() {
     }
   }, []);
 
-  // localStorage에 저장
   useEffect(() => {
     localStorage.setItem('hospital', JSON.stringify(listItems));
   }, [listItems]);
