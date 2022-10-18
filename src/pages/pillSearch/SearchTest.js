@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-// import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { HiSearch } from 'react-icons/hi';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const SearchBarWrapper = styled.div`
   display: flex;
@@ -11,7 +9,6 @@ const SearchBarWrapper = styled.div`
   margin: 2vh 0;
   justify-content: center;
   align-items: center;
-  /* background-color: red; */
 
   .searchTypeBox {
     display: flex;
@@ -97,7 +94,6 @@ const StyledLink = styled(Link)`
 `;
 
 function SearchTest({ searchData }) {
-  // 입력한 값
   let [inputValue, setInputValue] = useState('');
   let [selected, setSelected] = useState('의약품명');
 
@@ -106,7 +102,6 @@ function SearchTest({ searchData }) {
       `http://localhost:8080/home/search?type=${selected}&keyword=${inputValue}`,
     );
     const json = await response.json();
-    // console.log(json);
 
     searchData(json);
   };
@@ -123,8 +118,6 @@ function SearchTest({ searchData }) {
   // 검색 후 제출시
   const onSubmit = (event) => {
     event.preventDefault();
-    // enter or submit 하면 콘솔에 검색한 내용 찍힘
-    // console.log(inputValue);
     search();
   };
 
@@ -160,41 +153,3 @@ function SearchTest({ searchData }) {
 }
 
 export default SearchTest;
-
-// import React from 'react';
-// import { useEffect, useState } from 'react';
-
-// function SearchTest() {
-//   // 입력한 값
-//   let [inputValue, setInputValue] = useState('');
-
-//   const search = async () => {
-//     const response = await fetch(`
-//     http://localhost:8080/home/search?type=의약품명&keyword=${inputValue}
-//         `);
-//     const json = await response.json();
-//     console.log(json);
-//   };
-
-//   const onChange = (event) => {
-//     // 실시간으로 받아서 저장 (실시간으로 정보를 받아서 저장해야 전송때 잘 보내짐)
-//     setInputValue(event.target.value);
-//   };
-
-//   // 검색 후 제출시
-//   const onSubmit = (event) => {
-//     event.preventDefault();
-//     // enter or submit 하면 콘솔에 검색한 내용 찍힘
-//     // console.log(inputValue);
-//     search();
-//   };
-//   return (
-//     <div>
-//       <form onSubmit={onSubmit}>
-//         <input onChange={onChange} type="text" value={inputValue}></input>
-//         <button>검색</button>
-//       </form>
-//     </div>
-//   );
-// }
-// export default SearchTest;
