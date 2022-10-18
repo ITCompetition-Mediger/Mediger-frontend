@@ -72,6 +72,11 @@
   - 스크랩한 약물 조회 기능
   - 캘린더를 이용한 이전 복용 이력 조회 기능
 
+## Features to be updated in Later
+- 메디저 리스트에 알람 기능
+- 커뮤니티 기능
+- 외국어 번역 기능
+
 ## BE Repository 💊
 
 [Mediger BE](https://github.com/ITCompetition-Mediger/Mediger-backend-API)
