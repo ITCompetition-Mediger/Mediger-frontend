@@ -1,63 +1,11 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import PharmacyList from './PharmacyList';
-import styled from 'styled-components';
-import PharmacyListPage from './PharmacyListPage';
-import PharmacyMapPage from './PharmacyMapPage';
-// import styled from 'styled-components';
-
-const KakaoMap = styled.div`
-  width: 100%;
-  height: 80%;
-  position: absolute;
-  z-index: -1;
-`;
-
-const CustomZoomControl = styled.div`
-  position: absolute;
-  top: 50px;
-  right: 10px;
-  width: 36px;
-  height: 80px;
-  overflow: hidden;
-  z-index: 1;
-  background-color: #f5f5f5;
-
-  .radiusBorder {
-    border: 1px solid #919191;
-    border-radius: 5px;
-  }
-
-  span {
-    display: block;
-    width: 36px;
-    height: 40px;
-    text-align: center;
-    cursor: pointer;
-  }
-
-  img {
-    width: 15px;
-    height: 15px;
-    padding: 12px 0;
-    border: none;
-  }
-
-  span:first-child {
-    border-bottom: 1px solid #bfbfbf;
-  }
-`;
 
 let lat, lng;
 
 function onGeoOk(position) {
-  lat = position.coords.latitude; // 위도 37.5978643
-  lng = position.coords.longitude; // 경도 127.0774531
-
-  //   // 성공회대 위치
-  //   lat = 37.488462115938;
-  //   lng = 126.82474771924;
+  lat = position.coords.latitude;
+  lng = position.coords.longitude; 
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk);
@@ -68,7 +16,6 @@ function PharmacyMapAPI() {
   const [listItems, setListItems] = useState([]);
 
   useEffect(() => {
-    // console.log(lat, lng);
 
     var infowindow = new kakao.maps.InfoWindow({ zindex: 1 });
 
@@ -82,7 +29,7 @@ function PharmacyMapAPI() {
 
     ps.categorySearch('PM9', placesSearchCB, { useMapBounds: true });
 
-    function placesSearchCB(data, status, pagination) {
+    function placesSearchCB(data, status) {
       if (status === kakao.maps.services.Status.OK) {
         for (var i = 0; i < data.length; i++) {
           displayMarker(data[i]);
@@ -97,7 +44,6 @@ function PharmacyMapAPI() {
       });
 
       kakao.maps.event.addListener(marker, 'click', function () {
-        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
         infowindow.setContent(
           '<div style="padding:5px;font-size:12px;">' +
             place.place_name +
@@ -106,7 +52,6 @@ function PharmacyMapAPI() {
         infowindow.open(map, marker);
       });
 
-      // object array type => localStorage에 저장
       setListItems((listItems) => [
         ...listItems,
         {
@@ -118,7 +63,6 @@ function PharmacyMapAPI() {
     }
   }, []);
 
-  // localStorage에 저장
   useEffect(() => {
     localStorage.setItem('pharmacy', JSON.stringify(listItems));
   }, [listItems]);

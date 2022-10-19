@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
-import LogoImg from '../images/Logo1.png';
 import LogoImg2 from '../images/Logo2.png';
 
 const intro = keyframes`    
@@ -20,7 +18,6 @@ const fadeInLogo = keyframes`
     }
     100% {
         opacity: 1;
-        /* transform: translateY(-10vh); */
     }
 `;
 const fadeInTitle = keyframes`
@@ -62,7 +59,6 @@ const SplashBox = styled.div`
 
     opacity: 0;
 
-    /* position: absolute; */
     animation: ${fadeInTitle} 1.5s forwards;
   }
 
