@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
@@ -113,7 +112,6 @@ function PillSearchList({ itemImage, itemName, entpName, itemSeq, log }) {
       </StyledLink>
       <div className="scrap">
         {log ? <AiFillStar /> : <AiOutlineStar />}
-        {/* <AiOutlineStar /> */}
       </div>
     </PillListWrapper>
   );

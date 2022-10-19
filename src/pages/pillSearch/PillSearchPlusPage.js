@@ -8,9 +8,7 @@ import { Mobile, Desktop, Tablet } from '../../components/ReactResponsive';
 import Layout from '../../components/Layout';
 import DesktopView from '../../components/DesktopView';
 import TabletView from '../../components/TabletView';
-import PillContentList from './PillContentList';
 import notFoundImg from '../../images/notFoundImg.png';
-// import reactStringReplace from 'react-string-replace';
 import { OpenModal } from '../../components/OpenModal';
 import { CloseModal } from '../../components/CloseModal';
 import { IoIosAddCircle } from 'react-icons/io';
@@ -140,10 +138,8 @@ const StyledLink = styled(Link)`
 
 function PillSearchPlusPage() {
   const { itemSeq } = useParams();
-  //   console.log(itemSeq);
   const [pillDetails, setPillDetails] = useState([]); //약 정보 호출 담는 배열
   const [loading, setLoading] = useState(false);
-  //   const [itemName, setItemName] = useState([]); //약품명 호출
   const [medigerList, setMedigerList] = useState([]); // 스크랩 된 알약
   const [isScrap, setIsScrap] = useState(false);
 
@@ -161,15 +157,13 @@ function PillSearchPlusPage() {
   const getAPI = async () => {
     const json = await (
       await fetch(`
-           /home/mypage
-           `)
+        /home/mypage
+      `)
     ).json();
-    // setMedigerList(json.scrapList);
 
     for (let i = 0; i < json.scrapList.length; i++) {
       if (json.scrapList[i].itemSeq == itemSeq) {
         setIsScrap(true);
-        // console.log(isScrap);
       }
     }
   };
@@ -293,13 +287,6 @@ function PillSearchPlusPage() {
                       {pillDetails.efcyQesitm == 'blank'
                         ? '해당 내용 없음'
                         : pillDetails.efcyQesitm}
-                      {/* {pillDetails.efcyQesitm == 'blank'
-                        ? '해당 내용 없음'
-                        : reactStringReplace(
-                            pillDetails.efcyQesitm,
-                            '<p>',
-                            (match, i) => '',
-                          )} */}
                     </p>
                   </div>
                 </div>
