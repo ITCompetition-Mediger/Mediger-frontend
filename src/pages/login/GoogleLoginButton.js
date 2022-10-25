@@ -46,7 +46,7 @@ function GoogleLoginButton() {
   const [google, setGoogle] = useState([]);
   const getAPI = async () => {
     const response = await fetch(`
-          http://localhost:8080/login
+    http://mediger-env.eba-hhuh4nfe.ap-northeast-2.elasticbeanstalk.com/login
           `);
     const json = await response.json();
     setGoogle(json.google);

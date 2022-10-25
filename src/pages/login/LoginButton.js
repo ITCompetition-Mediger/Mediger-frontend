@@ -68,16 +68,6 @@ const StyledLink = styled(Link)`
 `;
 
 function LoginButton() {
-  //   const getAPI = async () => {
-  //     const response = await fetch(`
-  //         http://localhost:8080/login
-  //         `);
-  //     const json = await response.json();
-  //     console.log(json);
-  //   };
-  //   useEffect(() => {
-  //     getAPI();
-  //   }, []);
   return (
     <Wrapper>
       <div class="BtnBox">
@@ -96,28 +86,3 @@ function LoginButton() {
 }
 
 export default LoginButton;
-
-// import React from 'react';
-// import GoogleLoginButton from './GoogleLoginButton';
-// import KakaoLoginButton from './KakaoLoginButton';
-// import NaverLoginButton from './NaverLoginButton';
-// import styled from 'styled-components';
-
-// const Wrapper = styled.form`
-//     display: flex;
-//     flex-direction: column;
-//     padding-left: 2.5rem;
-//     margin-top: 1.5rem;
-// `;
-
-// function LoginButton(){
-//     return(
-//         <Wrapper>
-//             <KakaoLoginButton />
-//             <GoogleLoginButton />
-//             <NaverLoginButton />
-//         </Wrapper>
-//     );
-// }
-
-// export default LoginButton;

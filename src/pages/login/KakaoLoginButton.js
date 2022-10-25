@@ -46,7 +46,7 @@ function KakaoLoginButton() {
   const [kakao, setKakao] = useState([]);
   const getAPI = async () => {
     const response = await fetch(`
-        http://localhost:8080/login
+    http://mediger-env.eba-hhuh4nfe.ap-northeast-2.elasticbeanstalk.com/login
         `);
     const json = await response.json();
     setKakao(json.kakao);
