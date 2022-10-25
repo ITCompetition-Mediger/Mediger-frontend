@@ -54,7 +54,7 @@ function PillSearchPage() {
 
   const searchData = (x) => {
     setResultData(x);
-    console.log(x);
+    // console.log(x);
   };
 
   // --- 스크랩 아이콘 관련
@@ -91,8 +91,8 @@ function PillSearchPage() {
     setNotMedigerListIcon(notResultMedigerList);
   };
 
-  console.log(medigerListIcon);
-  console.log(notMedigerListIcon);
+  // console.log(medigerListIcon);
+  // console.log(notMedigerListIcon);
 
   return (
     <div>
