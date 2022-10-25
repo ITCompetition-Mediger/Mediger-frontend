@@ -28,7 +28,6 @@ const MypageBox = styled.div`
   }
 
   a {
-
     text-decoration: none;
 
     &:focus,
@@ -139,8 +138,6 @@ function Mypage() {
     localStorage.setItem('id', json.id);
     setUser(json.userName);
     setMedigerLists(json.scrapList);
-    // console.log(json);
-    console.log('mypage 실행');
   };
 
   useEffect(() => {

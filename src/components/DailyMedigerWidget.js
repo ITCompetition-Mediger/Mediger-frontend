@@ -62,7 +62,7 @@ function DailyMedigerWidget({ day }) {
     ).json();
     setLoading(true);
     setMedigers(json.daily);
-    console.log(json);
+    // console.log(json);
     checkDate();
   };
 
@@ -81,16 +81,10 @@ function DailyMedigerWidget({ day }) {
   //   console.log(today);
 
   const checkDate = () => {
-    // console.log('checkDate 실행');
-    // setToday(day);
-    // console.log(today);
     for (let i = 0; i < medigers.length; i++) {
       const start = new Date(medigers[i].startDate);
       const last = new Date(medigers[i].lastDate);
       if (start <= today && last >= today) {
-        // console.log(medigers[i]);
-        // console.log(today);
-        // setDaily((daily) => [...daily, medigers[i]]);
         if (medigers[i].when == 'Morn')
           setMorn((morn) => [...morn, medigers[i]]);
         else if (medigers[i].when == 'After')

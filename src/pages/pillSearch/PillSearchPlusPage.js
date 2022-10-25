@@ -167,7 +167,7 @@ function PillSearchPlusPage() {
       }
     }
   };
-  console.log(isScrap);
+  // console.log(isScrap);
 
   useEffect(() => {
     getPillSearchPlusAPI().then(getAPI());

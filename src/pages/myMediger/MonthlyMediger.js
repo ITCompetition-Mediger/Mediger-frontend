@@ -88,9 +88,9 @@ const StyledLink = styled(Link)`
 
 function MonthlyMediger() {
   const [value, onChange] = useState(new Date());
-  console.log(value);
+  // console.log(value);
 
-  console.log('날짜: ' + value);
+  // console.log('날짜: ' + value);
 
   return (
     <MypageLayout>

@@ -59,7 +59,7 @@ const DailyMedigerBox = styled.div`
 function DailyMediger() {
   const { selectDay } = useParams();
   const today = new Date(selectDay);
-  console.log(today);
+  // console.log(today);
 
   const [loading, setLoading] = useState(false);
   const [medigers, setMedigers] = useState([]);

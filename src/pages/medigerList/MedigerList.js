@@ -69,7 +69,7 @@ function MedigerList() {
     getAPI();
   }, []);
 
-  console.log(medigerLists);
+  // console.log(medigerLists);
 
   return (
     <div>

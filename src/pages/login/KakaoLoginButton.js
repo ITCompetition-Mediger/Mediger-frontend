@@ -50,7 +50,7 @@ function KakaoLoginButton() {
         `);
     const json = await response.json();
     setKakao(json.kakao);
-    console.log(json);
+    // console.log(json);
   };
   useEffect(() => {
     getAPI();
