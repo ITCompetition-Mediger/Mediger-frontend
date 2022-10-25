@@ -155,6 +155,7 @@ function Mypage() {
               <br />
               오늘도 잊지 않으셨죠?
               <a href="http://localhost:8080/logout">
+                {/* <a href="http://mediger-env.eba-hhuh4nfe.ap-northeast-2.elasticbeanstalk.com/logout"> */}
                 <FiLogOut className="logoutBtn" />
               </a>
             </div>

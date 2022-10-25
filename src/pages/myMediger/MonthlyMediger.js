@@ -102,7 +102,7 @@ function MonthlyMediger() {
         <div className="CalendarBox">
           <Calendar
             onChange={onChange}
-            formatDay={(date) => moment(date).format('DD')}
+            formatDay={(locale, date) => moment(date).format('DD')}
             minDetail="month"
             maxDetail="month"
             value={value}
