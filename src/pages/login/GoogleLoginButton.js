@@ -46,7 +46,7 @@ function GoogleLoginButton() {
   const [google, setGoogle] = useState([]);
   const getAPI = async () => {
     const response = await fetch(`
-          http://localhost:8080/login
+    /login
           `);
     const json = await response.json();
     setGoogle(json.google);

@@ -241,7 +241,7 @@ function AddToMediger() {
   // 제출하면
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(postMediger);
+    // console.log(postMediger);
     fetch(`/home/mypage/medigerplus`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

@@ -46,11 +46,11 @@ function KakaoLoginButton() {
   const [kakao, setKakao] = useState([]);
   const getAPI = async () => {
     const response = await fetch(`
-        http://localhost:8080/login
+    /login
         `);
     const json = await response.json();
     setKakao(json.kakao);
-    console.log(json);
+    // console.log(json);
   };
   useEffect(() => {
     getAPI();

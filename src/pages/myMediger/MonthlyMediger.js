@@ -88,9 +88,9 @@ const StyledLink = styled(Link)`
 
 function MonthlyMediger() {
   const [value, onChange] = useState(new Date());
-  console.log(value);
+  // console.log(value);
 
-  console.log('날짜: ' + value);
+  // console.log('날짜: ' + value);
 
   return (
     <MypageLayout>
@@ -102,7 +102,7 @@ function MonthlyMediger() {
         <div className="CalendarBox">
           <Calendar
             onChange={onChange}
-            formatDay={(date) => moment(date).format('DD')}
+            formatDay={(locale, date) => moment(date).format('DD')}
             minDetail="month"
             maxDetail="month"
             value={value}
