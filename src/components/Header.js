@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import LogoImg from '../images/Logo1.png';
 import LogoImg2 from '../images/Logo2.png';
 
 const Head = styled.div`
@@ -27,19 +25,6 @@ const Logo = styled.p`
 
   .Logo2 {
     width: 20vw;
-    /* margin-bottom: 3vh; */
-  }
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
   }
 `;
 
@@ -47,9 +32,7 @@ function Header() {
   return (
     <Head>
       <div>
-        {/* <Logo>Mediger</Logo> */}
         <Logo>
-          {/* <img src={LogoImg} className="Logo1"></img> */}
           <img src={LogoImg2} className="Logo2"></img>
         </Logo>
       </div>

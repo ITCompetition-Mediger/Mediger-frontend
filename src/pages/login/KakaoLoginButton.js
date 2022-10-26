@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
 
 const LoginApi = styled.div`
   a {
@@ -57,7 +56,6 @@ function KakaoLoginButton() {
   }, []);
 
   return (
-    // <a target="_blank" href={`${kakao}`}>
     <LoginApi>
       <a target="_self" href={`${kakao}`}>
         <Wrapper>
