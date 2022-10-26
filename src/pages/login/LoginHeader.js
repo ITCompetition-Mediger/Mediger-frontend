@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import LogoImg from '../../images/Logo1.png';
-import LogoImg2 from '../../images/Logo2.png';
 
 const slideIn = keyframes`
 to{
@@ -42,7 +41,6 @@ const LoginHeaderContents = styled.div`
 
   .Logo2 {
     width: 80vw;
-    /* width: 40vw; */
     margin-top: 1vh;
   }
 
@@ -79,7 +77,6 @@ function LoginHeader() {
     <LoginHeaderContents>
       <div className="headerTitle">
         <p className="Title">내가 먹는 약이 궁금하다면?</p>
-        {/* <div className="headerSubContents">MEDIGER</div> */}
         <img src={LogoImg} className="Logo2"></img>
       </div>
       <div className="snsGuidance">
@@ -92,50 +89,3 @@ function LoginHeader() {
 
 export default LoginHeader;
 
-// import React from "react";
-// import styled from "styled-components";
-
-// const Wrapper = styled.form`
-//     width: 100%;
-//     height: 55vh;
-//     background-color: #3C7466;
-// `;
-
-// const LoginHeaderContents = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     padding-top: 10rem;
-//     color: white;
-//     text-align: center;
-
-//     .headerTitle {
-//         font-size: 1rem;
-//         font-weight: medium;
-//         padding-right: 3rem;
-//     }
-
-//     .headerSubContents {
-//         font-size: 3.2rem;
-//         font-weight: bold;
-//     }
-
-//     .snsGuidance {
-//         padding-top: 21vh;
-//         font-size: 1rem;
-//         font-weight: bold;
-//     }
-// `;
-
-// function LoginHeader(){
-//     return(
-//         <Wrapper>
-//             <LoginHeaderContents>
-//                 <div className="headerTitle">내가 먹는 약이 궁금하다면?</div>
-//                 <div className="headerSubContents">MEDIGER</div>
-//                 <div className="snsGuidance">SNS로 간편하게 시작하기</div>
-//             </LoginHeaderContents>
-//         </Wrapper>
-//     );
-// }
-
-// export default LoginHeader;

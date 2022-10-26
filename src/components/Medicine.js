@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { AiFillStar } from 'react-icons/ai';
 import styled from 'styled-components';
 import notFoundImg from '../images/notFoundImg.png';
 
@@ -19,7 +19,6 @@ const MedicineBox = styled.div`
 const MedicineImg = styled.div`
   width: 14vw;
   height: 14vw;
-  /* background: #3c7466; */
   background-color: white;
   border-radius: 50%;
   margin-right: 2vw;
@@ -27,7 +26,6 @@ const MedicineImg = styled.div`
   img {
     width: 14vw;
     height: 14vw;
-    /* background: #3c7466; */
     background-color: white;
     border-radius: 50%;
     margin-right: 2vw;
@@ -100,13 +98,9 @@ function Medicine({ coverImg, name, entpName, seq }) {
           <MedicineCompany>업체명 : {entpName}</MedicineCompany>
           <MedicineCode>품목기준코드 : {seq}</MedicineCode>
         </MedicineContent>
-        {/* <Link to={'/'}> */}
         <MedicineListBtn>
           <AiFillStar />
-          {/* 빈 테두리 별은 if문으로 사용 - 근데 메디저 리스트에서는 즐겨찾기라 사용하지 않음
-          <AiOutlineStar /> */}
         </MedicineListBtn>
-        {/* </Link> */}
       </MedicineBox>
     </StyledLink>
   );

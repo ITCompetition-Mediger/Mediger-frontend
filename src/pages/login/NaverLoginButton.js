@@ -48,14 +48,12 @@ function NaverLoginButton() {
           `);
     const json = await response.json();
     setLogout(json.logout);
-    console.log(json);
   };
   useEffect(() => {
     getAPI();
   }, []);
 
   return (
-    // <a target="_self" href={`${logout}`}>
     <StyledLink to={`/pages/Home`}>
       <Wrapper>
         <div className="NaverImage">
@@ -72,38 +70,3 @@ function NaverLoginButton() {
 }
 
 export default NaverLoginButton;
-
-// import React from 'react';
-// import styled from 'styled-components';
-// import { Link } from 'react-router-dom';
-
-// const Wrapper = styled.div`
-//   width: 80%;
-//   height: 7vh;
-//   background-color: #00c332;
-//   border-radius: 0.8rem;
-//   display: flex;
-//   flex-direction: row;
-//   color: white;
-//   font-size: 1rem;
-//   font-weight: bold;
-//   justify-items: center;
-//   text-align: center;
-//   justify-content: space-around;
-//   margin: 1rem;
-
-//   .snsNaver {
-//     margin-top: 2.2vh;
-//   }
-// `;
-
-// function NaverLoginButton() {
-//   return (
-//     <Wrapper>
-//       <div className="NaverImage">네이버 이미지</div>
-//       <div className="snsNaver">Naver 로그인</div>
-//     </Wrapper>
-//   );
-// }
-
-// export default NaverLoginButton;

@@ -53,6 +53,7 @@ function PharmacyListPage() {
             <PharmacyListComponentWrapper>
               {pharmacy.map((item) => (
                 <PharmacyList
+                  key={item.placeNumber}
                   placeName={item.placeName}
                   placeAddress={item.placeAddress}
                   placeNumber={item.placeNumber}

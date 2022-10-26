@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import SearchBar from '../../components/SearchBar';
 import PillSearchList from './PillSearchList';
 import { Desktop, Mobile, Tablet } from '../../components/ReactResponsive';
 import Layout from '../../components/Layout';
@@ -55,7 +54,7 @@ function PillSearchPage() {
 
   const searchData = (x) => {
     setResultData(x);
-    console.log(x);
+    // console.log(x);
   };
 
   // --- 스크랩 아이콘 관련
@@ -74,10 +73,6 @@ function PillSearchPage() {
     setMedigerList(json.scrapList);
 
     getMedigerList();
-
-    // console.log(medigerList);
-
-    // resultMedigerList.map((item) => ({ itemName: '포함' }));
   };
 
   useEffect(() => {
@@ -96,8 +91,8 @@ function PillSearchPage() {
     setNotMedigerListIcon(notResultMedigerList);
   };
 
-  console.log(medigerListIcon);
-  console.log(notMedigerListIcon);
+  // console.log(medigerListIcon);
+  // console.log(notMedigerListIcon);
 
   return (
     <div>
@@ -131,14 +126,6 @@ function PillSearchPage() {
                     log={false}
                   />
                 ))}
-                {/* {resultData.map((item) => (
-                  <PillSearchList
-                    itemName={item.itemName}
-                    itemSeq={item.itemSeq}
-                    entpName={item.entpName}
-                    itemImage={item.itemImage}
-                  />
-                ))} */}
               </div>
             </PillSearchResultBox>
           </Wrapper>

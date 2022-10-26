@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
 
 const LoginApi = styled.div`
   a {
@@ -46,18 +45,17 @@ function KakaoLoginButton() {
   const [kakao, setKakao] = useState([]);
   const getAPI = async () => {
     const response = await fetch(`
-        http://localhost:8080/login
+    /login
         `);
     const json = await response.json();
     setKakao(json.kakao);
-    console.log(json);
+    // console.log(json);
   };
   useEffect(() => {
     getAPI();
   }, []);
 
   return (
-    // <a target="_blank" href={`${kakao}`}>
     <LoginApi>
       <a target="_self" href={`${kakao}`}>
         <Wrapper>

@@ -1,7 +1,6 @@
 // 마이페이지 > 일간 메디저 > 약 컴포넌트
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import styled from 'styled-components';
 import notFoundImg from '../images/notFoundImg.png';
 
@@ -34,7 +33,6 @@ const MedigerBox = styled.div`
   .MedigerContent {
     width: 20vw;
     height: 5vh;
-    // background-color: blue;
 
     display: flex;
     flex-direction: column;
@@ -51,7 +49,6 @@ const MedigerBox = styled.div`
   .MedigerWay {
     font-size: 3vw;
     color: #42514d;
-    /* margin-top: 1vw; */
   }
 
   p {
