@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import styled from 'styled-components';
 import notFoundImg from '../images/notFoundImg.png';
 
@@ -30,7 +28,6 @@ const MedigerWidget = styled.div`
     width: 13vw;
     height: 13vw;
     border-radius: 50%;
-    /* background-color: #ecf2f0; */
     background-color: white;
   }
 

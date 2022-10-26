@@ -48,14 +48,12 @@ function NaverLoginButton() {
           `);
     const json = await response.json();
     setLogout(json.logout);
-    // console.log(json);
   };
   useEffect(() => {
     getAPI();
   }, []);
 
   return (
-    // <a target="_self" href={`${logout}`}>
     <StyledLink to={`/pages/Home`}>
       <Wrapper>
         <div className="NaverImage">

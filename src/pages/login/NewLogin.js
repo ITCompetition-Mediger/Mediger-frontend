@@ -1,16 +1,7 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router';
-import { Desktop, Mobile, Tablet } from '../../components/ReactResponsive';
-// import NewLoginRedirect from './NewLoginRedirect';
+import React from 'react';
+import { Mobile } from '../../components/ReactResponsive';
 
 function NewLogin() {
-  //   const params = useParams();
-
-  //   useEffect(() => {
-  //     localStorage.clear();
-  //     localStorage.setItem('token', params.token);
-  //     window.location.replace('/');
-  //   }, []);
 
   return (
     <div>

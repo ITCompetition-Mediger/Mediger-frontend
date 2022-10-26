@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import GoogleLoginButton from './GoogleLoginButton';
 import KakaoLoginButton from './KakaoLoginButton';
-import NaverLoginButton from './NaverLoginButton';
 import styled, { keyframes } from 'styled-components';
 
 const slideUp = keyframes`
@@ -77,9 +76,6 @@ function LoginButton() {
         <div class="Login2">
           <KakaoLoginButton />
         </div>
-        {/* <div class="Login3">
-          <NaverLoginButton />
-        </div> */}
       </div>
     </Wrapper>
   );
