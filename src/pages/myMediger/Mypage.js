@@ -144,6 +144,8 @@ function Mypage() {
     getAPI();
   }, [user]);
 
+  // console.log(medigerLists);
+
   return (
     <div>
       <MypageLayout>
@@ -182,8 +184,9 @@ function Mypage() {
               <div className="ContentBox">
                 <div className="MedigerBox">
                   <div className="MedigerBoxItem">
-                    {medigerLists.map((item) => (
+                    {medigerLists.map((item, index) => (
                       <MedigerListWidget
+                        key={index}
                         coverImg={item.itemImage}
                         name={item.itemName}
                       />
