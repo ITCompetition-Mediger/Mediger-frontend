@@ -116,6 +116,7 @@ function DailyMediger() {
           <div className="MedicineBox">
             {morn.map((item) => (
               <Mediger
+                key={item.medigerDruglist.itemSeq}
                 coverImg={item.itemImage}
                 name={item.itemName}
                 many={item.many}
@@ -130,6 +131,7 @@ function DailyMediger() {
           <div className="MedicineBox">
             {after.map((item) => (
               <Mediger
+                key={item.medigerDruglist.itemSeq}
                 coverImg={item.itemImage}
                 name={item.itemName}
                 many={item.many}
@@ -144,6 +146,7 @@ function DailyMediger() {
           <div className="MedicineBox">
             {even.map((item) => (
               <Mediger
+                key={item.medigerDruglist.itemSeq}
                 coverImg={item.itemImage}
                 name={item.itemName}
                 many={item.many}

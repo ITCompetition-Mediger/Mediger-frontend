@@ -110,6 +110,7 @@ function PillSearchPage() {
               <div className="ResultPillBox">
                 {medigerListIcon.map((item) => (
                   <PillSearchList
+                    key={item.itemSeq}
                     itemName={item.itemName}
                     itemSeq={item.itemSeq}
                     entpName={item.entpName}
@@ -119,6 +120,7 @@ function PillSearchPage() {
                 ))}
                 {notMedigerListIcon.map((item) => (
                   <PillSearchList
+                    key={item.itemSeq}
                     itemName={item.itemName}
                     itemSeq={item.itemSeq}
                     entpName={item.entpName}

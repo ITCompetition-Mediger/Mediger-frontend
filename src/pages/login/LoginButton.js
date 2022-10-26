@@ -15,7 +15,7 @@ from{
 }
 `;
 
-const Wrapper = styled.form`
+const Wrapper = styled.div`
   width: 100vw;
   height: 30vh;
 

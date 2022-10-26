@@ -88,6 +88,7 @@ function MedigerList() {
               <div className="ListBox">
                 {medigerLists.map((item) => (
                   <Medicine
+                    key={item.itemSeq}
                     coverImg={item.itemImage}
                     name={item.itemName}
                     entpName={item.entpName}
