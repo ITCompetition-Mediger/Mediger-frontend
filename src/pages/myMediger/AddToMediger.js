@@ -167,6 +167,7 @@ const StyledLink = styled(Link)`
 `;
 
 function AddToMediger() {
+  const [isScrap, setIsScrap] = useState(false);
   const [isSubmit, setIsSubmit] = useState(false);
   // 사용자가 작성한 내용
   const [postMediger, setPostMediger] = useState({
@@ -207,8 +208,22 @@ function AddToMediger() {
     }));
   };
 
+  const getAPI = async () => {
+    const json = await (
+      await fetch(`
+        /home/mypage
+      `)
+    ).json();
+
+    for (let i = 0; i < json.scrapList.length; i++) {
+      if (json.scrapList[i].itemSeq == itemSeq) {
+        setIsScrap(true);
+      }
+    }
+  };
+
   useEffect(() => {
-    getPillSearchPlusAPI();
+    getPillSearchPlusAPI().then(getAPI());
   }, []);
 
   // 날짜 라이브러리
@@ -289,6 +304,7 @@ function AddToMediger() {
               itemSeq={pillDetails.itemSeq}
               entpName={pillDetails.entpName}
               itemImage={pillDetails.itemImage}
+              log={isScrap}
             />
           </div>
         </div>
